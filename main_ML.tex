@@ -1,0 +1,544 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=1.25cm,bottom=1.25cm,left=1.0cm,right=1.0cm,marginparwidth=1.25cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\DeclareMathSizes{12}{30}{16}{12}
+\usepackage[final]{pdfpages}
+\usepackage{gensymb}
+\usepackage{empheq}
+\usepackage[section]{placeins}
+\usepackage[most]{tcolorbox}
+\usepackage{esint}
+\usepackage{amssymb}
+\usepackage{centernot}
+
+\newcommand*\widefbox[1]{\fbox{#1}}
+\newcommand{\eqComment}[1]{\text{  \# #1}}
+\newcommand{\eqSep}{\text{ ;  }}
+\newcommand{\experimental}{\text{!E||  }}
+\newcommand{\sgn}[1]{sgn(#1)}
+\newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
+\newcommand{\m}{\nonumber \\}
+\newcommand{\bij}{\stackrel{\sim}{\longrightarrow}}
+\newcommand{\surj}{\twoheadrightarrow}
+\newcommand{\inj}{\rightarrowtail}
+\newcommand{\field}[1]{\textbf{\textit{#1}}}
+
+\title{"The JP - ML"}
+\author{JP "The JP" Guzman}
+
+\begin{document}
+\maketitle
+\allowdisplaybreaks
+
+\section{Machine Learning}
+\subsubsection{Overview} % TODO introduce declare N c_i p_i , p <> input, c<> output ?? remove i coupling
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   X \eqComment{input} \eqSep Y \eqComment{output} \eqSep S(X, Y) \eqComment{dataset}
+\n \textbf{learned parameters} = \textbf{parameters to be fixed by training with the dataset}
+\n \textbf{hyperparameters} = \textbf{parameters that depends on a dataset}
+\n \textbf{validation} = \textbf{partitions dataset into training and testing partitions, then evaluates the}
+\m \textbf{accuracy of the parameters learned from the training partition in predicting the}
+\m \textbf{outputs of the testing partition} \eqComment{useful for fixing hyperparameters}
+\n \textbf{cross-validation} = \textbf{average accuracy of validation for different choices of testing partition}
+\n \textbf{L1} = \textbf{scales linearly} \eqSep \textbf{L2} = \textbf{scales quadratically}
+\n d = \textbf{distance} = \textbf{quantifies the the similarity between data points}
+\n d_{L1}(A, B) = \sum_p{|A_p - B_p|} \eqComment{Manhattan distance}
+\n d_{L2}(A, B) = \sqrt{\sum_p{(A_p - B_p)^2}} \eqComment{Euclidean distance}
+\n \textbf{kNN classifier} = \textbf{classifier based on $k$ nearest data points} 
+\n s = \textbf{class score} = \textbf{quantifies bias towards a particular class}
+\n s_{linear} = f_{c \times 1}(x_{n \times 1}, W_{c \times n}, b_{c \times 1}) = W_{c \times n} x_{n \times 1} + b_{c \times 1} \eqComment{linear score function}
+\n l = \textbf{loss} = \textbf{quantifies the errors by the learned parameters}
+\n l = \frac{1}{|c_i|} \sum_{c_i} l_i \eqComment{average loss for all classes}
+\n l_{SVM_i} =  \sum_{y_i \neq c_i} \max(0, s_{y_i} - s_{c_i} + 1) \eqComment{SVM hinge class loss function:}
+\m \eqComment{ignores incorrect classes with lower scores including a non-zero margin}
+\n l_{MLR_i} = -\log\left(\frac{e^{s_{c_i}}}{\sum_{y_i} e^{y_i}}\right) \eqComment{Softmax class loss function}
+\m \eqComment{lower scores correspond to lower exponentiated-normalized probabilities}
+\n R = \textbf{regularization} = \textbf{optimizes the choice of learned parameters to minimize test error}
+\n \hyperlink{sontag-vc-neuralnetwork.pdf}{\textbf{Regularization lowers upper bound to statistical test error: sontag-vc-neuralnetwork.pdf}}
+\n \lambda \eqComment{regularization strength hyperparameter}
+\n R_{L1}(W) = \sum_{W_i} |W_i| \eqComment{L1 regularization}
+\n R_{L2}(W) = \sum_{W_i} {W_i}^2 \eqComment{L2 regularization}
+\n L^\prime = L + \lambda R(W) \eqComment{weight regularization}
+\n \nabla_W L = \overrightarrow{\frac{\partial}{\partial W_i}} L = \textbf{loss gradient w.r.t. weights}
+\n \frac{\partial L_E}{\partial W_I} = \frac{\partial L_L}{\partial W_I} \frac{\partial L_E}{\partial L_L} \eqComment{loss gradient w.r.t. input weight in terms of external and local gradients}
+\n s = \textbf{forward API} \eqSep \frac{\partial L_L}{\partial W_I} = \textbf{backward API}
+\n W_{t+1} = W_{t} - \nabla_{W_t} L \eqComment{weight update loss minimization}
+\n \textbf{TODO:Research on Activation functions, Weight Initialization, Batch Normalization}
+\n review 5 mean var discussion / hyperparameter optimization / babysitting learning
+\end{align}
+\end{tcolorbox}
+TODO loss L or l ??
+% START LECTURE 5;o:0
+
+%https://docs.google.com/document/d/1igLfDJy9sN2kp8p6_GHzIHPwAJp838spG0L5fFjqJ8Q/edit
+%https://www.youtube.com/playlist?list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mathematical Analysis}
+\subsubsection{Definitions}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \textbf{proposition} = \textbf{statement that is either true (T) or false (F)}
+\n \textbf{operator} = \textbf{takes in proposition/s and outputs another proposition}
+\n \textbf{OR} = \lor \eqSep \textbf{AND} = \land \eqSep \textbf{implication} = \implies \eqSep \textbf{exclusive-OR} =  \veebar \eqSep \textbf{equivalence} = \iff
+\n \textbf{T $\implies$ T} = \textbf{T} \eqSep \textbf{T $\implies$ F} = \textbf{F} \eqSep \textbf{F $\implies$ T} = \textbf{T} \eqSep \textbf{F $\implies$ F} = \textbf{T} 
+\m \eqComment{truths based on a false premise is not false (ex falso quodlibet)}
+\n \textbf{predicate} = \textbf{proposition whose truth depends on variable/s}
+\n \textbf{0th order logic} = \textbf{individual proposition}
+\n \textbf{1st order logic} = \textbf{propositions defined over a set of individual propositions}
+\n \textbf{n-th order logic} = \textbf{propositions defined over a set of (n-1)-th order predicates}
+\n \textbf{quantifier(predicate)} \implies \textbf{proposition}
+\n \forall_x P(x) = \textbf{for all $x$, $P(x)$ is true} \eqComment{universal quantifier}
+\n \exists_x P(x) = \lnot \forall_x \lnot P(x) \eqComment{existential quantifier}
+\n \forall_x \exists_y P(x, y) = \forall_x \lnot \forall_y \lnot P(x, y) \neq \exists_y \forall_x P(x, y) = \lnot \forall_y \lnot (\forall_x P(x, y)) = \lnot \forall_y \exists_x \lnot P(x, y)
+\m \eqComment{quantifiers are not interchangeable}
+\n \textbf{proof} = \textbf{truths derived from a finite number of axioms and deductions (tautologies)}
+\n \textbf{elementary arithmetics} = \textbf{system with substitutions, and some notion of}
+\m \textbf{addition, multiplication, and prime nuumbers for encoding metamathematics}
+\n \textbf{G\"odel theorem} \implies \textbf{axiomatic systems equivalent in power to elementary mathematics}
+\m \textbf{are either incomplete (has unprovables) or inconsistent (has contradictions)}
+\n \textbf{Formal properties 01: } a \implies b \implies c = a \implies (b \implies c) = (a \land b) \implies c
+\end{align}
+\end{tcolorbox}
+
+\subsection{Axiomatic Set Theory}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \textbf{Zermelo-Fraenkel-Choice (ZFC) set theory} = \textbf{standard form of axiomatic set theory}
+\n \textbf{ZFC axioms} = \textbf{Existence (EE), Construction (PURP), ECAdv (IC), Nonexistent (F)}
+\n A \subseteq B = \forall_x x \in A \implies x \in B
+\n (A = B) = A \subseteq B \land B \subseteq A
+\n \textbf{$\in$ basis} \implies \{x, y\} = \{y, x\} \land \{x\} = \{x, x\}
+\n \textbf{$\in$-relation and sets (\{\ldots\}) works as follows (9 ZFC axioms):}
+\n \forall_x \forall_y (x \in y \veebar \lnot(x \in y)) \eqComment{E: $\in$ is only a proposition on sets}
+\n \exists_\emptyset \forall_y \lnot y \in \emptyset \eqComment{E: existence of empty set}
+\n \forall_x \forall_y \exists_m \forall_u u \in m \iff u = x \lor u = y \eqComment{C: pair set construction}
+\n \forall_s \exists_u \forall_x \forall_y (x \in s \land y \in x \implies y \in u) \eqComment{C: union set construction}
+\n x = \{\{a\}, \{b\}\} \eqComment{from the pair set axiom}
+\n u = \cup x = \cup \{\{a\}, \{b\}\} = \{a, b\}
+\n \exists!_x P(x) = \exists_x (P(x) \land \lnot (\exists_y y \neq x \land P(y))) 
+\n \forall_x \exists!_y R(x,y) \eqComment{functional relation $R$}
+\n \exists_i \forall_x \exists!_y R(x,y) \implies y \in i
+\eqComment{C: image $i$ of set $m$ under a relation $R$ is assumed to be a set}
+\m \implies \{y \in m | P(y)\} \eqComment{Restricted Comprehension} \centernot\implies  \{y | P(y)\} \eqComment{Universal Comprehension}
+\n \forall_{x \in m} P(x) = \forall_x (x \in m \implies P(x)) \eqComment{ignores out of scope} \neq \forall_x (x \in m \land P(x)) \eqComment{restricts entirety}
+\n \forall_m \forall_n \exists_{\mathcal{P}(m)} (n \subseteq m \implies n \subseteq \mathcal{P}(m)) \eqComment{C: existence of power set}
+\n \exists_I (\emptyset \in I \land \forall_{x \in I} (\{x\} \in I)) \eqComment{I: axiom of infinity} \eqSep I = \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}, \ldots\} ; I \cong \mathbb{N} \implies \textbf{$\mathbb{N}$ is a set}
+\n \forall_x ((\emptyset \notin x \land x \cap x' = \emptyset) \implies \exists_y (\textbf{set of each e} \in x)) \eqComment{C: axiom of choice LOLOL}
+\n \forall_x x \neq \emptyset \implies x \notin x \eqComment{F: axiom of foundation covers further paradoxes}
+\end{align}
+\end{tcolorbox}
+
+\subsection{Classification of sets}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \textbf{space} = \textbf{set equipped with some structure}
+\n \textbf{spaces can be studied in by way of structure preserving maps between those spaces}
+\n map(\phi, (A, B)) \iff (\forall_{a \in A} \exists!_{b \in B} (\phi(a, b))) \lor
+\m (\forall_{a \in A} \exists!_{b \in B} (b = \phi(a)))
+\n domain(A, (\phi, A, B)) \iff (map(\phi, (A, B)))
+\n codomain(B, (\phi, A, B)) \iff (map(\phi, (A, B)))
+\n image(B, (A, q, M, N)) \iff (map(q, (M, N)) \land A \subseteq M) \land
+\m (B = \{n \in N| \exists_{a \in A} (q(a) = n)\})
+\n preimage(A, (B, q, M, N)) \iff (map(q, (M, N)) \land B \subseteq N) \land 
+\m (A = \{m \in M| \exists_{b \in B} (b = q(m))\})
+\n injection(q, (M, N)) \iff (map(q, (M, N))) \land
+\m \forall_{u,v \in M} (q(u) = q(v) \implies u = v)
+\m \eqComment{every $m$ has at most $1$ image}
+\n surjection(q, (M, N)) \iff (map(q, (M, N))) \land
+\m \forall_{n \in N} \exists_{m \in M} (n = q(m))
+\m \eqComment{every $n$ has at least $1$ preimage}
+\n bijection(q, (M, N)) \iff (injection(q, (M, N)) \land
+\m (surjection(q, (M, N)))
+\m \eqComment{every unique $m$ corresponds to a unique $n$}
+\n isomorphic(\cong, (A, B)) \iff \exists_\phi (bijection(\phi, (A, B)))
+\n infiniteSet(S, ()) \iff \exists_{T \subset S} (T \cong S)
+\n finiteSet(S, ()) \iff (\lnot infiniteSet(S, ())) \lor (|S| \in \mathbb{N})
+\n countablyInfinite(S, ()) \iff infiniteSet(S, ()) \land S \cong \mathbb{N}
+\n uncountablyInfinite(S, ()) \iff infiniteSet(S, ()) \land S \centernot\cong \mathbb{N}
+\n inverse(q^{-1}, (q, M, N)) \iff (bijection(q, (M, N))) \land
+\m (q(m) = n \iff q^{-1}(n) = m)
+\n identityMap(id, (X)) \iff map(id, (X, X)) \land \forall_{x \in X} (x = id(x))
+\n mapComposition(\phi \circ \psi, (\phi, \psi, A, B, C)) \iff map(\psi, (A, B)) \land map(\phi, (B, C)) \land
+\m \forall_{a \in A} (\phi \circ \psi(a) = \phi(\psi(a)))
+\n bijection(f, (A, B)) \implies \exists_{f^{-1}} (f^{-1} \circ f = id(A) \land f \circ f^{-1} = id(B)) \eqComment{inverse map properties}
+\n equivalenceRelation(\sim, (M)) \iff (\forall_{m \in M} (m \sim m)) \land
+\m (\forall_{m, n \in M} (m \sim n \implies n \sim m)) \land
+\m (\forall_{m, n, p \in M} (m \sim n \land n \sim p \implies m \sim p))
+\n equivalenceClass([m], (m, M, \sim)) \iff [m] = \{n \in M| n \sim m\}
+\n a \in [m] \implies [a] = [m] \eqSep [m] = [n] \veebar [m] \cap [n] = \emptyset \eqComment{equivalence class properties}
+\n quotientSet(M / \sim, (M, \sim)) \iff M / \sim = \{[m] \in \mathcal{P}(M) | m \in M\}
+\n \textbf{axiom of choice} \implies \exists_R \forall_E (r \in R \land [r] = E \implies \exists_\sim R \cong M / \sim)
+\m \eqComment{well-defined maps may be defined in terms of chosen representative elements}
+\end{align}
+\end{tcolorbox}
+
+\subsection{Construction of number sets}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \textbf{axiom of infinity} \implies \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}, \ldots\} \cong \mathbb{N}
+\n \mathbb{N}^\star = \mathbb{N} \backslash \{0\}
+\n \textbf{addition} = \textbf{successor map: $\mathbb{N} \to \mathbb{N}$} = S(n) = \{n\} \eqComment{adds a layer of brackets}
+\n \textbf{subtraction} = \textbf{predecessor map: $\mathbb{N}^\star \to \mathbb{N}$} = P(n) = m | m \in n \eqComment{removes a layer of brackets}
+\n S^0 = id \eqSep n \in \mathbb{N}^\star \implies S^n = S \circ S^{P(n)}
+\n \textbf{addition} = +: \mathbb{N} \times \mathbb{N} \to \mathbb{N} = +(m, n) = m + n = S^n(m)
+\n S^x = id = S^0 \implies x = \textbf{additive identity} = 0 
+\n S^n(x) = 0 \implies x = \textbf{additive inverse} \notin \mathbb{N} \eqComment{git gud smh -\_-}
+\n \mathbb{Z} = \mathbb{N} \times \mathbb{N} / \sim \textbf{, s.t.:}
+\m (m, n) \sim (p, q) \iff m + q = p + n \eqComment{span $\mathbb{Z}$ using differences then group equal differences}
+\n \mathbb{N} \hookrightarrow \mathbb{Z}: \forall_{n \in \mathbb{N}} n \to [(n, 0)] \eqComment{$\mathbb{N}$ embedded in $\mathbb{Z}$}
+\n +_\mathbb{Z} = [(m +_\mathbb{N} p, n +_\mathbb{N} q)] \eqComment{well-defined and consistent}
+\n \textbf{multiplication} \ldots M^x = id \implies x = \textbf{multiplicative identity} = 1 \ldots \textbf{multiplicative inverse} \notin \mathbb{N}
+\n \mathbb{Q} = (\mathbb{Z} \times \mathbb{Z}^\star) / \sim \textbf{, s.t.: } (x,y) \sim (u,v) \iff x \cdot v = u \cdot y
+\n \mathbb{Z} \hookrightarrow \mathbb{Q} \forall_{q \in \mathbb{Q}} q \to [(q,1)] \eqSep \ldots \{x | x^2 = 2\} \notin \mathbb{Q}
+\n \mathbb{R} = \textbf{almost homomorphisms on $\mathbb{Z}$} / \sim \eqComment{http://blog.sigfpe.com/2006/05/defining-reals.html}
+\end{align}
+\end{tcolorbox}
+
+\subsection{Topology and induced topology}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   topology(\mathcal{O}, (M)) \iff (\mathcal{O} \in \mathcal{P}(M)) \land
+\m (\emptyset, M \in \mathcal{O}) \land
+\m ((F \in \mathcal{O} \land |F| < |\mathbb{N}|) \implies \cap F \in \mathcal{O}) \land
+\m  (C \subseteq \mathcal{O} \implies \cup C \in \mathcal{O})
+\m \eqComment{open sets do not contain their boundaries}
+\m \eqComment{arbitrary unions of open sets always result in an open set}
+\m \eqComment{arbitrary intersections of open sets may induce boundaries and result in a closed set}
+\m \eqComment{topology is defined as a collection of open sets because open sets provide the necessary characteristics -}
+\m \eqComment{of a space in order to define continuity, convergence, connectedness, separability, etc.}
+\n open(S, (M, \mathcal{O})) \iff (S \subseteq M) \land
+\m (S \in \mathcal{O})
+\m \eqComment{an open set do not contains its own boundaries}
+\n closed(S, (M, \mathcal{O})) \iff (S \subseteq M) \land
+\m (S \in \mathcal{P}(M) \setminus \mathcal{O})
+\m \eqComment{a closed set contains the boundaries an open set}
+\n clopen(S, (M, \mathcal{O})) \iff (closed(S, (M, \mathcal{O}))) \land
+\m (open(S, (M, \mathcal{O}))) 
+\n topologicalSpace(T, (M, \mathcal(O))) \iff topology(\mathcal{O}, (M))
+\n neighborhood(U, (a, \mathcal{O})) \iff a \in U \in \mathcal{O}
+\n M = \{a, b, c, d\} \land \mathcal{O} = \{\emptyset, \{c\}, \{a, b\}, \{c, d\}, \{a, b, c\}, M\}
+\m \implies (open(S, (M, \mathcal{O})) \iff S = \{\emptyset, \{c\}, \{a, b\}, \{c, d\}, \{a, b, c\}, M\})
+\m \implies (closed(S, (M, \mathcal{O})) \iff S = \{\emptyset, \{a, b, d\}, \{c, d\}, \{a, b\}, \{d\}, M\})
+\m \implies (clopen(S, (M, \mathcal{O})) \iff S = \{\emptyset, \{a, b\}, \{c, d\}, M\})
+\n \mathcal{O}_{chaotic} = \{0, M\} \eqSep \mathcal{O}_{discrete} = \mathcal{P}(M)
+\n distance(d, (M)) \iff (x, y, z \in M) \land
+\m (d(x, y) \in \mathbb{R}^+) \land
+\m (d(x, y) = 0 \iff x = y) \land
+\m (d(x, y) = d(y, x)) \land
+\m (d(x, z) \leq d(x, y) + d(y, z))
+\n openBall(B, (r, p, M, d)) \iff (r \in \mathbb{R}^+, p \in M) \land
+\m (B = \{q \in M| d(p, q) < r\})
+\n metricTopology(\mathcal{O}, (M, d)) \iff \mathcal{O} = \{U \subseteq M| \forall_{p \in U} \exists_{r \in \mathbb{R}^+} (B(r, p, M, d) \subseteq U)\}
+\n limitPoint(p, (S, M, \mathcal{O}, d)) \iff (S \subseteq M) \land
+\m \forall_{r \in \mathbb{R}^+} (openBall \cap S \neq \emptyset)
+\m \eqComment{every open ball contains some intersection}
+\n interiorPoint(p, (S, M, \mathcal{O}, d)) \iff (S \subseteq M)
+\m \exists_{r \in \mathbb{R}^+} (openBall \subseteq S)
+\m \eqComment{there is an open ball that is fully enclosed}
+\n n \in \mathcal{O} \iff interiorPoint(n)
+\n closure(\bar{S}, (S, M, \mathcal{O}, d)) \iff \bar{S} = S \cup limitPoints(S)
+\n dense(S, (M, \mathcal{O}, d)) \iff (S \subseteq M) \land
+\m \forall_{p \in M} (p \in closure(S))
+\m \eqComment{every of point in $X$ is a point or a limit point of $S$} 
+\n eucD(d, (\mathbb{R}^{n})) \iff (x_i \in \mathbb{R}) \land
+\m (d = \sqrt{\sum_{i=1}^n{{x_i}^2}})
+\n \mathcal{O}_{standard} = \mathcal{O}(\mathbb{R}^{n}, eucD)
+\m \textbf{L1:) } \forall_{p \in U = \emptyset} (\ldots) \implies \forall_p ((p \in \emptyset) \implies \ldots) \implies \forall_p ((\textbf{False}) \implies \ldots) \implies \emptyset \in \mathcal{O}_{standard}
+\m \textbf{L2:) } \forall_{p \in \mathbb{R}^n} B(r, p, \mathbb{R}^n, eucD) \subseteq \mathbb{R}^n \implies M \in \mathcal{O}_{standard}
+\m \textbf{L3: } U, V \in \mathcal{O}_{standard} \implies p \in U \cap V \implies p \in U \land p  \in V \implies 
+\m \exists_{r \in \mathbb{R}^+} B(r, p, \mathbb{R}^n, eucD) \land \exists_{s \in \mathbb{R}^+} B(s, p, \mathbb{R}^n, eucD) \implies 
+\m B(min(r, s), p, \mathbb{R}^n, eucD) \subseteq U \land B(min(r, s), q, \mathbb{R}^n, eucD) \subseteq V \implies
+\m B(min(r, s), p, \mathbb{R}^n, eucD) \in U \cap V \implies U \cap V \in \mathcal{O}_{standard}
+\m \eqComment{could fail on infinite sets since $min$ could approach $0$}
+\m \textbf{L4: } C \subseteq \mathcal{O}_{standard} \implies\forall_{U \in C} \forall_{p \in U} \exists_{r \in \mathbb{R}^+} (B_r(p) \subseteq U \subseteq \cup C) \implies \cup C \in \mathcal{O}_{standard}
+\n subsetTopology(\mathcal{O}|_N, (M, \mathcal{O}, N)) \iff (N \subseteq M) \land 
+\m (\mathcal{O}|_N = \{U \cap N| U \in \mathcal{O}\})
+\n topology(\mathcal{O}|_N(M, \mathcal{O}, N), (N)) \impliedby
+\m \textbf{L1: } \emptyset \in \mathcal{O} \implies U = \emptyset \implies \emptyset \cap N = \emptyset \implies \emptyset \in  \mathcal{O}|_N
+\m \textbf{L2: } M \in \mathcal{O} \implies U = M \implies M \cap N = N \implies N \in \mathcal{O}|_N
+\m \textbf{L3: } S, T \in \mathcal{O}|_N \implies \exists_{U \in \mathcal{O}} (S = U \cap N) \land \exists_{V \in \mathcal{O}} (T = V \cap N) \implies S \cap T = (U \cap N) \cap (V \cap N)
+\m = (U \cap V) \cap N \land U \cap V \in \mathcal{O} \implies S \cap T \in \mathcal{O}|_N
+\m \textbf{L4: } TODO: EXERCISE
+\n (\mathbb{R}, \mathcal{O}_s) \eqSep N = \{x \in \mathbb{R} | -1 \leq x \leq 1\} \eqSep (0, 1] \notin \mathcal{O}_s
+\n (0, 1] = (0, 2) \cap N \land (0, 2) \in \mathcal(O)_s \implies (0 ,1] \in \mathcal{O}_s|_N \eqComment{openness depends on topology}
+\n productTopology(\mathcal{O}_{A \times B}, ((A, \mathcal{O}_A), (B, \mathcal{O}_B)))
+\m \iff  \mathcal{O}_{A \times B} = \{(a, b) \in A \times B| \exists_{S} (a \in S \in \mathcal{O}_A) \exists_{T} (b \in T \in \mathcal{O}_B)\} \eqComment{open in cross iff open in each}
+\end{align}
+\end{tcolorbox}
+
+\subsection{Convergence}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   sequence(q, (M)) \iff q: \mathbb{N} \to M
+\n convergeAgainst((q, a), (M, \mathcal{O})) \iff (sequence(q, (M))) \land
+\m (\forall_{U | a \in U \in \mathcal{O}} \exists_{N \in \mathbb{N}} \forall_{n > N} (q(n) \in U))
+\m \eqComment{each neighborhood of $a$ has a tail-end sequence that does not map to outside points}
+\n \forall_a \forall_q (convergeAgainst((q, a), (M, \mathcal{O}_{chaotic}))) \impliedby \forall{n} (q(n) \in M)
+\n convergeAgainst((q, a), (M, \mathcal{P}(M))) \iff \exists_{N \in \mathbb{N}} \forall_{k > N} (q(N) = q(k)) 
+\m \eqComment{single element neighborhood can only converge if $q$ is almost constant} 
+\n \textbf{convergence generalizes to: the sequence $q: \mathbb{N} \to \mathbb{R}^d$ converges against $a \in \mathbb{R}^d$ if: }
+\m \forall_{r > 0} \exists_{N \in \mathbb{N}} \forall_{n > N} (|| q(n) - a || < \epsilon) \eqComment{distance based convergence}
+\n q(n) = 1 - \frac{1}{n + 1} \implies
+\m \textbf{$q$ is not almost constant} \implies \textbf{$q$ does not converge in $(\mathbb{R}, \mathcal{P}(\mathbb{R}))$} \eqSep
+\m \textbf{$q$ satisfies distance based convergence} \implies \textbf{$q$ does converge in $(\mathbb{R}, \mathcal{O}_s)$}
+\end {align}
+\end{tcolorbox}
+
+\subsection{Continuity}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+    continuous(\phi, ((M, \mathcal{O}_M), (N, \mathcal{O}_N))) \iff (\phi: M \to N) \land
+\m (\forall_{V \in \mathcal{O}_N} (preimage(V, \phi) \in \mathcal{O}_M)) \eqComment{preimage of open sets are open}
+\n homeomorphism(\phi, ((M, \mathcal{O}_M), (N, \mathcal{O}_N))) \iff (bijection(\phi, (M, N))) \land
+\m (continuous(\phi, ((M, \mathcal{O}_M), (N, \mathcal{O}_N)))) \land
+\m (continuous(\phi^{-1}, ((N, \mathcal{O}_N), (M, \mathcal{O}_M))))
+\m \eqComment{structure preserving maps in topology, one-to-one pairing of open sets}
+\m \eqComment{homeomorphic spaces share topological properties}
+\n isomorphic(\cong, ((M, \mathcal{O}_M), (N, \mathcal{O}_N))) \iff \exists_\phi (homeomorphism(\phi, ((M, \mathcal{O}_M), (N, \mathcal{O}_N))))
+\n (M, \mathcal{O}_M) \cong (N, \mathcal{O}_N) \implies \exists_\phi(bijection(\phi, (M, N))) \implies M \cong N
+\end {align}
+\end{tcolorbox}
+
+\subsection{Separation}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   T0Separate((M, \mathcal{O}), ()) \iff \forall_{x, y \in M \land x \neq y} \exists_{U \in \mathcal{O}} ((x \in U \land y \notin U) \lor (y \in U \land x \notin U))
+\m \eqComment{each pair of points has a neighborhood s.t. one is inside and the other is outside}
+\n T1Separate((M, \mathcal{O}), ()) \iff \forall_{x, y \in M \land x \neq y} \exists_{U, V \in \mathcal{O} \land U \neq V} ((x \in U \land y \notin U) \land (y \in V \land x \notin V))
+\m \eqComment{every point has a neighborhood that does not contain another point}
+\n T2Separate((M, \mathcal{O}), ()) \iff \forall_{x, y \in M \land x \neq y} \exists_{U, V \in \mathcal{O} \land U \neq V} (U \cap V = \emptyset)
+\m \eqComment{every point has a neighborhood that does not intersect with a neighborhood of another point}
+\m \eqComment{also known as Hausdorff space}
+\n T2Separate \implies T1Separate \implies T0Separate
+\end {align}
+\end{tcolorbox}
+
+\subsection{Compactness and Paracompactness}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   openCover(C, (M, \mathcal{O})) \iff (C \subseteq \mathcal{O}) \land
+\m (\cup C = M) \eqComment{collection of open sets whose elements cover the entire space}
+\n finiteSubcover(\widetilde{C}, (C, M, \mathcal{O})) \iff (\widetilde{C} \subseteq C) \land
+\m (openCover(C, (M, \mathcal{O}))) \land
+\m (|\widetilde{C}| < |\mathbb{N}|) \land
+\m (openCover(\widetilde{C}, (M, \mathcal{O})))
+\m \eqComment{finite subset of a cover that is also a cover}
+\n compact((M, \mathcal{O}), ()) \iff \forall_{C \subseteq \mathcal{O} \land openCover(C, (M, \mathcal{O}))} \exists_{\widetilde{C} \subseteq C} (finiteSubcover(\widetilde{C}, (C, M, \mathcal{O})))
+\m \eqComment{every possible cover has a finite representation}
+\m \eqComment{"the entire space can be surveyed by a finite number of guards patrolling neighborhoods"}
+\n compact(N, (M, \mathcal{O})) \iff (N \subseteq M ) \land
+\m (compact((N, \mathcal{O}|_N), ()))
+\n bounded(N, (M, d)) \iff (\exists_{p \in M} \exists_{r \in \mathbb{R}^+} (N \subseteq openBall(B, (r, p, M, d)))) \lor
+\m (\forall_{p, q \in n} \exists_{r \in \mathbb{R}^+}(d(p, q) < r))
+\n HeineBorel(S, (M, metricTopology(\mathcal{O}_d, (M, d)))) \implies 
+\m \forall_{S \in \mathcal{P}(M)} ((closed(S, (M, \mathcal{O}_d)) \land bounded(S, (M, \mathcal{O}_d))) \iff compact(S, (M, \mathcal{O}_d)))
+\m \eqComment{in some situations, compactness is equivalent to being closed and bounded}
+\n compact((M, \mathcal{O}_M), ()) \land compact((N, \mathcal{O}_N), ()) \implies compact(\mathcal{O}_{A \times B}((A, \mathcal{O}_A), (B, \mathcal{O}_B)), ())
+\n openRefinement(\widetilde{C}, (C, M, \mathcal{O})) \iff (openCover(C, (M, \mathcal{O}))) \land
+\m (openCover(\widetilde{C}, (M, \mathcal{O}))) \land
+\m (\forall_{U \in C} \exists_{\widetilde{U} \in \widetilde{C}} (\widetilde{U} \subseteq U))
+\m \eqComment{open sets in the open refinement only needs to be a subset of some in the open cover}
+\m \eqComment{one could refine the cover by removing the excess open set elements that lie outside the space}
+\n finiteSubcover \implies openRefinement
+\n locallyFinite(C, (M, \mathcal{O})) \iff (openCover(C, (M, \mathcal{O}))) \land 
+\m \forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} (finiteSet(\{U_c \in C| U \cap U_c \neq \emptyset\}, ()))
+\m \eqComment{each point has a neighborhood that intersects with only finitely many sets in the cover}
+\n paracompact((M, \mathcal{O}), ()) \iff 
+\m \forall_{C} (openCover(C, (M, \mathcal{O})) \implies \exists_{\widetilde{C}} (locallyFinite(openRefinement(\widetilde{C}, (C, M, \mathcal{O})), (M, \mathcal{O}))))
+\m \eqComment{every open cover has a locally finite open refinement}
+\m \eqComment{each point has a neighborhood that is in contact with only finitely many open refinement elements}
+\n \textbf{thm: every metrizable space is paracompact}
+\n \textbf{thm: product of a paracompact and finitely many compact topologies is paracompact}
+\n partitionOfUnitySOTCover(\mathcal{F}, (C, M, \mathcal{O})) \iff (openCover(C, (M, \mathcal{O}))) \land
+\m (locallyFinite(C, M, \mathcal{O})) \land
+\m (f \in \mathcal{F}) \land
+\m (continuous(f, ((M, \mathcal{O}), ([0, 1], \mathcal{O}_{standard}|_{[0 ,1]})))) \land
+\m (\exists_{U_C \in C} \forall_{p \in M} (f(p) \neq 0 \implies p \in U_C)) \land
+\m (\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} ((f_U)_n = \{f \in \mathcal{F}| p \in M \land f(p) \neq 0\})) \land
+\m (locallyFinite(C, M, \mathcal{O}) \implies finiteSet((f_U)_n, ())) \land
+\m (\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \left(\sum_{i = 1}^{|(f_U)_n|} (f_U)_i(p) = 1 \right))
+\m \eqComment{useful for defining integrals between overlapping neighborhoods}
+\n T2Separate((M, \mathcal{O}), ()) \implies (paracompact((M, \mathcal{O}), ()) \iff 
+\m \forall_{C} (openCover(C, (M, \mathcal{O})) \implies partitionOfUnitySOTCover(\mathcal{F}, (C, M, \mathcal{O}))))
+\end {align}
+\end{tcolorbox}
+
+\subsection{Connectedness and path-connectedness}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   connected((M, \mathcal{O}), ()) \iff \lnot (\exists_{A, B \in \mathcal{O} \setminus \emptyset} (A \cap B \neq \emptyset \land A \cup B = M))
+\n \lnot connected((\mathbb{R} \setminus \{0\}, \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}), ()) \impliedby
+\m (A = (-\infty, 0) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}) \land 
+\m (B = (0, \infty) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}) \land
+\m (A \cap B = \emptyset) \land
+\m (A \cup B = \mathbb{R} \setminus \{0\})
+\n connected((M, \mathcal{O}), ()) \iff \forall_{S \in \mathcal{O}} ((S = \emptyset \lor S = M) \implies clopen(S, (M, \mathcal{O})))
+\n pathConnected((M, \mathcal{O}), ()) \iff 
+\m \forall_{p, q \in M} \exists_{\gamma} (continuous(\gamma, (([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}), (M, \mathcal{O}))) \land \gamma(0) = p \land \gamma(1) = q)
+\n pathConnected \implies connected
+\end {align}
+\end{tcolorbox}
+
+\subsection{Homotopic curve and the fundamental group}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   homotopic(\sim, (\gamma, \delta, M, \mathcal{O})) \iff (map(\gamma, ([0, 1], M)) \land map(\delta, ([0, 1], M))) \land 
+\m (\gamma(0) = \delta(0) \land \gamma(1) = \delta(1)) \land
+\m (\exists_H \forall_{\lambda \in [0, 1]} (continuous(H, (([0, 1] \times [0, 1], \mathcal{O}_{standard^2}|_{[0, 1] \times [0, 1]}), (M, \mathcal{O})) \land H(0, \lambda) = \gamma(\lambda) \land H(1, \lambda) = \delta(\lambda))))
+\m \eqComment{$H$ is a continuous deformation of one curve into another}
+\n homotopic(\sim) \implies equivalenceRelation(\sim)
+\n loopSpace(\mathcal{L}_p, (p, M, \mathcal{O})) \iff \mathcal{L}_p = \{map(\gamma, ([0, 1], M))| continuous(\gamma) \land \gamma(0) = \gamma(1)\})
+\n concatination(\star, (p, \gamma, \delta)) \iff (\gamma, \delta \in loopSpace(\mathcal{L}_p)) \land
+\m (\forall_{\lambda \in [0, 1]} ((\gamma \star \delta) (\lambda) = \begin{cases} \gamma(2 \lambda) & 0 \leq \lambda < 0.5 \\ \delta(2 \lambda - 1) & 0.5 \leq \lambda \leq 1 \end{cases}))
+\n group((G, \bullet), ()) \iff (map(\bullet, (G \times G, G))) \land
+\m (\forall_{a, b \in G} (a \bullet b \in G))
+\m (\forall_{a, b, c \in G} ((a \bullet b) \bullet C = a \bullet (b \bullet c)))
+\m (\exists_\field{e} \forall_{a \in G} (\field{e} \bullet a = a = a \bullet \field{e})) \land
+\m (\forall_{a \in G} \exists_{a^{-1}} (a \bullet a^{-1} = \field{e} = a^{-1} \bullet a))
+\m \eqComment{characterizes symmetry of a set structure}
+\n isomorphic(\cong, (X, \odot), (Y, \ominus))) \iff \exists_f \forall_{a, b \in X} (bijection(f, (X, Y)) \land f(a \odot b) = f(a) \ominus f(b))
+\n fundamentalGroup((\pi_{1, p}, \bullet), (p, M, \mathcal{O})) \iff (\pi_{1, p} = \mathcal{L}_p / \sim) \land
+\m (map(\bullet, (\pi_{1, p} \times \pi_{1, p}, \pi_{1, p}))) \land
+\m (\forall_{A, B \in \pi_{1, p}} ([A] \bullet [B] = [A \star B])) \land
+\m (group((\pi_{1, p}, \bullet), ()))
+\m \eqComment{an equivalence class of all loops induced from the homotopic equivalence relation}
+\n fundamentalGroup_1 \centernot\cong fundamentalGroup_2 \implies topologicalSpace_1 \centernot\cong topologicalSpace_2
+\n \textbf{there exists no known list of topological properties that can imply homeomorphisms}
+\end {align}
+\end{tcolorbox}
+
+MISSING SOME IFF SETUP CONDITIONS
+CHANGE QUANTIFIER LAND TO S.T.
+$\odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash$
+
+\subsection{Lecture 6 manifolds}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   manifold((M, \mathcal{O}), ()) \iff (paracompact \land T2separable) \land
+\m (\exists_{d \in \mathbb{N}^+} \forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \exists_{F \in \mathbb{R}^d} ((U, \mathcal{O}|_U) \cong (F, \mathcal{O}_{standard^d}))) \eqComment{topology that is locally flat}
+\n 0
+\end {align}
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistical Learning Theory}
+\subsection{Overview}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+\n curve-fitting / explaining \neq prediction
+\n ill-defined problem + solution space constraints \implies well-defined problem
+\n x \eqComment{input} \eqSep y \eqComment{output}
+\n S_n = \{(x_1, y_1), \ldots, (x_n, y_n)\} \eqComment{training set}
+\n f_S(x) \sim y \eqComment{solution}
+\n each (x,y) \in p(x, y) \eqComment{training data $x, y$ is a sample from an unknown distribution $p$}
+\n V(f(x), y) = d(f(x), y) \eqComment{loss function}
+\n I[f] = \int_{X \times Y}{V(f(x), y) p(x, y) dx dy} \eqComment{expected error}
+\n I_n[f] = \frac{1}{n} \sum_{i=1}^{n}{V(f(x_i), y_i)} \eqComment{empirical error}
+\n probabilisticConvergence(X, ()) \iff \forall_{\epsilon > 0} \lim_{n \to \infty}{P{xn - x} \leq \epsilon} = 0
+\n I - In generalization error
+\n well-posed := exists, unique, stable ; else ill-posed
+\end {align}
+\end{tcolorbox}
+
+\subsection{Background maths}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   vectorSpace(V, (+, *)) \iff (u, v, w \in V), (c, d \in \mathbb{R} \in F) \land
+\m (u + v, c * u = c (u) = c u \in V) \land
+\m (u + v = v + u) \land
+\m ((u + v) + w = u + (v + w)) \land
+\m (\exists_\field{0} (u + \field{0} = u)) \land
+\m (\exists_{-u} (u + (-u) = \field{0})) \land
+\m ((1) u = u)
+\m ((c d) u = c (d u)) \land
+\m ((c + d) u = c u + d u) \land \eqComment{linearity}
+\m (c (u + v) = c u + c v) \land \eqComment{linearity}
+\m \eqComment{behaves similar to vectors}
+\n innerProduct(\langle \cdot, \cdot \rangle, (V)) \iff (u, v, w \in V), (c \in \mathbb{R} \in F) \land
+\m (\langle v, w \rangle = \langle w, v \rangle) \land
+\m (\langle c v, w \rangle = c \langle v, w \rangle) \land
+\m (\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle) \land \eqComment{linearity}
+\m (\langle u, u \rangle \geq 0 \in \mathbb{R}^+_0) \land \eqComment{metric inducing}
+\m (\langle u, u \rangle = 0 \iff u = \field{0})
+\n innerProductNorm(||\cdot||, (V)) \iff (v, w \in V), (r \in R) \land
+\m (||v|| = \sqrt{\langle v , v \rangle} \in \mathbb{R}^+_0) \land
+\m (||v|| = 0 \iff v = \field{0}) \land
+\m (||r v|| = |r| ||v||) \land 
+\m (|| v + w || \leq ||v|| + || w ||) \eqComment{triangle inequality}
+\n normConvergences(v, (V, (v_n)_{n \in \mathbb{N}})) \iff (\{v\} \cup (v_n)_{n \in \mathbb{N}} \subseteq V) \land
+\m (\lim_{n \to \infty} ||v - v_n|| = 0)
+\n cauchySequence((v_n)_{n \in \mathbb{N}}, (V)) \iff \m (\forall_{\epsilon > 0} \exists_{n \in \mathbb{N}} \forall_{x, y > n} (|| v_x - v_y || < \epsilon))\
+\n normConvergences \implies cauchySequence \eqComment{there might be holes in the space}
+\n completeSpace(V, (innerProductNorm)) \iff (cauchySequence \iff normConvergences)
+\n completion(R, (Q)) \iff R = Q U cauchy Us = Q bar
+\n hilbertSpace(H, (+, *, \langle \cdot, \cdot \rangle)) \iff (vectorSpace(H, (+, *))) \land
+\m (innerProduct(\langle \cdot, \cdot \rangle, (H))) \land
+\m completeSpace(H, (innerProductNorm))
+\n separable(H, ()) \iff \exists_{S \subseteq V} (countable(S, ()) \land Sbar = V) \eqComment{has a countable basis}
+\n hilbertSpace \land seperable \iff \exists countable ortho(gonal)normal basis for space, all norm=1, IP=0
+\n x = \sum <x, v> v \eqComment{countable projection times v}
+\n 0000000000
+\n linearOperator(L, (V)) \iff (u, v \in V) , (c, d \in \mathbb{R}) \land
+\m (L(c u + d v) = c L(u) + d L(v))
+\n adjoint(L^\dagger, (L, V)) \iff (\forall_{u, v \in V} <L(u), v> = <u, L^\dagger(v)>_\dagger )
+\n selfAdjoint(L, ()) \iff L = L^\dagger
+\n eigenvector(V) \iff L v = k v
+\n 30 mins
+\end {align}
+\end{tcolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{sample}
+% Walter Greiner - Thermodynamics and statistical mechanics : http://home.basu.ac.ir/~psu/Books/stat%20thermo%20Greiner.pdf
+% Shankar's Fundamentals of Physics 1 & 2
+% rudin + lectures
+\end{document}

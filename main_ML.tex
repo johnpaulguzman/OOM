@@ -23,6 +23,11 @@
 \usepackage{esint}
 \usepackage{amssymb}
 \usepackage{centernot}
+\delimitershortfall-1sp
+\usepackage{mleftright}
+\mleftright
+\def\ml{\mleft}
+\def\mr{\mright}
 
 \makeatletter
 \newcommand{\melazy}{\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar\bigstar}
@@ -57,44 +62,44 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \subsubsection{Formal Logic}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{statement}(s, ()) \iff well\text{-}formedString(s, ())
-\n \dfn{proposition}((p, t), ()) \iff (\rfr{statement}(p, ())) \land
-\m (t = eval(p)) \land
-\m (t = true \veebar t = false)
-\n \dfn{operator}(o, ((p)_{n \in \mathbb{N}})) \iff \rfr{proposition}(o((p)_{n \in \mathbb{N}}), ())
-\n \rfr{operator}(\lnot, (p_1)) \iff (\rfr{proposition}((p_1, true), ()) \implies ((\lnot p_1, false), ())) \land
-\m (\rfr{proposition}((p_1, false), ()) \implies ((\lnot p_1, true), ()))
+   \dfn{statement}\ml(s, \ml(\mr)\mr) \iff well\text{-}formedString\ml(s, \ml(\mr)\mr)
+\n \dfn{proposition}\ml(\ml(p, t\mr), \ml(\mr)\mr) \iff \ml(\rfr{statement}\ml(p, \ml(\mr)\mr)\mr) \land
+\m \ml(t = eval\ml(p\mr)\mr) \land
+\m \ml(t = true \veebar t = false\mr)
+\n \dfn{operator}\ml(o, \ml(\ml(p\mr)_{n \in \mathbb{N}}\mr)\mr) \iff \rfr{proposition}\ml(o\ml(\ml(p\mr)_{n \in \mathbb{N}}\mr), \ml(\mr)\mr)
+\n \rfr{operator}\ml(\lnot, \ml(p_1\mr)\mr) \iff \ml(\rfr{proposition}\ml(\ml(p_1, true\mr), \ml(\mr)\mr) \implies \ml(\ml(\lnot p_1, false\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\rfr{proposition}\ml(\ml(p_1, false\mr), \ml(\mr)\mr) \implies \ml(\ml(\lnot p_1, true\mr), \ml(\mr)\mr)\mr)
 \m \eqComment{an operator takes in propositions and returns a proposition}
-\n \rfr{operator}(\lnot) \iff \textbf{NOT} \eqSep \rfr{operator}(\lor) \iff \textbf{OR} \eqSep \rfr{operator}(\land) \iff \textbf{AND} \eqSep \rfr{operator}(\veebar) \iff \textbf{XOR}
-\m \rfr{operator}(\implies) \iff \textbf{IF} \eqSep \rfr{operator}(\impliedby) \iff \textbf{OIF} \eqSep \rfr{operator}(\iff) \iff \textbf{IFF} 
-\n \rfr{proposition}((false \implies true), true, ()) \land \rfr{proposition}((false \implies false), true, ())
-\m \eqComment{truths based on a false premise is not false (ex falso quodlibet)}
-\n (a \implies b \implies c) \iff (a \implies (b \implies c)) \iff ((a \land b) \implies c)
-\n \dfn{predicate}(P, (V)) \iff \forall_{v \in V} (\rfr{proposition}((P(v), t), ()))
-\n \dfn{0thOrderLogic}(P, ()) \iff \rfr{proposition}((P, t), ())
+\n \rfr{operator}\ml(\lnot\mr) \iff \textbf{NOT} \eqSep \rfr{operator}\ml(\lor\mr) \iff \textbf{OR} \eqSep \rfr{operator}\ml(\land\mr) \iff \textbf{AND} \eqSep \rfr{operator}\ml(\veebar\mr) \iff \textbf{XOR}
+\m \rfr{operator}\ml(\implies\mr) \iff \textbf{IF} \eqSep \rfr{operator}\ml(\impliedby\mr) \iff \textbf{OIF} \eqSep \rfr{operator}\ml(\iff\mr) \iff \textbf{IFF} 
+\n \rfr{proposition}\ml(\ml(false \implies true\mr), true, \ml(\mr)\mr) \land \rfr{proposition}\ml(\ml(false \implies false\mr), true, \ml(\mr)\mr)
+\m \eqComment{truths based on a false premise is not false; ex falso quodlibet principle}
+\n \ml(a \implies b \implies c\mr) \iff \ml(a \implies \ml(b \implies c\mr)\mr) \iff \ml(\ml(a \land b\mr) \implies c\mr)
+\n \dfn{predicate}\ml(P, \ml(V\mr)\mr) \iff \forall_{v \in V} \ml(\rfr{proposition}\ml(\ml(P\ml(v\mr), t\mr), \ml(\mr)\mr)\mr)
+\n \dfn{0thOrderLogic}\ml(P, \ml(\mr)\mr) \iff \rfr{proposition}\ml(\ml(P, t\mr), \ml(\mr)\mr)
 \m \eqComment{individual proposition}
-\n 1stOrderLogic(P, (V)) \iff (\forall_{v \in V} (\rfr{0thOrderLogic}(v, ()))) \land
-\m (\forall_{v \in V} (\rfr{proposition}((P(v), t), ())))
-\m \eqComment{propositions defined over a set of (1-1=0)th-order logical statements}
-\n \dfn{quantifier}(q, (p, V)) \iff (\rfr{predicate}(p, (V))) \land 
-\m (\rfr{proposition}((q(p), t), ()))
+\n 1stOrderLogic\ml(P, \ml(V\mr)\mr) \iff \ml(\forall_{v \in V} \ml(\rfr{0thOrderLogic}\ml(v, \ml(\mr)\mr)\mr)\mr) \land
+\m \ml(\forall_{v \in V} \ml(\rfr{proposition}\ml(\ml(P\ml(v\mr), t\mr), \ml(\mr)\mr)\mr)\mr)
+\m \eqComment{propositions defined over a set of the lower order logical statements}
+\n \dfn{quantifier}\ml(q, \ml(p, V\mr)\mr) \iff \ml(\rfr{predicate}\ml(p, \ml(V\mr)\mr)\mr) \land 
+\m \ml(\rfr{proposition}\ml(\ml(q\ml(p\mr), t\mr), \ml(\mr)\mr)\mr)
 \m \eqComment{a quantifier takes in a predicate and returns a proposition}
-\n \rfr{quantifier}(\forall, (p, V)) \iff \rfr{proposition}((\land_{v \in V} (p(v)), t), ())
+\n \rfr{quantifier}\ml(\forall, \ml(p, V\mr)\mr) \iff \rfr{proposition}\ml(\ml(\land_{v \in V} \ml(p\ml(v\mr)\mr), t\mr), \ml(\mr)\mr)
 \m \eqComment{universal quantifier}
-\n \rfr{quantifier}(\exists, (p, V)) \iff \rfr{proposition}((\lor_{v \in V} (p(v)), t), ())
+\n \rfr{quantifier}\ml(\exists, \ml(p, V\mr)\mr) \iff \rfr{proposition}\ml(\ml(\lor_{v \in V} \ml(p\ml(v\mr)\mr), t\mr), \ml(\mr)\mr)
 \m \eqComment{existential quantifier}
-\n \rfr{quantifier}(\exists!, (p, V)) \iff \exists_{x \in V} (P(x) \land \lnot (\exists_{y \in V \setminus \{x\}} (P(y))))
+\n \rfr{quantifier}\ml(\exists!, \ml(p, V\mr)\mr) \iff \exists_{x \in V} \ml(P\ml(x\mr) \land \lnot \ml(\exists_{y \in V \setminus \{x\}} \ml(P\ml(y\mr)\mr)\mr)\mr)
 \m \eqComment{uniqueness quantifier}
-\n \forall_{x} p(x) \iff \lnot \exists_{x} \lnot p(x)
+\n \forall_{x} p\ml(x\mr) \iff \lnot \exists_{x} \lnot p\ml(x\mr)
 \m \eqComment{De Morgan's law}
-\n \forall_x \exists_y p(x, y) = \forall_x \lnot \forall_y \lnot p(x, y) \neq \exists_y \forall_x p(x, y) = \lnot \forall_y \lnot (\forall_x p(x, y)) = \lnot \forall_y \exists_x \lnot p(x, y)
+\n \forall_x \exists_y p\ml(x, y\mr) = \forall_x \lnot \forall_y \lnot p\ml(x, y\mr) \neq \exists_y \forall_x p\ml(x, y\mr) = \lnot \forall_y \lnot \ml(\forall_x p\ml(x, y\mr)\mr) = \lnot \forall_y \exists_x \lnot p\ml(x, y\mr)
 \m \eqComment{different quantifiers are not interchangeable}
 \n \melazy
-\n \textbf{proof} = \textbf{truths derived from a finite number of axioms and deductions (tautologies)}
+\n \textbf{proof} = \textbf{truths derived from a finite number of axioms and deductions}
 \n \textbf{elementary arithmetics} = \textbf{system with substitutions, and some notion of}
 \m \textbf{addition, multiplication, and prime nuumbers for encoding metamathematics}
 \n \textbf{G\"odel theorem} \implies \textbf{axiomatic systems equivalent in power to elementary mathematics}
-\m \textbf{are either incomplete (has unprovables) or inconsistent (has contradictions)}
+\m \textbf{either has unprovable statements or has contradictions}
 \n \melazy
 \end{align}
 \end{tcolorbox}
@@ -103,26 +108,25 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    \melazy
-\n \textbf{Zermelo-Fraenkel-Choice (ZFC) set theory} = \textbf{standard form of axiomatic set theory}
-\n \textbf{ZFC axioms} = \textbf{Existence (EE), Construction (PURP), ECAdv (IC), Nonexistent (F)}
+\n \textbf{ZFC set theory} = \textbf{standard form of axiomatic set theory}
 \n A \subseteq B = \forall_x x \in A \implies x \in B
-\n (A = B) = A \subseteq B \land B \subseteq A
+\n \ml(A = B\mr) = A \subseteq B \land B \subseteq A
 \n \textbf{$\in$ basis} \implies \{x, y\} = \{y, x\} \land \{x\} = \{x, x\}
-\n \textbf{$\in$-relation and sets (\{\ldots\}) works as follows (9 ZFC axioms):}
-\n \forall_x \forall_y (x \in y \veebar \lnot(x \in y)) \eqComment{E: $\in$ is only a proposition on sets}
+\n \textbf{$\in$ and sets works following the 9 ZFC axioms:}
+\n \forall_x \forall_y \ml(x \in y \veebar \lnot\ml(x \in y\mr)\mr) \eqComment{E: $\in$ is only a proposition on sets}
 \n \exists_\emptyset \forall_y \lnot y \in \emptyset \eqComment{E: existence of empty set}
 \n \forall_x \forall_y \exists_m \forall_u u \in m \iff u = x \lor u = y \eqComment{C: pair set construction}
-\n \forall_s \exists_u \forall_x \forall_y (x \in s \land y \in x \implies y \in u) \eqComment{C: union set construction}
+\n \forall_s \exists_u \forall_x \forall_y \ml(x \in s \land y \in x \implies y \in u\mr) \eqComment{C: union set construction}
 \n x = \{\{a\}, \{b\}\} \eqComment{from the pair set axiom}
 \n u = \cup x = \cup \{\{a\}, \{b\}\} = \{a, b\}
-\n \forall_x \exists!_y R(x,y) \eqComment{functional relation $R$}
-\n \exists_i \forall_x \exists!_y R(x,y) \implies y \in i
+\n \forall_x \exists!_y R\ml(x,y\mr) \eqComment{functional relation $R$}
+\n \exists_i \forall_x \exists!_y R\ml(x,y\mr) \implies y \in i
 \eqComment{C: image $i$ of set $m$ under a relation $R$ is assumed to be a set}
-\m \implies \{y \in m | P(y)\} \eqComment{Restricted Comprehension} \centernot\implies  \{y | P(y)\} \eqComment{Universal Comprehension}
-\n \forall_{x \in m} P(x) = \forall_x (x \in m \implies P(x)) \eqComment{ignores out of scope} \neq \forall_x (x \in m \land P(x)) \eqComment{restricts entirety}
-\n \forall_m \forall_n \exists_{\mathcal{P}(m)} (n \subseteq m \implies n \subseteq \mathcal{P}(m)) \eqComment{C: existence of power set}
-\n \exists_I (\emptyset \in I \land \forall_{x \in I} (\{x\} \in I)) \eqComment{I: axiom of infinity} \eqSep I = \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}, \ldots\} ; I \cong \mathbb{N} \implies \textbf{$\mathbb{N}$ is a set}
-\n \forall_x ((\emptyset \notin x \land x \cap x' = \emptyset) \implies \exists_y (\textbf{set of each e} \in x)) \eqComment{C: axiom of choice LOLOL}
+\m \implies \{y \in m | P\ml(y\mr)\} \eqComment{Restricted Comprehension} \centernot\implies  \{y | P\ml(y\mr)\} \eqComment{Universal Comprehension}
+\n \forall_{x \in m} P\ml(x\mr) = \forall_x \ml(x \in m \implies P\ml(x\mr)\mr) \eqComment{ignores out of scope} \neq \forall_x \ml(x \in m \land P\ml(x\mr)\mr) \eqComment{restricts entirety}
+\n \forall_m \forall_n \exists_{\mathcal{P}\ml(m\mr)} \ml(n \subseteq m \implies n \subseteq \mathcal{P}\ml(m\mr)\mr) \eqComment{C: existence of power set}
+\n \exists_I \ml(\emptyset \in I \land \forall_{x \in I} \ml(\{x\} \in I\mr)\mr) \eqComment{I: axiom of infinity} \eqSep I = \{\emptyset, \{\emptyset\}, \{\{\emptyset\}\}, \ldots\} ; I \cong \mathbb{N} \implies \textbf{$\mathbb{N}$ is a set}
+\n \forall_x \ml(\ml(\emptyset \notin x \land x \cap x' = \emptyset\mr) \implies \exists_y \ml(\textbf{set of each e} \in x\mr)\mr) \eqComment{C: axiom of choice}
 \n \forall_x x \neq \emptyset \implies x \notin x \eqComment{F: axiom of foundation covers further paradoxes}
 \n \melazy
 \end{align}
@@ -131,48 +135,48 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \subsection{Classification of sets}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   space((set, structure), ()) \iff structure(set)
+   space\ml(\ml(set, structure\mr), \ml(\mr)\mr) \iff structure\ml(set\mr)
 \m \eqComment{a space a set equipped with some structure}
 \m \eqComment{various spaces can be studied through structure preserving maps between those spaces}
-\n \dfn{map}(\phi, (A, B)) \iff (\forall_{a \in A} \exists!_{b \in B} (\phi(a, b))) \lor
-\m (\forall_{a \in A} \exists!_{b \in B} (b = \phi(a)))
+\n \dfn{map}\ml(\phi, \ml(A, B\mr)\mr) \iff \ml(\forall_{a \in A} \exists!_{b \in B} \ml(\phi\ml(a, b\mr)\mr)\mr) \lor
+\m \ml(\forall_{a \in A} \exists!_{b \in B} \ml(b = \phi\ml(a\mr)\mr)\mr)
 \m \eqComment{maps elements of a set to elements of another set}
-\n domain(A, (\phi, A, B)) \iff (\rfr{map}(\phi, (A, B)))
-\n codomain(B, (\phi, A, B)) \iff (\rfr{map}(\phi, (A, B)))
-\n \dfn{image}(B, (A, q, M, N)) \iff (\rfr{map}(q, (M, N)) \land A \subseteq M) \land
-\m (B = \{n \in N| \exists_{a \in A} (q(a) = n)\})
-\n \dfn{preimage}(A, (B, q, M, N)) \iff (\rfr{map}(q, (M, N)) \land B \subseteq N) \land 
-\m (A = \{m \in M| \exists_{b \in B} (b = q(m))\})
-\n \dfn{injection}(q, (M, N)) \iff (\rfr{map}(q, (M, N))) \land
-\m \forall_{u,v \in M} (q(u) = q(v) \implies u = v)
+\n domain\ml(A, \ml(\phi, A, B\mr)\mr) \iff \ml(\rfr{map}\ml(\phi, \ml(A, B\mr)\mr)\mr)
+\n codomain\ml(B, \ml(\phi, A, B\mr)\mr) \iff \ml(\rfr{map}\ml(\phi, \ml(A, B\mr)\mr)\mr)
+\n \dfn{image}\ml(B, \ml(A, q, M, N\mr)\mr) \iff \ml(\rfr{map}\ml(q, \ml(M, N\mr)\mr) \land A \subseteq M\mr) \land
+\m \ml(B = \{n \in N| \exists_{a \in A} \ml(q\ml(a\mr) = n\mr)\}\mr)
+\n \dfn{preimage}\ml(A, \ml(B, q, M, N\mr)\mr) \iff \ml(\rfr{map}\ml(q, \ml(M, N\mr)\mr) \land B \subseteq N\mr) \land 
+\m \ml(A = \{m \in M| \exists_{b \in B} \ml(b = q\ml(m\mr)\mr)\}\mr)
+\n \dfn{injection}\ml(q, \ml(M, N\mr)\mr) \iff \ml(\rfr{map}\ml(q, \ml(M, N\mr)\mr)\mr) \land
+\m \forall_{u,v \in M} \ml(q\ml(u\mr) = q\ml(v\mr) \implies u = v\mr)
 \m \eqComment{every $m$ has at most $1$ image}
-\n \dfn{surjection}(q, (M, N)) \iff (\rfr{map}(q, (M, N))) \land
-\m \forall_{n \in N} \exists_{m \in M} (n = q(m))
+\n \dfn{surjection}\ml(q, \ml(M, N\mr)\mr) \iff \ml(\rfr{map}\ml(q, \ml(M, N\mr)\mr)\mr) \land
+\m \forall_{n \in N} \exists_{m \in M} \ml(n = q\ml(m\mr)\mr)
 \m \eqComment{every $n$ has at least $1$ preimage}
-\n \dfn{bijection}(q, (M, N)) \iff (\rfr{injection}(q, (M, N))) \land
-\m (\rfr{surjection}(q, (M, N)))
+\n \dfn{bijection}\ml(q, \ml(M, N\mr)\mr) \iff \ml(\rfr{injection}\ml(q, \ml(M, N\mr)\mr)\mr) \land
+\m \ml(\rfr{surjection}\ml(q, \ml(M, N\mr)\mr)\mr)
 \m \eqComment{every unique $m$ corresponds to a unique $n$}
-\n \dfn{isomorphicSets}((A, B), ()) \iff \exists_\phi (\rfr{bijection}(\phi, (A, B)))
-\n \dfn{infiniteSet}(S, ()) \iff \exists_{T \subset S} (\rfr{isomorphicSets}((T, S), ()))
-\n \dfn{finiteSet}(S, ()) \iff (\lnot \rfr{infiniteSet}(S, ())) \lor (|S| \in \mathbb{N})
-\n \dfn{countablyInfinite}(S, ()) \iff (\rfr{infiniteSet}(S, ())) \land (\rfr{isomorphicSets}((S, \mathbb{N}), ()))
-\n \dfn{uncountablyInfinite}(S, ()) \iff (\rfr{infiniteSet}(S, ())) \land (\lnot \rfr{isomorphicSets}((S, \mathbb{N}), ()))
-\n \dfn{inverseMap}(q^{-1}, (q, M, N)) \iff (\rfr{bijection}(q, (M, N))) \land
-\m (\rfr{map}(q^{-1}, (N, M))) \land
-\m (\forall_{n \in N} \exists!_{m \in M} (q(m) = n \implies q^{-1}(n) = m))
-\n \dfn{mapComposition}(\phi \circ \psi, (\phi, \psi, A, B, C)) \iff \rfr{map}(\psi, (A, B)) \land \rfr{map}(\phi, (B, C)) \land
-\m \forall_{a \in A} (\phi \circ \psi(a) = \phi(\psi(a)))
-\n \dfn{equivalenceRelation}(\sim, (M)) \iff (\forall_{m \in M} (m \sim m)) \land
-\m (\forall_{m, n \in M} (m \sim n \implies n \sim m)) \land
-\m (\forall_{m, n, p \in M} (m \sim n \land n \sim p \implies m \sim p))
+\n \dfn{isomorphicSets}\ml(\ml(A, B\mr), \ml(\mr)\mr) \iff \exists_\phi \ml(\rfr{bijection}\ml(\phi, \ml(A, B\mr)\mr)\mr)
+\n \dfn{infiniteSet}\ml(S, \ml(\mr)\mr) \iff \exists_{T \subset S} \ml(\rfr{isomorphicSets}\ml(\ml(T, S\mr), \ml(\mr)\mr)\mr)
+\n \dfn{finiteSet}\ml(S, \ml(\mr)\mr) \iff \ml(\lnot \rfr{infiniteSet}\ml(S, \ml(\mr)\mr)\mr) \lor \ml(|S| \in \mathbb{N}\mr)
+\n \dfn{countablyInfinite}\ml(S, \ml(\mr)\mr) \iff \ml(\rfr{infiniteSet}\ml(S, \ml(\mr)\mr)\mr) \land \ml(\rfr{isomorphicSets}\ml(\ml(S, \mathbb{N}\mr), \ml(\mr)\mr)\mr)
+\n \dfn{uncountablyInfinite}\ml(S, \ml(\mr)\mr) \iff \ml(\rfr{infiniteSet}\ml(S, \ml(\mr)\mr)\mr) \land \ml(\lnot \rfr{isomorphicSets}\ml(\ml(S, \mathbb{N}\mr), \ml(\mr)\mr)\mr)
+\n \dfn{inverseMap}\ml(q^{-1}, \ml(q, M, N\mr)\mr) \iff \ml(\rfr{bijection}\ml(q, \ml(M, N\mr)\mr)\mr) \land
+\m \ml(\rfr{map}\ml(q^{-1}, \ml(N, M\mr)\mr)\mr) \land
+\m \ml(\forall_{n \in N} \exists!_{m \in M} \ml(q\ml(m\mr) = n \implies q^{-1}\ml(n\mr) = m\mr)\mr)
+\n \dfn{mapComposition}\ml(\phi \circ \psi, \ml(\phi, \psi, A, B, C\mr)\mr) \iff \rfr{map}\ml(\psi, \ml(A, B\mr)\mr) \land \rfr{map}\ml(\phi, \ml(B, C\mr)\mr) \land
+\m \forall_{a \in A} \ml(\phi \circ \psi\ml(a\mr) = \phi\ml(\psi\ml(a\mr)\mr)\mr)
+\n \dfn{equivalenceRelation}\ml(\sim, \ml(M\mr)\mr) \iff \ml(\forall_{m \in M} \ml(m \sim m\mr)\mr) \land
+\m \ml(\forall_{m, n \in M} \ml(m \sim n \implies n \sim m\mr)\mr) \land
+\m \ml(\forall_{m, n, p \in M} \ml(m \sim n \land n \sim p \implies m \sim p\mr)\mr)
 \m \eqComment{behaves as equivalences should}
-\n \dfn{equivalenceClass}([m], (m, M, \sim)) \iff [m] = \{n \in M| n \sim m\}
+\n \dfn{equivalenceClass}\ml([m], \ml(m, M, \sim\mr)\mr) \iff [m] = \{n \in M| n \sim m\}
 \m \eqComment{set of elements satisfying the equivalence relation with $m$}
 \n a \in [m] \implies [a] = [m] \eqSep [m] = [n] \veebar [m] \cap [n] = \emptyset
 \m \eqComment{equivalence class properties}
-\n \dfn{quotientSet}(M / \sim, (M, \sim)) \iff M / \sim = \{[m] \in \mathcal{P}(M) | m \in M\}
+\n \dfn{quotientSet}\ml(M / \sim, \ml(M, \sim\mr)\mr) \iff M / \sim = \{[m] \in \mathcal{P}\ml(M\mr) | m \in M\}
 \m \eqComment{set of all equivalence classes}
-\n \textbf{axiom of choice} \implies \forall_{[m] \in M / \sim} \exists_r (r \in [m])
+\n \textbf{axiom of choice} \implies \forall_{[m] \in M / \sim} \exists_r \ml(r \in [m]\mr)
 \m \eqComment{well-defined maps may be defined in terms of chosen representative elements $r$}
 \end{align}
 \end{tcolorbox}
@@ -234,29 +238,25 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \n \dfn{openBall}(B, (r, p, M, d)) \iff (\rfr{metricSpace}((M, d), ())) \land
 \m (r \in \mathbb{R}^+, p \in M) \land
 \m (B = \{q \in M \mid d(p, q) < r\})
-\n \melazy
 \n \dfn{metricTopology}(\mathcal{O}, (M, d)) \iff (\rfr{metricSpace}((M, d), ())) \land
 \m (\mathcal{O} = \{U \in \mathcal{P}(M) \mid \forall_{p \in U} \exists_{r \in \mathbb{R}^+} (\rfr{openBall}(B, (r, p, M, d)) \land B \subseteq U)\})
-\m \eqComment{every point in the open set has an open ball neighborhood}
+\m \eqComment{every point in the neighborhood has some open ball that is fully enclosed in the neighborhood}
 \n \dfn{metricTopologicalSpace}((M, \mathcal{O}, d), ()) \iff \rfr{metricTopology}(\mathcal{O}, (M, d))
-\n \dfn{limitPoint}(p, (S, d, M, \mathcal{O})) \iff (\rfr{metricTopologicalSpace}((M, \mathcal{O}, d), ())) \land 
-\m (S \subseteq M) \land
-\m \forall_{r \in \mathbb{R}^+} (\rfr{openBall}(B, (r, p, d, )) \land B \cap S \neq \emptyset)
-\m \eqComment{every open ball contains some intersection}
-\m \eqComment{every neighborhood is an open ball, but not every open ball is a neighborhood}
-\n interiorPoint(p, (S, M, \mathcal{O}, d)) \iff (S \subseteq M)
-\m \exists_{r \in \mathbb{R}^+} (openBall \subseteq S)
-\m \eqComment{there is an open ball that is fully enclosed}
-\n n \in \mathcal{O} \iff interiorPoint(n)
-\n closure(\bar{S}, (S, M, \mathcal{O}, d)) \iff \bar{S} = S \cup limitPoints(S)
-\n dense(S, (M, \mathcal{O}, d)) \iff (S \subseteq M) \land
-\m \forall_{p \in M} (p \in closure(S))
-\m \eqComment{every of point in $X$ is a point or a limit point of $S$} 
-\n eucD(d, (\mathbb{R}^{n})) \iff (x_i \in \mathbb{R}) \land
-\m (d = \sqrt{\sum_{i=1}^n{{x_i}^2}})
+\n \dfn{limitPoint}(p, (S, M, \mathcal{O}, d)) \iff (\rfr{metricTopologicalSpace}((M, \mathcal{O}, d), ())) \land (S \subseteq M) \land
+\m \forall_{r \in \mathbb{R}^+} (\rfr{openBall}(B, (r, p, M, d)) \land B \cap S \neq \emptyset)
+\m \eqComment{every open ball centered at $p$ contains some intersection with $S$}
+\n interiorPoint(p, (S, M, \mathcal{O}, d)) \iff (\rfr{metricTopologicalSpace}((M, \mathcal{O}, d), ())) \land (S \subseteq M) \land
+\m (\exists_{r \in \mathbb{R}^+} (\rfr{openBall}(B, (r, p, M, d)) \land B \subseteq S))
+\m \eqComment{there is an open ball centered at $p$ that is fully enclosed in $S$}
+\n \dfn{closure}(\bar{S}, (S, M, \mathcal{O}, d)) \iff \bar{S} = S \cup \{p \in M \mid \rfr{limitPoint}(p, (S, M, \mathcal{O}, d))\}
+\n \dfn{dense}(S, (M, \mathcal{O}, d)) \iff (S \subseteq M) \land
+\m (\forall_{p \in M} (p \in \rfr{closure}(\bar{S}, (S, M, \mathcal{O}, d))))
+\m \eqComment{every of point in $M$ is a point or a limit point of $S$}
+\n \melazy
+\n eucD(d, (\mathbb{R}^{n})) \iff (x_i \in \mathbb{R}) \land  (d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}})
 \n \mathcal{O}_{standard} = \mathcal{O}(\mathbb{R}^{n}, eucD)
-\m \textbf{L1:) } \forall_{p \in U = \emptyset} (\ldots) \implies \forall_p ((p \in \emptyset) \implies \ldots) \implies \forall_p ((\textbf{False}) \implies \ldots) \implies \emptyset \in \mathcal{O}_{standard}
-\m \textbf{L2:) } \forall_{p \in \mathbb{R}^n} B(r, p, \mathbb{R}^n, eucD) \subseteq \mathbb{R}^n \implies M \in \mathcal{O}_{standard}
+\m \textbf{L1: } \forall_{p \in U = \emptyset} (\ldots) \implies \forall_p ((p \in \emptyset) \implies \ldots) \implies \forall_p ((\textbf{False}) \implies \ldots) \implies \emptyset \in \mathcal{O}_{standard}
+\m \textbf{L2: } \forall_{p \in \mathbb{R}^n} B(r, p, \mathbb{R}^n, eucD) \subseteq \mathbb{R}^n \implies M \in \mathcal{O}_{standard}
 \m \textbf{L3: } U, V \in \mathcal{O}_{standard} \implies p \in U \cap V \implies p \in U \land p  \in V \implies 
 \m \exists_{r \in \mathbb{R}^+} B(r, p, \mathbb{R}^n, eucD) \land \exists_{s \in \mathbb{R}^+} B(s, p, \mathbb{R}^n, eucD) \implies 
 \m B(min(r, s), p, \mathbb{R}^n, eucD) \subseteq U \land B(min(r, s), q, \mathbb{R}^n, eucD) \subseteq V \implies
@@ -272,7 +272,7 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m = (U \cap V) \cap N \land U \cap V \in \mathcal{O} \implies S \cap T \in \mathcal{O}|_N
 \m \textbf{L4: } TODO: EXERCISE
 \n (\mathbb{R}, \mathcal{O}_s) \eqSep N = \{x \in \mathbb{R} | -1 \leq x \leq 1\} \eqSep (0, 1] \notin \mathcal{O}_s
-\n (0, 1] = (0, 2) \cap N \land (0, 2) \in \mathcal(O)_s \implies (0 ,1] \in \mathcal{O}_s|_N \eqComment{openness depends on topology}
+\n (0, 1] = (0, 2) \cap N \land (0, 2) \in \mathcal{O}_s \implies (0 ,1] \in \mathcal{O}_s|_N \eqComment{openness depends on topology}
 \n productTopology(\mathcal{O}_{A \times B}, ((A, \mathcal{O}_A), (B, \mathcal{O}_B)))
 \m \iff  \mathcal{O}_{A \times B} = \{(a, b) \in A \times B| \exists_{S} (a \in S \in \mathcal{O}_A) \exists_{T} (b \in T \in \mathcal{O}_B)\} \eqComment{open in cross iff open in each}
 \end{align}

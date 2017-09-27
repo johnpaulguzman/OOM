@@ -1,4 +1,5 @@
-% CONTINUE LINE 344
+% CONTINUE LINE 428
+% Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
 %% Language and font encodings
@@ -34,7 +35,7 @@
 \newcommand*\widefbox[1]{\fbox{#1}}
 \newcommand{\eqComment}[1]{\text{  \# #1}}
 \newcommand{\eqSep}{\text{ ;  }}
-\newcommand{\thm}[1]{\text{thm: }#1}
+\newcommand{\thm}[1]{\text{(THM) #1: }}
 \newcommand{\sgn}[1]{sgn(#1)}
 \newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
 \newcommand{\m}{\nonumber \\}
@@ -57,7 +58,7 @@
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
 
-TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEEEEEEEEEEEEEE}
+TODO should really define union intersection complement etc
 \section{Mathematical Analysis}
 \subsubsection{Formal Logic}
 \begin{tcolorbox}[breakable, enhanced]
@@ -74,11 +75,11 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m \rfr{operator}\ml(\implies\mr) \iff \textbf{IF} \eqSep \rfr{operator}\ml(\impliedby\mr) \iff \textbf{OIF} \eqSep \rfr{operator}\ml(\iff\mr) \iff \textbf{IFF} 
 \n \rfr{proposition}\ml(\ml(false \implies true\mr), true, \ml(\mr)\mr) \land \rfr{proposition}\ml(\ml(false \implies false\mr), true, \ml(\mr)\mr)
 \m \eqComment{truths based on a false premise is not false; ex falso quodlibet principle}
-\n \ml(a \implies b \implies c\mr) \iff \ml(a \implies \ml(b \implies c\mr)\mr) \iff \ml(\ml(a \land b\mr) \implies c\mr)
+\n \thm{} \ml(a \implies b \implies c\mr) \iff \ml(a \implies \ml(b \implies c\mr)\mr) \iff \ml(\ml(a \land b\mr) \implies c\mr)
 \n \dfn{predicate}\ml(P, \ml(V\mr)\mr) \iff \forall_{v \in V} \ml(\rfr{proposition}\ml(\ml(P\ml(v\mr), t\mr), \ml(\mr)\mr)\mr)
 \n \dfn{0thOrderLogic}\ml(P, \ml(\mr)\mr) \iff \rfr{proposition}\ml(\ml(P, t\mr), \ml(\mr)\mr)
 \m \eqComment{individual proposition}
-\n 1stOrderLogic\ml(P, \ml(V\mr)\mr) \iff \ml(\forall_{v \in V} \ml(\rfr{0thOrderLogic}\ml(v, \ml(\mr)\mr)\mr)\mr) \land
+\n \dfn{1stOrderLogic}\ml(P, \ml(V\mr)\mr) \iff \ml(\forall_{v \in V} \ml(\rfr{0thOrderLogic}\ml(v, \ml(\mr)\mr)\mr)\mr) \land
 \m \ml(\forall_{v \in V} \ml(\rfr{proposition}\ml(\ml(P\ml(v\mr), t\mr), \ml(\mr)\mr)\mr)\mr)
 \m \eqComment{propositions defined over a set of the lower order logical statements}
 \n \dfn{quantifier}\ml(q, \ml(p, V\mr)\mr) \iff \ml(\rfr{predicate}\ml(p, \ml(V\mr)\mr)\mr) \land 
@@ -90,9 +91,9 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m \eqComment{existential quantifier}
 \n \rfr{quantifier}\ml(\exists!, \ml(p, V\mr)\mr) \iff \exists_{x \in V} \ml(P\ml(x\mr) \land \lnot \ml(\exists_{y \in V \setminus \{x\}} \ml(P\ml(y\mr)\mr)\mr)\mr)
 \m \eqComment{uniqueness quantifier}
-\n \forall_{x} p\ml(x\mr) \iff \lnot \exists_{x} \lnot p\ml(x\mr)
+\n \thm{} \forall_{x} p\ml(x\mr) \iff \lnot \exists_{x} \lnot p\ml(x\mr)
 \m \eqComment{De Morgan's law}
-\n \forall_x \exists_y p\ml(x, y\mr) = \forall_x \lnot \forall_y \lnot p\ml(x, y\mr) \neq \exists_y \forall_x p\ml(x, y\mr) = \lnot \forall_y \lnot \ml(\forall_x p\ml(x, y\mr)\mr) = \lnot \forall_y \exists_x \lnot p\ml(x, y\mr)
+\n \thm{} \forall_x \exists_y p\ml(x, y\mr) = \forall_x \lnot \forall_y \lnot p\ml(x, y\mr) \neq \exists_y \forall_x p\ml(x, y\mr) = \lnot \forall_y \lnot \ml(\forall_x p\ml(x, y\mr)\mr) = \lnot \forall_y \exists_x \lnot p\ml(x, y\mr)
 \m \eqComment{different quantifiers are not interchangeable}
 \n \melazy
 \n \textbf{proof} = \textbf{truths derived from a finite number of axioms and deductions}
@@ -135,14 +136,14 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \subsection{Classification of sets}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   space\ml(\ml(set, structure\mr), \ml(\mr)\mr) \iff structure\ml(set\mr)
+   \dfn{space}\ml(\ml(set, structure\mr), \ml(\mr)\mr) \iff structure\ml(set\mr)
 \m \eqComment{a space a set equipped with some structure}
 \m \eqComment{various spaces can be studied through structure preserving maps between those spaces}
 \n \dfn{map}\ml(\phi, \ml(A, B\mr)\mr) \iff \ml(\forall_{a \in A} \exists!_{b \in B} \ml(\phi\ml(a, b\mr)\mr)\mr) \lor
 \m \ml(\forall_{a \in A} \exists!_{b \in B} \ml(b = \phi\ml(a\mr)\mr)\mr)
 \m \eqComment{maps elements of a set to elements of another set}
-\n domain\ml(A, \ml(\phi, A, B\mr)\mr) \iff \ml(\rfr{map}\ml(\phi, \ml(A, B\mr)\mr)\mr)
-\n codomain\ml(B, \ml(\phi, A, B\mr)\mr) \iff \ml(\rfr{map}\ml(\phi, \ml(A, B\mr)\mr)\mr)
+\n \dfn{domain}\ml(A, \ml(\phi, A, B\mr)\mr) \iff \ml(\rfr{map}\ml(\phi, \ml(A, B\mr)\mr)\mr)
+\n \dfn{codomain}\ml(B, \ml(\phi, A, B\mr)\mr) \iff \ml(\rfr{map}\ml(\phi, \ml(A, B\mr)\mr)\mr)
 \n \dfn{image}\ml(B, \ml(A, q, M, N\mr)\mr) \iff \ml(\rfr{map}\ml(q, \ml(M, N\mr)\mr) \land A \subseteq M\mr) \land
 \m \ml(B = \{n \in N \mid \exists_{a \in A} \ml(q\ml(a\mr) = n\mr)\}\mr)
 \n \dfn{preimage}\ml(A, \ml(B, q, M, N\mr)\mr) \iff \ml(\rfr{map}\ml(q, \ml(M, N\mr)\mr) \land B \subseteq N\mr) \land 
@@ -172,11 +173,11 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m \eqComment{behaves as equivalences should}
 \n \dfn{equivalenceClass}\ml([m], \ml(m, M, \sim\mr)\mr) \iff [m] = \{n \in M \mid n \sim m\}
 \m \eqComment{set of elements satisfying the equivalence relation with $m$}
-\n a \in [m] \implies [a] = [m] \eqSep [m] = [n] \veebar [m] \cap [n] = \emptyset
+\n \thm{} a \in [m] \implies [a] = [m] \eqSep [m] = [n] \veebar [m] \cap [n] = \emptyset
 \m \eqComment{equivalence class properties}
 \n \dfn{quotientSet}\ml(M / \sim, \ml(M, \sim\mr)\mr) \iff M / \sim = \{[m] \in \mathcal{P}\ml(M\mr) \mid m \in M\}
 \m \eqComment{set of all equivalence classes}
-\n \textbf{axiom of choice} \implies \forall_{[m] \in M / \sim} \exists_r \ml(r \in [m]\mr)
+\n \thm{} \textbf{axiom of choice} \implies \forall_{[m] \in M / \sim} \exists_r \ml(r \in [m]\mr)
 \m \eqComment{well-defined maps may be defined in terms of chosen representative elements $r$}
 \end{align}
 \end{tcolorbox}
@@ -225,6 +226,7 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m \eqComment{a closed set contains the boundaries an open set}
 \n \dfn{clopen}\ml(S, \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{closed}\ml(S, \ml(M, \mathcal{O}\mr)\mr)\mr) \land \ml(\rfr{open}\ml(S, \ml(M, \mathcal{O}\mr)\mr)\mr)
 \n \dfn{neighborhood}\ml(U, \ml(a, \mathcal{O}\mr)\mr) \iff \ml(a \in U \in \mathcal{O}\mr)
+\m \eqComment{another name for open set containing $a$}
 \n M = \{a, b, c, d\} \land \mathcal{O} = \{\emptyset, \{c\}, \{a, b\}, \{c, d\}, \{a, b, c\}, M\} \implies
 \m \ml(\rfr{open}\ml(X, \ml(M, \mathcal{O}\mr)\mr) \iff X = \{\emptyset, \{c\}, \{a, b\}, \{c, d\}, \{a, b, c\}, M\}\mr) \land
 \m \ml(\rfr{closed}\ml(Y, \ml(M, \mathcal{O}\mr)\mr) \iff Y = \{\emptyset, \{a, b, d\}, \{c, d\}, \{a, b\}, \{d\}, M\}\mr) \land
@@ -251,12 +253,11 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \n \dfn{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \ml(\rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr)\mr) \land \ml(S \subseteq M\mr) \land
 \m \forall_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \land B \cap S \neq \emptyset\mr)
 \m \eqComment{every open ball centered at $p$ contains some intersection with $S$}
-\n interiorPoint\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \ml(\rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr)\mr) \land \ml(S \subseteq M\mr) \land
+\n \dfn{interiorPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \ml(\rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr)\mr) \land \ml(S \subseteq M\mr) \land
 \m \ml(\exists_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \land B \subseteq S\mr)\mr)
 \m \eqComment{there is an open ball centered at $p$ that is fully enclosed in $S$}
 \n \dfn{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \bar{S} = S \cup \{p \in M \mid \rfr{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr)\}
-\n \dfn{dense}\ml(S, \ml(M, \mathcal{O}, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land
-\m \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr)\mr)\mr)
+\n \dfn{dense}\ml(S, \ml(M, \mathcal{O}, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr)\mr)\mr)
 \m \eqComment{every of point in $M$ is a point or a limit point of $S$}
 \n \dfn{eucD}\ml(d, \ml(n\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq n} \ml(x_i \in \mathbb{R}\mr)\mr) \land  \ml(d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}}\mr)
 \n \rfr{metricTopology}\ml(\dfn{standardTopology}, \ml(\mathbb{R}^{n}, \rfr{eucD}\ml(d, \ml(n\mr)\mr)\mr)\mr)
@@ -270,10 +271,9 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m B\ml(min\ml(r, s\mr), p, \mathbb{R}^n, eucD\mr) \in U \cap V \implies U \cap V \in \mathcal{O}_{standard}
 \m \eqComment{could fail on infinite sets since $min$ could approach $0$}
 \m \melazy
-\n \dfn{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr) \iff \ml(N \subseteq M\mr) \land 
-\m \ml(\mathcal{O}|_N = \{U \cap N \mid U \in \mathcal{O}\}\mr)
+\n \dfn{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr) \iff \rfr{topology}\ml(\mathcal{O}, \ml(M\mr)\mr) \land \ml(N \subseteq M\mr) \land \ml(\mathcal{O}|_N = \{U \cap N \mid U \in \mathcal{O}\}\mr)
 \m \eqComment{crops open sets outside $N$}
-\n \rfr{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr) \land \rfr{topology}\ml(\mathcal{O}|_N, \ml(N\mr)\mr) \impliedby
+\n \thm{} \rfr{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr) \land \rfr{topology}\ml(\mathcal{O}|_N, \ml(N\mr)\mr) \impliedby
 \m \melazy
 \m \textbf{L1: } \emptyset \in \mathcal{O} \implies U = \emptyset \implies \emptyset \cap N = \emptyset \implies \emptyset \in  \mathcal{O}|_N
 \m \textbf{L2: } M \in \mathcal{O} \implies U = M \implies M \cap N = N \implies N \in \mathcal{O}|_N
@@ -294,7 +294,7 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \n \dfn{sequenceConvergesTo}\ml(\ml(q, a\mr), \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(\rfr{sequence}\ml(q, \ml(M\mr)\mr)\mr) \land \ml(a \in M\mr) \land \ml(\forall_{U \in \mathcal{O} \mid a \in U} \exists_{N \in \mathbb{N}} \forall_{n > N} \ml(q\ml(n\mr) \in U\mr)\mr)
 \m \eqComment{each neighborhood of $a$ has a tail-end sequence that does not map to outside points}
-\n \textbf{convergence generalizes to: the sequence $q: \mathbb{N} \to \mathbb{R}^d$ converges against $a \in \mathbb{R}^d$ in $\mathcal{O}_S$ if: }
+\n \thm{} \textbf{convergence generalizes to: the sequence $q: \mathbb{N} \to \mathbb{R}^d$ converges against $a \in \mathbb{R}^d$ in $\mathcal{O}_S$ if: }
 \m \forall_{r > 0} \exists_{N \in \mathbb{N}} \forall_{n > N} \ml(|| q\ml(n\mr) - a || < \epsilon\mr) \eqComment{distance based convergence}\end {align}
 \end{tcolorbox}
 
@@ -304,8 +304,7 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
     \dfn{continuous}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}_M\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{topologicalSpace}\ml(\ml(N, \mathcal{O}_N\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\phi, \ml(M, N\mr)\mr)\mr) \land \ml(\forall_{V \in \mathcal{O}_N} \ml(\rfr{preimage}\ml(A, \ml(V, \phi, M, N\mr)\mr) \land A \in \mathcal{O}_M\mr)\mr)
 \m \eqComment{preimage of open sets are open}
-\n \dfn{homeomorphism}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr) \iff \ml(\rfr{bijection}\ml(\phi, \ml(M, N\mr)\mr)\mr) \land
-\m \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}_M\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{topologicalSpace}\ml(\ml(N, \mathcal{O}_N\mr), \ml(\mr)\mr)\mr)
+\n \dfn{homeomorphism}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr) \iff \ml(\rfr{inverseMap}\ml(\phi^{-1}, \ml(\phi, M, N\mr)\mr)\mr)
 \m \ml(\rfr{continuous}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr)\mr) \land \ml(\rfr{continuous}\ml(\phi^{-1}, \ml(\ml(N, \mathcal{O}_N\mr), \ml(M, \mathcal{O}_M\mr)\mr)\mr)\mr)
 \m \eqComment{structure preserving maps in topology, ability to share topological properties}
 \n \dfn{isomorphicTopologicalSpace}\ml(\ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr), \ml(\mr)\mr) \iff 
@@ -325,78 +324,78 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \n \dfn{T2Separate}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(\forall_{x, y \in M \land x \neq y} \exists_{U, V \in \mathcal{O} \land U \neq V} \ml(U \cap V = \emptyset\mr)\mr)
 \m \eqComment{every point has a neighborhood that does not intersect with a nhbhd of another point - Hausdorff space}
-\n \rfr{T2Separate} \implies \rfr{T1Separate} \implies \rfr{T0Separate}
+\n \thm{} \rfr{T2Separate} \implies \rfr{T1Separate} \implies \rfr{T0Separate}
 \end {align}
 \end{tcolorbox}
 
-\subsection{Compactness and Paracompactness}
+\subsection{Compactness}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{openCover}(C, (M, \mathcal{O})) \iff (\rfr{topologicalSpace}((M, \mathcal{O}), ())) \land (C \subseteq \mathcal{O}) \land (\cup C = M)
+   \dfn{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land \ml(C \subseteq \mathcal{O}\mr) \land \ml(\cup C = M\mr)
 \m \eqComment{collection of open sets whose elements cover the entire space}
-\n finiteSubcover(\widetilde{C}, (C, M, \mathcal{O})) \iff (\rfr{topologicalSpace}((M, \mathcal{O}), ())) \land (\rfr{openCover}(C, (M, \mathcal{O}))) \land
-\m (\widetilde{C} \subseteq C) \land (\rfr{openCover}(\widetilde{C}, (M, \mathcal{O}))) \land (\rfr{finiteSet}(\widetilde{C}, ()))
+\n \dfn{finiteSubcover}\ml(\widetilde{C}, \ml(C, M, \mathcal{O}\mr)\mr) \iff \ml(\widetilde{C} \subseteq C\mr) \land \ml(\rfr{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr)\mr) \land
+\m \ml(\rfr{openCover}\ml(\widetilde{C}, \ml(M, \mathcal{O}\mr)\mr)\mr) \land \ml(\rfr{finiteSet}\ml(\widetilde{C}, \ml(\mr)\mr)\mr)
 \m \eqComment{finite subset of a cover that is also a cover}
-\n \dfn{compact}((M, \mathcal{O}), ()) \iff (\rfr{topologicalSpace}((M, \mathcal{O}), ())) \land
-\m (\forall_{C \subseteq \mathcal{O}} (\rfr{openCover}(C, (M, \mathcal{O})) \implies \exists_{\widetilde{C} \subseteq C} (\rfr{finiteSubcover}(\widetilde{C}, (C, M, \mathcal{O})))))
+\n \dfn{compact}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\forall_{C \subseteq \mathcal{O}} \ml(\rfr{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr) \implies \exists_{\widetilde{C} \subseteq C} \ml(\rfr{finiteSubcover}\ml(\widetilde{C}, \ml(C, M, \mathcal{O}\mr)\mr)\mr)\mr)\mr)
 \m \eqComment{every covering of the space is represented by a finite number of nhbhds}
-\n \rfr{compact}((N, \mathcal{O}|_N), ()) \impliedby (\rfr{compact}((M, \mathcal{O}), ())) \land (\rfr{subsetTopology}(\mathcal{O}|_N, (M, \mathcal{O}, N)))
-\n \melazy
-\n bounded(N, (M, d)) \iff (\exists_{p \in M} \exists_{r \in \mathbb{R}^+} (N \subseteq openBall(B, (r, p, M, d)))) \lor
-\m (\forall_{p, q \in n} \exists_{r \in \mathbb{R}^+}(d(p, q) < r))
-\n \thm{HeineBorel} (S, (M, metricTopology(\mathcal{O}_d, (M, d)))) \implies 
-\m \forall_{S \in \mathcal{P}(M)} ((closed(S, (M, \mathcal{O}_d)) \land bounded(S, (M, \mathcal{O}_d))) \iff compact(S, (M, \mathcal{O}_d)))
-\m \eqComment{in some situations, compactness is equivalent to being closed and bounded}
-\n compact((M, \mathcal{O}_M), ()) \land compact((N, \mathcal{O}_N), ()) \implies compact(\mathcal{O}_{A \times B}((A, \mathcal{O}_A), (B, \mathcal{O}_B)), ())
-\n openRefinement(\widetilde{C}, (C, M, \mathcal{O})) \iff (openCover(C, (M, \mathcal{O}))) \land
-\m (openCover(\widetilde{C}, (M, \mathcal{O}))) \land
-\m (\forall_{U \in C} \exists_{\widetilde{U} \in \widetilde{C}} (\widetilde{U} \subseteq U))
-\m \eqComment{open sets in the open refinement only needs to be a subset of some in the open cover}
-\m \eqComment{one could refine the cover by removing the excess open set elements that lie outside the space}
-\n finiteSubcover \implies openRefinement
-\n locallyFinite(C, (M, \mathcal{O})) \iff (openCover(C, (M, \mathcal{O}))) \land 
-\m \forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} (finiteSet(\{U_c \in C| U \cap U_c \neq \emptyset\}, ()))
+\n \dfn{compactSubset}\ml(N, \ml(M, \mathcal{O}_d, d\mr)\mr) \iff \ml(\rfr{compact}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr)\mr)
+\n \dfn{bounded}\ml(N, \ml(M, d\mr)\mr) \iff \ml(\rfr{metricSpace}\ml(\ml(M, d\mr), \ml(\mr)\mr)\mr) \land \ml(N \subseteq M\mr) \land
+\m \ml(\exists_{r \in \mathbb{R}^+} \forall_{p, q \in n} \ml(d\ml(p, q\mr) < r\mr)\mr)
+\n \thm{HeineBorel} \rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}_d, d\mr), \ml(\mr)\mr) \implies 
+\m \forall_{S \in \mathcal{P}\ml(M\mr)} \ml(\ml(\rfr{closed}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr) \land \rfr{bounded}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr) \iff \rfr{compactSubset}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr)
+\m \eqComment{when metric topologies are involved, compactness is equivalent to being closed and bounded}
+\end {align}
+\end{tcolorbox}
+
+\subsection{Paracompactness}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \dfn{openRefinement}\ml(\widetilde{C}, \ml(C, M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr)\mr) \land \ml(\rfr{openCover}\ml(\widetilde{C}, \ml(M, \mathcal{O}\mr)\mr)\mr) \land
+\m \ml(\forall_{\widetilde{U} \in \widetilde{C}} \exists_{U \in C} \ml(\widetilde{U} \subseteq U\mr)\mr)
+\m \eqComment{a refined cover can be constructed by removing the excess nhbhds and points that lie outside the space}
+\n \thm{} \rfr{finiteSubcover} \implies \rfr{openRefinement}
+\n \dfn{locallyFinite}\ml(C, \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr)\mr) \land 
+\m \forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \ml(\rfr{finiteSet}\ml(\{U_c \in C| U \cap U_c \neq \emptyset\}, \ml(\mr)\mr)\mr)
 \m \eqComment{each point has a neighborhood that intersects with only finitely many sets in the cover}
-\n paracompact((M, \mathcal{O}), ()) \iff 
-\m \forall_{C} (openCover(C, (M, \mathcal{O})) \implies \exists_{\widetilde{C}} (locallyFinite(openRefinement(\widetilde{C}, (C, M, \mathcal{O})), (M, \mathcal{O}))))
+\n \dfn{paracompact}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff 
+\m \forall_{C} \ml(\rfr{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr) \implies \exists_{\widetilde{C}} \ml(\rfr{locallyFinite}\ml(\rfr{openRefinement}\ml(\widetilde{C}, \ml(C, M, \mathcal{O}\mr)\mr), \ml(M, \mathcal{O}\mr)\mr)\mr)\mr)
 \m \eqComment{every open cover has a locally finite open refinement}
-\m \eqComment{each point has a neighborhood that is in contact with only finitely many open refinement elements}
-\n \textbf{thm: every metrizable space is paracompact}
-\n \textbf{thm: product of a paracompact and finitely many compact topologies is paracompact}
-\n partitionOfUnitySOTCover(\mathcal{F}, (C, M, \mathcal{O})) \iff (openCover(C, (M, \mathcal{O}))) \land
-\m (locallyFinite(C, M, \mathcal{O})) \land
-\m (f \in \mathcal{F}) \land
-\m (continuous(f, ((M, \mathcal{O}), ([0, 1], \mathcal{O}_{standard}|_{[0 ,1]})))) \land
-\m (\exists_{U_C \in C} \forall_{p \in M} (f(p) \neq 0 \implies p \in U_C)) \land
-\m (\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} ((f_U)_n = \{f \in \mathcal{F}| p \in M \land f(p) \neq 0\})) \land
-\m (locallyFinite(C, M, \mathcal{O}) \implies finiteSet((f_U)_n, ())) \land
-\m (\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \left(\sum_{i = 1}^{|(f_U)_n|} (f_U)_i(p) = 1 \right))
+\n \thm{} \rfr{metricTopologicalSpace} \implies \rfr{paracompact}
+\n \melazy
+\n {partitionOfUnitySubjCover}\ml(\mathcal{F}, \ml(C, M, \mathcal{O}\mr)\mr) \iff \ml({locallyFinite}\ml(C, \ml(M, \mathcal{O}\mr)\mr)\mr) \land \ml(f \in \mathcal{F}\mr) \land 
+\m \ml({continuous}\ml(f, \ml(\ml(M, \mathcal{O}\mr), \ml([0, 1], {subsetTopology}\ml(\mathcal{O}|_{[0, 1]}, \ml([0, 1], \mathbb{R}, {standardTopology}\mr)\mr)\mr)\mr)\mr)\mr) \land
+\m \ml(\exists_{U_f \in C} \forall_{p \in M} \ml(f\ml(p\mr) \neq 0 \implies p \in U_f\mr)\mr) \land
+\m \ml(\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \ml(\ml(f_U\mr)_n = \{f \in \mathcal{F}| p \in M \land f\ml(p\mr) \neq 0\}\mr)\mr) \land
+\m \ml(locallyFinite\ml(C, M, \mathcal{O}\mr) \implies finiteSet\ml(\ml(f_U\mr)_n, \ml(\mr)\mr)\mr) \land
+\m \ml(\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \ml(\sum_{i = 1}^{|\ml(f_U\mr)_n|} \ml(f_U\mr)_i\ml(p\mr) = 1 \mr)\mr)
 \m \eqComment{useful for defining integrals between overlapping neighborhoods}
-\n T2Separate((M, \mathcal{O}), ()) \implies (paracompact((M, \mathcal{O}), ()) \iff 
-\m \forall_{C} (openCover(C, (M, \mathcal{O})) \implies partitionOfUnitySOTCover(\mathcal{F}, (C, M, \mathcal{O}))))
+\n T2Separate\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \implies \ml(paracompact\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \iff 
+\m \forall_{C} \ml(openCover\ml(C, \ml(M, \mathcal{O}\mr)\mr) \implies partitionOfUnitySOTCover\ml(\mathcal{F}, \ml(C, M, \mathcal{O}\mr)\mr)\mr)
+\n \melazy
 \end {align}
 \end{tcolorbox}
 
 \subsection{Connectedness and path-connectedness}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   connected((M, \mathcal{O}), ()) \iff \lnot (\exists_{A, B \in \mathcal{O} \setminus \emptyset} (A \cap B \neq \emptyset \land A \cup B = M))
-\n \lnot connected((\mathbb{R} \setminus \{0\}, \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}), ()) \impliedby
-\m (A = (-\infty, 0) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}) \land 
-\m (B = (0, \infty) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}) \land
-\m (A \cap B = \emptyset) \land
-\m (A \cup B = \mathbb{R} \setminus \{0\})
-\n connected((M, \mathcal{O}), ()) \iff \forall_{S \in \mathcal{O}} ((S = \emptyset \lor S = M) \implies clopen(S, (M, \mathcal{O})))
-\n pathConnected((M, \mathcal{O}), ()) \iff 
-\m \forall_{p, q \in M} \exists_{\gamma} (continuous(\gamma, (([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}), (M, \mathcal{O}))) \land \gamma(0) = p \land \gamma(1) = q)
-\n pathConnected \implies connected
+   \dfn{connected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land \ml(\lnot \exists_{A, B \in \mathcal{O} \setminus \emptyset} \ml(A \cap B \neq \emptyset \land A \cup B = M\mr)\mr)
+\m \eqComment{if there is some covering of the space that does not intersect}
+\n \thm{} \lnot \rfr{connected}\ml(\ml(\mathbb{R} \setminus \{0\}, \rfr{subsetTopology}\ml(\mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}, \ml(\mathbb{R}, \rfr{standardTopology}, \mathbb{R} \setminus \{0\}\mr)\mr)\mr), \ml(\mr)\mr)
+\m \impliedby \ml(A = \ml(-\infty, 0\mr) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}\mr) \land \ml(B = \ml(0, \infty\mr) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}\mr) \land
+\m \ml(A \cap B = \emptyset\mr) \land \ml(A \cup B = \mathbb{R} \setminus \{0\}\mr)
+\n \thm{} \rfr{connected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \forall_{S \in \mathcal{O}} \ml(\rfr{clopen}\ml(S, \ml(M, \mathcal{O}\mr) \implies \ml(S = \emptyset \lor S = M\mr)\mr)\mr)
+\n \dfn{pathConnected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{subsetTopology}\ml(\mathcal{O}_{standard}|_{[0, 1]}, \ml(\mathbb{R}, \rfr{standardTopology}, [0, 1]\mr)\mr)\mr) \land
+\m \ml(\forall_{p, q \in M} \exists_{\gamma} \ml(continuous\ml(\gamma, \ml(\ml([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}\mr), \ml(M, \mathcal{O}\mr)\mr)\mr) \land \gamma\ml(0\mr) = p \land \gamma\ml(1\mr) = q\mr)\mr)
+\n \thm{} \rfr{pathConnected} \implies \rfr{connected}
 \end {align}
 \end{tcolorbox}
 
 \subsection{Homotopic curve and the fundamental group}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   homotopic(\sim, (\gamma, \delta, M, \mathcal{O})) \iff (map(\gamma, ([0, 1], M)) \land map(\delta, ([0, 1], M))) \land 
+   \melazy
+\n homotopic(\sim, (\gamma, \delta, M, \mathcal{O})) \iff (map(\gamma, ([0, 1], M)) \land map(\delta, ([0, 1], M))) \land 
 \m (\gamma(0) = \delta(0) \land \gamma(1) = \delta(1)) \land
 \m (\exists_H \forall_{\lambda \in [0, 1]} (continuous(H, (([0, 1] \times [0, 1], \mathcal{O}_{standard^2}|_{[0, 1] \times [0, 1]}), (M, \mathcal{O})) \land H(0, \lambda) = \gamma(\lambda) \land H(1, \lambda) = \delta(\lambda))))
 \m \eqComment{$H$ is a continuous deformation of one curve into another}
@@ -418,19 +417,29 @@ TODO should really define union intersection complement etc \rfr{TESTMEEEEEEEEEE
 \m \eqComment{an equivalence class of all loops induced from the homotopic equivalence relation}
 \n fundamentalGroup_1 \centernot\cong fundamentalGroup_2 \implies topologicalSpace_1 \centernot\cong topologicalSpace_2
 \n \textbf{there exists no known list of topological properties that can imply homeomorphisms}
+\n \textbf{CONTINUE @ Lecture 6: manifolds}
+\n \melazy
 \end {align}
 \end{tcolorbox}
 
-MISSING SOME IFF SETUP CONDITIONS
-CHANGE QUANTIFIER LAND TO S.T.
-$\odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash$
-
-\subsection{Lecture 6 manifolds}
+\subsection{Measure theory}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   manifold((M, \mathcal{O}), ()) \iff (paracompact \land T2separable) \land
-\m (\exists_{d \in \mathbb{N}^+} \forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \exists_{F \in \mathbb{R}^d} ((U, \mathcal{O}|_U) \cong (F, \mathcal{O}_{standard^d}))) \eqComment{topology that is locally flat}
-\n 0
+\n \sigma\text{-}algebra(\sigma, (M)) \iff (\sigma \subseteq \mathcal{P}(M)) \land
+\m (M \in \sigma) \land
+\m (\forall_{A \in \sigma} (M \setminus A \in \sigma)) \land
+\m ((A)_\mathbb{N} \subseteq \sigma \implies \cup ((A)_\mathbb{N}) \in \sigma)
+\n measurableSpace((M, \sigma), ()) \iff \sigma\text{-}algebra(\sigma, (M)
+\n measurableSet(A, (M, \sigma)) \iff A \in \sigma)
+\n measure(\mu, (M, \sigma)) \iff (map(\mu, (\sigma, \overline{\mathbb{R}}^+_0))) \land
+\m (\mu(\emptyset) = 0) \land
+\m ((A)_\mathbb{N} \subseteq \sigma \land \forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} (A_i \cap A_j = \emptyset) \implies \mu(\cup_{i \in \mathbb{N}} (A_i)) = \sum_{i \in \mathbb{N}} (\mu(A_i)))
+\n measureSpace((M, \sigma, \mu), ())
+\n measure \implies
+\m \forall_{A, B \in \sigma} (A \subseteq B \implies \mu(A) \leq \mu(B))
+\m  (A)_\mathbb{N} \subseteq \sigma \implies \mu \cup \leq \sum \mu
+\m A_1 \subseteq A_2 ... = A \implies \lim_{n \to \infty} (\mu(A_n)) = \mu(\cup A_n) = \mu(A)
+\m ... A_2 \subseteq A_1 = A
 \end {align}
 \end{tcolorbox}
 
@@ -463,27 +472,8 @@ $\odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash$
 \m (\Omega \in \mathcal{F}) \land
 \m (\forall_{A \in \mathcal{F}} (A^C \in \mathcal{F})) \land
 \m (\forall_{F \subseteq \mathcal{F}} (\lnot uncountablyInfinite(F, ()) \implies \cup F \in \mathcal{F}))
-\n NONINDIANSHIT \labeltarget{testp}
-\n \sigma\text{-}algebra(\sigma, (M)) \iff (\sigma \subseteq \mathcal{P}(M)) \land
-\m (M \in \sigma) \land
-\m (\forall_{A \in \sigma} (M \setminus A \in \sigma)) \land
-\m ((A)_\mathbb{N} \subseteq \sigma \implies \cup ((A)_\mathbb{N}) \in \sigma)
-\n measurableSpace((M, \sigma), ()) \iff \sigma\text{-}algebra(\sigma, (M)
-\n measurableSet(A, (M, \sigma)) \iff A \in \sigma)
-\n measure(\mu, (M, \sigma)) \iff (map(\mu, (\sigma, \overline{\mathbb{R}}^+_0))) \land
-\m (\mu(\emptyset) = 0) \land
-\m ((A)_\mathbb{N} \subseteq \sigma \land \forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} (A_i \cap A_j = \emptyset) \implies \mu(\cup_{i \in \mathbb{N}} (A_i)) = \sum_{i \in \mathbb{N}} (\mu(A_i)))
-\n measureSpace((M, \sigma, \mu), ())
-\n measure \implies
-\m \forall_{A, B \in \sigma} (A \subseteq B \implies \mu(A) \leq \mu(B))
-\m  (A)_\mathbb{N} \subseteq \sigma \implies \mu \cup \leq \sum \mu
-\m A_1 \subseteq A_2 ... = A \implies \lim_{n \to \infty} (\mu(A_n)) = \mu(\cup A_n) = \mu(A)
-\m ... A_2 \subseteq A_1 = A
 \end {align}
 \end{tcolorbox}
-maybe tupleify algebra like topology
-
-\hyperlink{testp}{generalized form}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

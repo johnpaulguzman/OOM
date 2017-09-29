@@ -1,4 +1,4 @@
-% CONTINUE LINE 428
+% CONTINUE LINE 475
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -58,7 +58,6 @@
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
 
-TODO should really define union intersection complement etc
 \section{Mathematical Analysis}
 \subsubsection{Formal Logic}
 \begin{tcolorbox}[breakable, enhanced]
@@ -101,6 +100,8 @@ TODO should really define union intersection complement etc
 \m \textbf{addition, multiplication, and prime nuumbers for encoding metamathematics}
 \n \textbf{G\"odel theorem} \implies \textbf{axiomatic systems equivalent in power to elementary mathematics}
 \m \textbf{either has unprovable statements or has contradictions}
+\n \dfn{sequenceSet}((A)_\mathbb{N}, (A)) \iff (A map input n)((A)_\mathbb{N} = \{A(1), A(2), A(3), \ldots \})
+\n \textbf{TODO: define union,  intersection, complement, etc.}
 \n \melazy
 \end{align}
 \end{tcolorbox}
@@ -269,6 +270,7 @@ TODO should really define union intersection complement etc
 \m \exists_{r \in \mathbb{R}^+} B\ml(r, p, \mathbb{R}^n, d\mr) \land \exists_{s \in \mathbb{R}^+} B\ml(s, p, \mathbb{R}^n, d\mr) \implies 
 \m B\ml(min\ml(r, s\mr), p, \mathbb{R}^n, eucD\mr) \subseteq U \land B\ml(min\ml(r, s\mr), q, \mathbb{R}^n, d\mr) \subseteq V \implies
 \m B\ml(min\ml(r, s\mr), p, \mathbb{R}^n, eucD\mr) \in U \cap V \implies U \cap V \in \mathcal{O}_{standard}
+\m \eqComment{natural topology for $\mathbb{R}^d$}
 \m \eqComment{could fail on infinite sets since $min$ could approach $0$}
 \m \melazy
 \n \dfn{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr) \iff \rfr{topology}\ml(\mathcal{O}, \ml(M\mr)\mr) \land \ml(N \subseteq M\mr) \land \ml(\mathcal{O}|_N = \{U \cap N \mid U \in \mathcal{O}\}\mr)
@@ -301,14 +303,14 @@ TODO should really define union intersection complement etc
 \subsection{Continuity}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-    \dfn{continuous}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}_M\mr), \ml(\mr)\mr)\mr) \land 
-\m \ml(\rfr{topologicalSpace}\ml(\ml(N, \mathcal{O}_N\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\phi, \ml(M, N\mr)\mr)\mr) \land \ml(\forall_{V \in \mathcal{O}_N} \ml(\rfr{preimage}\ml(A, \ml(V, \phi, M, N\mr)\mr) \land A \in \mathcal{O}_M\mr)\mr)
+    \dfn{continuous}\ml(\phi, \ml(M, \mathcal{O}_M, N, \mathcal{O}_N\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}_M\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{topologicalSpace}\ml(\ml(N, \mathcal{O}_N\mr), \ml(\mr)\mr)\mr) \land \ml(\forall_{V \in \mathcal{O}_N} \ml(\rfr{preimage}\ml(A, \ml(V, \phi, M, N\mr)\mr) \in \mathcal{O}_M\mr)\mr)
 \m \eqComment{preimage of open sets are open}
-\n \dfn{homeomorphism}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr) \iff \ml(\rfr{inverseMap}\ml(\phi^{-1}, \ml(\phi, M, N\mr)\mr)\mr)
-\m \ml(\rfr{continuous}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr)\mr) \land \ml(\rfr{continuous}\ml(\phi^{-1}, \ml(\ml(N, \mathcal{O}_N\mr), \ml(M, \mathcal{O}_M\mr)\mr)\mr)\mr)
+\n \dfn{homeomorphism}\ml(\phi, \ml(M, \mathcal{O}_M, N, \mathcal{O}_N\mr)\mr) \iff \ml(\rfr{inverseMap}\ml(\phi^{-1}, \ml(\phi, M, N\mr)\mr)\mr)
+\m \ml(\rfr{continuous}\ml(\phi, \ml(M, \mathcal{O}_M, N, \mathcal{O}_N\mr)\mr)\mr) \land \ml(\rfr{continuous}\ml(\phi^{-1}, \ml(N, \mathcal{O}_N, M, \mathcal{O}_M\mr)\mr)\mr)
 \m \eqComment{structure preserving maps in topology, ability to share topological properties}
 \n \dfn{isomorphicTopologicalSpace}\ml(\ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr), \ml(\mr)\mr) \iff 
-\m \exists_\phi \ml(\rfr{homeomorphism}\ml(\phi, \ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr)\mr)\mr)
+\m \exists_\phi \ml(\rfr{homeomorphism}\ml(\phi, \ml(M, \mathcal{O}_M, N, \mathcal{O}_N\mr)\mr)\mr)
 \end {align}
 \end{tcolorbox}
 
@@ -364,7 +366,7 @@ TODO should really define union intersection complement etc
 \n \thm{} \rfr{metricTopologicalSpace} \implies \rfr{paracompact}
 \n \melazy
 \n {partitionOfUnitySubjCover}\ml(\mathcal{F}, \ml(C, M, \mathcal{O}\mr)\mr) \iff \ml({locallyFinite}\ml(C, \ml(M, \mathcal{O}\mr)\mr)\mr) \land \ml(f \in \mathcal{F}\mr) \land 
-\m \ml({continuous}\ml(f, \ml(\ml(M, \mathcal{O}\mr), \ml([0, 1], {subsetTopology}\ml(\mathcal{O}|_{[0, 1]}, \ml([0, 1], \mathbb{R}, {standardTopology}\mr)\mr)\mr)\mr)\mr)\mr) \land
+\m \ml({continuous}\ml(f, \ml(M, \mathcal{O}, [0, 1], {subsetTopology}\ml(\mathcal{O}|_{[0, 1]}, \ml([0, 1], \mathbb{R}, {standardTopology}\mr)\mr)\mr)\mr)\mr) \land
 \m \ml(\exists_{U_f \in C} \forall_{p \in M} \ml(f\ml(p\mr) \neq 0 \implies p \in U_f\mr)\mr) \land
 \m \ml(\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \ml(\ml(f_U\mr)_n = \{f \in \mathcal{F}| p \in M \land f\ml(p\mr) \neq 0\}\mr)\mr) \land
 \m \ml(locallyFinite\ml(C, M, \mathcal{O}\mr) \implies finiteSet\ml(\ml(f_U\mr)_n, \ml(\mr)\mr)\mr) \land
@@ -386,7 +388,7 @@ TODO should really define union intersection complement etc
 \m \ml(A \cap B = \emptyset\mr) \land \ml(A \cup B = \mathbb{R} \setminus \{0\}\mr)
 \n \thm{} \rfr{connected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \forall_{S \in \mathcal{O}} \ml(\rfr{clopen}\ml(S, \ml(M, \mathcal{O}\mr) \implies \ml(S = \emptyset \lor S = M\mr)\mr)\mr)
 \n \dfn{pathConnected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{subsetTopology}\ml(\mathcal{O}_{standard}|_{[0, 1]}, \ml(\mathbb{R}, \rfr{standardTopology}, [0, 1]\mr)\mr)\mr) \land
-\m \ml(\forall_{p, q \in M} \exists_{\gamma} \ml(continuous\ml(\gamma, \ml(\ml([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}\mr), \ml(M, \mathcal{O}\mr)\mr)\mr) \land \gamma\ml(0\mr) = p \land \gamma\ml(1\mr) = q\mr)\mr)
+\m \ml(\forall_{p, q \in M} \exists_{\gamma} \ml(\rfr{continuous}\ml(\gamma, \ml([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}, M, \mathcal{O}\mr)\mr) \land \gamma\ml(0\mr) = p \land \gamma\ml(1\mr) = q\mr)\mr)
 \n \thm{} \rfr{pathConnected} \implies \rfr{connected}
 \end {align}
 \end{tcolorbox}
@@ -425,21 +427,52 @@ TODO should really define union intersection complement etc
 \subsection{Measure theory}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-\n \sigma\text{-}algebra(\sigma, (M)) \iff (\sigma \subseteq \mathcal{P}(M)) \land
-\m (M \in \sigma) \land
-\m (\forall_{A \in \sigma} (M \setminus A \in \sigma)) \land
-\m ((A)_\mathbb{N} \subseteq \sigma \implies \cup ((A)_\mathbb{N}) \in \sigma)
-\n measurableSpace((M, \sigma), ()) \iff \sigma\text{-}algebra(\sigma, (M)
-\n measurableSet(A, (M, \sigma)) \iff A \in \sigma)
-\n measure(\mu, (M, \sigma)) \iff (map(\mu, (\sigma, \overline{\mathbb{R}}^+_0))) \land
-\m (\mu(\emptyset) = 0) \land
-\m ((A)_\mathbb{N} \subseteq \sigma \land \forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} (A_i \cap A_j = \emptyset) \implies \mu(\cup_{i \in \mathbb{N}} (A_i)) = \sum_{i \in \mathbb{N}} (\mu(A_i)))
-\n measureSpace((M, \sigma, \mu), ())
-\n measure \implies
-\m \forall_{A, B \in \sigma} (A \subseteq B \implies \mu(A) \leq \mu(B))
-\m  (A)_\mathbb{N} \subseteq \sigma \implies \mu \cup \leq \sum \mu
-\m A_1 \subseteq A_2 ... = A \implies \lim_{n \to \infty} (\mu(A_n)) = \mu(\cup A_n) = \mu(A)
-\m ... A_2 \subseteq A_1 = A
+   \dfn{sigmaAlgebra}\ml(\sigma, \ml(M\mr)\mr) \iff \ml(M \neq \emptyset\mr) \land \ml(\sigma \subseteq \mathcal{P}\ml(M\mr)\mr) \land
+\m \ml(M \in \sigma\mr) \land \ml(\forall_{A \in \sigma} \ml(M \setminus A \in \sigma\mr)\mr) \land
+\m \ml(\ml(A \subseteq \sigma \land \lnot \rfr{uncountablyInfinite}\ml(A, \ml(\mr)\mr)\mr) \implies \cup A \in \sigma\mr)
+\m \eqComment{behaves as measurable sets should; provides the sufficient structure for defining a measure $\mu$}
+\n \dfn{measurableSpace}\ml(\ml(M, \sigma\mr), \ml(\mr)\mr) \iff \rfr{sigmaAlgebra}\ml(\sigma, \ml(M\mr)\mr)
+\n \dfn{measurableSet}\ml(A, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableSpace}\ml(\ml(M, \sigma\mr), \ml(\mr)\mr)\mr) \land \ml(A \in \sigma\mr)
+\n \dfn{measure}\ml(\mu, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableSpace}\ml(\ml(M, \sigma\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\mu, \ml(\sigma, \ml(\overline{\mathbb{R}}\mr)^+_0\mr)\mr)\mr) \land \ml(\mu\ml(\emptyset\mr) = 0\mr) \land
+\m \ml(\ml(\ml(A\mr)_\mathbb{N} \subseteq \sigma \land \forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} \ml(A_i \cap A_j = \emptyset\mr)\mr) \implies \mu\ml(\cup_{i \in \mathbb{N}} \ml(A_i\mr)\mr) = \sum_{i \in \mathbb{N}} \ml(\mu\ml(A_i\mr)\mr)\mr)
+\m \eqComment{enforces meaningful concepts of measures such as precise additivity}
+\n \thm{} \rfr{measure}\ml(\mu, \ml(M, \sigma\mr)\mr) \implies
+\m \ml(\forall_{A, B \in \sigma} \ml(A \subseteq B \implies \mu\ml(A\mr) \leq \mu\ml(B\mr)\mr)\mr) \land
+\m \ml(\ml(A\mr)_\mathbb{N} \subseteq \sigma \implies \mu\ml(\cup_{i \in \mathbb{N}} \ml(A_i\mr)\mr) \leq \sum_{i \in \mathbb{N}} \ml(\mu\ml(A_i\mr)\mr)\mr) \land 
+\m \ml(\ml(\ml(B\mr)_\mathbb{N} \subseteq \sigma \land \forall_{i \in \mathbb{N}} \ml(B_i \subseteq B_{i + 1}\mr) \land B = \cup \ml(B\mr)_\mathbb{N}\mr) \implies \lim_{n \to \infty} \ml(\mu\ml(B_n\mr)\mr) = \mu\ml(B\mr)\mr) \land
+\m \ml(\ml(\ml(C\mr)_\mathbb{N} \subseteq \sigma \land \forall_{i \in \mathbb{N}} \ml(C_{i + 1} \subseteq C_i\mr) \land C = \cap \ml(C\mr)_\mathbb{N}\mr) \implies \lim_{n \to \infty} \ml(\mu\ml(C_n\mr)\mr) = \mu\ml(C\mr)\mr)
+\m \eqComment{immediate implications of the measurable set $A \in \sigma$ axioms and the measure $\mu$ axioms}
+\n \dfn{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr) \iff \rfr{measure}\ml(\mu, \ml(M, \sigma\mr)\mr)
+\n \dfn{finiteMeasure}\ml(\mu, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measure}\ml(\mu, \ml(M, \sigma\mr)\mr)\mr) \land
+\m \ml(\exists_{\ml(A\mr)_\mathbb{N} \subseteq \sigma} \ml(\cup \ml(\ml(A\mr)_\mathbb{N}\mr) = M \land \forall_{n \in \mathbb{N}} \ml(\mu \ml(A_n\mr) < \infty\mr)\mr)\mr)
+\n \dfn{generatedSigmaAlgebra}\ml(\sigma\ml(\zeta\mr), \ml(\zeta, M\mr)\mr) \iff \ml(G = \{\sigma \subseteq \mathcal{P}\ml(M\mr) \mid \rfr{sigmaAlgebra}\ml(\sigma, \ml(M\mr)\mr)\}\mr) \land \ml(\sigma\ml(\zeta\mr) = \cap G\mr)
+\m \eqComment{smallest $\sigma$-algebra containing the generating set $\zeta$}
+\n \thm{} \exists_{\zeta \subseteq M} \ml(\rfr{generatedSigmaAlgebra}\ml(\sigma\ml(\zeta\mr), \ml(\zeta, M\mr)\mr) = \rfr{sigmaAlgebra}\ml(\sigma, \ml(M\mr)\mr)\mr)
+\n \dfn{borelSigmaAlgebra}\ml(\sigma\ml(\mathcal{O}\mr), \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{generatedSigmaAlgebra}\ml(\sigma\ml(\mathcal{O}\mr), \ml(\mathcal{O}, M\mr)\mr)\mr)
+\m \eqComment{$\sigma$-algebra induced by a topology}
+\n \dfn{lebesgueMeasure}\ml(\lambda, \ml(\mr)\mr) \iff \ml(\rfr{borelSigmaAlgebra}\ml(\sigma\ml(\rfr{standardTopology}\mr), \ml(\mathbb{R}^d, \rfr{standardTopology}\mr)\mr)\mr) \land
+\m \ml(\rfr{measure}\ml(\lambda, \ml(\mathbb{R}^d, \sigma\ml(\rfr{standardTopology}\mr)\mr)\mr)\mr) \land
+\m \ml(\lambda\ml(\times_{i = 1}^d \ml([a_i, b_i)\mr)\mr) = \sum_{i = 1}^d \ml(\sqrt[2]{\ml(a_i - b_i\mr)^2}\mr)\mr)
+\m \eqComment{natural measure for $\mathbb{R}^d$}
+\n \dfn{measurableMap}\ml(f, \ml(M, \sigma_M ,N, \sigma_N\mr)\mr) \iff \ml(\rfr{measurableSpace}\ml(\ml(M, \sigma_M\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{measurableSpace}\ml(\ml(N, \sigma_N\mr), \ml(\mr)\mr)\mr) \land \ml(\forall_{B \in \sigma_N} \ml(\rfr{preimage}\ml(A, \ml(B, f, M, N\mr)\mr) \in \sigma_M\mr)\mr)
+\m \eqComment{preimage of measurable sets are measurable}
+\n \dfn{pushForwardMeasure}\ml(f \star \lambda_M, \ml(f, M, \sigma_M, \mu_M, N, \sigma_N\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma_M, \mu_M\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\rfr{measurableSpace}\ml(\ml(N, \sigma_N\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma_M, N, \sigma_N\mr)\mr)\mr) \land
+\m \ml(\forall_{B \in N} \ml(f \star \lambda_M \ml(B\mr) = \mu_M\ml(\rfr{preimage}\ml(A, \ml(B, f, M, N\mr)\mr)\mr)\mr)\mr) \land \ml(\rfr{measure}\ml(f \star \lambda_M, \ml(N, \sigma_N\mr)\mr)\mr)
+\m \eqComment{natural construction of a measure based primarily on measurable map}
+\n \dfn{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land \ml(A \in \sigma\mr) \land \ml(\mu\ml(A\mr) = 0\mr)
+\n \dfn{almostEverywhere}\ml(p, \ml(M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{predicate}\ml(p, \ml(M\mr)\mr)\mr) \land
+\m \ml(\exists_{A \in \sigma} \ml(\rfr{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \implies \forall_{m \in M \setminus A} \ml(p\ml(m\mr)\mr)\mr)\mr)
+\m \eqComment{the predicate holds true for all points except the points in the null set}
+\end {align}
+\end{tcolorbox}
+
+\subsection{Lebesque integration}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+0
 \end {align}
 \end{tcolorbox}
 

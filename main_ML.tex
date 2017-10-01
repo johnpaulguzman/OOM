@@ -1,4 +1,4 @@
-% CONTINUE LINE 475
+% CONTINUE LINE 516
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -57,6 +57,12 @@
 \allowdisplaybreaks
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
+
+\thinmuskip=2mu % commas
+\medmuskip=2mu % operators
+\thickmuskip=2mu % equalities
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
 
 \section{Mathematical Analysis}
 \subsubsection{Formal Logic}
@@ -297,7 +303,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m \ml(\rfr{sequence}\ml(q, \ml(M\mr)\mr)\mr) \land \ml(a \in M\mr) \land \ml(\forall_{U \in \mathcal{O} \mid a \in U} \exists_{N \in \mathbb{N}} \forall_{n > N} \ml(q\ml(n\mr) \in U\mr)\mr)
 \m \eqComment{each neighborhood of $a$ has a tail-end sequence that does not map to outside points}
 \n \thm{} \textbf{convergence generalizes to: the sequence $q: \mathbb{N} \to \mathbb{R}^d$ converges against $a \in \mathbb{R}^d$ in $\mathcal{O}_S$ if: }
-\m \forall_{r > 0} \exists_{N \in \mathbb{N}} \forall_{n > N} \ml(|| q\ml(n\mr) - a || < \epsilon\mr) \eqComment{distance based convergence}\end {align}
+\m \forall_{r > 0} \exists_{N \in \mathbb{N}} \forall_{n > N} \ml(|| q\ml(n\mr) - a || < \epsilon\mr) \eqComment{distance based convergence}\end{align}
 \end{tcolorbox}
 
 \subsection{Continuity}
@@ -311,7 +317,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m \eqComment{structure preserving maps in topology, ability to share topological properties}
 \n \dfn{isomorphicTopologicalSpace}\ml(\ml(\ml(M, \mathcal{O}_M\mr), \ml(N, \mathcal{O}_N\mr)\mr), \ml(\mr)\mr) \iff 
 \m \exists_\phi \ml(\rfr{homeomorphism}\ml(\phi, \ml(M, \mathcal{O}_M, N, \mathcal{O}_N\mr)\mr)\mr)
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Separation}
@@ -327,7 +333,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m \ml(\forall_{x, y \in M \land x \neq y} \exists_{U, V \in \mathcal{O} \land U \neq V} \ml(U \cap V = \emptyset\mr)\mr)
 \m \eqComment{every point has a neighborhood that does not intersect with a nhbhd of another point - Hausdorff space}
 \n \thm{} \rfr{T2Separate} \implies \rfr{T1Separate} \implies \rfr{T0Separate}
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Compactness}
@@ -347,7 +353,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \thm{HeineBorel} \rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}_d, d\mr), \ml(\mr)\mr) \implies 
 \m \forall_{S \in \mathcal{P}\ml(M\mr)} \ml(\ml(\rfr{closed}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr) \land \rfr{bounded}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr) \iff \rfr{compactSubset}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr)
 \m \eqComment{when metric topologies are involved, compactness is equivalent to being closed and bounded}
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Paracompactness}
@@ -375,7 +381,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n T2Separate\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \implies \ml(paracompact\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \iff 
 \m \forall_{C} \ml(openCover\ml(C, \ml(M, \mathcal{O}\mr)\mr) \implies partitionOfUnitySOTCover\ml(\mathcal{F}, \ml(C, M, \mathcal{O}\mr)\mr)\mr)
 \n \melazy
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Connectedness and path-connectedness}
@@ -390,7 +396,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \dfn{pathConnected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{subsetTopology}\ml(\mathcal{O}_{standard}|_{[0, 1]}, \ml(\mathbb{R}, \rfr{standardTopology}, [0, 1]\mr)\mr)\mr) \land
 \m \ml(\forall_{p, q \in M} \exists_{\gamma} \ml(\rfr{continuous}\ml(\gamma, \ml([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}, M, \mathcal{O}\mr)\mr) \land \gamma\ml(0\mr) = p \land \gamma\ml(1\mr) = q\mr)\mr)
 \n \thm{} \rfr{pathConnected} \implies \rfr{connected}
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Homotopic curve and the fundamental group}
@@ -421,7 +427,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \textbf{there exists no known list of topological properties that can imply homeomorphisms}
 \n \textbf{CONTINUE @ Lecture 6: manifolds}
 \n \melazy
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Measure theory}
@@ -451,8 +457,8 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \dfn{borelSigmaAlgebra}\ml(\sigma\ml(\mathcal{O}\mr), \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{generatedSigmaAlgebra}\ml(\sigma\ml(\mathcal{O}\mr), \ml(\mathcal{O}, M\mr)\mr)\mr)
 \m \eqComment{$\sigma$-algebra induced by a topology}
-\n \dfn{lebesgueMeasure}\ml(\lambda, \ml(\mr)\mr) \iff \ml(\rfr{borelSigmaAlgebra}\ml(\sigma\ml(\rfr{standardTopology}\mr), \ml(\mathbb{R}^d, \rfr{standardTopology}\mr)\mr)\mr) \land
-\m \ml(\rfr{measure}\ml(\lambda, \ml(\mathbb{R}^d, \sigma\ml(\rfr{standardTopology}\mr)\mr)\mr)\mr) \land
+\n \dfn{standardSigma}(\sigma_{s}, ()) \iff \ml(\rfr{borelSigmaAlgebra}\ml(\sigma_{s}, \ml(\mathbb{R}^d, \rfr{standardTopology}\mr)\mr)\mr)
+\n \dfn{lebesgueMeasure}\ml(\lambda, \ml(\mr)\mr) \iff \ml(\rfr{measure}\ml(\lambda, \ml(\mathbb{R}^d, \rfr{standardSigma}\mr)\mr)\mr) \land
 \m \ml(\lambda\ml(\times_{i = 1}^d \ml([a_i, b_i)\mr)\mr) = \sum_{i = 1}^d \ml(\sqrt[2]{\ml(a_i - b_i\mr)^2}\mr)\mr)
 \m \eqComment{natural measure for $\mathbb{R}^d$}
 \n \dfn{measurableMap}\ml(f, \ml(M, \sigma_M ,N, \sigma_N\mr)\mr) \iff \ml(\rfr{measurableSpace}\ml(\ml(M, \sigma_M\mr), \ml(\mr)\mr)\mr) \land 
@@ -466,14 +472,49 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \dfn{almostEverywhere}\ml(p, \ml(M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{predicate}\ml(p, \ml(M\mr)\mr)\mr) \land
 \m \ml(\exists_{A \in \sigma} \ml(\rfr{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \implies \forall_{m \in M \setminus A} \ml(p\ml(m\mr)\mr)\mr)\mr)
 \m \eqComment{the predicate holds true for all points except the points in the null set}
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Lebesque integration}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-0
-\end {align}
+   \dfn{simpleTopology}\ml(\mathcal{O}_{simple}, \ml(\mr)\mr) \iff \mathcal{O}_{simple} = \rfr{subsetTopology}\ml(\mathcal{O}|_{\mathbb{R}^+_0}, \ml(\mathbb{R}, \rfr{standardTopology}, \mathbb{R}^+_0\mr)\mr)
+\n \dfn{simpleSigma}\ml(\sigma_{simple}, \ml(\mr)\mr) \iff \rfr{borelSigmaAlgebra}\ml(\sigma_{simple}, \ml(\mathbb{R}^+_0, \rfr{simpleTopology}\mr)\mr)
+\n \dfn{simpleFunction}\ml(s, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(s, \ml(M, \sigma, \mathbb{R}^+_0, \rfr{simpleSigma}\mr)\mr)\mr) \land
+\m \ml(\rfr{finiteSet}\ml(\rfr{image}\ml(B, \ml(M , s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\mr)
+\m \eqComment{if the map takes on finitely many values on $\mathbb{R}^+_0$}
+\n \dfn{characteristicFunction}\ml(X_A, \ml(A, M\mr)\mr) \iff \ml(A \subseteq M\mr) \land \ml(\rfr{map}\ml(X_A, \ml(M, \mathbb{R}\mr)\mr)\mr) \land 
+\m \ml(\forall_{m \in M} \ml(X_A\ml(m\mr) = \begin{cases} 1 & m \in A \\ 0 & m \notin A \end{cases}\mr)\mr)
+\n \thm{} \rfr{simpleFunction}\ml(s, \ml(M, \sigma_M\mr)\mr) \implies 
+\m \ml(\rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M , s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\mr) \land
+\m  \ml(\rfr{characteristicFunction}\ml(X_A, \ml(A, M\mr)\mr)\mr) \land \ml(\forall_{m \in M}\ml(s\ml(m\mr) = \sum_{z \in Z} \ml(z \cdot X_{\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)}\ml(m\mr)\mr)\mr)\mr)
+\n \dfn{exStandardSigma}\ml(\overline{\sigma_{s}}, \ml(\mr)\mr) \iff \overline{\sigma_{s}} = \{A \subseteq \overline{\mathbb{R}} \mid A \cap R \in \rfr{standardSigma}\}
+\m \eqComment{ignores $\pm \infty$ to preserve the points in the domain of the measurable map}
+\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exStandardSigma}\mr)\mr) \land
+\m \ml(\forall_{m \in M} \ml(f\ml(m\mr) \geq 0\mr)\mr)
+\n \dfn{nonNegIntegral}\ml(\int_M\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land 
+\m\ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exStandardSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \overline{\sigma_{s}}\mr)\mr)\mr) \land (\int_M\ml(f d\mu\mr) = \rfr{sup}(\{\sum_{z \in Z} \ml(z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)\mr)\mr) \mid
+\m \forall_{m \in M} (s(m) \leq f(m)) \land \rfr{simpleFunction}\ml(s, \ml(M, \sigma\mr)\mr) \land \rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M, s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\}))
+\m \eqComment{lebesgue measure on $z$ reduces to $z$}
+\n \dfn{explicitIntegral} \iff \int \ml(f\ml(x\mr) \mu\ml(dx\mr)\mr) = \int \ml(f d\mu\mr)
+\m \eqComment{alternative notation for lebesgue integrals}
+\n \thm{} \rfr{nonNegIntegral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{nonNegIntegral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies 
+\m \thm{Markov inequality} \ml(\forall_{z \in \mathbb{R}^+_0} \ml(\int \ml(f d\mu\mr) \geq z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, f, M, \overline{\mathbb{R}}\mr)\mr)\mr)\mr)\mr) \land
+\m \ml(\rfr{almostEverywhere}\ml(f = g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) = \int \ml(g d\mu\mr)\mr)
+\m \ml(\int \ml(f d\mu\mr) = 0 \implies \rfr{almostEverywhere}\ml(f = 0, \ml(M, \sigma, \mu\mr)\mr)\mr) \land
+\m \ml(\int \ml(f d\mu\mr) \leq \infty \implies \rfr{almostEverywhere}\ml(f < \infty, \ml(M, \sigma, \mu\mr)\mr)\mr)
+\n \thm{Mono. conv.} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr) \land 0 \leq f_{n-1} \leq f_n\}\mr) \land
+\m \ml(\rfr{map}\ml(f, \ml(M, \overline{\mathbb{R}}\mr)\mr)\mr) \land \ml(\forall_{m \in M} \ml(f\ml(m\mr) = \rfr{sup} \ml(f_n\ml(m\mr) | f_n \in \ml(f\mr)_{\mathbb{N}}\mr)\mr)\mr) \implies \ml(\lim_{n \to \infty} \ml(\int_M \ml(f_n d\mu\mr)\mr) = \int_M \ml(f d\mu\mr)\mr)
+\m \eqComment{lengths now depend on $M, \sigma$ and limits can be pulled in or out of an integral}
+\n \thm{} \rfr{nonNegIntegral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{nonNegIntegral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies
+\m \ml(\forall_{\alpha \in \mathbb{R}^+_0} \ml(\int \ml(\ml(f + \alpha g\mr) d\mu\mr) = \int \ml(f d\mu\mr) + \alpha \int \ml(g d\mu\mr)\mr)\mr) 
+\m \eqComment{integral acts linearly and commutes finite summations}
+\n \thm{} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr) \land 0 \leq f_n\}\mr) \implies
+\m \ml(\int \ml(\ml(\sum_{n = 1}^\infty \ml(f_n\mr)\mr) d\mu\mr) = \sum_{n = 1}^\infty \ml(\int \ml(f_n d\mu\mr)\mr)\mr)
+\m \eqComment{$\sum_{n = 1}^{\infty} f_n$ can be treated as $\lim_{n \to \infty} \sum_{i = 1}^n f_n$ since $f_n \geq 0$ and it commutes with integral from monotone conv.}
+\n 49:05 Section 3: Integrable (without non)
+\end{align}
 \end{tcolorbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -505,7 +546,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m (\Omega \in \mathcal{F}) \land
 \m (\forall_{A \in \mathcal{F}} (A^C \in \mathcal{F})) \land
 \m (\forall_{F \subseteq \mathcal{F}} (\lnot uncountablyInfinite(F, ()) \implies \cup F \in \mathcal{F}))
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -536,7 +577,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n probabilisticConvergence(X, ()) \iff \forall_{\epsilon > 0} \lim_{n \to \infty}{P{xn - x} \leq \epsilon} = 0
 \n I - In generalization error
 \n well-posed := exists, unique, stable ; else ill-posed
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 \subsection{Background maths}
@@ -583,7 +624,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n selfAdjoint(L, ()) \iff L = L^\dagger
 \n eigenvector(V) \iff L v = k v
 \n 30 mins
-\end {align}
+\end{align}
 \end{tcolorbox}
 
 

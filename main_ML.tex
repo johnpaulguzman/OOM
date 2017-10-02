@@ -1,4 +1,4 @@
-% CONTINUE LINE 516
+% CONTINUE LINE 570
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -58,6 +58,9 @@
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
 
+TODO all {distance} must take two parameters
+
+TODO define || abs and other missing refs
 \thinmuskip=2mu % commas
 \medmuskip=2mu % operators
 \thickmuskip=2mu % equalities
@@ -178,13 +181,13 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m \ml(\forall_{m, n \in M} \ml(m \sim n \implies n \sim m\mr)\mr) \land
 \m \ml(\forall_{m, n, p \in M} \ml(m \sim n \land n \sim p \implies m \sim p\mr)\mr)
 \m \eqComment{behaves as equivalences should}
-\n \dfn{equivalenceClass}\ml([m], \ml(m, M, \sim\mr)\mr) \iff [m] = \{n \in M \mid n \sim m\}
+\n \dfn{equivalenceClass}\ml([m]_\sim, \ml(m, M, \sim\mr)\mr) \iff [m]_\sim = \{n \in M \mid n \sim m\}
 \m \eqComment{set of elements satisfying the equivalence relation with $m$}
-\n \thm{} a \in [m] \implies [a] = [m] \eqSep [m] = [n] \veebar [m] \cap [n] = \emptyset
+\n \thm{} a \in [m]_\sim \implies [a]_\sim = [m]_\sim \eqSep [m]_\sim = [n]_\sim \veebar [m]_\sim \cap [n]_\sim = \emptyset
 \m \eqComment{equivalence class properties}
-\n \dfn{quotientSet}\ml(M / \sim, \ml(M, \sim\mr)\mr) \iff M / \sim = \{[m] \in \mathcal{P}\ml(M\mr) \mid m \in M\}
+\n \dfn{quotientSet}\ml(M / \sim, \ml(M, \sim\mr)\mr) \iff M / \sim = \{\rfr{equivalenceClass}\ml([m]_\sim, \ml(m, M, \sim\mr)\mr) \in \mathcal{P}\ml(M\mr) \mid m \in M\}
 \m \eqComment{set of all equivalence classes}
-\n \thm{} \textbf{axiom of choice} \implies \forall_{[m] \in M / \sim} \exists_r \ml(r \in [m]\mr)
+\n \thm{} \textbf{axiom of choice} \implies \forall_{[m]_\sim \in M / \sim} \exists_r \ml(r \in [m]_\sim\mr)
 \m \eqComment{well-defined maps may be defined in terms of chosen representative elements $r$}
 \end{align}
 \end{tcolorbox}
@@ -266,7 +269,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \dfn{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \bar{S} = S \cup \{p \in M \mid \rfr{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr)\}
 \n \dfn{dense}\ml(S, \ml(M, \mathcal{O}, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr)\mr)\mr)
 \m \eqComment{every of point in $M$ is a point or a limit point of $S$}
-\n \dfn{eucD}\ml(d, \ml(n\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq n} \ml(x_i \in \mathbb{R}\mr)\mr) \land  \ml(d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}}\mr)
+\n \dfn{eucD}\ml(d, \ml(n\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq n} \ml(x_i \in \mathbb{R}\mr)\mr) \land \ml(d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}}\mr)
 \n \rfr{metricTopology}\ml(\dfn{standardTopology}, \ml(\mathbb{R}^{n}, \rfr{eucD}\ml(d, \ml(n\mr)\mr)\mr)\mr)
 \m \melazy
 \m \textbf{L1: } \forall_{p \in U = \emptyset} \ml(\ldots\mr) \implies \forall_p \ml(\ml(p \in \emptyset\mr) \implies \ldots\mr) \implies \forall_p \ml(\ml(\textbf{False}\mr) \implies \ldots\mr) \implies \emptyset \in \mathcal{O}_{standard}
@@ -470,7 +473,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m \eqComment{natural construction of a measure based primarily on measurable map}
 \n \dfn{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land \ml(A \in \sigma\mr) \land \ml(\mu\ml(A\mr) = 0\mr)
 \n \dfn{almostEverywhere}\ml(p, \ml(M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{predicate}\ml(p, \ml(M\mr)\mr)\mr) \land
-\m \ml(\exists_{A \in \sigma} \ml(\rfr{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \implies \forall_{m \in M \setminus A} \ml(p\ml(m\mr)\mr)\mr)\mr)
+\m \ml(\exists_{A \in \sigma} \ml(\rfr{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \implies \forall_{n \in M \setminus A} \ml(p\ml(n\mr)\mr)\mr)\mr)
 \m \eqComment{the predicate holds true for all points except the points in the null set}
 \end{align}
 \end{tcolorbox}
@@ -490,17 +493,17 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \m  \ml(\rfr{characteristicFunction}\ml(X_A, \ml(A, M\mr)\mr)\mr) \land \ml(\forall_{m \in M}\ml(s\ml(m\mr) = \sum_{z \in Z} \ml(z \cdot X_{\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)}\ml(m\mr)\mr)\mr)\mr)
 \n \dfn{exStandardSigma}\ml(\overline{\sigma_{s}}, \ml(\mr)\mr) \iff \overline{\sigma_{s}} = \{A \subseteq \overline{\mathbb{R}} \mid A \cap R \in \rfr{standardSigma}\}
 \m \eqComment{ignores $\pm \infty$ to preserve the points in the domain of the measurable map}
-\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exStandardSigma}\mr)\mr) \land
+\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exStandardSigma}\mr)\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr) \geq 0\mr)\mr)
 \n \dfn{nonNegIntegral}\ml(\int_M\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land 
-\m\ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exStandardSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
-\m \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \overline{\sigma_{s}}\mr)\mr)\mr) \land (\int_M\ml(f d\mu\mr) = \rfr{sup}(\{\sum_{z \in Z} \ml(z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)\mr)\mr) \mid
+\m \ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exStandardSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr)\mr) \land (\int_M\ml(f d\mu\mr) = \rfr{sup}(\{\sum_{z \in Z} \ml(z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)\mr)\mr) \mid
 \m \forall_{m \in M} (s(m) \leq f(m)) \land \rfr{simpleFunction}\ml(s, \ml(M, \sigma\mr)\mr) \land \rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M, s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\}))
 \m \eqComment{lebesgue measure on $z$ reduces to $z$}
 \n \dfn{explicitIntegral} \iff \int \ml(f\ml(x\mr) \mu\ml(dx\mr)\mr) = \int \ml(f d\mu\mr)
 \m \eqComment{alternative notation for lebesgue integrals}
 \n \thm{} \rfr{nonNegIntegral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{nonNegIntegral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies 
-\m \thm{Markov inequality} \ml(\forall_{z \in \mathbb{R}^+_0} \ml(\int \ml(f d\mu\mr) \geq z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, f, M, \overline{\mathbb{R}}\mr)\mr)\mr)\mr)\mr) \land
+\m \thm{Markov inequality} \ml(\forall_{z \in \mathbb{R}^+_0} \ml(\int \ml(f d\mu\mr) \geq z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml([z, \infty), f, M, \overline{\mathbb{R}}\mr)\mr)\mr)\mr)\mr) \land
 \m \ml(\rfr{almostEverywhere}\ml(f = g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) = \int \ml(g d\mu\mr)\mr)
 \m \ml(\int \ml(f d\mu\mr) = 0 \implies \rfr{almostEverywhere}\ml(f = 0, \ml(M, \sigma, \mu\mr)\mr)\mr) \land
 \m \ml(\int \ml(f d\mu\mr) \leq \infty \implies \rfr{almostEverywhere}\ml(f < \infty, \ml(M, \sigma, \mu\mr)\mr)\mr)
@@ -513,10 +516,59 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \n \thm{} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr) \land 0 \leq f_n\}\mr) \implies
 \m \ml(\int \ml(\ml(\sum_{n = 1}^\infty \ml(f_n\mr)\mr) d\mu\mr) = \sum_{n = 1}^\infty \ml(\int \ml(f_n d\mu\mr)\mr)\mr)
 \m \eqComment{$\sum_{n = 1}^{\infty} f_n$ can be treated as $\lim_{n \to \infty} \sum_{i = 1}^n f_n$ since $f_n \geq 0$ and it commutes with integral from monotone conv.}
-\n 49:05 Section 3: Integrable (without non)
+\n \dfn{integrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exStandardSigma}\mr)\mr)\mr) \land
+\m \ml(\forall_{m \in M} \ml(f\ml(m\mr) = \rfr{max}\ml(f\ml(m\mr), 0\mr) - \rfr{max}\ml(0, -f\ml(m\mr)\mr)\mr)\mr) \land
+\m \ml(\rfr{measureSpace}\ml(M, \sigma, \mu\mr) \implies \ml(\int \ml(\rfr{max}\ml(f\ml(m\mr), 0\mr) d\mu\mr) < \infty \land \int \ml(\rfr{max}\ml(0, -f\ml(m\mr)\mr) d\mu\mr) < \infty\mr)\mr)
+\m \eqComment{extra condition prevents the occurrence of the indeterminate $\infty -\infty$}
+\n \dfn{integral}\ml(\int \ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{nonNegIntegral}\ml(\int \ml(f^+ d\mu\mr), \ml(\rfr{max}\ml(f, 0\mr), M, \sigma, \mu\mr)\mr)\mr) \land
+\m \ml(\rfr{nonNegIntegral}\ml(\int \ml(f^- d\mu\mr), \ml(\rfr{max}\ml(0, -f\mr), M, \sigma, \mu\mr)\mr)\mr) \land \ml(\rfr{integrable}\ml(f, \ml(M, \sigma\mr)\mr)\mr) \land
+\m \ml(\int \ml(f d\mu\mr) = \int \ml(f^+ d\mu\mr) - \int \ml(f^- d\mu\mr)\mr)
+\m \eqComment{arbitrary integral in terms of nonnegative integrals}
+\n \thm{} \ml(\rfr{map}\ml(f, \ml(M, \mathbb{C}\mr)\mr)\mr) \implies \ml(\int \ml(f d\mu\mr) = \int \ml(\rfr{Re}(f) d\mu\mr) - \int \ml(\rfr{Im}(f) d\mu\mr)\mr)
+\n \thm{} \rfr{integral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{integral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies
+\m \ml(\rfr{almostEverywhere}\ml(f \leq g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) \leq \int \ml(g d\mu\mr)\mr) \land
+\m \ml(\forall_{m \in M} \ml(f\ml(m\mr), g\ml(m\mr), \alpha \in \mathbb{R}\mr) \implies \int \ml(\ml(f + \alpha g\mr) d\mu\mr) = \int \ml(f d\mu\mr) + \alpha \int \ml(g d\mu\mr)\mr)
+\n \thm{Dominant convergence} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr)\}\mr) \land
+\m \ml(\rfr{map}(f, (M, \overline{\mathbb{R}}))\mr) \land \ml(\rfr{almostEverywhere}\ml(f\ml(m\mr) = \lim_{n \to \infty} \ml(f_n\ml(m\mr)\mr), \ml(M, \sigma, \mu\mr)\mr)\mr) \land
+\m \ml(\rfr{nonNegIntegral}\ml(\int \ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\ml|\int \ml(g d\mu\mr)\mr| < \infty\mr) \land \ml(\rfr{almostEverywhere}\ml(|f_n| \leq g, \ml(M, \sigma, \mu\mr)\mr)\mr)
+\m \eqComment{if all $f_n(m)$ are bounded by some integrable $|g(m)|$} \implies
+\m \eqComment{then all $f_n(m)$ including $f$ satisfy bounded and integrable properties}
+\m \ml(\forall_{\phi \in \{f\} \cup \ml(f\mr)_\mathbb{N}} \ml(\rfr{integrable}\ml(\phi, \ml(M, \sigma\mr)\mr)\mr)\mr) \land \ml(\lim_{n \to \infty} \ml(\int \ml(|f_n - f| d\mu\mr) = 0\mr)\mr) \land \ml(\lim_{n \to \infty} \ml(\int \ml(f_n d\mu\mr)\mr) = \int \ml(f d\mu\mr)\mr)
 \end{align}
 \end{tcolorbox}
 
+\subsection{Function spaces}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+\n \dfn{curLp}(\mathcal{L}^p, (p, M, \sigma, \mu)) \iff (p \in \mathbb{R}) \land (1 \leq p < \infty) \land
+\m (\mathcal{L}^p = \{\rfr{map}(f, (M, \mathbb{R})) \mid \rfr{measurableMap}(f, (M, \sigma, \mathbb{R}, \rfr{standardSigma})) \land \int (|f|^p d\mu) < \infty \})
+\n \dfn{vectorSpace}(V, (+, \cdot)) \iff (\rfr{map}(+, (V \times V, V))) \land (\rfr{map}(\cdot, (\mathbb{R} \times V, V))) \land 
+\m (\forall_{v, w \in v} (v + w = w + v)) \land
+\m (\forall_{v, w, x \in v} ((v + w) + x = v + (w + x))) \land
+\m (\exists_{\field{0} \in V} \forall_{v \in V} (v + \field{0} = v)) \land
+\m (\forall_{v \in V} \exists_{-v \in V} (v + (-v) = \field{0})) \land
+\m (\forall_{a, b \in \mathbb{R}} \forall_{v \in V} (a (b \cdot v) = (a b) \cdot v)) \land
+\m (\exists_{1 \in \mathbb{R}} \forall_{v \in V} (1 \cdot v = v)) \land
+\m (\forall_{a, b \in \mathbb{R}} \forall_{v \in V} ((a + b) \cdot v = a \cdot v + b \cdot v)) \land
+\m (\forall_{a \in \mathbb{R}} \forall_{v, w \in V} (a \cdot (v + w) = a \cdot v + a \cdot w))
+\m \eqComment{behaves similar as vectors should i.e., additive, scalable, linear distributive}
+\n \dfn{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{curLp}(\mathcal{L}^p, (p, M, \sigma, \mu))) \land (\forall_{f, g \in \mathcal{L}^p} \forall_{m \in M} ((f + g)(m) = f(m) + g(m))) \land
+\m (\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \forall_{m \in M} ((s \cdot f)(m) = (s) f(m))) \land (\rfr{vectorSpace}(\mathcal{L}^p, (+, \cdot)))
+\n \dfn{seminorm}(\wr\wr \cdot \wr\wr, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu))) \land (\rfr{map}(\wr\wr \cdot \wr\wr, (\mathcal{L}^p, \mathbb{R}))) \land 
+\m (\forall_{f \in \mathcal{L}^p} (0 \leq \wr\wr f \wr\wr = (\int (|f|^p d\mu))^{1/p})) \land
+\m (\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} (\wr\wr s \cdot f \wr\wr = (|s|) \wr\wr f \wr\wr)) \land
+\m (\forall_{f, g \in \mathcal{L}^p} (\wr\wr f + g \wr\wr = \wr\wr f \wr\wr + \wr\wr g \wr\wr))
+\n \thm{} \rfr{seminorm}(\wr\wr \cdot \wr\wr, (+, \cdot, p, M, \sigma, \mu)) \implies 
+\m (\forall_{f \in \mathcal{L}^p} (\wr\wr f \wr\wr = 0 \implies \rfr{almostEverywhere}(f = \field{0}, (M, \sigma, \mu))))
+\m \eqComment{not an expected property from a norm}
+\n \dfn{norm}(|| \cdot ||, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{seminorm}(|| \cdot ||,(+, \cdot, p, M, \sigma, \mu))) \land (|| f ||= 0 \implies f = \field{0})
+\m \eqComment{some of the parameters can be omitted for defining norms on general vector spaces}
+\n \dfn{Lp}(L^p, ((+, \cdot, p, M, \sigma, \mu))) \iff (\dfn{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu))) \land
+\m (L^p = \rfr{quotientSet}(\mathcal{L}^p / \sim, (\mathcal{L}^p, \rfr{almostEverywhere}(=, (??M, ??\sigma, ??\mu)))))
+\m \eqComment{functions in $L^p$ have abs pow p and finite integral}
+\n 14 mins from end
+\end{align}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -533,7 +585,8 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \subsection{Overview}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   randomExperiment(X, (\Omega)) \iff \forall_{\omega \in \Omega} (outcome(\omega, (X)))
+\eqComment{DELET THIS! gg indians}
+\n randomExperiment(X, (\Omega)) \iff \forall_{\omega \in \Omega} (outcome(\omega, (X)))
 \n sampleSpace(\Omega, (X)) \iff \Omega = \{\omega | outcome(\omega, (X))\}
 \n event(A, (\Omega)) \implies A \subseteq \Omega \eqComment{that is of interest}
 \n eventOccured(A, (\omega, \Omega)) \iff \omega \in A, \Omega \land event(A, (\Omega))
@@ -583,47 +636,7 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 \subsection{Background maths}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   vectorSpace(V, (+, *)) \iff (u, v, w \in V), (c, d \in \mathbb{R} \in F) \land
-\m (u + v, c * u = c (u) = c u \in V) \land
-\m (u + v = v + u) \land
-\m ((u + v) + w = u + (v + w)) \land
-\m (\exists_\field{0} (u + \field{0} = u)) \land
-\m (\exists_{-u} (u + (-u) = \field{0})) \land
-\m ((1) u = u)
-\m ((c d) u = c (d u)) \land
-\m ((c + d) u = c u + d u) \land \eqComment{linearity}
-\m (c (u + v) = c u + c v) \land \eqComment{linearity}
-\m \eqComment{behaves similar to vectors}
-\n innerProduct(\langle \cdot, \cdot \rangle, (V)) \iff (u, v, w \in V), (c \in \mathbb{R} \in F) \land
-\m (\langle v, w \rangle = \langle w, v \rangle) \land
-\m (\langle c v, w \rangle = c \langle v, w \rangle) \land
-\m (\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle) \land \eqComment{linearity}
-\m (\langle u, u \rangle \geq 0 \in \mathbb{R}^+_0) \land \eqComment{metric inducing}
-\m (\langle u, u \rangle = 0 \iff u = \field{0})
-\n innerProductNorm(||\cdot||, (V)) \iff (v, w \in V), (r \in R) \land
-\m (||v|| = \sqrt{\langle v , v \rangle} \in \mathbb{R}^+_0) \land
-\m (||v|| = 0 \iff v = \field{0}) \land
-\m (||r v|| = |r| ||v||) \land 
-\m (|| v + w || \leq ||v|| + || w ||) \eqComment{triangle inequality}
-\n normConvergences(v, (V, (v_n)_{n \in \mathbb{N}})) \iff (\{v\} \cup (v_n)_{n \in \mathbb{N}} \subseteq V) \land
-\m (\lim_{n \to \infty} ||v - v_n|| = 0)
-\n cauchySequence((v_n)_{n \in \mathbb{N}}, (V)) \iff \m (\forall_{\epsilon > 0} \exists_{n \in \mathbb{N}} \forall_{x, y > n} (|| v_x - v_y || < \epsilon))\
-\n normConvergences \implies cauchySequence \eqComment{there might be holes in the space}
-\n completeSpace(V, (innerProductNorm)) \iff (cauchySequence \iff normConvergences)
-\n completion(R, (Q)) \iff R = Q U cauchy Us = Q bar
-\n hilbertSpace(H, (+, *, \langle \cdot, \cdot \rangle)) \iff (vectorSpace(H, (+, *))) \land
-\m (innerProduct(\langle \cdot, \cdot \rangle, (H))) \land
-\m completeSpace(H, (innerProductNorm))
-\n separable(H, ()) \iff \exists_{S \subseteq V} (countable(S, ()) \land Sbar = V) \eqComment{has a countable basis}
-\n hilbertSpace \land seperable \iff \exists countable ortho(gonal)normal basis for space, all norm=1, IP=0
-\n x = \sum <x, v> v \eqComment{countable projection times v}
-\n 0000000000
-\n linearOperator(L, (V)) \iff (u, v \in V) , (c, d \in \mathbb{R}) \land
-\m (L(c u + d v) = c L(u) + d L(v))
-\n adjoint(L^\dagger, (L, V)) \iff (\forall_{u, v \in V} <L(u), v> = <u, L^\dagger(v)>_\dagger )
-\n selfAdjoint(L, ()) \iff L = L^\dagger
-\n eigenvector(V) \iff L v = k v
-\n 30 mins
+\eqComment{refer to 2 functional analysis and 1 probability pdfs}
 \end{align}
 \end{tcolorbox}
 

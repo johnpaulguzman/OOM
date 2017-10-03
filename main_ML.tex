@@ -61,6 +61,8 @@ Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencie
 TODO all {distance} must take two parameters
 
 TODO define || abs and other missing refs
+
+TODO define **args for comparison callbacks, predicate args, norms and or placeholders
 \thinmuskip=2mu % commas
 \medmuskip=2mu % operators
 \thickmuskip=2mu % equalities
@@ -177,7 +179,7 @@ TODO define || abs and other missing refs
 \m \ml(\forall_{n \in N} \exists!_{m \in M} \ml(q\ml(m\mr) = n \implies q^{-1}\ml(n\mr) = m\mr)\mr)
 \n \dfn{mapComposition}\ml(\phi \circ \psi, \ml(\phi, \psi, A, B, C\mr)\mr) \iff \rfr{map}\ml(\psi, \ml(A, B\mr)\mr) \land \rfr{map}\ml(\phi, \ml(B, C\mr)\mr) \land
 \m \forall_{a \in A} \ml(\phi \circ \psi\ml(a\mr) = \phi\ml(\psi\ml(a\mr)\mr)\mr)
-\n \dfn{equivalenceRelation}\ml(\sim, \ml(M\mr)\mr) \iff \ml(\forall_{m \in M} \ml(m \sim m\mr)\mr) \land
+\n \dfn{equivalenceRelation}\ml(\sim\ml(\$1, \$2\mr), \ml(M\mr)\mr) \iff \ml(\forall_{m \in M} \ml(m \sim m\mr)\mr) \land
 \m \ml(\forall_{m, n \in M} \ml(m \sim n \implies n \sim m\mr)\mr) \land
 \m \ml(\forall_{m, n, p \in M} \ml(m \sim n \land n \sim p \implies m \sim p\mr)\mr)
 \m \eqComment{behaves as equivalences should}
@@ -187,6 +189,8 @@ TODO define || abs and other missing refs
 \m \eqComment{equivalence class properties}
 \n \dfn{quotientSet}\ml(M / \sim, \ml(M, \sim\mr)\mr) \iff M / \sim = \{\rfr{equivalenceClass}\ml([m]_\sim, \ml(m, M, \sim\mr)\mr) \in \mathcal{P}\ml(M\mr) \mid m \in M\}
 \m \eqComment{set of all equivalence classes}
+\n \thm{} \ml(\ml(M, \sim, +\mr) \implies \ml(\rfr{quotientSet}\ml(M / \sim, \ml(M, \sim\mr)\mr), +_\sim\mr)\mr) \iff \forall_{[r], [s] \in M / \sim} \forall_{a \in [r]} \forall_{b \in [s]} \ml([r] +_\sim [s] = [a + b]\mr) 
+\m \eqComment{a quotient set can inherit the operations on the original set if it is well-defined}
 \n \thm{} \textbf{axiom of choice} \implies \forall_{[m]_\sim \in M / \sim} \exists_r \ml(r \in [m]_\sim\mr)
 \m \eqComment{well-defined maps may be defined in terms of chosen representative elements $r$}
 \end{align}
@@ -540,7 +544,7 @@ TODO define || abs and other missing refs
 \subsection{Function spaces}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-\n \dfn{curLp}(\mathcal{L}^p, (p, M, \sigma, \mu)) \iff (p \in \mathbb{R}) \land (1 \leq p < \infty) \land
+   \dfn{curLp}(\mathcal{L}^p, (p, M, \sigma, \mu)) \iff (p \in \mathbb{R}) \land (1 \leq p < \infty) \land
 \m (\mathcal{L}^p = \{\rfr{map}(f, (M, \mathbb{R})) \mid \rfr{measurableMap}(f, (M, \sigma, \mathbb{R}, \rfr{standardSigma})) \land \int (|f|^p d\mu) < \infty \})
 \n \dfn{vectorSpace}(V, (+, \cdot)) \iff (\rfr{map}(+, (V \times V, V))) \land (\rfr{map}(\cdot, (\mathbb{R} \times V, V))) \land 
 \m (\forall_{v, w \in v} (v + w = w + v)) \land
@@ -554,19 +558,19 @@ TODO define || abs and other missing refs
 \m \eqComment{behaves similar as vectors should i.e., additive, scalable, linear distributive}
 \n \dfn{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{curLp}(\mathcal{L}^p, (p, M, \sigma, \mu))) \land (\forall_{f, g \in \mathcal{L}^p} \forall_{m \in M} ((f + g)(m) = f(m) + g(m))) \land
 \m (\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \forall_{m \in M} ((s \cdot f)(m) = (s) f(m))) \land (\rfr{vectorSpace}(\mathcal{L}^p, (+, \cdot)))
-\n \dfn{seminorm}(\wr\wr \cdot \wr\wr, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu))) \land (\rfr{map}(\wr\wr \cdot \wr\wr, (\mathcal{L}^p, \mathbb{R}))) \land 
+\n \dfn{seminorm}(\wr\wr \$1 \wr\wr, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu))) \land (\rfr{map}(\wr\wr \$1 \wr\wr, (\mathcal{L}^p, \mathbb{R}))) \land 
 \m (\forall_{f \in \mathcal{L}^p} (0 \leq \wr\wr f \wr\wr = (\int (|f|^p d\mu))^{1/p})) \land
 \m (\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} (\wr\wr s \cdot f \wr\wr = (|s|) \wr\wr f \wr\wr)) \land
 \m (\forall_{f, g \in \mathcal{L}^p} (\wr\wr f + g \wr\wr = \wr\wr f \wr\wr + \wr\wr g \wr\wr))
-\n \thm{} \rfr{seminorm}(\wr\wr \cdot \wr\wr, (+, \cdot, p, M, \sigma, \mu)) \implies 
+\n \thm{} \rfr{seminorm}(\wr\wr \$1 \wr\wr, (+, \cdot, p, M, \sigma, \mu)) \implies 
 \m (\forall_{f \in \mathcal{L}^p} (\wr\wr f \wr\wr = 0 \implies \rfr{almostEverywhere}(f = \field{0}, (M, \sigma, \mu))))
 \m \eqComment{not an expected property from a norm}
-\n \dfn{norm}(|| \cdot ||, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{seminorm}(|| \cdot ||,(+, \cdot, p, M, \sigma, \mu))) \land (|| f ||= 0 \implies f = \field{0})
+\n \dfn{norm}(|| \$1 ||, (+, \cdot, p, M, \sigma, \mu)) \iff (\rfr{seminorm}(|| \$1 ||,(+, \cdot, p, M, \sigma, \mu))) \land (|| f ||= 0 \implies f = \field{0})
 \m \eqComment{some of the parameters can be omitted for defining norms on general vector spaces}
-\n \dfn{Lp}(L^p, ((+, \cdot, p, M, \sigma, \mu))) \iff (\dfn{vecLp}(\mathcal{L}^p, (+, \cdot, p, M, \sigma, \mu))) \land
-\m (L^p = \rfr{quotientSet}(\mathcal{L}^p / \sim, (\mathcal{L}^p, \rfr{almostEverywhere}(=, (??M, ??\sigma, ??\mu)))))
-\m \eqComment{functions in $L^p$ have abs pow p and finite integral}
-\n 14 mins from end
+\n \dfn{Lp}(L^p, ((+, \cdot, p, M, \sigma, \mu))) \iff (\rfr{seminorm}(\wr\wr \$1 \wr\wr, (+, \cdot, p, M, \sigma, \mu))) \land
+\m (L^p = \rfr{quotientSet}(\mathcal{L}^p / \sim, (\mathcal{L}^p, \wr\wr\$1 + (-\$2)\wr\wr = 0))))
+\m \eqComment{functions in $L^p$ that have finite integrals above and below the x-axis}
+\n \thm{$\wr\wr \$1 \wr\wr, +, \cdot$ can be inherited into $L^p$, thus it can be called a normed vector space}
 \end{align}
 \end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

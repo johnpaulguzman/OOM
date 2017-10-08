@@ -1,4 +1,4 @@
-% CONTINUE LINE 570
+% CONTINUE LINE 692
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -66,9 +66,13 @@
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
 
+TODO only metric space for limit points? or keep topological space (technically, metric is stronger than topology and topology was never used in the conditions)
+
 TODO define || abs  cross-product and other missing refs
 
 TODO define **args for comparison callbacks, predicate args, norms and or placeholders
+
+TODO link thms?
 
 \thinmuskip=2mu % commas
 \medmuskip=2mu % operators
@@ -278,7 +282,7 @@ TODO define **args for comparison callbacks, predicate args, norms and or placeh
 \n \dfn{interiorPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \ml(\rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr)\mr) \land \ml(S \subseteq M\mr) \land
 \m \ml(\exists_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \land B \subseteq S\mr)\mr)
 \m \eqComment{there is an open ball centered at $p$ that is fully enclosed in $S$}
-\n \dfn{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \bar{S} = S \cup \{p \in M \mid \rfr{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr)\}
+\n \dfn{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \bar{S} = S \cup \{\rfr{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \mid p \in M\}
 \n \dfn{dense}\ml(S, \ml(M, \mathcal{O}, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr)\mr)\mr)
 \m \eqComment{every of point in $M$ is a point or a limit point of $S$}
 \n \dfn{eucD}\ml(d, \ml(n\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq n} \ml(x_i \in \mathbb{R}\mr)\mr) \land \ml(d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}}\mr)
@@ -604,10 +608,9 @@ TODO define **args for comparison callbacks, predicate args, norms and or placeh
 \begin{align}
    \dfn{innerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\langle \$1, \$2 \rangle, \ml(V \times V, \mathbb{R}\mr)\mr)\mr) \land
 \m \ml(\forall_{v, w \in V} \ml(\langle v, w \rangle = \langle w, v \rangle\mr)\mr) \land
-\m \ml(\forall_{v, w, x \in V} \forall_{a, b \in \mathbb{R}} \ml(\langle a v + b w, x \rangle = a \langle v, x \rangle + b \langle w, x \rangle\mr)\mr)
-\m \ml(\forall_{v \in V} \ml(\langle v, v \rangle\mr) \geq 0\mr)
-\land \ml(\forall_{v \in V} \ml(\langle v, v \rangle\mr) = 0 \iff v = \field{0}\mr)
-\m \eqComment{the inner product provides info. on distance}
+\m \ml(\forall_{v, w, x \in V} \forall_{a, b \in \mathbb{R}} \ml(\langle a v + b w, x \rangle = a \langle v, x \rangle + b \langle w, x \rangle\mr)\mr) \land
+\m \ml(\forall_{v \in V} \ml(\langle v, v \rangle\mr) \geq 0\mr) \land \ml(\forall_{v \in V} \ml(\langle v, v \rangle\mr) = 0 \iff v = \field{0}\mr)
+\m \eqComment{the sesquilinear or 1.5 linear map inner product provides info. on distance and orthogonality}
 \n \dfn{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr) \iff \rfr{innerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot\mr)\mr)
 \n \dfn{orthogonal}\ml(\ml(v, w\mr), \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(v, w \in V\mr) \land \ml(\langle v, w \rangle = 0\mr)
@@ -620,6 +623,10 @@ TODO define **args for comparison callbacks, predicate args, norms and or placeh
 \n \dfn{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{norm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr)\mr)
 \n \dfn{normMetric}\ml(d\ml(\$1, \$2\mr), \ml(V, || \$1 ||\mr)\mr) \iff \ml(\rfr{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{metric}\ml(|| \$1 - \$2 ||, \ml(V\mr)\mr)\mr)
+\n \thm{} \rfr{innerProduct} \implies \rfr{norm} \implies \rfr{metric}
+\n \thm{} \ml(\rfr{metric} \land \forall_{u, v, w \in V} \forall_{s \in \mathbb{R}} \ml(d\ml(s \ml(u + w\mr), s \ml(v + w\mr)\mr) = |s| d\ml(u, v\mr)\mr) \land \forall_{v \in V} \ml(|| v || = d\ml(v, \field{0}\mr)\mr)\mr) \implies 
+\m \ml(\rfr{norm} \land \forall_{u, v \in V} \ml(2 || u ||^2 + 2 || v ||^2 = || u + v ||^2 + || u - v ||^2\mr) \land \forall_{v, w \in V} \ml(\langle v, w \rangle = \frac{|| v + w ||^2 - || v - w ||^2}{4}\mr)\mr) \implies 
+\m \ml(\rfr{innerProduct}\mr)
 \n \dfn{basis}\ml(\ml(b\mr)_n, \ml(V, +, \cdot, \mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(\forall_{v \in V} \exists_{\ml(a\mr)_n \in \mathbb{R}^n} \ml(v = \sum_{i = 1}^n \ml(a_i b_i\mr)\mr)\mr)
 \n \dfn{orthonormalBasis}\ml(\ml(b\mr)_n, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land 
@@ -638,18 +645,21 @@ TODO define **args for comparison callbacks, predicate args, norms and or placeh
 \end{align}
 \end{tcolorbox}
 
-\subsection{Hilbert Space}
+\subsection{Banach and Hilbert Space}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{cauchy}((s)_\mathbb{N}, (V, d(\$1, \$2))) \iff (\rfr{metricSpace}((V, d(\$1, \$2)), ())) \land () \land ((s)_\mathbb{N} \subseteq V)
+   \dfn{cauchy}((s)_\mathbb{N}, (V, d(\$1, \$2))) \iff (\rfr{metricSpace}((V, d(\$1, \$2)), ())) \land ((s)_\mathbb{N} \subseteq V)
 \m (\forall_{\epsilon > 0} \exists_{N \in \mathbb{N}} \forall_{m, n \geq N} (d(s_m, s_n) < \epsilon))
 \m \eqComment{distances between some tail-end point gets arbitrarily small}
 \n \dfn{complete}((V, d(\$1, \$2)), ()) \iff (\forall_{(s)_\mathbb{N} \subseteq V} \exists_{s \in V} (\rfr{cauchy}((s)_\mathbb{N}, (V, d(\$1, \$2))) \implies \lim_{n \to \infty} (d(s, s_n)) = 0))
+\m \eqComment{or converges within the induced topological space}
+\m \eqComment{in complete spaces, the weaker notion of cauchy is enforced to be equivalent to convergence}
 \n \dfn{banachSpace}((V, +, \cdot, || \$1 ||), ()) \iff (\rfr{normMetric}(d(\$1, \$2), (V, || \$1 ||))) \land (\rfr{complete}(V, d(\$1, \$2)), ())
 \m \eqComment{a complete normed vector space}
-\n \dfn{hilbertSpace}(((V, +, \cdot, \langle \$1, \$2 \rangle), ()), ()) \iff (\rfr{innerProductNorm}(|| \$1 ||, (V, +, \cdot, \langle \$1, \$2 \rangle))) \land
+\n \dfn{hilbertSpace}((V, +, \cdot, \langle \$1, \$2 \rangle), ()) \iff (\rfr{innerProductNorm}(|| \$1 ||, (V, +, \cdot, \langle \$1, \$2 \rangle))) \land
 \m (\rfr{normMetric}(d(\$1, \$2), (V, || \$1 ||))) \land (\rfr{complete}(V, d(\$1, \$2)), ())
 \m \eqComment{a complete inner product space}
+\n \thm{} \rfr{hilbertSpace} \implies \rfr{banachSpace}
 \n \dfn{innerProductMetric}(d(\$1, \$2), (V, +, \cdot, \langle \$1, \$2 \rangle)) \iff 
 \m (\rfr{innerProductNorm}(|| \$1 ||, (V, +, \cdot, \langle \$1, \$2 \rangle))) \land (\rfr{normMetric}(d(\$1, \$2), (V, || \$1 ||)))
 \n \dfn{innerProductTopology}(\mathcal{O}, (V, +, \cdot, \langle \$1, \$2 \rangle)) \iff
@@ -660,7 +670,6 @@ TODO define **args for comparison callbacks, predicate args, norms and or placeh
 \m (\ml(\exists_{\ml(b\mr)_\mathbb{N} \subseteq V} \ml(\rfr{orthonormalBasis}\ml(\ml(b\mr)_\mathbb{N}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \land \rfr{countablyInfinite}\ml(\ml(b\mr)_\mathbb{N}, \ml(\mr)\mr)\mr)\mr) \iff
 \m \ml(\rfr{separable}\ml(\ml(V, \rfr{innerProductTopology}\ml(\mathcal{O}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr), d\ml(\$1, \$2\mr)\mr), \ml(\mr)\mr)\mr))
 \m \eqComment{separability in hilbert spaces is equivalent to the existence of a countable orthonormal basis}
-\n 0
 \end{align}
 \end{tcolorbox}
 
@@ -669,13 +678,36 @@ TODO define **args for comparison callbacks, predicate args, norms and or placeh
 \begin{align}
    \dfn{linearOperator}(L, (V, +_V, \cdot_V, W, +_W, \cdot_W)) \iff (\rfr{map}(L, (V, W))) \land (\rfr{vectorSpace}((V, +_V, \cdot_V), ())) \land 
 \m (\rfr{vectorSpace}((W, +_W, \cdot_W), ())) \land (\forall_{v_1, v_2 \in V} \forall_{s_1, s_2 \in \mathbb{R}} (L(s_1 \cdot_V v_1 +_V s_2 \cdot_V v_2) = s_1 \cdot_W L(v_1) +_W s_2 \cdot_W L(v_2)))
+\n \dfn{denseMap}(L, (D, H, +, \cdot, \langle \$1, \$2 \rangle)) \iff (D \subseteq H) \land (\rfr{linearOperator}(L, (D, +, \cdot, H, +, \cdot)) \land
+\m (\rfr{innerProductTopology}(\mathcal{O}, (H, +, \cdot, \langle \$1, \$2 \rangle))) \land (\rfr{dense}(D, (H, \mathcal{O}, d(\$1, \$2))))
+\n \dfn{traceClass}(L, (H, +, \cdot, \langle \$1, \$2 \rangle)) \iff (\rfr{hilbertSpace}(((H, +, \cdot, \langle \$1, \$2 \rangle), ()), ())) \land 
+\m (\rfr{linearOperator}(Tr(L), (L, H, +, \cdot, H, +, \cdot))) \land 
+\m (\forall_{(b)_n \subseteq H} (\rfr{orthonormalBasis}((b)_n, (H, +, \cdot, \langle \$1, \$2 \rangle)) \implies Tr(L) = \sum_{n} (\langle b_n, L(b_n) \rangle) < \infty))
+\m \eqComment{does not depend on the choice of orthonormal basis}
+\m \eqComment{DEFINE}
+\n \dfn{mapNorm}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W)) \iff (\rfr{linearOperator}(L, (V, +_V, \cdot_V, W, +_W, \cdot_W))) \land
+\m (\rfr{normedVectorSpace}((V, +_V, \cdot_V, || \$1 ||_V), ())) \land (\rfr{normedVectorSpace}((W, +_W, \cdot_W, || \$1 ||_W), ())) \land 
+\m (|| L || = \rfr{sup}(\{\frac{|| L f ||_W}{|| f ||_V} \mid f \in V\}) = \rfr{sup}(\{|| L f ||_W \mid f \in V \land || f || = 1\}))
+\n \thm{} || L f || \leq || L || || f ||
+\n \thm{CONTINUE HERE 46:50}
+\n \dfn{boundedMap}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W)) \iff
+\m (\rfr{mapNorm}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W))) \land (|| L || < \infty)
+\n \lnot \rfr{boundedMap}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W)) \impliedby
+\m (U \subset V) \land (\infty = \rfr{mapNorm}(|| L ||_U, (L, U, +_U, \cdot_U, || \$1 ||_U, W, +_W, \cdot_W, || \$1 ||_W)) \leq || L ||)
+\n 0
+\n \dfn{adjoint}(L^T, (L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W)) \iff (\rfr{hilbertSpace}((V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V), ())) \land 
+\m (\rfr{hilbertSpace}((W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W), ())) \land (\rfr{linearOperator}(L, (V, +_V, \cdot_V, W, +_W, \cdot_W))) \land
+\m (\forall_{v \in V} \forall_{w \in W} ((\langle L v, w \rangle_W = \langle v, L^T w \rangle_V) \lor ((L v)^T w = v^T L^T w)))
+\m \eqComment{target operator that is equivalent to the domain operator}
+\n \dfn{selfAdjoint}(L, (V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W))) \iff
+\m L = \rfr{adjoint}(L^T, (L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W))
+\m \eqComment{also a generalization of symmetric matrices}
 \n \dfn{matrix}(L, (n, m)) \iff (\rfr{linearOperator}(L, (\mathbb{R}^n, +_n, \cdot_n, \mathbb{R}^m, +_m, \cdot_m)))
 \n \dfn{eigenvector}(v, (L, V, +, \cdot)) \iff (\rfr{linearOperator}(L, (V, +, \cdot, V, +, \cdot))) \land (\exists_{\lambda \in \mathbb{R}} (L(v) = \lambda v))
 \n \dfn{eigenvalue}(\lambda, (v, L, +, \cdot)) \iff \rfr{eigenvector}(v, (L, V, +, \cdot))
-\n \dfn{transpose}(L^T, (L, n, m)) \iff (\rfr{matrix}(L, n, m)) \land (\rfr{matrix}(L^T, m, n)) \land 
-\m (\forall_{v \in \mathbb{R}^n} \forall_{w \in \mathbb{R}^m} ((\langle L v, w \rangle_{\mathbb{R}^m} = \langle v, L^T w \rangle_{\mathbb{R}^n}) \lor ((L v)^T w = v^T L^T w)))
-\m \eqComment{why to?}
-\n \dfn{symmetric then spectral thm}
+\n \thm{Spectral thm.} (\rfr{matrix}(L, (n, n))) \land (\rfr{selfAdjoint}(L, (\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle, \mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle))) \implies
+\m (E = \{v \in \mathbb{R}^n \mid \rfr{eigenvector}(v, (L, \mathbb{R}^n, +, \cdot))\}) \land (\rfr{orthonormalBasis}(E, (\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle)))
+\m \eqComment{wow}
 \end{align}
 \end{tcolorbox}
 

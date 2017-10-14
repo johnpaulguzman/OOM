@@ -66,8 +66,6 @@
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
 
-TODO only metric space for limit points? or keep topological space (technically, metric is stronger than topology and topology was never used in the conditions)
-
 TODO define || abs  cross-product and other missing refs
 
 TODO define **args for comparison callbacks, predicate args, norms and or placeholders
@@ -269,21 +267,17 @@ TODO link thms?
 \m \ml(\forall_{x, y, z} \ml(\ml(d\ml(x, z\mr) \leq d\ml(x, y\mr) + d\ml(y, z\mr)\mr)\mr)\mr)
 \m \eqComment{behaves as distances should}
 \n \dfn{metricSpace}\ml(\ml(M, d\mr), \ml(\mr)\mr) \iff \rfr{metric}\ml(d, \ml(M\mr)\mr)
-\n \dfn{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \iff \ml(\rfr{metricSpace}\ml(\ml(M, d\mr), \ml(\mr)\mr)\mr) \land
-\m \ml(r \in \mathbb{R}^+, p \in M\mr) \land
-\m \ml(B = \{q \in M \mid d\ml(p, q\mr) < r\}\mr)
+\n \dfn{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \iff \ml(\rfr{metricSpace}\ml(\ml(M, d\mr), \ml(\mr)\mr)\mr) \land \ml(r \in \mathbb{R}^+, p \in M\mr) \land \ml(B = \{q \in M \mid d\ml(p, q\mr) < r\}\mr)
 \n \dfn{metricTopology}\ml(\mathcal{O}, \ml(M, d\mr)\mr) \iff \ml(\rfr{metricSpace}\ml(\ml(M, d\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(\mathcal{O} = \{U \in \mathcal{P}\ml(M\mr) \mid \forall_{p \in U} \exists_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \land B \subseteq U\mr)\}\mr)
 \m \eqComment{every point in the neighborhood has some open ball that is fully enclosed in the neighborhood}
 \n \dfn{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr) \iff \rfr{metricTopology}\ml(\mathcal{O}, \ml(M, d\mr)\mr)
-\n \dfn{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \ml(\rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr)\mr) \land \ml(S \subseteq M\mr) \land
-\m \forall_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \land B \cap S \neq \emptyset\mr)
+\n \dfn{limitPoint}\ml(p, \ml(S, M, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \forall_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \cap S \neq \emptyset\mr)
 \m \eqComment{every open ball centered at $p$ contains some intersection with $S$}
-\n \dfn{interiorPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \ml(\rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}, d\mr), \ml(\mr)\mr)\mr) \land \ml(S \subseteq M\mr) \land
-\m \ml(\exists_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \land B \subseteq S\mr)\mr)
+\n \dfn{interiorPoint}\ml(p, \ml(S, M, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\exists_{r \in \mathbb{R}^+} \ml(\rfr{openBall}\ml(B, \ml(r, p, M, d\mr)\mr) \subseteq S\mr)\mr)
 \m \eqComment{there is an open ball centered at $p$ that is fully enclosed in $S$}
-\n \dfn{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr) \iff \bar{S} = S \cup \{\rfr{limitPoint}\ml(p, \ml(S, M, \mathcal{O}, d\mr)\mr) \mid p \in M\}
-\n \dfn{dense}\ml(S, \ml(M, \mathcal{O}, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, \mathcal{O}, d\mr)\mr)\mr)\mr)
+\n \dfn{closure}\ml(\bar{S}, \ml(S, M, d\mr)\mr) \iff \bar{S} = S \cup \{\rfr{limitPoint}\ml(p, \ml(S, M, d\mr)\mr) \mid p \in M\}
+\n \dfn{dense}\ml(S, \ml(M, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, d\mr)\mr)\mr)\mr)
 \m \eqComment{every of point in $M$ is a point or a limit point of $S$}
 \n \dfn{eucD}\ml(d, \ml(n\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq n} \ml(x_i \in \mathbb{R}\mr)\mr) \land \ml(d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}}\mr)
 \n \rfr{metricTopology}\ml(\dfn{standardTopology}, \ml(\mathbb{R}^{n}, \rfr{eucD}\ml(d, \ml(n\mr)\mr)\mr)\mr)
@@ -553,12 +547,35 @@ TODO link thms?
 \end{align}
 \end{tcolorbox}
 
-\subsection{Function spaces}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Vector space and structures}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr) \iff \ml(p \in \mathbb{R}\mr) \land \ml(1 \leq p < \infty\mr) \land
-\m \ml(\mathcal{L}^p = \{\rfr{map}\ml(f, \ml(M, \mathbb{R}\mr)\mr) \mid \rfr{measurableMap}\ml(f, \ml(M, \sigma, \mathbb{R}, \rfr{standardSigma}\mr)\mr) \land \int \ml(|f|^p d\mu\mr) < \infty \}\mr)
-\n \dfn{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr) \iff \ml(\rfr{map}\ml(+, \ml(V \times V, V\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\cdot, \ml(\mathbb{R} \times V, V\mr)\mr)\mr) \land 
+   \dfn{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr) \iff \ml(\rfr{map}\ml(+, \ml(V \times V, V\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\cdot, \ml(\mathbb{R} \times V, V\mr)\mr)\mr) \land 
 \m \ml(\forall_{v, w \in v} \ml(v + w = w + v\mr)\mr) \land
 \m \ml(\forall_{v, w, x \in v} \ml(\ml(v + w\mr) + x = v + \ml(w + x\mr)\mr)\mr) \land
 \m \ml(\exists_{\field{0} \in V} \forall_{v \in V} \ml(v + \field{0} = v\mr)\mr) \land
@@ -568,71 +585,53 @@ TODO link thms?
 \m \ml(\forall_{a, b \in \mathbb{R}} \forall_{v \in V} \ml(\ml(a + b\mr) \cdot v = a \cdot v + b \cdot v\mr)\mr) \land
 \m \ml(\forall_{a \in \mathbb{R}} \forall_{v, w \in V} \ml(a \cdot \ml(v + w\mr) = a \cdot v + a \cdot w\mr)\mr)
 \m \eqComment{behaves similar as vectors should i.e., additive, scalable, linear distributive}
-\n \dfn{vecLp}\ml(\mathcal{L}^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\forall_{f, g \in \mathcal{L}^p} \forall_{m \in M} \ml(\ml(f + g\mr)\ml(m\mr) = f\ml(m\mr) + g\ml(m\mr)\mr)\mr) \land
-\m \ml(\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \forall_{m \in M} \ml(\ml(s \cdot f\mr)\ml(m\mr) = \ml(s\mr) f\ml(m\mr)\mr)\mr) \land \ml(\rfr{vectorSpace}\ml(\ml(\mathcal{L}^p, +, \cdot\mr), \ml(\mr)\mr)\mr)
-\n \dfn{norm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(|| \$1 ||, \ml(V, \mathbb{R}^+_0\mr)\mr)\mr) \land
-\m \ml(\forall_{v \in V} \ml(|| v || = 0 \iff v = \field{0}\mr)\mr) \land
-\m  \ml(\forall_{v \in V} \forall_{s \in \mathbb{R}}\ml(|| s v || = |s| || v ||\mr)\mr) \land
-\m \ml(\forall_{v, w \in V} \ml(|| v + w || \leq || v || + || w ||\mr)\mr)
-\m \eqComment{magnitude of a point in a vector space}
-\n \dfn{seminormLp}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{vecLp}\ml(\mathcal{L}^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\wr\wr \$1 \wr\wr, \ml(\mathcal{L}^p, \mathbb{R}\mr)\mr)\mr) \land 
-\m \ml(\forall_{f \in \mathcal{L}^p} \ml(0 \leq \wr\wr f \wr\wr = \ml(\int \ml(|f|^p d\mu\mr)\mr)^{1/p}\mr)\mr) \land
-\m \ml(\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \ml(\wr\wr s \cdot f \wr\wr = \ml(|s|\mr) \wr\wr f \wr\wr\mr)\mr) \land
-\m \ml(\forall_{f, g \in \mathcal{L}^p} \ml(\wr\wr f + g \wr\wr = \wr\wr f \wr\wr + \wr\wr g \wr\wr\mr)\mr)
-\n \thm{} \rfr{seminormLp}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \implies 
-\m \ml(\forall_{f \in \mathcal{L}^p} \ml(\wr\wr f \wr\wr = 0 \implies \rfr{almostEverywhere}\ml(f = \field{0}, \ml(M, \sigma, \mu\mr)\mr)\mr)\mr)
-\m \eqComment{not an expected property from a norm}
-\n \dfn{Lp}\ml(L^p, \ml(\ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \iff \ml(\rfr{seminormLp}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \land
-\m \ml(L^p = \rfr{quotientSet}\ml(\mathcal{L}^p / \sim, \ml(\mathcal{L}^p, \wr\wr\$1 + \ml(-\$2\mr)\wr\wr = 0\mr)\mr)\mr)
-\m \eqComment{functions in $L^p$ that have finite integrals above and below the x-axis}
-\n \thm{$\wr\wr \$1 \wr\wr, +, \cdot$ can be inherited into $L^p$, thus it can be called a normed vector space}
-\n \thm{$L^{p=2}$ is complete or contains all its limit points w.r.t. to its norm}
-\end{align}
-\end{tcolorbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Statistical Learning Theory}
-\subsection{Functional Analysis}
-\begin{tcolorbox}[breakable, enhanced]
-\begin{align}
-   \dfn{innerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\langle \$1, \$2 \rangle, \ml(V \times V, \mathbb{R}\mr)\mr)\mr) \land
+\n \dfn{innerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\langle \$1, \$2 \rangle, \ml(V \times V, \mathbb{R}\mr)\mr)\mr) \land
 \m \ml(\forall_{v, w \in V} \ml(\langle v, w \rangle = \langle w, v \rangle\mr)\mr) \land
 \m \ml(\forall_{v, w, x \in V} \forall_{a, b \in \mathbb{R}} \ml(\langle a v + b w, x \rangle = a \langle v, x \rangle + b \langle w, x \rangle\mr)\mr) \land
 \m \ml(\forall_{v \in V} \ml(\langle v, v \rangle\mr) \geq 0\mr) \land \ml(\forall_{v \in V} \ml(\langle v, v \rangle\mr) = 0 \iff v = \field{0}\mr)
 \m \eqComment{the sesquilinear or 1.5 linear map inner product provides info. on distance and orthogonality}
 \n \dfn{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr) \iff \rfr{innerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot\mr)\mr)
+\n \dfn{vectorNorm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{map}\ml(|| \$1 ||, \ml(V, \mathbb{R}^+_0\mr)\mr)\mr) \land
+\m \ml(\forall_{v \in V} \ml(|| v || = 0 \iff v = \field{0}\mr)\mr) \land
+\m  \ml(\forall_{v \in V} \forall_{s \in \mathbb{R}}\ml(|| s v || = |s| || v ||\mr)\mr) \land
+\m \ml(\forall_{v, w \in V} \ml(|| v + w || \leq || v || + || w ||\mr)\mr)
+\m \eqComment{magnitude of a point in a vector space}
+\n \dfn{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{vectorNorm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr)\mr)
+\n \dfn{vectorMetric}\ml(d\ml(\$1, \$2\mr), \ml(V, +, \cdot\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land 
+\m (\rfr{metric}\ml(d\ml(\$1, \$2\mr), \ml(V\mr)\mr) \lor \ml(\rfr{map}\ml(d, \ml(V \times V, \mathbb{R}^+_0\mr)\mr)\mr)
+\m \ml(\forall_{x, y \in V} \ml(d\ml(x, y\mr) = d\ml(y, x\mr)\mr)\mr) \land
+\m \ml(\forall_{x, y \in V} \ml(d\ml(x, y\mr) = 0 \iff x = y\mr)\mr) \land
+\m \ml(\forall_{x, y, z \in V} \ml(\ml(d\ml(x, z\mr) \leq d\ml(x, y\mr) + d\ml(y, z\mr)\mr)\mr)\mr))
+\m \eqComment{behaves as distances should}
+\n \dfn{metricVectorSpace}\ml(\ml(V, +, \cdot, d\ml(\$1, \$2\mr)\mr), \ml(\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{vectorMetric}\ml(d\ml(\$1, \$2\mr), \ml(V, +, \cdot\mr)\mr)\mr)
+\n \dfn{innerProductNorm}\ml(|| \$1 ||, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\forall_{v \in V} \ml(|| v || = \sqrt[2]{\langle v, v \rangle}\mr) \implies \rfr{vectorNorm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr)\mr)
+\n \dfn{normInnerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot, || \$1 ||\mr)\mr) \iff \ml(\rfr{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\forall_{u, v \in V} \ml(2 || u ||^2 + 2 || v ||^2 = || u + v ||^2 + || u - v ||^2\mr)\mr) \land
+\m \ml(\forall_{v, w \in V} \ml(\langle v, w \rangle = \frac{|| v + w ||^2 - || v - w ||^2}{4}\mr) \implies \rfr{innerProduct}\ml(\langle \$1, \$2 \rangle, \ml(V, +, \cdot\mr)\mr)\mr) 
+\n \dfn{normMetric}\ml(d\ml(\$1, \$2\mr), \ml(V, +, \cdot, || \$1 ||\mr)\mr) \iff \ml(\rfr{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\forall_{v, w \in V} \ml(d\ml(v, w\mr) = || v - w ||\mr) \implies \rfr{vectorMetric}\ml(d\ml(\$1, \$2\mr), \ml(V, +, \cdot\mr)\mr)\mr)
+\n \dfn{metricNorm}\ml(|| \$1 ||, \ml(V, +, \cdot, d\ml(\$1, \$2\mr)\mr)\mr) \iff \ml(\rfr{metricVectorSpace}\ml(\ml(V, +, \cdot, d\ml(\$1, \$2\mr)\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\forall_{u, v, w \in V} \forall_{s \in \mathbb{R}} \ml(d\ml(s \ml(u + w\mr), s \ml(v + w\mr)\mr) = |s| d\ml(u, v\mr)\mr)\mr) \land
+\m \ml(\forall_{v \in V} \ml(|| v || = d\ml(v, \field{0}\mr)\mr) \implies \rfr{vectorNorm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr)\mr)
 \n \dfn{orthogonal}\ml(\ml(v, w\mr), \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(v, w \in V\mr) \land \ml(\langle v, w \rangle = 0\mr)
 \m \eqComment{the inner product also provides info. on orthogonality}
 \n \dfn{normal}\ml(v, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land \ml(v \in V\mr) \land \ml(\langle v, v \rangle = 1\mr)
 \m \eqComment{the vector has unit length}
-\n \dfn{innerProductNorm}\ml(|| \$1 ||, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land
-\m \ml(\rfr{norm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr)\mr) \land \ml(\forall_{v \in V} \ml(|| v || = \langle v, v \rangle^{1/2}\mr)\mr)
 \n \thm{Cauchy-Schwarz inequality} \forall_{v, w \in V} \ml(\langle v, w \rangle \leq ||v || || w ||\mr)
-\n \dfn{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{norm}\ml(|| \$1 ||, \ml(V, +, \cdot\mr)\mr)\mr)
-\n \dfn{normMetric}\ml(d\ml(\$1, \$2\mr), \ml(V, || \$1 ||\mr)\mr) \iff \ml(\rfr{normedVectorSpace}\ml(\ml(V, +, \cdot, || \$1 ||\mr), \ml(\mr)\mr)\mr) \land 
-\m \ml(\rfr{metric}\ml(|| \$1 - \$2 ||, \ml(V\mr)\mr)\mr)
-\n \thm{} \rfr{innerProduct} \implies \rfr{norm} \implies \rfr{metric}
-\n \thm{} \ml(\rfr{metric} \land \forall_{u, v, w \in V} \forall_{s \in \mathbb{R}} \ml(d\ml(s \ml(u + w\mr), s \ml(v + w\mr)\mr) = |s| d\ml(u, v\mr)\mr) \land \forall_{v \in V} \ml(|| v || = d\ml(v, \field{0}\mr)\mr)\mr) \implies 
-\m \ml(\rfr{norm} \land \forall_{u, v \in V} \ml(2 || u ||^2 + 2 || v ||^2 = || u + v ||^2 + || u - v ||^2\mr) \land \forall_{v, w \in V} \ml(\langle v, w \rangle = \frac{|| v + w ||^2 - || v - w ||^2}{4}\mr)\mr) \implies 
-\m \ml(\rfr{innerProduct}\mr)
-\n \dfn{basis}\ml(\ml(b\mr)_n, \ml(V, +, \cdot, \mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land
-\m \ml(\forall_{v \in V} \exists_{\ml(a\mr)_n \in \mathbb{R}^n} \ml(v = \sum_{i = 1}^n \ml(a_i b_i\mr)\mr)\mr)
+\n \dfn{basis}\ml(\ml(b\mr)_n, \ml(V, +, \cdot, \mr)\mr) \iff \ml(\rfr{vectorSpace}\ml(\ml(V, +, \cdot\mr), \ml(\mr)\mr)\mr) \land \ml(\forall_{v \in V} \exists_{\ml(a\mr)_n \in \mathbb{R}^n} \ml(v = \sum_{i = 1}^n \ml(a_i b_i\mr)\mr)\mr)
 \n \dfn{orthonormalBasis}\ml(\ml(b\mr)_n, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(\rfr{innerProductSpace}\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{basis}\ml(\ml(b\mr)_n, \ml(V, +, \cdot\mr)\mr)\mr) \land \ml(\forall_{v \in \ml(b\mr)_n} \ml(\rfr{normal}\ml(v, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr)\mr) \land
 \m \ml(\forall_{v \in \ml(b\mr)_n} \forall_{w \in \ml(b\mr)_n \setminus \{v\}} \ml(\rfr{orthogonal}\ml(\ml(v, w\mr), \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr)\mr)
-\n \dfn{subspace}\ml(\ml(U, \circ\mr), \ml(V, \circ\mr)\mr) \iff \ml(\rfr{space}\ml(\ml(V, \circ\mr), \ml(\mr)\mr)\mr) \land \ml(U \subseteq V\mr) \land \ml(\rfr{space}\ml(\ml(U, \circ\mr), \ml(\mr)\mr)\mr)
+\end{align}
+\end{tcolorbox}
+
+\subsection{Subvector space}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \dfn{subspace}\ml(\ml(U, \circ\mr), \ml(V, \circ\mr)\mr) \iff \ml(\rfr{space}\ml(\ml(V, \circ\mr), \ml(\mr)\mr)\mr) \land \ml(U \subseteq V\mr) \land \ml(\rfr{space}\ml(\ml(U, \circ\mr), \ml(\mr)\mr)\mr)
 \n \dfn{subspaceSum}\ml(U + W, \ml(U, W, V, +\mr)\mr) \iff \ml(\rfr{subspace}\ml(\ml(U, +\mr), \ml(V, +\mr)\mr)\mr) \land \ml(\rfr{subspace}\ml(\ml(W, +\mr), \ml(V, +\mr)\mr)\mr) \land 
 \m \ml(U + W = \{u + w \mid u \in U \land w \in W\}\mr)
 \n \dfn{subspaceDirectSum}\ml(U \oplus W, \ml(U, W, V, +\mr)\mr) \iff \ml(U \cap W = \emptyset\mr) \land \ml(\rfr{subspaceSum}\ml(U \oplus W, \ml(U, W, V, +\mr)\mr)\mr)
@@ -660,15 +659,11 @@ TODO link thms?
 \m (\rfr{normMetric}(d(\$1, \$2), (V, || \$1 ||))) \land (\rfr{complete}(V, d(\$1, \$2)), ())
 \m \eqComment{a complete inner product space}
 \n \thm{} \rfr{hilbertSpace} \implies \rfr{banachSpace}
-\n \dfn{innerProductMetric}(d(\$1, \$2), (V, +, \cdot, \langle \$1, \$2 \rangle)) \iff 
-\m (\rfr{innerProductNorm}(|| \$1 ||, (V, +, \cdot, \langle \$1, \$2 \rangle))) \land (\rfr{normMetric}(d(\$1, \$2), (V, || \$1 ||)))
-\n \dfn{innerProductTopology}(\mathcal{O}, (V, +, \cdot, \langle \$1, \$2 \rangle)) \iff
-\m (\rfr{innerProductMetric}(d(\$1, \$2), (V, +, \cdot, \langle \$1, \$2 \rangle))) \land (\rfr{metricTopology}(\mathcal{O}, (V, d(\$1, \$2))))
-\n \dfn{separable}((V, \mathcal{O}, d), ()) \iff (\exists_{S \subseteq V} (\rfr{dense}(S, (V, \mathcal{O}, d)) \land \rfr{countablyInfinite}(S, ())))
+\n \dfn{separable}((V, d), ()) \iff (\exists_{S \subseteq V} (\rfr{dense}(S, (V, d)) \land \rfr{countablyInfinite}(S, ())))
 \m \eqComment{only a countable subset needed to approximate any element in the entire space}
 \n \thm{} \rfr{hilbertSpace}\ml(\ml(\ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr), \ml(\mr)\mr), \ml(\mr)\mr) \implies
 \m (\ml(\exists_{\ml(b\mr)_\mathbb{N} \subseteq V} \ml(\rfr{orthonormalBasis}\ml(\ml(b\mr)_\mathbb{N}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \land \rfr{countablyInfinite}\ml(\ml(b\mr)_\mathbb{N}, \ml(\mr)\mr)\mr)\mr) \iff
-\m \ml(\rfr{separable}\ml(\ml(V, \rfr{innerProductTopology}\ml(\mathcal{O}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr), d\ml(\$1, \$2\mr)\mr), \ml(\mr)\mr)\mr))
+\m \ml(\rfr{separable}\ml(\ml(V, \sqrt{\langle \$1 - \$2, \$1 - \$2 \rangle}\mr), \ml(\mr)\mr)\mr))
 \m \eqComment{separability in hilbert spaces is equivalent to the existence of a countable orthonormal basis}
 \end{align}
 \end{tcolorbox}
@@ -676,38 +671,68 @@ TODO link thms?
 \subsection{Matrices, Operators, and Functionals}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{linearOperator}(L, (V, +_V, \cdot_V, W, +_W, \cdot_W)) \iff (\rfr{map}(L, (V, W))) \land (\rfr{vectorSpace}((V, +_V, \cdot_V), ())) \land 
-\m (\rfr{vectorSpace}((W, +_W, \cdot_W), ())) \land (\forall_{v_1, v_2 \in V} \forall_{s_1, s_2 \in \mathbb{R}} (L(s_1 \cdot_V v_1 +_V s_2 \cdot_V v_2) = s_1 \cdot_W L(v_1) +_W s_2 \cdot_W L(v_2)))
-\n \dfn{denseMap}(L, (D, H, +, \cdot, \langle \$1, \$2 \rangle)) \iff (D \subseteq H) \land (\rfr{linearOperator}(L, (D, +, \cdot, H, +, \cdot)) \land
-\m (\rfr{innerProductTopology}(\mathcal{O}, (H, +, \cdot, \langle \$1, \$2 \rangle))) \land (\rfr{dense}(D, (H, \mathcal{O}, d(\$1, \$2))))
-\n \dfn{traceClass}(L, (H, +, \cdot, \langle \$1, \$2 \rangle)) \iff (\rfr{hilbertSpace}(((H, +, \cdot, \langle \$1, \$2 \rangle), ()), ())) \land 
-\m (\rfr{linearOperator}(Tr(L), (L, H, +, \cdot, H, +, \cdot))) \land 
-\m (\forall_{(b)_n \subseteq H} (\rfr{orthonormalBasis}((b)_n, (H, +, \cdot, \langle \$1, \$2 \rangle)) \implies Tr(L) = \sum_{n} (\langle b_n, L(b_n) \rangle) < \infty))
-\m \eqComment{does not depend on the choice of orthonormal basis}
-\m \eqComment{DEFINE}
-\n \dfn{mapNorm}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W)) \iff (\rfr{linearOperator}(L, (V, +_V, \cdot_V, W, +_W, \cdot_W))) \land
-\m (\rfr{normedVectorSpace}((V, +_V, \cdot_V, || \$1 ||_V), ())) \land (\rfr{normedVectorSpace}((W, +_W, \cdot_W, || \$1 ||_W), ())) \land 
-\m (|| L || = \rfr{sup}(\{\frac{|| L f ||_W}{|| f ||_V} \mid f \in V\}) = \rfr{sup}(\{|| L f ||_W \mid f \in V \land || f || = 1\}))
-\n \thm{} || L f || \leq || L || || f ||
-\n \thm{CONTINUE HERE 46:50}
-\n \dfn{boundedMap}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W)) \iff
-\m (\rfr{mapNorm}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W))) \land (|| L || < \infty)
-\n \lnot \rfr{boundedMap}(|| L ||, (L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W)) \impliedby
-\m (U \subset V) \land (\infty = \rfr{mapNorm}(|| L ||_U, (L, U, +_U, \cdot_U, || \$1 ||_U, W, +_W, \cdot_W, || \$1 ||_W)) \leq || L ||)
-\n 0
-\n \dfn{adjoint}(L^T, (L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W)) \iff (\rfr{hilbertSpace}((V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V), ())) \land 
-\m (\rfr{hilbertSpace}((W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W), ())) \land (\rfr{linearOperator}(L, (V, +_V, \cdot_V, W, +_W, \cdot_W))) \land
-\m (\forall_{v \in V} \forall_{w \in W} ((\langle L v, w \rangle_W = \langle v, L^T w \rangle_V) \lor ((L v)^T w = v^T L^T w)))
-\m \eqComment{target operator that is equivalent to the domain operator}
-\n \dfn{selfAdjoint}(L, (V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W))) \iff
-\m L = \rfr{adjoint}(L^T, (L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W))
+   \dfn{linearOperator}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{map}\ml(L, \ml(V, W\mr)\mr)\mr) \land \ml(\rfr{vectorSpace}\ml(\ml(V, +_V, \cdot_V\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{vectorSpace}\ml(\ml(W, +_W, \cdot_W\mr), \ml(\mr)\mr)\mr) \land \ml(\forall_{v_1, v_2 \in V} \forall_{s_1, s_2 \in \mathbb{R}} \ml(L\ml(s_1 \cdot_V v_1 +_V s_2 \cdot_V v_2\mr) = s_1 \cdot_W L\ml(v_1\mr) +_W s_2 \cdot_W L\ml(v_2\mr)\mr)\mr)
+\n \dfn{denseMap}\ml(L, \ml(D, H, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \iff \ml(D \subseteq H\mr) \land \ml(\rfr{linearOperator}\ml(L, \ml(D, +, \cdot, H, +, \cdot\mr)\mr)\mr) \land
+\m \ml(\rfr{innerProductTopology}\ml(\mathcal{O}, \ml(H, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr) \land \ml(\rfr{dense}\ml(D, \ml(H, \mathcal{O}, d\ml(\$1, \$2\mr)\mr)\mr)\mr)
+\n \dfn{mapNorm}\ml(|| L ||, \ml(L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr) \iff 
+\m \ml(\rfr{linearOperator}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr)\mr) \land
+\m \ml(\rfr{normedVectorSpace}\ml(\ml(V, +_V, \cdot_V, || \$1 ||_V\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{normedVectorSpace}\ml(\ml(W, +_W, \cdot_W, || \$1 ||_W\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(|| L || = \rfr{sup}\ml(\ml\{\frac{|| L f ||_W}{|| f ||_V} \mid f \in V\mr\}\mr) = \rfr{sup}\ml(\ml\{|| L f ||_W \mid f \in V \land || f || = 1\mr\}\mr)\mr)
+\n \dfn{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr) \iff
+\m \ml(\rfr{mapNorm}\ml(|| L ||, \ml(L, V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land \ml(|| L || < \infty\mr)
+\n \lnot \rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr) \impliedby
+\m \ml(U \subset V\mr) \land \ml(\infty = \rfr{mapNorm}\ml(|| L ||_U, \ml(L, U, +_U, \cdot_U, || \$1 ||_U, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr) \leq || L ||\mr)
+\n \dfn{extensionMap}\ml(\widehat{L}, \ml(L, V, D, W\mr)\mr) \iff \ml(D \subseteq V\mr) \land \ml(\rfr{linearOperator}\ml(L, \ml(D, +_D, \cdot_D, W, +_W, \cdot_W\mr)\mr)\mr) \land
+\m \ml(\rfr{linearOperator}\ml(\widehat{L}, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr)\mr) \land \ml(\forall_{d \in D} \ml(\widehat{L}\ml(d\mr) = L\ml(d\mr)\mr)\mr)
+\n \dfn{adjoint}\ml(L^T, \ml(L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr)\mr) \iff \ml(\rfr{hilbertSpace}\ml(\ml(V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{hilbertSpace}\ml(\ml(W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{linearOperator}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr)\mr) \land
+\m \ml(\forall_{v \in V} \forall_{w \in W} \ml(\ml(\langle L v, w \rangle_W = \langle v, L^T w \rangle_V\mr) \lor \ml(\ml(L v\mr)^T w = v^T L^T w\mr)\mr)\mr)
+\m \eqComment{target operator that acts similar to the domain operator}
+\n \dfn{selfAdjoint}\ml(L, \ml(V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr)\mr) \iff
+\m L = \rfr{adjoint}\ml(L^T, \ml(L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr)\mr)
 \m \eqComment{also a generalization of symmetric matrices}
-\n \dfn{matrix}(L, (n, m)) \iff (\rfr{linearOperator}(L, (\mathbb{R}^n, +_n, \cdot_n, \mathbb{R}^m, +_m, \cdot_m)))
-\n \dfn{eigenvector}(v, (L, V, +, \cdot)) \iff (\rfr{linearOperator}(L, (V, +, \cdot, V, +, \cdot))) \land (\exists_{\lambda \in \mathbb{R}} (L(v) = \lambda v))
-\n \dfn{eigenvalue}(\lambda, (v, L, +, \cdot)) \iff \rfr{eigenvector}(v, (L, V, +, \cdot))
-\n \thm{Spectral thm.} (\rfr{matrix}(L, (n, n))) \land (\rfr{selfAdjoint}(L, (\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle, \mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle))) \implies
-\m (E = \{v \in \mathbb{R}^n \mid \rfr{eigenvector}(v, (L, \mathbb{R}^n, +, \cdot))\}) \land (\rfr{orthonormalBasis}(E, (\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle)))
-\m \eqComment{wow}
+\n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^n, +_n, \cdot_n, \mathbb{R}^m, +_m, \cdot_m\mr)\mr)\mr)
+\n \dfn{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \land \ml(\exists_{\lambda \in \mathbb{R}} \ml(L\ml(v\mr) = \lambda v\mr)\mr)
+\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, +, \cdot\mr)\mr) \iff \rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)
+\n \thm{Spectral thm.} \ml(\rfr{matrix}\ml(L, \ml(n, n\mr)\mr)\mr) \land \ml(\rfr{selfAdjoint}\ml(L, \ml(\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle, \mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr) \implies
+\m \ml(E = \{v \in \mathbb{R}^n \mid \rfr{eigenvector}\ml(v, \ml(L, \mathbb{R}^n, +, \cdot\mr)\mr)\}\mr) \land \ml(\rfr{orthonormalBasis}\ml(E, \ml(\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr)
+\m \eqComment{DEFINE}
+\end{align}
+\end{tcolorbox}
+
+\subsection{Function spaces call integral norm and sup norm}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \dfn{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr) \iff \ml(p \in \mathbb{R}\mr) \land \ml(1 \leq p < \infty\mr) \land
+\m \ml(\mathcal{L}^p = \{\rfr{map}\ml(f, \ml(M, \mathbb{R}\mr)\mr) \mid \rfr{measurableMap}\ml(f, \ml(M, \sigma, \mathbb{R}, \rfr{standardSigma}\mr)\mr) \land \int \ml(|f|^p d\mu\mr) < \infty \}\mr)
+\n \dfn{vecLp}\ml(\mathcal{L}^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\forall_{f, g \in \mathcal{L}^p} \forall_{m \in M} \ml(\ml(f + g\mr)\ml(m\mr) = f\ml(m\mr) + g\ml(m\mr)\mr)\mr) \land
+\m \ml(\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \forall_{m \in M} \ml(\ml(s \cdot f\mr)\ml(m\mr) = \ml(s\mr) f\ml(m\mr)\mr)\mr) \land \ml(\rfr{vectorSpace}\ml(\ml(\mathcal{L}^p, +, \cdot\mr), \ml(\mr)\mr)\mr)
+\n \dfn{integralNorm}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{vecLp}\ml(\mathcal{L}^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\wr\wr \$1 \wr\wr, \ml(\mathcal{L}^p, \mathbb{R}^+_0\mr)\mr)\mr) \land 
+\m \ml(\forall_{f \in \mathcal{L}^p} \ml(0 \leq \wr\wr f \wr\wr = \ml(\int \ml(|f|^p d\mu\mr)\mr)^{1/p}\mr)\mr) %\land
+%\m \ml(\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \ml(\wr\wr s \cdot f \wr\wr = \ml(|s|\mr) \wr\wr f \wr\wr\mr)\mr) \land
+%\m \ml(\forall_{f, g \in \mathcal{L}^p} \ml(\wr\wr f + g \wr\wr = \wr\wr f \wr\wr + \wr\wr g \wr\wr\mr)\mr)
+\n \thm{} \rfr{integralNorm}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \implies 
+\m \ml(\forall_{f \in \mathcal{L}^p} \ml(\wr\wr f \wr\wr = 0 \implies \rfr{almostEverywhere}\ml(f = \field{0}, \ml(M, \sigma, \mu\mr)\mr)\mr)\mr)
+\m \eqComment{not an expected property from a norm}
+\n \dfn{Lp}\ml(L^p, \ml(\ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \iff \ml(\rfr{integralNorm}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \land
+\m \ml(L^p = \rfr{quotientSet}\ml(\mathcal{L}^p / \sim, \ml(\mathcal{L}^p, \ml(\wr\wr\$1 + \ml(-\$2\mr)\wr\wr = 0\mr)\mr)\mr)\mr)
+\m \eqComment{functions in $L^p$ that have finite integrals above and below the x-axis}
+\n \thm{$\wr\wr \$1 \wr\wr, +, \cdot$ can be inherited into $L^p$, thus it can be called a normed vector space}
+\n \thm{$L^{p=2}$ is complete or contains all its limit points w.r.t. to its norm}
+\n CONTHERE say thm banach(LP)
+\n \thm{} \mathcal{L} = \{f \mid \rfr{boundedMap}(f, (V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W))\} \implies 
+\m \rfr{banachSpace}(\mathcal{L}, +, \cdot, \rfr{mapNorm})
+\m \eqComment{INCOMPLETE: V can be any normed space but W must be Banach}
+\m \eqComment{proof by construction of candidate limit map and cauchy sequences of maps}
+\n \thm{} || L || \geq \frac{|| L f ||}{|| f ||} \eqComment{from choosing an arbitrary element in the mapNorm sup}
+\n \thm{} (\rfr{cauchy}((f)_\mathbb{N}, (\mathcal{L}, +, \cdot, \rfr{mapNorm})) \implies \rfr{cauchy}((f_n v)_\mathbb{N}, (W, +_W, \cdot_W, || \$1 ||_W))) \impliedby
+\m (\forall_{\epsilon^\prime > 0} \forall_{v \in V} (|| f_n v - f_m v ||_W = || (f_n - f_m) v ||_W \leq || f_n - f_m || \cdot || v ||_V) < \epsilon \cdot || v ||_V = \epsilon^\prime)
+\m \eqComment{a cauchy sequence of operators maps to a cauchy sequence of targets}
+\n \thm{BLT} (\rfr{dense}(D, (V, \mathcal{O}, d_V)) \land \rfr{boundedMap}(A, (D, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W))) \implies ()
+\m (\exists!_{\widehat{A}} (\rfr{extensionMap}(\widehat{A}, (A, V, D, W))) \land || \widehat{A} || = || A ||) \impliedby
+\m (\forall_{v \in V} \exists_{(v)_\mathbb{N} \subseteq D} (\lim_{n \to \infty} (v_n = v))) \land (\widehat{A} v = \lim_{n \to \infty} (A v_n))
+\m \eqComment{INCOMPLERE: needs additional conditions such as Avn is cauchy and W is banach}
 \end{align}
 \end{tcolorbox}
 

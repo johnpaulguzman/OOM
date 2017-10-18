@@ -1,4 +1,4 @@
-% CONTINUE LINE 692
+% CONTINUE LINE 698
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -50,7 +50,7 @@
 \newcommand{\rfr}[1]{\hyperlink{#1}{#1}}
 \newcommand*\feature[1]
   {\ifx\features\empty
-     \def\features{\noindent \rfr{#1} \\}%
+     \def\features{   \noindent \rfr{#1} \\}%
    \else
      \g@addto@macro\features{\rfr{#1} \\}%
    \fi}
@@ -65,6 +65,8 @@
 \allowdisplaybreaks
 
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
+
+Note: All weaker objects automatically induces notions inherited from stronger objects.
 
 TODO define || abs  cross-product and other missing refs
 
@@ -360,11 +362,12 @@ TODO link thms?
 \n \dfn{compact}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land
 \m \ml(\forall_{C \subseteq \mathcal{O}} \ml(\rfr{openCover}\ml(C, \ml(M, \mathcal{O}\mr)\mr) \implies \exists_{\widetilde{C} \subseteq C} \ml(\rfr{finiteSubcover}\ml(\widetilde{C}, \ml(C, M, \mathcal{O}\mr)\mr)\mr)\mr)\mr)
 \m \eqComment{every covering of the space is represented by a finite number of nhbhds}
-\n \dfn{compactSubset}\ml(N, \ml(M, \mathcal{O}_d, d\mr)\mr) \iff \ml(\rfr{compact}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr)\mr)
+\n \dfn{compactSubset}\ml(N, \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{compact}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land
+\m \ml(\rfr{subsetTopology}\ml(\mathcal{O}|_N, \ml(M, \mathcal{O}, N\mr)\mr)\mr) \land \ml(\rfr{compact}\ml(\ml(N, \mathcal{O}|_N\mr), \ml(\mr)\mr)\mr)
 \n \dfn{bounded}\ml(N, \ml(M, d\mr)\mr) \iff \ml(\rfr{metricSpace}\ml(\ml(M, d\mr), \ml(\mr)\mr)\mr) \land \ml(N \subseteq M\mr) \land
 \m \ml(\exists_{r \in \mathbb{R}^+} \forall_{p, q \in n} \ml(d\ml(p, q\mr) < r\mr)\mr)
-\n \thm{HeineBorel} \rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}_d, d\mr), \ml(\mr)\mr) \implies 
-\m \forall_{S \in \mathcal{P}\ml(M\mr)} \ml(\ml(\rfr{closed}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr) \land \rfr{bounded}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr) \iff \rfr{compactSubset}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr)
+\n \thm{Heine-Borel thm.} \rfr{metricTopologicalSpace}\ml(\ml(M, \mathcal{O}_d, d\mr), \ml(\mr)\mr) \implies 
+\m \forall_{S \subseteq M} \ml(\ml(\rfr{closed}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr) \land \rfr{bounded}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr) \iff \rfr{compactSubset}\ml(S, \ml(M, \mathcal{O}_d\mr)\mr)\mr)
 \m \eqComment{when metric topologies are involved, compactness is equivalent to being closed and bounded}
 \end{align}
 \end{tcolorbox}
@@ -694,14 +697,75 @@ TODO link thms?
 \m \eqComment{also a generalization of symmetric matrices}
 \n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^n, +_n, \cdot_n, \mathbb{R}^m, +_m, \cdot_m\mr)\mr)\mr)
 \n \dfn{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \land \ml(\exists_{\lambda \in \mathbb{R}} \ml(L\ml(v\mr) = \lambda v\mr)\mr)
-\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, +, \cdot\mr)\mr) \iff \rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)
-\n \thm{Spectral thm.} \ml(\rfr{matrix}\ml(L, \ml(n, n\mr)\mr)\mr) \land \ml(\rfr{selfAdjoint}\ml(L, \ml(\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle, \mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr) \implies
-\m \ml(E = \{v \in \mathbb{R}^n \mid \rfr{eigenvector}\ml(v, \ml(L, \mathbb{R}^n, +, \cdot\mr)\mr)\}\mr) \land \ml(\rfr{orthonormalBasis}\ml(E, \ml(\mathbb{R}^n, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr)
-\m \eqComment{DEFINE}
+\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)
+\n TODO / \dfn{rank} / \dfn{kernel} / \dfn{nullity} / \dfn{eigendecomposition}
+\n \dfn{compactMap}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land
+\m (\forall_{v \in V} (\rfr{openBall}\ml(B, \ml(1.0, v, V, d_V\ml(\$1, \$2\mr)\mr)\mr) \implies 
+\m \rfr{compactSubset}\ml(\rfr{closure}\ml(\overline{L\ml(B\mr)}, \rfr{image}\ml(L\ml(B\mr), \ml(B, L, V, W\mr)\mr), W, d_W\ml(\$1, \$2\mr)\mr), \ml(W, \mathcal{O}_W\mr)\mr)))
+\n \thm{Spectral thm.} 
+\m \ml(\rfr{selfAdjoint}\ml(L, \ml(V, +, \cdot, \langle \$1, \$2 \rangle, V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr) \land \ml(\rfr{compactMap}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \implies
+\m \ml(\exists_{\ml(e\mr)_\mathbb{N} \subseteq V} \ml(\rfr{orthonormalBasis}\ml(\ml(e\mr)_\mathbb{N}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \land \forall_{e_n \in \ml(e\mr)_\mathbb{N}} \ml(\rfr{eigenvector}\ml(e_n, \ml(L, V, +, \cdot\mr)\mr)\mr)\mr)\mr) \implies
+\m \ml(\exists_{\ml(\lambda\mr)_\mathbb{N} \subseteq \mathbb{R}^n} \forall_{e_n \in \ml(e\mr)_\mathbb{N}} \exists_{\lambda_n \in \ml(\lambda\mr)_\mathbb{N}} \ml(\rfr{eigenvalue}\ml(\lambda_n, \ml(e_n, L, V, +, \cdot\mr)\mr) \land \lim_{n \to \infty}\ml(\lambda_n = 0\mr) \land L = \sum_{n = 1}^\infty\ml(\lambda_n e_n {e_n}^T\mr)\mr)\mr)
+\m \eqComment{TODO intuition}
 \end{align}
 \end{tcolorbox}
 
-\subsection{Function spaces call integral norm and sup norm}
+\subsection{Linear algebra segue}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \textbf{matrix: rows=dimensions/vector components, cols=instances/individual vectors}
+\n \textbf{matrix mul: rhs dimensions acts on lhs instances}
+\n \textbf{gauss-jordan elimination: $E[A | I] = [I | E] = [I | A^{-1}]$}
+\n \textbf{elimination: $E[A | b] = [I | E b] = [I | A^{-1} b] = [I | x]$ x in terms of I as basis vectors}
+\n \textbf{upper/lower triangular factorization of A: $E A = U \implies A = E^{-1} U = L U$}
+\n \textbf{inverse: } (A B)^{-1} (A B) = I = B^{-1} A^{-1} A B 
+\n \textbf{transpose: } (A B)_{i, j}^T = (A B)_{j, i} = \sum_{k = 1}^n((a_{j, k}) (b_{k, i})) = \sum_{k = 1}^n((b_{k, i}) (a_{j, k})) = \sum_{k = 1}^n((b_{i, k}^T) (a_{k, j}^T)) = (B^T A^T)
+\m \eqComment{INCOMPLETE proof}
+\n (A^T)^{-1} = (A^{-1})^T
+\n \textbf{symmetric: $A = A^T$}
+\n A^T A = (A^T A)^T = A^T A^TT = A^T A
+\n \textbf{column space / image: $Img(A_{n, m}) = \{A x \in \mathbb{R}^n \mid x \in \mathbb{R}^m\}$}
+\m \eqComment{not always a subspace since $A$ can map to a set not containing $\field{0}$}
+\n \textbf{null space / kernel / solution space: $Ker(A_{n, m}) = \{v \in \mathbb{R}^m \mid A v = \field{0} \in \mathbb{R}^n\}$}
+\m \eqComment{always a subspace due to linearity $A v + A w = \field{0} = A (v + w)$}
+\n \textbf{particular solution where all free variables are 0: $x_p | A x_p = b$}
+\n \textbf{general sol. $x = x_p + x_n | x_n \in Ker(A)$}
+\m A x_p + A x_n = b + 0 = A (x_p + x_n) = b
+\n \textbf{independent: $Ker(A) = \{\field{0}\}$}
+\n \textbf{dimension: $min\ml(\ml|spanSpace\ml(\ml(v\mr)_N\mr)\mr|\mr)$}
+\n \textbf{rank: $Dim(Img(A))$} 
+\n \textbf{row space: $Img(A^T)$}
+\n \textbf{left null space: $Ket(A^T)$}
+\n Dim(Ker(A_{n \times m})) = n - r 
+\m \eqComment{number of free variables}
+\n \textbf{vector orthogonality: $x^T y = 0$}
+\m || x ||^2 + || y ||^2 = || x + y ||^2
+\m x^T x + y^T y = (x + y)^T (x + y) = (x^T + y^T) (x + y)
+\m x^T x + y^T y = x^T x + y^T y + x^T y + y^T x
+\m 0 = x^T y + y^T x = (2) x^T y
+\n \textbf{from def: $Ker(A) \perp Img(A^T)$}
+\n \textbf{orthogonal projection of $b$ on $a$: $(a)^T (b - c a) = 0$}
+\m a^T b = c a^T a
+\m c = \frac{a^T b}{a^T a}
+\m p_b = a c = \ml(\frac{a a^T}{a^T a}\mr) b = P b
+\n \textbf{rank $P_b$ is $1$ and $Img$ spans a line through $a$}
+\n \textbf{higher dimensional orthogonal projection of $b$ on $a$: $(A)^T (b - A c) = 0$}
+\m A^T b = A^T A c
+\m c = (A^T A)^{-1} A^T b
+\m p_b = A c = \ml(A \ml(A^T A\mr)^{-1} A^T\mr) b = P b
+\n P = P^T = P^2
+\n \textbf{normal equation: nearest solvable both from $A^T A$ and partial derivatives??}
+\n independent(A) \implies invertible(A^T A)
+\n det(I) = 1 \eqSep row exchange *= -1 \eqSep row operations *= 1 \eqSep 
+\m det(\{\{\{k (a + x)\},\{k (b + y)\}\},\{\{c\},\{d\}\}\}) = k (det(\{\{\{a\},\{b\}\},\{\{c\},\{d\}\}\}) + det(\{\{\{x\},\{y\}\},\{\{c\},\{d\}\}\}))
+\m \implies \det(LU(A)) = \prod_i(d_i) \eqComment{product of diagonals in upper triangular A, area of col parallelepiped}
+\n Tr(A) = CONTINUE 21
+\n A = A^T = A^2 \implies trace(A) = dims(A)
+\end{align}
+\end{tcolorbox}
+
+
+\subsection{Function spaces}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    \dfn{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr) \iff \ml(p \in \mathbb{R}\mr) \land \ml(1 \leq p < \infty\mr) \land
@@ -718,24 +782,28 @@ TODO link thms?
 \n \dfn{Lp}\ml(L^p, \ml(\ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \iff \ml(\rfr{integralNorm}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \land
 \m \ml(L^p = \rfr{quotientSet}\ml(\mathcal{L}^p / \sim, \ml(\mathcal{L}^p, \ml(\wr\wr\$1 + \ml(-\$2\mr)\wr\wr = 0\mr)\mr)\mr)\mr)
 \m \eqComment{functions in $L^p$ that have finite integrals above and below the x-axis}
-\n \thm{$\wr\wr \$1 \wr\wr, +, \cdot$ can be inherited into $L^p$, thus it can be called a normed vector space}
-\n \thm{$L^{p=2}$ is complete or contains all its limit points w.r.t. to its norm}
-\n CONTHERE say thm banach(LP)
-\n \thm{} \mathcal{L} = \{f \mid \rfr{boundedMap}(f, (V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W))\} \implies 
-\m \rfr{banachSpace}(\mathcal{L}, +, \cdot, \rfr{mapNorm})
-\m \eqComment{INCOMPLETE: V can be any normed space but W must be Banach}
-\m \eqComment{proof by construction of candidate limit map and cauchy sequences of maps}
+\n \thm{} \rfr{banachSpace}\ml(\ml(\rfr{Lp}\ml(L^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr), +, \cdot, \wr\wr \$1 \wr\wr\mr) ,\ml(\mr)\mr)
+\n \thm{} \rfr{hilbertSpace}\ml(\ml(\rfr{Lp}\ml(L^p, \ml(+, \cdot, 2, M, \sigma, \mu\mr)\mr), +, \cdot, \frac{\wr\wr \$1 + \$2 \wr\wr^2 - \wr\wr \$1 - \$2 \wr\wr^2}{4} \mr) ,\ml(\mr)\mr)
+\n \dfn{curL}\ml(\mathcal{L}, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr) \iff \ml(\rfr{banachSpace}\ml(\ml(W, +_W, \cdot_W, || \$1 ||_W\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{normedVectorSpace}\ml(\ml(V, +_V, \cdot_V, || \$1 ||_V\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\mathcal{L} = \{f \mid \rfr{boundedMap}\ml(f, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\}\mr)
+\n \thm{} \rfr{banachSpace}\ml(\ml(\rfr{curL}\ml(\mathcal{L}, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr), +, \cdot, \rfr{mapNorm}\mr), \ml(\mr)\mr)
 \n \thm{} || L || \geq \frac{|| L f ||}{|| f ||} \eqComment{from choosing an arbitrary element in the mapNorm sup}
-\n \thm{} (\rfr{cauchy}((f)_\mathbb{N}, (\mathcal{L}, +, \cdot, \rfr{mapNorm})) \implies \rfr{cauchy}((f_n v)_\mathbb{N}, (W, +_W, \cdot_W, || \$1 ||_W))) \impliedby
-\m (\forall_{\epsilon^\prime > 0} \forall_{v \in V} (|| f_n v - f_m v ||_W = || (f_n - f_m) v ||_W \leq || f_n - f_m || \cdot || v ||_V) < \epsilon \cdot || v ||_V = \epsilon^\prime)
+\n \thm{} \ml(\rfr{cauchy}\ml(\ml(f\mr)_\mathbb{N}, \ml(\mathcal{L}, +, \cdot, \rfr{mapNorm}\mr)\mr) \implies \rfr{cauchy}\ml(\ml(f_n v\mr)_\mathbb{N}, \ml(W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \impliedby
+\m \ml(\forall_{\epsilon^\prime > 0} \forall_{v \in V} \ml(|| f_n v - f_m v ||_W = || \ml(f_n - f_m\mr) v ||_W \leq || f_n - f_m || \cdot || v ||_V\mr) < \epsilon \cdot || v ||_V = \epsilon^\prime\mr)
 \m \eqComment{a cauchy sequence of operators maps to a cauchy sequence of targets}
-\n \thm{BLT} (\rfr{dense}(D, (V, \mathcal{O}, d_V)) \land \rfr{boundedMap}(A, (D, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W))) \implies ()
-\m (\exists!_{\widehat{A}} (\rfr{extensionMap}(\widehat{A}, (A, V, D, W))) \land || \widehat{A} || = || A ||) \impliedby
-\m (\forall_{v \in V} \exists_{(v)_\mathbb{N} \subseteq D} (\lim_{n \to \infty} (v_n = v))) \land (\widehat{A} v = \lim_{n \to \infty} (A v_n))
-\m \eqComment{INCOMPLERE: needs additional conditions such as Avn is cauchy and W is banach}
+\n \thm{BLT thm.} (\ml(\rfr{dense}\ml(D, \ml(V, \mathcal{O}, d_V\mr)\mr) \land \rfr{boundedMap}\ml(A, \ml(D, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \implies 
+\m \ml(\exists!_{\widehat{A}} \ml(\rfr{extensionMap}\ml(\widehat{A}, \ml(A, V, D, W\mr)\mr)\mr) \land || \widehat{A} || = || A ||\mr)) \impliedby
+\m \ml(\forall_{v \in V} \exists_{\ml(v\mr)_\mathbb{N} \subseteq D} \ml(\lim_{n \to \infty} \ml(v_n = v\mr)\mr)\mr) \land \ml(\widehat{A} v = \lim_{n \to \infty} \ml(A v_n\mr)\mr)
 \end{align}
 \end{tcolorbox}
 
+\subsection{Probability Theory}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   0
+\end{align}
+\end{tcolorbox}
 
 \subsection{Underview}
 \begin{tcolorbox}[breakable, enhanced]

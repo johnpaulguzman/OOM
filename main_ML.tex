@@ -1,4 +1,4 @@
-% CONTINUE LINE 698
+% CONTINUE: LINE 710 PAGE 22
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -696,32 +696,24 @@ TODO link thms?
 \m L = \rfr{adjoint}\ml(L^T, \ml(L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr)\mr)
 \m \eqComment{also a generalization of symmetric matrices}
 \n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^n, +_n, \cdot_n, \mathbb{R}^m, +_m, \cdot_m\mr)\mr)\mr)
+\m \eqComment{rows=dimensions, cols=vectors}
 \n \dfn{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \land \ml(\exists_{\lambda \in \mathbb{R}} \ml(L\ml(v\mr) = \lambda v\mr)\mr)
 \n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)
+\n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\n \dfn{identityOperator}(I, (A)) \iff (\rfr{matrix}(A, (n, n))) \land (A I = I A = A)
+\n \dfn{inverseOperator}(A^{-1}, (A)) \iff (A^{-1} L = \rfr{identityOperator}(I, (A)))
+\m \eqComment{gauss-jordan elimination: $E[A | I] = [I | E] = [I | A^{-1}]$}
+\n \thm{} (A B)^{-1} (A B) = I = B^{-1} A^{-1} A B
+\n \dfn{transposeOperator}() \iff
+\m
+\m \thm{} \textbf{transpose: } (A B)_{i, j}^T = (A B)_{j, i} = \sum_{k = 1}^n((a_{j, k}) (b_{k, i})) = \sum_{k = 1}^n((b_{k, i}) (a_{j, k})) = \sum_{k = 1}^n((b_{i, k}^T) (a_{k, j}^T)) = (B^T A^T)
+\m \eqComment{INCOMPLETE proof} CONTHERE
+\n \thm{} (A^T)^{-1} = (A^{-1})^T
+\n \dfn{decomposeLU}(LU(A), (A)) \iff (\rfr{matrix}(A, (n, n))) \land (\exists_E (E A = U)) \land (\forall_{x < n} \forall_{0 < i < x} (U_{i, i} = 0)) \land 
+\m (LU(A) = E^{-1} U = A)
+\m \eqComment{lower triangle are all 0; useful for solving linear equations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \n TODO / \dfn{rank} / \dfn{kernel} / \dfn{nullity} / \dfn{eigendecomposition}
-\n \dfn{compactMap}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land
-\m (\forall_{v \in V} (\rfr{openBall}\ml(B, \ml(1.0, v, V, d_V\ml(\$1, \$2\mr)\mr)\mr) \implies 
-\m \rfr{compactSubset}\ml(\rfr{closure}\ml(\overline{L\ml(B\mr)}, \rfr{image}\ml(L\ml(B\mr), \ml(B, L, V, W\mr)\mr), W, d_W\ml(\$1, \$2\mr)\mr), \ml(W, \mathcal{O}_W\mr)\mr)))
-\n \thm{Spectral thm.} 
-\m \ml(\rfr{selfAdjoint}\ml(L, \ml(V, +, \cdot, \langle \$1, \$2 \rangle, V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr) \land \ml(\rfr{compactMap}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \implies
-\m \ml(\exists_{\ml(e\mr)_\mathbb{N} \subseteq V} \ml(\rfr{orthonormalBasis}\ml(\ml(e\mr)_\mathbb{N}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \land \forall_{e_n \in \ml(e\mr)_\mathbb{N}} \ml(\rfr{eigenvector}\ml(e_n, \ml(L, V, +, \cdot\mr)\mr)\mr)\mr)\mr) \implies
-\m \ml(\exists_{\ml(\lambda\mr)_\mathbb{N} \subseteq \mathbb{R}^n} \forall_{e_n \in \ml(e\mr)_\mathbb{N}} \exists_{\lambda_n \in \ml(\lambda\mr)_\mathbb{N}} \ml(\rfr{eigenvalue}\ml(\lambda_n, \ml(e_n, L, V, +, \cdot\mr)\mr) \land \lim_{n \to \infty}\ml(\lambda_n = 0\mr) \land L = \sum_{n = 1}^\infty\ml(\lambda_n e_n {e_n}^T\mr)\mr)\mr)
-\m \eqComment{TODO intuition}
-\end{align}
-\end{tcolorbox}
-
-\subsection{Linear algebra segue}
-\begin{tcolorbox}[breakable, enhanced]
-\begin{align}
-   \textbf{matrix: rows=dimensions/vector components, cols=instances/individual vectors}
-\n \textbf{matrix mul: rhs dimensions acts on lhs instances}
-\n \textbf{gauss-jordan elimination: $E[A | I] = [I | E] = [I | A^{-1}]$}
-\n \textbf{elimination: $E[A | b] = [I | E b] = [I | A^{-1} b] = [I | x]$ x in terms of I as basis vectors}
-\n \textbf{upper/lower triangular factorization of A: $E A = U \implies A = E^{-1} U = L U$}
-\n \textbf{inverse: } (A B)^{-1} (A B) = I = B^{-1} A^{-1} A B 
-\n \textbf{transpose: } (A B)_{i, j}^T = (A B)_{j, i} = \sum_{k = 1}^n((a_{j, k}) (b_{k, i})) = \sum_{k = 1}^n((b_{k, i}) (a_{j, k})) = \sum_{k = 1}^n((b_{i, k}^T) (a_{k, j}^T)) = (B^T A^T)
-\m \eqComment{INCOMPLETE proof}
-\n (A^T)^{-1} = (A^{-1})^T
 \n \textbf{symmetric: $A = A^T$}
 \n A^T A = (A^T A)^T = A^T A^TT = A^T A
 \n \textbf{column space / image: $Img(A_{n, m}) = \{A x \in \mathbb{R}^n \mid x \in \mathbb{R}^m\}$}
@@ -759,11 +751,31 @@ TODO link thms?
 \n det(I) = 1 \eqSep row exchange *= -1 \eqSep row operations *= 1 \eqSep 
 \m det(\{\{\{k (a + x)\},\{k (b + y)\}\},\{\{c\},\{d\}\}\}) = k (det(\{\{\{a\},\{b\}\},\{\{c\},\{d\}\}\}) + det(\{\{\{x\},\{y\}\},\{\{c\},\{d\}\}\}))
 \m \implies \det(LU(A)) = \prod_i(d_i) \eqComment{product of diagonals in upper triangular A, area of col parallelepiped}
-\n Tr(A) = CONTINUE 21
-\n A = A^T = A^2 \implies trace(A) = dims(A)
+\n Tr(A) = \sum_{i = 1}^n(A_{i,i})
+\m A = A^T = A^2 \implies Tr(A) = dim(A) \eqComment{counts dimensions}
+\n Tr(A) = \sum(\lambda) 
+\m det(A) = \prod(\lambda) \eqComment{where $\lambda$ are the eigenvalues of A}
+\n S = independent(eigenvectors(A)) \implies A S = S \Lambda \eqSep \Lambda = diagonalized_{\lambda}
+\m S^{}-1 A S = \Lambda
+\m A = S \Lambda S^{-1}
+\m \eqComment{eigendecomposition}
+\n A x = \lambda x
+\m A x - \lambda x = (A - \lambda I) x = 0 \land (x \neq \field{0}) \implies eigenvalue(A - \lambda I) = 0 \implies \Pi(\lambda) = 0 = det(A - \lambda I)
+\m det(A - \lambda I) = 0 \land algebraEval \implies \lambda
+\m (A - \lambda I) x = 0 \land elim \implies x
+\m \implies (x, \lambda)
+\n cont lecture 22
+\n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy
+\n \dfn{compactMap}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land
+\m (\forall_{v \in V} (\rfr{openBall}\ml(B, \ml(1.0, v, V, d_V\ml(\$1, \$2\mr)\mr)\mr) \implies 
+\m \rfr{compactSubset}\ml(\rfr{closure}\ml(\overline{L\ml(B\mr)}, \rfr{image}\ml(L\ml(B\mr), \ml(B, L, V, W\mr)\mr), W, d_W\ml(\$1, \$2\mr)\mr), \ml(W, \mathcal{O}_W\mr)\mr)))
+\n \thm{Spectral thm.} 
+\m \ml(\rfr{selfAdjoint}\ml(L, \ml(V, +, \cdot, \langle \$1, \$2 \rangle, V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr)\mr) \land \ml(\rfr{compactMap}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \implies
+\m \ml(\exists_{\ml(e\mr)_\mathbb{N} \subseteq V} \ml(\rfr{orthonormalBasis}\ml(\ml(e\mr)_\mathbb{N}, \ml(V, +, \cdot, \langle \$1, \$2 \rangle\mr)\mr) \land \forall_{e_n \in \ml(e\mr)_\mathbb{N}} \ml(\rfr{eigenvector}\ml(e_n, \ml(L, V, +, \cdot\mr)\mr)\mr)\mr)\mr) \implies
+\m \ml(\exists_{\ml(\lambda\mr)_\mathbb{N} \subseteq \mathbb{R}^n} \forall_{e_n \in \ml(e\mr)_\mathbb{N}} \exists_{\lambda_n \in \ml(\lambda\mr)_\mathbb{N}} \ml(\rfr{eigenvalue}\ml(\lambda_n, \ml(e_n, L, V, +, \cdot\mr)\mr) \land \lim_{n \to \infty}\ml(\lambda_n = 0\mr) \land L = \sum_{n = 1}^\infty\ml(\lambda_n e_n {e_n}^T\mr)\mr)\mr)
+\m \eqComment{TODO intuition}
 \end{align}
 \end{tcolorbox}
-
 
 \subsection{Function spaces}
 \begin{tcolorbox}[breakable, enhanced]

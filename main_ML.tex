@@ -1,4 +1,4 @@
-% CONTINUE: LINE 710 PAGE 22
+% CONTINUE: LINE 728 PAGE 22
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -695,46 +695,37 @@ TODO link thms?
 \n \dfn{selfAdjoint}\ml(L, \ml(V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr)\mr) \iff
 \m L = \rfr{adjoint}\ml(L^T, \ml(L, V, +_V, \cdot_V, \langle \$1, \$2 \rangle_V, W, +_W, \cdot_W, \langle \$1, \$2 \rangle_W\mr)\mr)
 \m \eqComment{also a generalization of symmetric matrices}
-\n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^n, +_n, \cdot_n, \mathbb{R}^m, +_m, \cdot_m\mr)\mr)\mr)
+\n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^m, +_m, \cdot_m, \mathbb{R}^n, +_n, \cdot_n\mr)\mr)\mr)
 \m \eqComment{rows=dimensions, cols=vectors}
 \n \dfn{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \land \ml(\exists_{\lambda \in \mathbb{R}} \ml(L\ml(v\mr) = \lambda v\mr)\mr)
 \n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)
-\n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\n \dfn{identityOperator}(I, (A)) \iff (\rfr{matrix}(A, (n, n))) \land (A I = I A = A)
-\n \dfn{inverseOperator}(A^{-1}, (A)) \iff (A^{-1} L = \rfr{identityOperator}(I, (A)))
+\n \dfn{identityOperator}\ml(I, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(A I = I A = A\mr)
+\n \dfn{inverseOperator}\ml(A^{-1}, \ml(A\mr)\mr) \iff \ml(A^{-1} L = \rfr{identityOperator}\ml(I, \ml(A\mr)\mr)\mr)
 \m \eqComment{gauss-jordan elimination: $E[A | I] = [I | E] = [I | A^{-1}]$}
-\n \thm{} (A B)^{-1} (A B) = I = B^{-1} A^{-1} A B
-\n \dfn{transposeOperator}() \iff
-\m
-\m \thm{} \textbf{transpose: } (A B)_{i, j}^T = (A B)_{j, i} = \sum_{k = 1}^n((a_{j, k}) (b_{k, i})) = \sum_{k = 1}^n((b_{k, i}) (a_{j, k})) = \sum_{k = 1}^n((b_{i, k}^T) (a_{k, j}^T)) = (B^T A^T)
-\m \eqComment{INCOMPLETE proof} CONTHERE
-\n \thm{} (A^T)^{-1} = (A^{-1})^T
-\n \dfn{decomposeLU}(LU(A), (A)) \iff (\rfr{matrix}(A, (n, n))) \land (\exists_E (E A = U)) \land (\forall_{x < n} \forall_{0 < i < x} (U_{i, i} = 0)) \land 
-\m (LU(A) = E^{-1} U = A)
+\n \thm{} \ml(A B\mr)^{-1} \ml(A B\mr) = I = B^{-1} A^{-1} A B
+\n \dfn{transposeOperator}\ml(A^T, \ml(A\mr)\mr) \iff \ml(\ml(A^T\mr)_{m, n} = \ml(A\mr)_{n, m}\mr) \lor \rfr{adjoint}\ml(A^T, \ml(A\mr)\mr)
+\n \dfn{symmetricOperator}\ml(A, \ml(\mr)\mr) \iff \ml(A = \rfr{transposeOperator}\ml(A^T, \ml(A\mr)\mr)\mr) \lor \ml(\rfr{selfAdjoint\ml(A, \ml(\mr)\mr)}\mr)
+\n \thm{} \ml(A B\mr)^T = B^T A^T \land \ml(A^T\mr)^{-1} = \ml(A^{-1}\mr)^T
+\n \thm{} \rfr{symmetricOperator}\ml(A^T A, \ml(\mr)\mr) \impliedby \ml(A^T A = \ml(A^T A\mr)^T = A^T A^{TT} = A^T A\mr)
+\n \dfn{decomposeLU}\ml(LU\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(\exists_E \ml(E A = U\mr)\mr) \land \ml(\forall_{x < n} \forall_{0 < i < x} \ml(U_{i, i} = 0\mr)\mr) \land 
+\m \ml(LU\ml(A\mr) = E^{-1} U = A\mr)
 \m \eqComment{lower triangle are all 0; useful for solving linear equations}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\n TODO / \dfn{rank} / \dfn{kernel} / \dfn{nullity} / \dfn{eigendecomposition}
-\n \textbf{symmetric: $A = A^T$}
-\n A^T A = (A^T A)^T = A^T A^TT = A^T A
-\n \textbf{column space / image: $Img(A_{n, m}) = \{A x \in \mathbb{R}^n \mid x \in \mathbb{R}^m\}$}
-\m \eqComment{not always a subspace since $A$ can map to a set not containing $\field{0}$}
-\n \textbf{null space / kernel / solution space: $Ker(A_{n, m}) = \{v \in \mathbb{R}^m \mid A v = \field{0} \in \mathbb{R}^n\}$}
-\m \eqComment{always a subspace due to linearity $A v + A w = \field{0} = A (v + w)$}
-\n \textbf{particular solution where all free variables are 0: $x_p | A x_p = b$}
-\n \textbf{general sol. $x = x_p + x_n | x_n \in Ker(A)$}
-\m A x_p + A x_n = b + 0 = A (x_p + x_n) = b
-\n \textbf{independent: $Ker(A) = \{\field{0}\}$}
-\n \textbf{dimension: $min\ml(\ml|spanSpace\ml(\ml(v\mr)_N\mr)\mr|\mr)$}
-\n \textbf{rank: $Dim(Img(A))$} 
-\n \textbf{row space: $Img(A^T)$}
-\n \textbf{left null space: $Ket(A^T)$}
-\n Dim(Ker(A_{n \times m})) = n - r 
+\n \dfn{Img}\ml(Img\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(Img\ml(A\mr) = \{A v \in \mathbb{R}^n \mid v \in \mathbb{R}^m\}\mr)
+\m \eqComment{the column space; not always a subspace since $A$ can map to a set not containing $\field{0}$}
+\n \dfn{Ker}\ml(Ker\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(Ker\ml(A\mr) = \{v \in \mathbb{R}^m \mid A v = \field{0} \in \mathbb{R}^n\}\mr)
+\m \eqComment{the null or solution space; always a subspace due to linearity $A v + A w = \field{0} = A \ml(v + w\mr)$}
+\n \thm{general linear solution} \ml(A x_p = b\mr) \land \ml(x_n \in Ker\ml(A\mr)\mr) \implies \ml(A x_p + A x_n = b + 0 = A \ml(x_p + x_n\mr) = b\mr)
+\n \dfn{independentOperator}\ml(A, \ml(\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(\lnot \exists_{v \in \mathbb{R}^m \setminus \field{0}_m} \ml(A v = 0\mr) \iff \rfr{Ker}\ml(A\mr) = \{\field{0}_m\}\mr)
+\n \dfn{dimensonality}\ml(N, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(N = \rfr{inf}\ml(\{|\ml(b\mr)_n| \mid \rfr{basis}\ml(\ml(b\mr)_n, \ml(A\mr)\mr)\}\mr)\mr)
+\n \dfn{rank}\ml(r, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(\rfr{dimensonality}\ml(r, \ml(A\mr)\mr)\mr)
+\n \thm{} (\rfr{matrix}(A, (n, m))) \implies (\rfr{dimensionality}(\rfr{Ker}(A)) = n - \rfr{rank}(r, (A)))
 \m \eqComment{number of free variables}
-\n \textbf{vector orthogonality: $x^T y = 0$}
-\m || x ||^2 + || y ||^2 = || x + y ||^2
-\m x^T x + y^T y = (x + y)^T (x + y) = (x^T + y^T) (x + y)
-\m x^T x + y^T y = x^T x + y^T y + x^T y + y^T x
-\m 0 = x^T y + y^T x = (2) x^T y
+\n \dfn{transposeNorm}(|| x ||, ()) \iff (|| x || = \sqrt{x^T x})
+\n \dfn{transposeOrthogonality}((x, y), ()) \iff (|| x ||^2 + || y ||^2 = || x + y ||^2) \iff
+\m (x^T x + y^T y = (x + y)^T (x + y) = x^T x + y^T y + x^T y = y^T x) \iff
+\m (0 = \frac{x^T x + y^T y - (x^T x + y^T y)}{2} = \frac{x^T y + y^T x}{2} = x^T y) 
+\n \dfn{orthogonalProjection}(P_A b, (A, b)) \iff CONTHERE
+\n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \n \textbf{from def: $Ker(A) \perp Img(A^T)$}
 \n \textbf{orthogonal projection of $b$ on $a$: $(a)^T (b - c a) = 0$}
 \m a^T b = c a^T a

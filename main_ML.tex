@@ -698,11 +698,10 @@ TODO link thms?
 \n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^m, +_m, \cdot_m, \mathbb{R}^n, +_n, \cdot_n\mr)\mr)\mr)
 \m \eqComment{rows=dimensions, cols=vectors}
 \n \dfn{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \land \ml(\exists_{\lambda \in \mathbb{R}} \ml(L\ml(v\mr) = \lambda v\mr)\mr)
-\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)
+\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \forall_{s \in \mathbb{R} \setminus \{0\}} \ml(\rfr{eigenvector}\ml(s v, \ml(L, V, +, \cdot\mr)\mr)\mr)
 \n \dfn{identityOperator}\ml(I, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(A I = I A = A\mr)
 \n \dfn{inverseOperator}\ml(A^{-1}, \ml(A\mr)\mr) \iff \ml(A^{-1} A = \rfr{identityOperator}\ml(I, \ml(A\mr)\mr)\mr)
 \m \eqComment{gauss-jordan elimination: $E[A | I] = [I | E] = [I | A^{-1}]$}
-%\n \dfn{invertibleOperator}() \iff CONTHERE
 \n \thm{} \ml(A B\mr)^{-1} \ml(A B\mr) = I = B^{-1} A^{-1} A B
 \n \dfn{transposeOperator}\ml(A^T, \ml(A\mr)\mr) \iff \ml(\ml(A^T\mr)_{m, n} = \ml(A\mr)_{n, m}\mr) \lor \rfr{adjoint}\ml(A^T, \ml(A\mr)\mr)
 \n \dfn{symmetricOperator}\ml(A, \ml(\mr)\mr) \iff \ml(A = \rfr{transposeOperator}\ml(A^T, \ml(A\mr)\mr)\mr) \lor \ml(\rfr{selfAdjoint\ml(A, \ml(\mr)\mr)}\mr)
@@ -731,7 +730,13 @@ TODO link thms?
 \m \eqComment{$A, A^T$ may not necessarily be invertible}
 \n \thm{} P = P^T = P^2
 \n \thm{} \rfr{independent}(A) \implies invertible(A^T A)
-\n \dfn{det}(det(A), (A)) \iff (det(A) = CONTHERE)
+\n \dfn{getEigenvectors}(X, (A, V, +, \cdot, d(\$1, \$2))) \iff (\rfr{metricVectorSpace}((V, +, \cdot, d(\$1, \$2)), ())) \land 
+\m (X = \{v \in V \mid || v || = 1 \land \rfr{eigenvector}(v, (A, V, +, \cdot))\})
+\n \dfn{getEigenvalues}(Y, (A, V, +, \cdot, d)) \iff (\rfr{getEigenvectors}(X, (A, V, +, \cdot, d(\$1, \$2)))) \land (Y = \{\lambda \in \mathbb{R} \mid x \in X \land \rfr{eigenvalue}\})
+\n CONTHERE FIX MULTIPLICITY IGNORED
+\n \dfn{det}(det(A), (A)) \iff (det(A) = ) 
+% http://www.onmyphd.com/?p=eigen.decomposition
+\n \dfn{invertibleOperator}() \iff 
 \n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\n \textbf{from def: $Ker(A) \perp Img(A^T)$}
 %\n \textbf{normal equation: nearest solvable both from $A^T A$ and partial derivatives??}

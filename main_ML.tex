@@ -1,4 +1,4 @@
-% CONTINUE: LINE 728 PAGE 22
+% CONTINUE: LINE 750 PAGE 23
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -730,34 +730,31 @@ TODO link thms?
 \m \eqComment{$A, A^T$ may not necessarily be invertible}
 \n \thm{} P = P^T = P^2
 \n \thm{} \rfr{independent}(A) \implies invertible(A^T A)
-\n \dfn{getEigenvectors}(X, (A, V, +, \cdot, d(\$1, \$2))) \iff (\rfr{metricVectorSpace}((V, +, \cdot, d(\$1, \$2)), ())) \land 
+\n \dfn{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{normedVectorSpace}((V, +, \cdot, || \$1 ||), ())) \land 
 \m (X = \{v \in V \mid || v || = 1 \land \rfr{eigenvector}(v, (A, V, +, \cdot))\})
-\n \dfn{getEigenvalues}(Y, (A, V, +, \cdot, d)) \iff (\rfr{getEigenvectors}(X, (A, V, +, \cdot, d(\$1, \$2)))) \land (Y = \{\lambda \in \mathbb{R} \mid x \in X \land \rfr{eigenvalue}\})
-\n CONTHERE FIX MULTIPLICITY IGNORED
-\n \dfn{det}(det(A), (A)) \iff (det(A) = ) 
-% http://www.onmyphd.com/?p=eigen.decomposition
-\n \dfn{invertibleOperator}() \iff 
-\n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\n \dfn{det}(det(A), (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))) \land 
+\m (det(A) = \prod_{x \in X} (\rfr{eigenvalue}(\lambda, (x, A, V, +, \cdot))))
+\m \eqComment{DEFINE; exterior algebra wedge product area??}
+%\m \eqComment{signed area parallelepiped spanned by the operator}
+\n \dfn{tr}(tr(A), (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))) \land 
+\m (tr(A) = \sum_{x \in X} (\rfr{eigenvalue}(\lambda, (x, A, V, +, \cdot))))
+\m \eqComment{DEFINE}
+%\m \eqComment{signed perimeter? parallelepiped spanned by the operator}
+\n \thm{} A = A^T = A^2 \implies Tr(A) = \rfr{dimensionality}(N, (A)) \eqComment{counts dimensions} % http://www.onmyphd.com/?p=eigen.decomposition
+\n \dfn{invertibleOperator}(A, (V, +, \cdot, || \$1 ||)) \iff (det(A) \neq 0) \lor (\rfr{independentOperator}(A, ()))
 %\n \textbf{from def: $Ker(A) \perp Img(A^T)$}
 %\n \textbf{normal equation: nearest solvable both from $A^T A$ and partial derivatives??}
-\n det(I) = 1 \eqSep row exchange *= -1 \eqSep row operations *= 1 \eqSep 
-\m det(\{\{\{k (a + x)\},\{k (b + y)\}\},\{\{c\},\{d\}\}\}) = k (det(\{\{\{a\},\{b\}\},\{\{c\},\{d\}\}\}) + det(\{\{\{x\},\{y\}\},\{\{c\},\{d\}\}\}))
-\m \implies \det(LU(A)) = \prod_i(d_i) \eqComment{product of diagonals in upper triangular A, area of col parallelepiped}
-\n Tr(A) = \sum_{i = 1}^n(A_{i,i})
-\m A = A^T = A^2 \implies Tr(A) = dim(A) \eqComment{counts dimensions}
-\n Tr(A) = \sum(\lambda) 
-\m det(A) = \prod(\lambda) \eqComment{where $\lambda$ are the eigenvalues of A}
-\n S = independent(eigenvectors(A)) \implies A S = S \Lambda \eqSep \Lambda = diagonalized_{\lambda}
-\m S^{}-1 A S = \Lambda
-\m A = S \Lambda S^{-1}
-\m \eqComment{eigendecomposition}
+\n TODO FIX INCOSISTENT PARAMETERS, formal eigenbasis diagonal matrix
+\n CONSOLIDATE INVERTIBLE IDNEPENDENT DFNS CONTHERE
+\n \dfn{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \iff (S \in (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))^n)^T) \land 
+\m (\exists_\Lambda \forall_{p \in \mathbb{N}}(\Lambda^p \{1\}^n = \{\lambda^p \mid \rfr{eigenvalue}(XXX)\})) \land
+\m (\rfr{invertibleOperator}(S, ()) \implies \exists_{S^-1} (A S = S \Lambda \implies A = S \Lambda S^{-1}))
 \n A x = \lambda x
 \m A x - \lambda x = (A - \lambda I) x = 0 \land (x \neq \field{0}) \implies eigenvalue(A - \lambda I) = 0 \implies \Pi(\lambda) = 0 = det(A - \lambda I)
 \m det(A - \lambda I) = 0 \land algebraEval \implies \lambda
 \m (A - \lambda I) x = 0 \land elim \implies x
 \m \implies (x, \lambda)
 \n cont lecture 22
-\n\melazy\m\melazy\m\melazy\m\melazy\m\melazy\m\melazy
 \n \dfn{compactMap}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land
 \m \Bigg(\forall_{v \in V} \Bigg(\rfr{openBall}\ml(B, \ml(1.0, v, V, d_V\ml(\$1, \$2\mr)\mr)\mr) \implies 
 \m \rfr{compactSubset}\ml(\rfr{closure}\ml(\overline{L\ml(B\mr)}, \rfr{image}\ml(L\ml(B\mr), \ml(B, L, V, W\mr)\mr), W, d_W\ml(\$1, \$2\mr)\mr), \ml(W, \mathcal{O}_W\mr)\mr)\Bigg)\Bigg)

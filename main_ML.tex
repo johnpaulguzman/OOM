@@ -1,4 +1,4 @@
-% CONTINUE: LINE 750 PAGE 23
+% CONTINUE: LINE 759 PAGE 23
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -698,16 +698,17 @@ TODO link thms?
 \n \dfn{matrix}\ml(L, \ml(n, m\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(\mathbb{R}^m, +_m, \cdot_m, \mathbb{R}^n, +_n, \cdot_n\mr)\mr)\mr)
 \m \eqComment{rows=dimensions, cols=vectors}
 \n \dfn{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{linearOperator}\ml(L, \ml(V, +, \cdot, V, +, \cdot\mr)\mr)\mr) \land \ml(\exists_{\lambda \in \mathbb{R}} \ml(L\ml(v\mr) = \lambda v\mr)\mr)
-\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \forall_{s \in \mathbb{R} \setminus \{0\}} \ml(\rfr{eigenvector}\ml(s v, \ml(L, V, +, \cdot\mr)\mr)\mr)
+\n \dfn{eigenvalue}\ml(\lambda, \ml(v, L, V, +, \cdot\mr)\mr) \iff \ml(\rfr{eigenvector}\ml(v, \ml(L, V, +, \cdot\mr)\mr)\mr)
 \n \dfn{identityOperator}\ml(I, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(A I = I A = A\mr)
 \n \dfn{inverseOperator}\ml(A^{-1}, \ml(A\mr)\mr) \iff \ml(A^{-1} A = \rfr{identityOperator}\ml(I, \ml(A\mr)\mr)\mr)
 \m \eqComment{gauss-jordan elimination: $E[A | I] = [I | E] = [I | A^{-1}]$}
 \n \thm{} \ml(A B\mr)^{-1} \ml(A B\mr) = I = B^{-1} A^{-1} A B
 \n \dfn{transposeOperator}\ml(A^T, \ml(A\mr)\mr) \iff \ml(\ml(A^T\mr)_{m, n} = \ml(A\mr)_{n, m}\mr) \lor \rfr{adjoint}\ml(A^T, \ml(A\mr)\mr)
-\n \dfn{symmetricOperator}\ml(A, \ml(\mr)\mr) \iff \ml(A = \rfr{transposeOperator}\ml(A^T, \ml(A\mr)\mr)\mr) \lor \ml(\rfr{selfAdjoint\ml(A, \ml(\mr)\mr)}\mr)
+\n \dfn{symmetricOperator}\ml(A, \ml(\mr)\mr) \iff \ml(A = \rfr{transposeOperator}\ml(A^T, \ml(A\mr)\mr)\mr) \lor \ml(\rfr{selfAdjoint}\ml(A, \ml(\mr)\mr)\mr)
 \n \thm{} \ml(A B\mr)^T = B^T A^T \land \ml(A^T\mr)^{-1} = \ml(A^{-1}\mr)^T
 \n \thm{} \rfr{symmetricOperator}\ml(A^T A, \ml(\mr)\mr) \impliedby \ml(A^T A = \ml(A^T A\mr)^T = A^T A^{TT} = A^T A\mr)
-\n \dfn{decomposeLU}\ml(LU\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(\exists_E \ml(E A = U\mr)\mr) \land \ml(\forall_{x < n} \forall_{0 < i < x} \ml(U_{i, i} = 0\mr)\mr) \land 
+\n \dfn{triangularOperator}\ml(A, \ml(\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(\forall_{x < n} \forall_{0 < i < x} \ml(A_{i, i} = 0\mr)\mr)
+\n \dfn{decomposeLU}\ml(LU\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(\exists_E \ml(E A = \rfr{triangularOperator}\ml(U, \ml(\mr)\mr)\mr)\mr) \land 
 \m \ml(LU\ml(A\mr) = E^{-1} U = A\mr)
 \m \eqComment{lower triangle are all 0; useful for solving linear equations}
 \n \dfn{Img}\ml(Img\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(Img\ml(A\mr) = \{A v \in \mathbb{R}^n \mid v \in \mathbb{R}^m\}\mr)
@@ -716,6 +717,7 @@ TODO link thms?
 \m \eqComment{the null or solution space; always a subspace due to linearity $A v + A w = \field{0} = A \ml(v + w\mr)$}
 \n \thm{general linear solution} \ml(A x_p = b\mr) \land \ml(x_n \in Ker\ml(A\mr)\mr) \implies \ml(A x_p + A x_n = b + 0 = A \ml(x_p + x_n\mr) = b\mr)
 \n \dfn{independentOperator}\ml(A, \ml(\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(\lnot \exists_{v \in \mathbb{R}^m \setminus \field{0}_m} \ml(A v = 0\mr) \iff \rfr{Ker}\ml(A\mr) = \{\field{0}_m\}\mr)
+\m \eqComment{also equivalent to invertible operator}
 \n \dfn{dimensonality}\ml(N, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(N = \rfr{inf}\ml(\{|\ml(b\mr)_n| \mid \rfr{basis}\ml(\ml(b\mr)_n, \ml(A\mr)\mr)\}\mr)\mr)
 \n \dfn{rank}\ml(r, \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(\rfr{dimensonality}\ml(r, \ml(A\mr)\mr)\mr)
 \n \thm{} \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \implies \ml(\rfr{dimensionality}\ml(\rfr{Ker}\ml(A\mr)\mr) = n - \rfr{rank}\ml(r, \ml(A\mr)\mr)\mr)
@@ -723,13 +725,15 @@ TODO link thms?
 \n \dfn{transposeNorm}\ml(|| x ||, \ml(\mr)\mr) \iff \ml(|| x || = \sqrt{x^T x}\mr)
 \n \dfn{transposeOrthogonality}\ml(\ml(x, y\mr), \ml(\mr)\mr) \iff \ml(|| x ||^2 + || y ||^2 = || x + y ||^2\mr) \iff
 \m \ml(x^T x + y^T y = \ml(x + y\mr)^T \ml(x + y\mr) = x^T x + y^T y + x^T y = y^T x\mr) \iff
-\m \ml(0 = \frac{x^T x + y^T y - \ml(x^T x + y^T y\mr)}{2} = \frac{x^T y + y^T x}{2} = x^T y\mr) 
+\m \ml(0 = \frac{x^T x + y^T y - \ml(x^T x + y^T y\mr)}{2} = \frac{x^T y + y^T x}{2} = x^T y\mr) \iff
+\m \ml(\sum\ml(x_i y_i\mr) \lor \int\ml(x\ml(u\mr) y\ml(u\mr) du\mr)\mr)
+\m \eqComment{vector and functional orthogonality}
 \n \dfn{orthogonalProjection}\ml(P_A b, \ml(A, b\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(\rfr{matrix}\ml(b, \ml(m, 1\mr)\mr)\mr) \land
 \m \Bigg(\exists_{c \in \mathbb{R}^m} \ml(A^T \ml(b - P_A b\mr) = 0 = A^T \ml(b - A c\mr)\mr) \iff 
 \m A^T b = A^T A c \iff c = \ml(A^T A\mr)^{-1} A^T b \iff P_A b = A c = \ml(A \ml(A^T A\mr)^{-1} A^T\mr) b\Bigg)
 \m \eqComment{$A, A^T$ may not necessarily be invertible}
 \n \thm{} P = P^T = P^2
-\n \thm{} \rfr{independent}(A) \implies invertible(A^T A)
+\n \thm{} \rfr{independentOperator}(A, ()) \implies \rfr{independentOperator}(A^T A, ())
 \n \dfn{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{normedVectorSpace}((V, +, \cdot, || \$1 ||), ())) \land 
 \m (X = \{v \in V \mid || v || = 1 \land \rfr{eigenvector}(v, (A, V, +, \cdot))\})
 \n \dfn{det}(det(A), (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))) \land 
@@ -739,22 +743,18 @@ TODO link thms?
 \n \dfn{tr}(tr(A), (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))) \land 
 \m (tr(A) = \sum_{x \in X} (\rfr{eigenvalue}(\lambda, (x, A, V, +, \cdot))))
 \m \eqComment{DEFINE}
-%\m \eqComment{signed perimeter? parallelepiped spanned by the operator}
-\n \thm{} A = A^T = A^2 \implies Tr(A) = \rfr{dimensionality}(N, (A)) \eqComment{counts dimensions} % http://www.onmyphd.com/?p=eigen.decomposition
-\n \dfn{invertibleOperator}(A, (V, +, \cdot, || \$1 ||)) \iff (det(A) \neq 0) \lor (\rfr{independentOperator}(A, ()))
-%\n \textbf{from def: $Ker(A) \perp Img(A^T)$}
-%\n \textbf{normal equation: nearest solvable both from $A^T A$ and partial derivatives??}
-\n TODO FIX INCOSISTENT PARAMETERS, formal eigenbasis diagonal matrix
-\n CONSOLIDATE INVERTIBLE IDNEPENDENT DFNS CONTHERE
-\n \dfn{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \iff (S \in (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))^n)^T) \land 
-\m (\exists_\Lambda \forall_{p \in \mathbb{N}}(\Lambda^p \{1\}^n = \{\lambda^p \mid \rfr{eigenvalue}(XXX)\})) \land
-\m (\rfr{invertibleOperator}(S, ()) \implies \exists_{S^-1} (A S = S \Lambda \implies A = S \Lambda S^{-1}))
-\n A x = \lambda x
-\m A x - \lambda x = (A - \lambda I) x = 0 \land (x \neq \field{0}) \implies eigenvalue(A - \lambda I) = 0 \implies \Pi(\lambda) = 0 = det(A - \lambda I)
-\m det(A - \lambda I) = 0 \land algebraEval \implies \lambda
-\m (A - \lambda I) x = 0 \land elim \implies x
-\m \implies (x, \lambda)
-\n cont lecture 22
+%\m \eqComment{signed perimeter? parallelepiped spanned by the operator} % http://www.onmyphd.com/?p=eigen.decomposition
+\n \thm{} \rfr{independentOperator}(A, ()) \iff det(A) \neq 0
+\n \thm{} A = A^T = A^2 \implies Tr(A) = \rfr{dimensionality}(N, (A)) \eqComment{counts dimensions} 
+\n \dfn{diagonalOperator}(A, ()) \iff (\rfr{symmetricOperator}(A, ())) \land (\rfr{triangularOperator}(A, ())) 
+\n \dfn{characteristicEquation}((A - \lambda I) x = 0, (A)) \iff (A x = \lambda x \implies A x - \lambda x = (A - \lambda I) x = 0) \land
+\m (x \neq \field{0} \implies \rfr{eigenvalue}(0, (x, A - \lambda I) \implies \prod_{\lambda_i \in \Lambda} = 0 = det(A - \lambda I)))
+\m \eqComment{characterizes eigenvalues}
+\n \dfn{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \iff (S \subseteq (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))^T) \land 
+\m (\rfr{diagonalOperator}(\Lambda, ()) \{1\}^n = \{\lambda \in \mathbb{R} \mid s \in S^T \land \rfr{eigenvalue}(\lambda, s, A, V)\})
+\m (\rfr{independentOperator}(S, ()) \implies \exists_{S^-1} (A S = S \Lambda \implies A = S \Lambda S^{-1}))
+\n \thm{} \rfr{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \implies A^2 = (A) (A) = S \Lambda S^{-1} S \Lambda S^{-1} = S \Lambda^2 S^{-1}
+\n CONTHERE lecture 25
 \n \dfn{compactMap}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land
 \m \Bigg(\forall_{v \in V} \Bigg(\rfr{openBall}\ml(B, \ml(1.0, v, V, d_V\ml(\$1, \$2\mr)\mr)\mr) \implies 
 \m \rfr{compactSubset}\ml(\rfr{closure}\ml(\overline{L\ml(B\mr)}, \rfr{image}\ml(L\ml(B\mr), \ml(B, L, V, W\mr)\mr), W, d_W\ml(\$1, \$2\mr)\mr), \ml(W, \mathcal{O}_W\mr)\mr)\Bigg)\Bigg)

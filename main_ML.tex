@@ -1,4 +1,4 @@
-% CONTINUE: LINE 759 PAGE 23
+ % CONTINUE: LINE 778 PAGE 24
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -706,7 +706,6 @@ TODO link thms?
 \n \dfn{transposeOperator}\ml(A^T, \ml(A\mr)\mr) \iff \ml(\ml(A^T\mr)_{m, n} = \ml(A\mr)_{n, m}\mr) \lor \rfr{adjoint}\ml(A^T, \ml(A\mr)\mr)
 \n \dfn{symmetricOperator}\ml(A, \ml(\mr)\mr) \iff \ml(A = \rfr{transposeOperator}\ml(A^T, \ml(A\mr)\mr)\mr) \lor \ml(\rfr{selfAdjoint}\ml(A, \ml(\mr)\mr)\mr)
 \n \thm{} \ml(A B\mr)^T = B^T A^T \land \ml(A^T\mr)^{-1} = \ml(A^{-1}\mr)^T
-\n \thm{} \rfr{symmetricOperator}\ml(A^T A, \ml(\mr)\mr) \impliedby \ml(A^T A = \ml(A^T A\mr)^T = A^T A^{TT} = A^T A\mr)
 \n \dfn{triangularOperator}\ml(A, \ml(\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(\forall_{x < n} \forall_{0 < i < x} \ml(A_{i, i} = 0\mr)\mr)
 \n \dfn{decomposeLU}\ml(LU\ml(A\mr), \ml(A\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, n\mr)\mr)\mr) \land \ml(\exists_E \ml(E A = \rfr{triangularOperator}\ml(U, \ml(\mr)\mr)\mr)\mr) \land 
 \m \ml(LU\ml(A\mr) = E^{-1} U = A\mr)
@@ -723,16 +722,17 @@ TODO link thms?
 \n \thm{} \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \implies \ml(\rfr{dimensionality}\ml(\rfr{Ker}\ml(A\mr)\mr) = n - \rfr{rank}\ml(r, \ml(A\mr)\mr)\mr)
 \m \eqComment{number of free variables}
 \n \dfn{transposeNorm}\ml(|| x ||, \ml(\mr)\mr) \iff \ml(|| x || = \sqrt{x^T x}\mr)
-\n \dfn{transposeOrthogonality}\ml(\ml(x, y\mr), \ml(\mr)\mr) \iff \ml(|| x ||^2 + || y ||^2 = || x + y ||^2\mr) \iff
+\n \thm{} P = P^T = P^2
+\n \dfn{orthogonalVectors}\ml(\ml(x, y\mr), \ml(\mr)\mr) \iff \ml(|| x ||^2 + || y ||^2 = || x + y ||^2\mr) \iff
 \m \ml(x^T x + y^T y = \ml(x + y\mr)^T \ml(x + y\mr) = x^T x + y^T y + x^T y = y^T x\mr) \iff
-\m \ml(0 = \frac{x^T x + y^T y - \ml(x^T x + y^T y\mr)}{2} = \frac{x^T y + y^T x}{2} = x^T y\mr) \iff
-\m \ml(\sum\ml(x_i y_i\mr) \lor \int\ml(x\ml(u\mr) y\ml(u\mr) du\mr)\mr)
+\m \ml(0 = \frac{x^T x + y^T y - \ml(x^T x + y^T y\mr)}{2} = \frac{x^T y + y^T x}{2} = x^T y\mr) \iff \ml(0 = \sum_{i}\ml(x_i y_i\mr) \lor \int\ml(x\ml(u\mr) y\ml(u\mr) du\mr)\mr)
 \m \eqComment{vector and functional orthogonality}
+\n \dfn{orthogonalOperator}\ml(Q, \ml(V, +, \cdot, \langle \$1, \$2\rangle\mr)\mr) \iff \ml(\rfr{orthonormalBasis}\ml(Q^T, \ml(V, +, \cdot, \$1^T, \$2\mr)\mr)\mr) \lor \ml(Q^T Q = I\mr) 
+\n \thm{} \rfr{orthogonalOperator}\ml(Q, \ml(V, +, \cdot, \langle \$1, \$2\rangle\mr)\mr) \implies \ml(Q^T Q Q^{-1} = I Q^{-1} = Q^T = Q^{-1}\mr)
 \n \dfn{orthogonalProjection}\ml(P_A b, \ml(A, b\mr)\mr) \iff \ml(\rfr{matrix}\ml(A, \ml(n, m\mr)\mr)\mr) \land \ml(\rfr{matrix}\ml(b, \ml(m, 1\mr)\mr)\mr) \land
 \m \Bigg(\exists_{c \in \mathbb{R}^m} \ml(A^T \ml(b - P_A b\mr) = 0 = A^T \ml(b - A c\mr)\mr) \iff 
 \m A^T b = A^T A c \iff c = \ml(A^T A\mr)^{-1} A^T b \iff P_A b = A c = \ml(A \ml(A^T A\mr)^{-1} A^T\mr) b\Bigg)
 \m \eqComment{$A, A^T$ may not necessarily be invertible}
-\n \thm{} P = P^T = P^2
 \n \thm{} \rfr{independentOperator}(A, ()) \implies \rfr{independentOperator}(A^T A, ())
 \n \dfn{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{normedVectorSpace}((V, +, \cdot, || \$1 ||), ())) \land 
 \m (X = \{v \in V \mid || v || = 1 \land \rfr{eigenvector}(v, (A, V, +, \cdot))\})
@@ -750,11 +750,36 @@ TODO link thms?
 \n \dfn{characteristicEquation}((A - \lambda I) x = 0, (A)) \iff (A x = \lambda x \implies A x - \lambda x = (A - \lambda I) x = 0) \land
 \m (x \neq \field{0} \implies \rfr{eigenvalue}(0, (x, A - \lambda I) \implies \prod_{\lambda_i \in \Lambda} = 0 = det(A - \lambda I)))
 \m \eqComment{characterizes eigenvalues}
-\n \dfn{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \iff (S \subseteq (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))^T) \land 
-\m (\rfr{diagonalOperator}(\Lambda, ()) \{1\}^n = \{\lambda \in \mathbb{R} \mid s \in S^T \land \rfr{eigenvalue}(\lambda, s, A, V)\})
+\n \dfn{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \iff (S \subseteq (\rfr{eigenvectors}(X, (A, V, +, \cdot, || \$1 ||))^T)) \land 
+\m (\rfr{diagonalOperator}(\Lambda, ()) \{1\}^n = (\lambda)_n = \{\lambda \in \mathbb{R} \mid s \in S^T \land \rfr{eigenvalue}(\lambda, s, A, V)\})
 \m (\rfr{independentOperator}(S, ()) \implies \exists_{S^-1} (A S = S \Lambda \implies A = S \Lambda S^{-1}))
 \n \thm{} \rfr{eigenDecomposition}(S \Lambda S^{-1}, (A, V, +, \cdot, || \$1 ||)) \implies A^2 = (A) (A) = S \Lambda S^{-1} S \Lambda S^{-1} = S \Lambda^2 S^{-1}
-\n CONTHERE lecture 25
+\n \thm{} \dfn{spectralDecomposition}(Q \Lambda Q^T, (A, V, +, \cdot, || \$1 ||)) \iff (\rfr{symmetricOperator}(A, ()) \land A = \overline{A}^T) \implies
+\m (\exists_{Q} (\rfr{eigenDecomposition}(Q \Lambda Q^{-1}, (A, V, +, \cdot, \$1^T \$1)) \land \rfr{orthogonalOperator}(Q, (V, +, \cdot, \$1^T \$2)) \land (\lambda)_n \in \mathbb{R}^n))
+\m \eqComment{if symmetric and eigenvalues are real, then there exists orthonormal eigenbasis}
+\n \dfn{hermitianAdjoint}(A^H, (A)) \iff (A^H = \overline{A}^T) \impliedby (\langle A, A\rangle = \overline{A}^T A \in \mathbb{R})
+\m \eqComment{complex analog to adjoint}
+\n \dfn{hermitianOperator}(A, ()) \iff A = A^H
+\m \eqComment{complex analog to symmetric operator}
+\n \dfn{unitaryOperator}(Q^H Q, (Q)) \iff Q^H Q = I
+\m \eqComment{complex analog to orthogonal operator}
+\n \dfn{positiveDefiniteOperator}(A, (V, +, \cdot, || \$1 ||)) \iff (\forall_{x \in V \setminus \{\field{0}\}} (x^T A x > 0)) \lor
+\m (\forall_{x \in \rfr{eigenvectors}(X, (A, V, +, \$1^T \$1))} (\rfr{eigenvalue}(\lambda, (x, A, V, +, \cdot)) \implies \lambda > 0))
+\m \eqComment{acts like a positive scalar where any vector only scales and cannot reflect against its perpendicular axis}
+\n \thm{} \rfr{positiveDefiniteOperator}(A^T A) \impliedby \forall_{x \in V \setminus \{\field{0}\}} (x^T A^T A x = (A x)^T (A x) = || A x || > 0)
+\n \dfn{semiPositiveDefiniteOperator}(A, (V, +, \cdot, || \$1 ||)) \iff (\forall_{x \in V \setminus \{\field{0}\}} (x^T A x \geq 0)) \lor
+\m (\forall_{x \in \rfr{eigenvectors}(X, (A, V, +, \$1^T \$1))} (\rfr{eigenvalue}(\lambda, (x, A, V, +, \cdot)) \implies \lambda \geq 0))
+\m \eqComment{acts like a nonnegative scalar}
+\n \thm{} \rfr{symmetricOperator}(A^T A) \impliedby (A^T A = (A^T A)^T = A^T A^{TT} = A^T A)
+\n \dfn{similarOperators}((A, B), ()) \iff (\rfr{matrix}(A, (n, n))) \land (\rfr{matrix}(B, (n, n))) \land (\exists_M (B = M^{-1} A M))
+\n \thm{} (\dfn{similarOperators}((A, B), ()) \land A x = \lambda x) \implies (\exists_{M} (M^{-1} A x = \lambda M^{-1} x = M^{-1} A M M^{-1} x = B M^{-1} x)) 
+\m \eqComment{similar operators have the same eigenvalues but $M^{-1}$ shifted eigenvectors}
+\n \text{SVD, AV eq USigma , A orthonormspace eq orthonormcolspace diaglambda}
+\m \text{orthonormal basis that A maps to orthonormal basis scaled by eigenvalues}
+\n \dfn{singularValueDecomposition}(Q \Sigma R^T, (A)) \iff (\rfr{orthogonalOperator}(Q, (V, +, \cdot, \$1^T \$2))) \land 
+\m (\rfr{orthogonalOperator}(R, (V, +, \cdot, \$1^T \$2))) \land (\rfr{semiPositiveDefiniteOperator}(\Sigma, (V, +, \cdot, \$1^T \$1))) \land
+\m (A V = U \Sigma) \land (A = U \Sigma V^{-1} = U \Sigma V^T) \land (A^T A = V \Sigma^T U^T U \Sigma V^T = V \Sigma^T \Sigma V^T)
+\m let V be normed eigendecomp CONTHERE
 \n \dfn{compactMap}\ml(L, \ml(V, +_V, \cdot_V, W, +_W, \cdot_W\mr)\mr) \iff \ml(\rfr{boundedMap}\ml(L, \ml(V, +_V, \cdot_V, || \$1 ||_V, W, +_W, \cdot_W, || \$1 ||_W\mr)\mr)\mr) \land
 \m \Bigg(\forall_{v \in V} \Bigg(\rfr{openBall}\ml(B, \ml(1.0, v, V, d_V\ml(\$1, \$2\mr)\mr)\mr) \implies 
 \m \rfr{compactSubset}\ml(\rfr{closure}\ml(\overline{L\ml(B\mr)}, \rfr{image}\ml(L\ml(B\mr), \ml(B, L, V, W\mr)\mr), W, d_W\ml(\$1, \$2\mr)\mr), \ml(W, \mathcal{O}_W\mr)\mr)\Bigg)\Bigg)

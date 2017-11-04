@@ -1,0 +1,46 @@
+
+(gummi:6110): IBUS-WARNING **: The owner of /home/jp/.config/ibus/bus is not root!
+[1;34m[Info][0m Gummi version: git
+[1;34m[Info][0m configuration file: /home/jp/.config/gummi/gummi.cfg
+[1;34m[Info][0m Texlive 2015 was found installed..
+[1;34m[Info][0m Typesetter detected: pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian)
+[1;34m[Info][0m Typesetter detected: XeTeX 3.14159265-2.6-0.99992 (TeX Live 2015/Debian)
+[1;34m[Info][0m snippets : /home/jp/.config/gummi/snippets.cfg
+[1;34m[Info][0m using libpoppler 0.41.0
+[1;34m[Info][0m Typesetter pdflatex configured.
+[1;34m[Info][0m setting styles scheme to cobalt
+[1;34m[Info][0m setting font to Monospace 10
+[1;34m[Info][0m 
+[1;34m[Info][0m Environment created for:
+[1;34m[Info][0m TEX: (null)
+[1;34m[Info][0m TMP: /home/jp/.cache/gummi/gummi_R2U88Y
+[1;34m[Info][0m PDF: /home/jp/.cache/gummi/gummi_R2U88Y.pdf
+[1;34m[Info][0m setting styles scheme to cobalt
+[1;34m[Info][0m setting font to Monospace 10
+[1;34m[Info][0m 
+[1;34m[Info][0m Environment created for:
+[1;34m[Info][0m TEX: /home/jp/Repositories/OOM/main_physics.tex
+[1;34m[Info][0m TMP: /home/jp/Repositories/OOM/.main_physics.tex.swp
+[1;34m[Info][0m PDF: /home/jp/.cache/gummi/.main_physics.tex.pdf
+
+(gummi:6110): GLib-GObject-WARNING **: instance with invalid (NULL) class pointer
+
+(gummi:6110): GLib-GObject-CRITICAL **: g_signal_handler_is_connected: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+
+(gummi:6110): GLib-GObject-WARNING **: instance with invalid (NULL) class pointer
+
+(gummi:6110): GLib-GObject-CRITICAL **: g_signal_handler_is_connected: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+[1;34m[Info][0m loading /home/jp/Repositories/OOM/main_physics.tex ...
+[1;34m[Info][0m setting styles scheme to cobalt
+[1;34m[Info][0m setting font to Monospace 10
+[1;34m[Info][0m 
+[1;34m[Info][0m Environment created for:
+[1;34m[Info][0m TEX: /home/jp/Repositories/OOM/main_ML.tex
+[1;34m[Info][0m TMP: /home/jp/Repositories/OOM/.main_ML.tex.swp
+[1;34m[Info][0m PDF: /home/jp/.cache/gummi/.main_ML.tex.pdf
+[1;34m[Info][0m loading /home/jp/Repositories/OOM/main_ML.tex ...
+   ___ 
+  {o,o}    Thanks for using Gummi!
+  |)__)    I welcome your feedback at:
+  -"-"-    https://github.com/alexandervdm/gummi
+

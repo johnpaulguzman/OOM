@@ -36,7 +36,6 @@
 \newcommand*\widefbox[1]{\fbox{#1}}
 \newcommand{\eqComment}[1]{\text{  \# #1}}
 \newcommand{\eqSep}{\text{ ;  }}
-\newcommand{\thm}[1]{\text{(THM) #1: }}
 \newcommand{\sgn}[1]{sgn(#1)}
 \newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
 \newcommand{\m}{\nonumber \\}
@@ -54,6 +53,8 @@
    \else
      \g@addto@macro\features{\rfr{#1} \\}%
    \fi}
+\newcommand{\thm}[1]{\text{(THM) #1: }}
+\newcommand{\thmlink}[1]{\text{(THM)} \dfn{#1} \text{ : }}
 \makeatother
 
 \title{Next-Next-Gen Notes \\

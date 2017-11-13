@@ -138,7 +138,7 @@ TODO link thms?
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    \melazy
-\n \textbf{ZFC set theory} = \textbf{standard form of axiomatic set theory}
+\n \textbf{ZFC set theory} = \textbf{usual form of axiomatic set theory}
 \n A \subseteq B = \forall_x x \in A \implies x \in B
 \n \ml(A = B\mr) = A \subseteq B \land B \subseteq A
 \n \textbf{$\in$ basis} \implies \{x, y\} = \{y, x\} \land \{x\} = \{x, x\}
@@ -288,15 +288,15 @@ TODO link thms?
 \n \dfn{dense}\ml(S, \ml(M, d\mr)\mr) \iff \ml(S \subseteq M\mr) \land \ml(\forall_{p \in M} \ml(p \in \rfr{closure}\ml(\bar{S}, \ml(S, M, d\mr)\mr)\mr)\mr)
 \m \eqComment{every of point in $M$ is a point or a limit point of $S$}
 \n \dfn{eucD}\ml(d, \ml(n\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq n} \ml(x_i \in \mathbb{R}\mr)\mr) \land \ml(d = \sqrt[2]{\sum_{i=1}^n{{x_i}^2}}\mr)
-\n \rfr{metricTopology}\ml(\dfn{standardTopology}, \ml(\mathbb{R}^{n}, \rfr{eucD}\ml(d, \ml(n\mr)\mr)\mr)\mr)
+\n \rfr{metricTopology}\ml(\dfn{euclideanTopology}, \ml(\mathbb{R}^{n}, \rfr{eucD}\ml(d, \ml(n\mr)\mr)\mr)\mr)
 \m \melazy
-\m \textbf{L1: } \forall_{p \in U = \emptyset} \ml(\ldots\mr) \implies \forall_p \ml(\ml(p \in \emptyset\mr) \implies \ldots\mr) \implies \forall_p \ml(\ml(\textbf{False}\mr) \implies \ldots\mr) \implies \emptyset \in \mathcal{O}_{standard}
-\m \textbf{L2: } \forall_{p \in \mathbb{R}^n} B\ml(r, p, \mathbb{R}^n, d\mr) \subseteq \mathbb{R}^n \implies M \in \mathcal{O}_{standard}
-\m \textbf{L4: } C \subseteq \mathcal{O}_{standard} \implies\forall_{U \in C} \forall_{p \in U} \exists_{r \in \mathbb{R}^+} \ml(B_r\ml(p\mr) \subseteq U \subseteq \cup C\mr) \implies \cup C \in \mathcal{O}_{standard}
-\m \textbf{L3: } U, V \in \mathcal{O}_{standard} \implies p \in U \cap V \implies p \in U \land p  \in V \implies 
+\m \textbf{L1: } \forall_{p \in U = \emptyset} \ml(\ldots\mr) \implies \forall_p \ml(\ml(p \in \emptyset\mr) \implies \ldots\mr) \implies \forall_p \ml(\ml(\textbf{False}\mr) \implies \ldots\mr) \implies \emptyset \in \mathcal{O}_{euclidean}
+\m \textbf{L2: } \forall_{p \in \mathbb{R}^n} B\ml(r, p, \mathbb{R}^n, d\mr) \subseteq \mathbb{R}^n \implies M \in \mathcal{O}_{euclidean}
+\m \textbf{L4: } C \subseteq \mathcal{O}_{euclidean} \implies\forall_{U \in C} \forall_{p \in U} \exists_{r \in \mathbb{R}^+} \ml(B_r\ml(p\mr) \subseteq U \subseteq \cup C\mr) \implies \cup C \in \mathcal{O}_{euclidean}
+\m \textbf{L3: } U, V \in \mathcal{O}_{euclidean} \implies p \in U \cap V \implies p \in U \land p  \in V \implies 
 \m \exists_{r \in \mathbb{R}^+} B\ml(r, p, \mathbb{R}^n, d\mr) \land \exists_{s \in \mathbb{R}^+} B\ml(s, p, \mathbb{R}^n, d\mr) \implies 
 \m B\ml(min\ml(r, s\mr), p, \mathbb{R}^n, eucD\mr) \subseteq U \land B\ml(min\ml(r, s\mr), q, \mathbb{R}^n, d\mr) \subseteq V \implies
-\m B\ml(min\ml(r, s\mr), p, \mathbb{R}^n, eucD\mr) \in U \cap V \implies U \cap V \in \mathcal{O}_{standard}
+\m B\ml(min\ml(r, s\mr), p, \mathbb{R}^n, eucD\mr) \in U \cap V \implies U \cap V \in \mathcal{O}_{euclidean}
 \m \eqComment{natural topology for $\mathbb{R}^d$}
 \m \eqComment{could fail on infinite sets since $min$ could approach $0$}
 \m \melazy
@@ -394,7 +394,7 @@ TODO link thms?
 \n \thm{} \rfr{metricTopologicalSpace} \implies \rfr{paracompact}
 \n \melazy
 \n {partitionOfUnitySubjCover}\ml(\mathcal{F}, \ml(C, M, \mathcal{O}\mr)\mr) \iff \ml({locallyFinite}\ml(C, \ml(M, \mathcal{O}\mr)\mr)\mr) \land \ml(f \in \mathcal{F}\mr) \land 
-\m \ml({continuous}\ml(f, \ml(M, \mathcal{O}, [0, 1], {subsetTopology}\ml(\mathcal{O}|_{[0, 1]}, \ml([0, 1], \mathbb{R}, {standardTopology}\mr)\mr)\mr)\mr)\mr) \land
+\m \ml({continuous}\ml(f, \ml(M, \mathcal{O}, [0, 1], {subsetTopology}\ml(\mathcal{O}|_{[0, 1]}, \ml([0, 1], \mathbb{R}, {euclideanTopology}\mr)\mr)\mr)\mr)\mr) \land
 \m \ml(\exists_{U_f \in C} \forall_{p \in M} \ml(f\ml(p\mr) \neq 0 \implies p \in U_f\mr)\mr) \land
 \m \ml(\forall_{p \in M} \exists_{U \in \mathcal{O}| p \in U} \ml(\ml(f_U\mr)_n = \{f \in \mathcal{F}| p \in M \land f\ml(p\mr) \neq 0\}\mr)\mr) \land
 \m \ml(locallyFinite\ml(C, M, \mathcal{O}\mr) \implies finiteSet\ml(\ml(f_U\mr)_n, \ml(\mr)\mr)\mr) \land
@@ -411,12 +411,12 @@ TODO link thms?
 \begin{align}
    \dfn{connected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land \ml(\lnot \exists_{A, B \in \mathcal{O} \setminus \emptyset} \ml(A \cap B \neq \emptyset \land A \cup B = M\mr)\mr)
 \m \eqComment{if there is some covering of the space that does not intersect}
-\n \thm{} \lnot \rfr{connected}\ml(\ml(\mathbb{R} \setminus \{0\}, \rfr{subsetTopology}\ml(\mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}, \ml(\mathbb{R}, \rfr{standardTopology}, \mathbb{R} \setminus \{0\}\mr)\mr)\mr), \ml(\mr)\mr)
-\m \impliedby \ml(A = \ml(-\infty, 0\mr) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}\mr) \land \ml(B = \ml(0, \infty\mr) \in \mathcal{O}_{standard}|_{\mathbb{R} \setminus \{0\}}\mr) \land
+\n \thm{} \lnot \rfr{connected}\ml(\ml(\mathbb{R} \setminus \{0\}, \rfr{subsetTopology}\ml(\mathcal{O}_{euclidean}|_{\mathbb{R} \setminus \{0\}}, \ml(\mathbb{R}, \rfr{euclideanTopology}, \mathbb{R} \setminus \{0\}\mr)\mr)\mr), \ml(\mr)\mr)
+\m \impliedby \ml(A = \ml(-\infty, 0\mr) \in \mathcal{O}_{euclidean}|_{\mathbb{R} \setminus \{0\}}\mr) \land \ml(B = \ml(0, \infty\mr) \in \mathcal{O}_{euclidean}|_{\mathbb{R} \setminus \{0\}}\mr) \land
 \m \ml(A \cap B = \emptyset\mr) \land \ml(A \cup B = \mathbb{R} \setminus \{0\}\mr)
 \n \thm{} \rfr{connected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \forall_{S \in \mathcal{O}} \ml(\rfr{clopen}\ml(S, \ml(M, \mathcal{O}\mr) \implies \ml(S = \emptyset \lor S = M\mr)\mr)\mr)
-\n \dfn{pathConnected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{subsetTopology}\ml(\mathcal{O}_{standard}|_{[0, 1]}, \ml(\mathbb{R}, \rfr{standardTopology}, [0, 1]\mr)\mr)\mr) \land
-\m \ml(\forall_{p, q \in M} \exists_{\gamma} \ml(\rfr{continuous}\ml(\gamma, \ml([0, 1], \mathcal{O}_{standard}|_{[0 ,1]}, M, \mathcal{O}\mr)\mr) \land \gamma\ml(0\mr) = p \land \gamma\ml(1\mr) = q\mr)\mr)
+\n \dfn{pathConnected}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr) \iff \ml(\rfr{subsetTopology}\ml(\mathcal{O}_{euclidean}|_{[0, 1]}, \ml(\mathbb{R}, \rfr{euclideanTopology}, [0, 1]\mr)\mr)\mr) \land
+\m \ml(\forall_{p, q \in M} \exists_{\gamma} \ml(\rfr{continuous}\ml(\gamma, \ml([0, 1], \mathcal{O}_{euclidean}|_{[0 ,1]}, M, \mathcal{O}\mr)\mr) \land \gamma\ml(0\mr) = p \land \gamma\ml(1\mr) = q\mr)\mr)
 \n \thm{} \rfr{pathConnected} \implies \rfr{connected}
 \end{align}
 \end{tcolorbox}
@@ -427,7 +427,7 @@ TODO link thms?
    \melazy
 \n homotopic(\sim, (\gamma, \delta, M, \mathcal{O})) \iff (map(\gamma, ([0, 1], M)) \land map(\delta, ([0, 1], M))) \land 
 \m (\gamma(0) = \delta(0) \land \gamma(1) = \delta(1)) \land
-\m (\exists_H \forall_{\lambda \in [0, 1]} (continuous(H, (([0, 1] \times [0, 1], \mathcal{O}_{standard^2}|_{[0, 1] \times [0, 1]}), (M, \mathcal{O})) \land H(0, \lambda) = \gamma(\lambda) \land H(1, \lambda) = \delta(\lambda))))
+\m (\exists_H \forall_{\lambda \in [0, 1]} (continuous(H, (([0, 1] \times [0, 1], \mathcal{O}_{euclidean^2}|_{[0, 1] \times [0, 1]}), (M, \mathcal{O})) \land H(0, \lambda) = \gamma(\lambda) \land H(1, \lambda) = \delta(\lambda))))
 \m \eqComment{$H$ is a continuous deformation of one curve into another}
 \n homotopic(\sim) \implies equivalenceRelation(\sim)
 \n loopSpace(\mathcal{L}_p, (p, M, \mathcal{O})) \iff \mathcal{L}_p = \{map(\gamma, ([0, 1], M))| continuous(\gamma) \land \gamma(0) = \gamma(1)\})
@@ -479,8 +479,8 @@ TODO link thms?
 \n \dfn{borelSigmaAlgebra}\ml(\sigma\ml(\mathcal{O}\mr), \ml(M, \mathcal{O}\mr)\mr) \iff \ml(\rfr{topologicalSpace}\ml(\ml(M, \mathcal{O}\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{generatedSigmaAlgebra}\ml(\sigma\ml(\mathcal{O}\mr), \ml(\mathcal{O}, M\mr)\mr)\mr)
 \m \eqComment{$\sigma$-algebra induced by a topology}
-\n \dfn{standardSigma}(\sigma_{s}, ()) \iff \ml(\rfr{borelSigmaAlgebra}\ml(\sigma_{s}, \ml(\mathbb{R}^d, \rfr{standardTopology}\mr)\mr)\mr)
-\n \dfn{lebesgueMeasure}\ml(\lambda, \ml(\mr)\mr) \iff \ml(\rfr{measure}\ml(\lambda, \ml(\mathbb{R}^d, \rfr{standardSigma}\mr)\mr)\mr) \land
+\n \dfn{euclideanSigma}(\sigma_{s}, ()) \iff \ml(\rfr{borelSigmaAlgebra}\ml(\sigma_{s}, \ml(\mathbb{R}^d, \rfr{euclideanTopology}\mr)\mr)\mr)
+\n \dfn{lebesgueMeasure}\ml(\lambda, \ml(\mr)\mr) \iff \ml(\rfr{measure}\ml(\lambda, \ml(\mathbb{R}^d, \rfr{euclideanSigma}\mr)\mr)\mr) \land
 \m \ml(\lambda\ml(\times_{i = 1}^d \ml([a_i, b_i)\mr)\mr) = \sum_{i = 1}^d \ml(\sqrt[2]{\ml(a_i - b_i\mr)^2}\mr)\mr)
 \m \eqComment{natural measure for $\mathbb{R}^d$}
 \n \dfn{measurableMap}\ml(f, \ml(M, \sigma_M ,N, \sigma_N\mr)\mr) \iff \ml(\rfr{measurableSpace}\ml(\ml(M, \sigma_M\mr), \ml(\mr)\mr)\mr) \land 
@@ -494,13 +494,14 @@ TODO link thms?
 \n \dfn{almostEverywhere}\ml(p, \ml(M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land \ml(\rfr{predicate}\ml(p, \ml(M\mr)\mr)\mr) \land
 \m \ml(\exists_{A \in \sigma} \ml(\rfr{nullSet}\ml(A, \ml(M, \sigma, \mu\mr)\mr) \implies \forall_{n \in M \setminus A} \ml(p\ml(n\mr)\mr)\mr)\mr)
 \m \eqComment{the predicate holds true for all points except the points in the null set}
+\m \eqComment{in terms of measure, almost nothing is not equivalent to nothing}
 \end{align}
 \end{tcolorbox}
 
 \subsection{Lebesque integration}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{simpleTopology}\ml(\mathcal{O}_{simple}, \ml(\mr)\mr) \iff \mathcal{O}_{simple} = \rfr{subsetTopology}\ml(\mathcal{O}|_{\mathbb{R}^+_0}, \ml(\mathbb{R}, \rfr{standardTopology}, \mathbb{R}^+_0\mr)\mr)
+   \dfn{simpleTopology}\ml(\mathcal{O}_{simple}, \ml(\mr)\mr) \iff \mathcal{O}_{simple} = \rfr{subsetTopology}\ml(\mathcal{O}|_{\mathbb{R}^+_0}, \ml(\mathbb{R}, \rfr{euclideanTopology}, \mathbb{R}^+_0\mr)\mr)
 \n \dfn{simpleSigma}\ml(\sigma_{simple}, \ml(\mr)\mr) \iff \rfr{borelSigmaAlgebra}\ml(\sigma_{simple}, \ml(\mathbb{R}^+_0, \rfr{simpleTopology}\mr)\mr)
 \n \dfn{simpleFunction}\ml(s, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(s, \ml(M, \sigma, \mathbb{R}^+_0, \rfr{simpleSigma}\mr)\mr)\mr) \land
 \m \ml(\rfr{finiteSet}\ml(\rfr{image}\ml(B, \ml(M , s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\mr)
@@ -510,12 +511,12 @@ TODO link thms?
 \n \thm{} \rfr{simpleFunction}\ml(s, \ml(M, \sigma_M\mr)\mr) \implies 
 \m \ml(\rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M , s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\mr) \land
 \m  \ml(\rfr{characteristicFunction}\ml(X_A, \ml(A, M\mr)\mr)\mr) \land \ml(\forall_{m \in M}\ml(s\ml(m\mr) = \sum_{z \in Z} \ml(z \cdot X_{\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)}\ml(m\mr)\mr)\mr)\mr)
-\n \dfn{exStandardSigma}\ml(\overline{\sigma_{s}}, \ml(\mr)\mr) \iff \overline{\sigma_{s}} = \{A \subseteq \overline{\mathbb{R}} \mid A \cap R \in \rfr{standardSigma}\}
+\n \dfn{exeuclideanSigma}\ml(\overline{\sigma_{s}}, \ml(\mr)\mr) \iff \overline{\sigma_{s}} = \{A \subseteq \overline{\mathbb{R}} \mid A \cap R \in \rfr{euclideanSigma}\}
 \m \eqComment{ignores $\pm \infty$ to preserve the points in the domain of the measurable map}
-\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exStandardSigma}\mr)\mr)\mr) \land
+\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exeuclideanSigma}\mr)\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr) \geq 0\mr)\mr)
 \n \dfn{nonNegIntegral}\ml(\int_M\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land 
-\m \ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exStandardSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exeuclideanSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr)\mr) \land (\int_M\ml(f d\mu\mr) = \rfr{sup}(\{\sum_{z \in Z} \ml(z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)\mr)\mr) \mid
 \m \forall_{m \in M} (s(m) \leq f(m)) \land \rfr{simpleFunction}\ml(s, \ml(M, \sigma\mr)\mr) \land \rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M, s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\}))
 \m \eqComment{lebesgue measure on $z$ reduces to $z$}
@@ -526,16 +527,16 @@ TODO link thms?
 \m \ml(\rfr{almostEverywhere}\ml(f = g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) = \int \ml(g d\mu\mr)\mr)
 \m \ml(\int \ml(f d\mu\mr) = 0 \implies \rfr{almostEverywhere}\ml(f = 0, \ml(M, \sigma, \mu\mr)\mr)\mr) \land
 \m \ml(\int \ml(f d\mu\mr) \leq \infty \implies \rfr{almostEverywhere}\ml(f < \infty, \ml(M, \sigma, \mu\mr)\mr)\mr)
-\n \thm{Mono. conv.} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr) \land 0 \leq f_{n-1} \leq f_n\}\mr) \land
+\n \thm{Mono. conv.} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exeuclideanSigma}\mr)\mr) \land 0 \leq f_{n-1} \leq f_n\}\mr) \land
 \m \ml(\rfr{map}\ml(f, \ml(M, \overline{\mathbb{R}}\mr)\mr)\mr) \land \ml(\forall_{m \in M} \ml(f\ml(m\mr) = \rfr{sup} \ml(f_n\ml(m\mr) | f_n \in \ml(f\mr)_{\mathbb{N}}\mr)\mr)\mr) \implies \ml(\lim_{n \to \infty} \ml(\int_M \ml(f_n d\mu\mr)\mr) = \int_M \ml(f d\mu\mr)\mr)
 \m \eqComment{lengths now depend on $M, \sigma$ and limits can be pulled in or out of an integral}
 \n \thm{} \rfr{nonNegIntegral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{nonNegIntegral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies
 \m \ml(\forall_{\alpha \in \mathbb{R}^+_0} \ml(\int \ml(\ml(f + \alpha g\mr) d\mu\mr) = \int \ml(f d\mu\mr) + \alpha \int \ml(g d\mu\mr)\mr)\mr) 
 \m \eqComment{integral acts linearly and commutes finite summations}
-\n \thm{} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr) \land 0 \leq f_n\}\mr) \implies
+\n \thm{} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exeuclideanSigma}\mr)\mr) \land 0 \leq f_n\}\mr) \implies
 \m \ml(\int \ml(\ml(\sum_{n = 1}^\infty \ml(f_n\mr)\mr) d\mu\mr) = \sum_{n = 1}^\infty \ml(\int \ml(f_n d\mu\mr)\mr)\mr)
 \m \eqComment{$\sum_{n = 1}^{\infty} f_n$ can be treated as $\lim_{n \to \infty} \sum_{i = 1}^n f_n$ since $f_n \geq 0$ and it commutes with integral from monotone conv.}
-\n \dfn{integrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exStandardSigma}\mr)\mr)\mr) \land
+\n \dfn{integrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exeuclideanSigma}\mr)\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr) = \rfr{max}\ml(f\ml(m\mr), 0\mr) - \rfr{max}\ml(0, -f\ml(m\mr)\mr)\mr)\mr) \land
 \m \ml(\rfr{measureSpace}\ml(M, \sigma, \mu\mr) \implies \ml(\int \ml(\rfr{max}\ml(f\ml(m\mr), 0\mr) d\mu\mr) < \infty \land \int \ml(\rfr{max}\ml(0, -f\ml(m\mr)\mr) d\mu\mr) < \infty\mr)\mr)
 \m \eqComment{extra condition prevents the occurrence of the indeterminate $\infty -\infty$}
@@ -547,7 +548,7 @@ TODO link thms?
 \n \thm{} \rfr{integral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{integral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies
 \m \ml(\rfr{almostEverywhere}\ml(f \leq g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) \leq \int \ml(g d\mu\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr), g\ml(m\mr), \alpha \in \mathbb{R}\mr) \implies \int \ml(\ml(f + \alpha g\mr) d\mu\mr) = \int \ml(f d\mu\mr) + \alpha \int \ml(g d\mu\mr)\mr)
-\n \thm{Dominant convergence} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exStandardSigma}\mr)\mr)\}\mr) \land
+\n \thm{Dominant convergence} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exeuclideanSigma}\mr)\mr)\}\mr) \land
 \m \ml(\rfr{map}(f, (M, \overline{\mathbb{R}}))\mr) \land \ml(\rfr{almostEverywhere}\ml(f\ml(m\mr) = \lim_{n \to \infty} \ml(f_n\ml(m\mr)\mr), \ml(M, \sigma, \mu\mr)\mr)\mr) \land
 \m \ml(\rfr{nonNegIntegral}\ml(\int \ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\ml|\int \ml(g d\mu\mr)\mr| < \infty\mr) \land \ml(\rfr{almostEverywhere}\ml(|f_n| \leq g, \ml(M, \sigma, \mu\mr)\mr)\mr)
 \m \eqComment{if all $f_n(m)$ are bounded by some integrable $|g(m)|$} \implies
@@ -791,7 +792,7 @@ TODO link thms?
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    \dfn{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr) \iff \ml(p \in \mathbb{R}\mr) \land \ml(1 \leq p < \infty\mr) \land
-\m \ml(\mathcal{L}^p = \{\rfr{map}\ml(f, \ml(M, \mathbb{R}\mr)\mr) \mid \rfr{measurableMap}\ml(f, \ml(M, \sigma, \mathbb{R}, \rfr{standardSigma}\mr)\mr) \land \int \ml(|f|^p d\mu\mr) < \infty \}\mr)
+\m \ml(\mathcal{L}^p = \{\rfr{map}\ml(f, \ml(M, \mathbb{R}\mr)\mr) \mid \rfr{measurableMap}\ml(f, \ml(M, \sigma, \mathbb{R}, \rfr{euclideanSigma}\mr)\mr) \land \int \ml(|f|^p d\mu\mr) < \infty \}\mr)
 \n \dfn{vecLp}\ml(\mathcal{L}^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{curLp}\ml(\mathcal{L}^p, \ml(p, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\forall_{f, g \in \mathcal{L}^p} \forall_{m \in M} \ml(\ml(f + g\mr)\ml(m\mr) = f\ml(m\mr) + g\ml(m\mr)\mr)\mr) \land
 \m \ml(\forall_{f \in \mathcal{L}^p} \forall_{s \in \mathbb{R}} \forall_{m \in M} \ml(\ml(s \cdot f\mr)\ml(m\mr) = \ml(s\mr) f\ml(m\mr)\mr)\mr) \land \ml(\rfr{vectorSpace}\ml(\ml(\mathcal{L}^p, +, \cdot\mr), \ml(\mr)\mr)\mr)
 \n \dfn{integralNorm}\ml(\wr\wr \$1 \wr\wr, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{vecLp}\ml(\mathcal{L}^p, \ml(+, \cdot, p, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\rfr{map}\ml(\wr\wr \$1 \wr\wr, \ml(\mathcal{L}^p, \mathbb{R}^+_0\mr)\mr)\mr) \land 
@@ -846,7 +847,22 @@ TODO link thms?
 \m \thmlink{MSConvL, DeMorgans}{MSConvU} \ml(\forall_{j \in \mathbb{N}} (A_{j +1} \subseteq A_j) \implies P\ml(\bigcap_{i \in \mathbb{N}} \ml(A_i\mr)\mr)	= \lim_{m \to \infty} \ml(P\ml(A_m\mr)\mr)\mr) \land
 \m \thmlink{measure}{MSSetOrder} \ml(A \subseteq B \implies P\ml(A\mr) \leq P\ml(B\mr)\mr) \land \thmlink{measure}{MSSetBound} \ml(\bigcup_{i \in \mathbb{N}} \ml(A_i\mr) \leq \sum_{i \in \mathbb{N}} \ml(P\ml(A_i\mr)\mr)\mr)
 \n \melazy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\n 0
+\n \dfn{generatedSigmaAlgebra}(\sigma(\mathcal{M}), (\mathcal{M}, S)) \iff (\forall_{M \in \mathcal{M}} (\rfr{sigmaAlgebra}(M, (S)))) \land 
+\m (\rfr{sigmaAlgebra}(\sigma(\mathcal{M}), (S)) = \bigcap (\mathcal{M}))
+\m \eqComment{the smallest sigma algebra containing the generating sets}
+\n \thm{} (\textbf{cantor set} \cong \mathcal{P}(\mathbb{N}) \land (\mathbb{R}, \rfr{eucledianSigma}, \rfr{lebesgueMeasure})) \implies P(\textbf{cantor set}) = 0 \eqComment{:O}
+\n \dfn{conditionalProbability}(P(A | B), (A, B, \Omega, \mathcal{F}, P)) \iff (\rfr{probabilitySpace}(\Omega, \mathcal{F}, P)) \land (A, B \in \mathcal{F}) \land
+\m (P(B) > 0) \land (P(A | B) = \frac{P(A \cap B)}{P(B)} \lor P(B) P(A | B) = P(A \cap B)) 
+\m \eqComment{calculates $P(A)$ for the subset spanned by $B$}
+\m \eqComment{conditioning on 0 probability sets leads to paradoxes}
+\n \dfn{independentEvents}((A, B), (\Omega, \mathcal{F}, P)) \iff (A, B \in \mathcal{F}) \land (P(A \cap B) = P(A) P(B))
+\m \eqComment{depends on the $P$, not only on $A, B$}
+\n \dfn{setPartition}((X)_{\mathbb{N}}, (Y)) \iff (\bigcup_{i \in \mathbb{N}} (X_i) = Y) \land (\forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} (X_i \cap X_j = \emptyset))
+\n \thm{} (\rfr{probabilitySpace}(\Omega, \mathcal{F}, P) \land \{A\} \cup (B)_\mathbb{N} \subseteq \mathcal{F}) \implies  
+\m (P(A) = \sum_{i \in \mathbb{N}} (P(A | B_i) P(B_i))) \land
+\m (\forall_{i \in \mathbb{N}} (P(A | B_i) P(B_i) = P(A) P(B_i | A) = (\sum_{j \in \mathbb{N}} (P(B_i | A) )) P(B_i | A))) \land
+\m (P(\bigcap_{i \in \mathbb{N}} (B_i)) = P(B_1) \prod_{i = 2}^{\infty} (P(B_i | \bigcap_{j = 1}^{i - 1} (B_j))))
+\m \eqComment{from the subspace definition of conditional probability and algebraic manipulations}
 \n \melazy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \n S^n = (x, y)^n \subset Z \eqComment{sample set consists of $n$ input-output pairs}
 \n S^n \implies \rfr{map}(f_{S^n}, (X, Y)) \eqComment{learned predictor function}

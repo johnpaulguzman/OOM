@@ -711,7 +711,7 @@ TODO link thms?
 %\m \eqComment{signed perimeter? parallelepiped spanned by the operator} % http://www.onmyphd.com/?p=eigen.decomposition
 \n \thm{} \rfr{independentOperator}(A, ()) \iff det(A) \neq 0
 \n \thm{} A = A^T = A^2 \implies Tr(A) = \rfr{dimensionality}(N, (A)) \eqComment{counts dimensions}
-\n \dfn(\rfr{normalOperator}(A, ())) \iff A^T A = A A^T
+\n (\rfr{normalOperator}(A, ())) \iff A^T A = A A^T
 \m \eqComment{DEFINE}
 \n \dfn{diagonalOperator}(A, ()) \iff (\rfr{normalOperator}(A, ())) \land (\rfr{triangularOperator}(A, ())) 
 \n \dfn{characteristicEquation}((A - \lambda I) x = 0, (A)) \iff (A x = \lambda x \implies A x - \lambda x = (A - \lambda I) x = 0) \land
@@ -826,7 +826,7 @@ TODO link thms?
 \begin{align}
    \dfn{randomExperiment}\ml(E, \ml(\Omega\mr)\mr) \iff \Omega = \{\omega | \textbf{experiment} = E \to \textbf{outcome} = \omega\}
 \n \dfn{probabilitySpace}\ml(\ml(\Omega, \mathcal{F}, P\mr), \ml(\mr)\mr) \iff \dfn{measureSpace}\ml(\ml(\Omega, \mathcal{F}, P\mr), \ml(\mr)\mr) \land \ml(P\ml(\Omega\mr) = 1\mr)
-\n \dfn{event}\ml(F, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\dfn{probabilitySpace}\ml(\ml(\Omega, \mathcal{F}, P\mr), \ml(\mr)\mr)\mr) \land \ml(F \in \mathcal{F}\mr)
+\n \dfn{event}\ml(F, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\ml(\Omega, \mathcal{F}, P\mr), \ml(\mr)\mr)\mr) \land \ml(F \in \mathcal{F}\mr)
 \m \eqComment{$F$ can represent both singleton outcomes and outcome combinations and $\mathcal{F}$ can represent }
 \m \eqComment{a countable event that contains outcomes with even number of coin tosses before the first head}
 \m \eqComment{$\mathcal{P}(\mathbb{R})$ sets are not considered because definite uniform measures diverge everywhere}
@@ -894,11 +894,35 @@ TODO link thms?
 \m \thmlink{1Cond303, sump}{3IL303}\ml(\sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(0\mr) = 0\mr) \land \thmlink{1Il303, 2Il303, 3Il303}{Impl303} \ml(0 \leq 1 - P\ml(\{A_n \text{ i-o}\}\mr) \leq 0 \iff P\ml(\{A_n \text{ i-o}\}\mr) = 1\mr)
 \n \dfn{randomVariable}(X, (\Omega, \mathcal{F}, P)) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land (\rfr{map}(X, (\Omega, \mathbb{R}))) \land
 \m (\rfr{measurableMap}(X, (\Omega, \mathcal{F}, \mathbb{R}, \rfr{euclideanSigma}(\sigma_S, ()))))
-\m \eqComment{Random-Deterministic Variable-Function}
-\n \dfn{probabilityLaw}(P_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (\forall_{B \in \sigma_S} (P_X(B) = P(\rfr{preimage}(A, (B, X, \Omega, \mathbb{R})))))
-\m \eqComment{DEFINE and add PX maps to 1}
-\n lec15-22:00
+\m \eqComment{Random-Deterministic Variable-Function maps the measurable space to the real line and borel sets}
+\n \dfn{PDF}(P_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\forall_{B \in \sigma_S} (P_X(B) = P(\rfr{preimage}(A, (B, X, \Omega, \mathbb{R})) = (P \circ X^{-1}) (B) ) = P(X \in B)))
+\m \eqComment{probability of outcomes occuring in the Borel set}
+\n \dfn{piSystem}(\mathcal{G}, (\Omega)) \iff \mathcal{G} \subseteq \mathcal{P}(\Omega) \land \forall_{A, B \in \mathcal{G}} (A \cap B \in \mathcal{G})
+\n \thm{} (\rfr{piSystem}(\mathcal{G}, (\Omega)) \land \mathcal{F} = \sigma(\mathcal{G}) \land \rfr{probabilitySpace}(\Omega, \mathcal{F}, P_1) \land \rfr{probabilitySpace}(\Omega, \mathcal{F}, P_2)) \implies
+\m (\forall_{G \in \mathcal{G}} (P_1(G) = P_2(G)) \implies \forall_{F \in \mathcal{F}} (P_1(F) = P_2(F)))
+\n \thm{} \rfr{euclideanSigma}(\sigma_S) = \sigma(\{(-\infty, x] \mid x \in \mathbb{R}\})
+\n \dfn{CDF}(F_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\forall_{x \in \mathbb{R}} (F_X(x) = P(\{\omega \in \Omega \mid X(\omega) \leq x\}) = P(X \leq x)))
+\m \eqComment{this is from the generating borel sets $P(X \in (-\infty, x]))$}
+\n \thm{DEFINE} F_X \cong P_X
+\n \thm{} \rfr{CDF}(F_X, (X, \Omega, \mathcal{F}, P)) \iff (\lim_{x \to -\infty} (F_X(x)) = 0) \land (\lim_{x \to \infty} (F_X(x)) = 1) \land
+\m (\forall_{x, y \in \mathbb{R}} (x \leq y \implies F_X(x) \leq F_X(y))) \land (\forall_{x \in \mathbb{R}} (\lim_{\epsilon \to 0^+} (F(x + \epsilon) = F(x))))
+\m \eqComment{left-continuity will approach $P(X < x) \neq F_X$ and $P(\{x\}) = 0 \implies P(X \leq x) = F_X$}
+\n \dfn{PMF}(H_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\forall_{x \in \mathbb{R}} (H_X(x) = P(\{\omega \in \Omega \mid X(\omega) = x\}) = P(X = x)))
+\n \dfn{indicatorRandomVariable}(I_A, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(I_A, (\Omega, \mathcal{F}, P))) \land 
+\m (\forall_{A \in \mathcal{F}} \forall_{\omega \in \Omega} (I_A(\omega) = \begin{cases} 1 & \omega \in A \\ 0 & \omega \notin A \end{cases}))
+\n \dfn{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\exists_{E \subseteq \mathbb{R}} (\rfr{countablyInfinite}(E) \land P_X(E) = 1)) \land ((e)_\mathbb{N} = E) \land (\forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} (e_i \cap e_j = \emptyset))
+\n \thm{} (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \implies 
+\m (1 = P(E) = \sum_{i \in \mathbb{N}} (P_X(\{e_i\})) = \sum_{i \in \mathbb{N}} (P(X = e_i))) \land (\forall_{B \in \sigma_S} (P_X(B) = \sum_{x \in E \cap B} (P(X = x))))
+\n \dfn{bernoulliRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land (E = \{0, 1\}) \land
+\m (p \in \mathbb{R}) \land (P_X(0) = 1 - p) \land (P_X(1) = p)
+\n \dfn{uniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (n = |\rfr{finiteSet}(E)|) \land (\forall_{i \in \mathbb{N} \land i \leq n} (P_X(e_i) = \frac{1}{n}))
+\n \dfn{geometricRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\rfr{countablyInfinite}(E)) \land (do the same 37)
 \n \melazy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \n S^n = (x, y)^n \subset Z \eqComment{sample set consists of $n$ input-output pairs}
 \n S^n \implies \rfr{map}(f_{S^n}, (X, Y)) \eqComment{learned predictor function}

@@ -1,4 +1,4 @@
- % CONTINUE: LINE 850 PAGE 28
+ % CONTINUE: LINE 958 PAGE 33
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -73,6 +73,8 @@
 Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
 
 Note: All weaker objects automatically induces notions inherited from stronger objects.
+
+TODO assign free variables as parameters
 
 TODO define || abs  cross-product and other missing refs
 
@@ -511,12 +513,12 @@ TODO link thms?
 \n \thm{} \rfr{simpleFunction}\ml(s, \ml(M, \sigma_M\mr)\mr) \implies 
 \m \ml(\rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M , s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\mr) \land
 \m  \ml(\rfr{characteristicFunction}\ml(X_A, \ml(A, M\mr)\mr)\mr) \land \ml(\forall_{m \in M}\ml(s\ml(m\mr) = \sum_{z \in Z} \ml(z \cdot X_{\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)}\ml(m\mr)\mr)\mr)\mr)
-\n \dfn{exeuclideanSigma}\ml(\overline{\sigma_{s}}, \ml(\mr)\mr) \iff \overline{\sigma_{s}} = \{A \subseteq \overline{\mathbb{R}} \mid A \cap R \in \rfr{euclideanSigma}\}
+\n \dfn{exEuclideanSigma}\ml(\overline{\sigma_{s}}, \ml(\mr)\mr) \iff \overline{\sigma_{s}} = \{A \subseteq \overline{\mathbb{R}} \mid A \cap R \in \rfr{euclideanSigma}\}
 \m \eqComment{ignores $\pm \infty$ to preserve the points in the domain of the measurable map}
-\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exeuclideanSigma}\mr)\mr)\mr) \land
+\n \dfn{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exEuclideanSigma}\mr)\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr) \geq 0\mr)\mr)
 \n \dfn{nonNegIntegral}\ml(\int_M\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \iff \ml(\rfr{measureSpace}\ml(\ml(M, \sigma, \mu\mr), \ml(\mr)\mr)\mr) \land 
-\m \ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exeuclideanSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
+\m \ml(\rfr{measureSpace}\ml(\ml(\overline{\mathbb{R}}, \rfr{exEuclideanSigma}, \rfr{lebesgueMeasure}\mr), \ml(\mr)\mr)\mr) \land 
 \m \ml(\rfr{nonNegIntegrable}\ml(f, \ml(M, \sigma\mr)\mr)\mr) \land (\int_M\ml(f d\mu\mr) = \rfr{sup}(\{\sum_{z \in Z} \ml(z \cdot \mu\ml(\rfr{preimage}\ml(A, \ml(\{z\}, s, M, \mathbb{R}^+_0\mr)\mr)\mr)\mr) \mid
 \m \forall_{m \in M} (s(m) \leq f(m)) \land \rfr{simpleFunction}\ml(s, \ml(M, \sigma\mr)\mr) \land \rfr{finiteSet}\ml(\rfr{image}\ml(Z, \ml(M, s, M, \mathbb{R}^+_0\mr)\mr), \ml(\mr)\mr)\}))
 \m \eqComment{lebesgue measure on $z$ reduces to $z$}
@@ -527,16 +529,16 @@ TODO link thms?
 \m \ml(\rfr{almostEverywhere}\ml(f = g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) = \int \ml(g d\mu\mr)\mr)
 \m \ml(\int \ml(f d\mu\mr) = 0 \implies \rfr{almostEverywhere}\ml(f = 0, \ml(M, \sigma, \mu\mr)\mr)\mr) \land
 \m \ml(\int \ml(f d\mu\mr) \leq \infty \implies \rfr{almostEverywhere}\ml(f < \infty, \ml(M, \sigma, \mu\mr)\mr)\mr)
-\n \thm{Mono. conv.} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exeuclideanSigma}\mr)\mr) \land 0 \leq f_{n-1} \leq f_n\}\mr) \land
+\n \thm{Mono. conv.} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exEuclideanSigma}\mr)\mr) \land 0 \leq f_{n-1} \leq f_n\}\mr) \land
 \m \ml(\rfr{map}\ml(f, \ml(M, \overline{\mathbb{R}}\mr)\mr)\mr) \land \ml(\forall_{m \in M} \ml(f\ml(m\mr) = \rfr{sup} \ml(f_n\ml(m\mr) | f_n \in \ml(f\mr)_{\mathbb{N}}\mr)\mr)\mr) \implies \ml(\lim_{n \to \infty} \ml(\int_M \ml(f_n d\mu\mr)\mr) = \int_M \ml(f d\mu\mr)\mr)
 \m \eqComment{lengths now depend on $M, \sigma$ and limits can be pulled in or out of an integral}
 \n \thm{} \rfr{nonNegIntegral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{nonNegIntegral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies
 \m \ml(\forall_{\alpha \in \mathbb{R}^+_0} \ml(\int \ml(\ml(f + \alpha g\mr) d\mu\mr) = \int \ml(f d\mu\mr) + \alpha \int \ml(g d\mu\mr)\mr)\mr) 
 \m \eqComment{integral acts linearly and commutes finite summations}
-\n \thm{} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exeuclideanSigma}\mr)\mr) \land 0 \leq f_n\}\mr) \implies
+\n \thm{} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exEuclideanSigma}\mr)\mr) \land 0 \leq f_n\}\mr) \implies
 \m \ml(\int \ml(\ml(\sum_{n = 1}^\infty \ml(f_n\mr)\mr) d\mu\mr) = \sum_{n = 1}^\infty \ml(\int \ml(f_n d\mu\mr)\mr)\mr)
 \m \eqComment{$\sum_{n = 1}^{\infty} f_n$ can be treated as $\lim_{n \to \infty} \sum_{i = 1}^n f_n$ since $f_n \geq 0$ and it commutes with integral from monotone conv.}
-\n \dfn{integrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exeuclideanSigma}\mr)\mr)\mr) \land
+\n \dfn{integrable}\ml(f, \ml(M, \sigma\mr)\mr) \iff \ml(\rfr{measurableMap}\ml(f, \ml(M, \sigma, \overline{\mathbb{R}}, \rfr{exEuclideanSigma}\mr)\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr) = \rfr{max}\ml(f\ml(m\mr), 0\mr) - \rfr{max}\ml(0, -f\ml(m\mr)\mr)\mr)\mr) \land
 \m \ml(\rfr{measureSpace}\ml(M, \sigma, \mu\mr) \implies \ml(\int \ml(\rfr{max}\ml(f\ml(m\mr), 0\mr) d\mu\mr) < \infty \land \int \ml(\rfr{max}\ml(0, -f\ml(m\mr)\mr) d\mu\mr) < \infty\mr)\mr)
 \m \eqComment{extra condition prevents the occurrence of the indeterminate $\infty -\infty$}
@@ -548,7 +550,7 @@ TODO link thms?
 \n \thm{} \rfr{integral}\ml(\int\ml(f d\mu\mr), \ml(f, M, \sigma, \mu\mr)\mr) \land \rfr{integral}\ml(\int\ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr) \implies
 \m \ml(\rfr{almostEverywhere}\ml(f \leq g, \ml(M, \sigma, \mu\mr)\mr) \implies \int \ml(f d\mu\mr) \leq \int \ml(g d\mu\mr)\mr) \land
 \m \ml(\forall_{m \in M} \ml(f\ml(m\mr), g\ml(m\mr), \alpha \in \mathbb{R}\mr) \implies \int \ml(\ml(f + \alpha g\mr) d\mu\mr) = \int \ml(f d\mu\mr) + \alpha \int \ml(g d\mu\mr)\mr)
-\n \thm{Dominant convergence} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exeuclideanSigma}\mr)\mr)\}\mr) \land
+\n \thm{Dominant convergence} \ml(\ml(f\mr)_\mathbb{N} = \{f_n \mid \land \rfr{measurableMap}\ml(f_n, \ml(M, \sigma, \overline{R}, \rfr{exEuclideanSigma}\mr)\mr)\}\mr) \land
 \m \ml(\rfr{map}(f, (M, \overline{\mathbb{R}}))\mr) \land \ml(\rfr{almostEverywhere}\ml(f\ml(m\mr) = \lim_{n \to \infty} \ml(f_n\ml(m\mr)\mr), \ml(M, \sigma, \mu\mr)\mr)\mr) \land
 \m \ml(\rfr{nonNegIntegral}\ml(\int \ml(g d\mu\mr), \ml(g, M, \sigma, \mu\mr)\mr)\mr) \land \ml(\ml|\int \ml(g d\mu\mr)\mr| < \infty\mr) \land \ml(\rfr{almostEverywhere}\ml(|f_n| \leq g, \ml(M, \sigma, \mu\mr)\mr)\mr)
 \m \eqComment{if all $f_n(m)$ are bounded by some integrable $|g(m)|$} \implies
@@ -895,7 +897,7 @@ TODO link thms?
 \n \dfn{randomVariable}(X, (\Omega, \mathcal{F}, P)) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land (\rfr{map}(X, (\Omega, \mathbb{R}))) \land
 \m (\rfr{measurableMap}(X, (\Omega, \mathcal{F}, \mathbb{R}, \rfr{euclideanSigma}(\sigma_S, ()))))
 \m \eqComment{Random-Deterministic Variable-Function maps the measurable space to the real line and borel sets}
-\n \dfn{PDF}(P_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\n \dfn{PL}(P_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
 \m (\forall_{B \in \sigma_S} (P_X(B) = P(\rfr{preimage}(A, (B, X, \Omega, \mathbb{R})) = (P \circ X^{-1}) (B) ) = P(X \in B)))
 \m \eqComment{probability of outcomes occuring in the Borel set}
 \n \dfn{piSystem}(\mathcal{G}, (\Omega)) \iff \mathcal{G} \subseteq \mathcal{P}(\Omega) \land \forall_{A, B \in \mathcal{G}} (A \cap B \in \mathcal{G})
@@ -911,18 +913,49 @@ TODO link thms?
 \m \eqComment{left-continuity will approach $P(X < x) \neq F_X$ and $P(\{x\}) = 0 \implies P(X \leq x) = F_X$}
 \n \dfn{PMF}(H_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
 \m (\forall_{x \in \mathbb{R}} (H_X(x) = P(\{\omega \in \Omega \mid X(\omega) = x\}) = P(X = x)))
+\m \eqComment{type of probability law}
 \n \dfn{indicatorRandomVariable}(I_A, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(I_A, (\Omega, \mathcal{F}, P))) \land 
 \m (\forall_{A \in \mathcal{F}} \forall_{\omega \in \Omega} (I_A(\omega) = \begin{cases} 1 & \omega \in A \\ 0 & \omega \notin A \end{cases}))
+\n \thm{} \textbf{measures on R = discrete, continous, and singular components}
 \n \dfn{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\exists_{E \subseteq \mathbb{R}} (\rfr{countablyInfinite}(E) \land P_X(E) = 1)) \land ((e)_\mathbb{N} = E) \land (\forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} (e_i \cap e_j = \emptyset))
+\m (\exists_{E \subseteq \mathbb{R}} (\rfr{countablyInfinite}(E) \land P_X(E) = 1)) \land (\cup ((e)_\mathbb{N}) = E) \land (\forall_{i \in \mathbb{N}} (e_i \in E))
 \n \thm{} (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \implies 
 \m (1 = P(E) = \sum_{i \in \mathbb{N}} (P_X(\{e_i\})) = \sum_{i \in \mathbb{N}} (P(X = e_i))) \land (\forall_{B \in \sigma_S} (P_X(B) = \sum_{x \in E \cap B} (P(X = x))))
 \n \dfn{bernoulliRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land (E = \{0, 1\}) \land
-\m (p \in \mathbb{R}) \land (P_X(0) = 1 - p) \land (P_X(1) = p)
+\m (p \in \mathbb{R}) \land (P_X = P(X = x) = \begin{cases} 1 & x = 1 \\ 0 & x = 0 \end{cases})
 \n \dfn{uniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (n = |\rfr{finiteSet}(E)|) \land (\forall_{i \in \mathbb{N} \land i \leq n} (P_X(e_i) = \frac{1}{n}))
+\m (n = |\rfr{finiteSet}(E)|) \land (\forall_{i \in \mathbb{N} \land i \leq n} (P_X(\{e_i\}) = P(X = e_i) = \frac{1}{n}))
 \n \dfn{geometricRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\rfr{countablyInfinite}(E)) \land (do the same 37)
+\m (\rfr{countablyInfinite}(E)) \land (p \in \mathbb{R}) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i) = (1-p)^{i - 1} p))
+\n \dfn{binomialRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (n = |\rfr{finiteSet}(E)|) \land (p \in \mathbb{R}) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i)= {{n}\choose{i}} p^i (1 - p)^{n - i}))
+\n \dfn{poissonRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\rfr{countablyInfinite}(E)) \land (\lambda \in \mathbb{R}^+) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i) = \frac{e^{-\lambda} \lambda^i}{i!}))
+\n \dfn{absolutelyContinous}((f, g), (M, \sigma)) \iff (\rfr{measure}(f, (M, \sigma))) \land (\rfr{measure}(g, (M, \sigma))) \land 
+\m (\forall_{A \in \sigma} (g(A) = 0 \implies f(A) = 0))
+\n \thm{Radon-Nikodym} (\rfr{measurableSpace}((M, \sigma), ())) \land (\rfr{finiteMeasure}(\mu, (M, \sigma))) \land 
+\m (\rfr{finiteMeasure}(\nu, (M, \sigma))) \land (\rfr{absolutelyContinous}((\nu, \mu), (M, \sigma))) \implies 
+\m (\exists_{\rfr{map}(f, (M, \overline{\mathbb{R}}^+))} \forall_{A \in \sigma} (\nu(A) = \int_A (f d\mu)))
+\m \eqComment{connects $P_X = F_X = \int (f_x dx)$}
+\n \dfn{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\rfr{absolutelyContinous}((P_X, \rfr{lebesgueMeasure}), (\mathbb{R}, \rfr{euclideanSigma})))
+\m \eqComment{the probabilities lie on nonzero lebesgue measure sets}
+\n \dfn{contUniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (a, b \in \mathbb{R}) \land (a < b) \land (P_X = F_X(x) = \begin{cases} 0 & x < a \\ \frac{x}{b-a} & a \leq x \leq b \\ 1 & x > b \end{cases})
+\n \dfn{exponentialRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\lambda \in \mathbb{R}^+) \land (P_X = F_X(x) = \begin{cases} 1 - e^{-\lambda x} & x > 0 \\ 0 & x \leq 0 \end {cases})
+\n \dfn{memorylessRandomVariable}(X, ()) \iff (\forall_{\omega \in \Omega} (X(\omega) \geq 0)) \land (\forall_{s, t \in \mathbb{R}^+_0} (P(X > s) = P(X > s + t \mid x > t)))
+\n \dfn{gaussianRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\mu \in \mathbb{R}) \land (\sigma \in \mathbb{R}^+) \land (P_X = F_X(x) = \int (\frac{\exp(-\frac{(x - \mu)^2}{2 \sigma^2})}{\sigma \sqrt{2 \pi}} dx))
+\n \thm{} \textbf{DEFINE gaussian is stable and is an attractor}
+\n \dfn{simplifiedCauchyRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (P_X = F_X(x) = \int (\frac{1}{\pi (1 + x^2)} dx))
+\n \dfn{singularRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\forall_{x \in \mathbb{R}} (P_X(\{x\}) = 0)) \land (\exists_{F \in \rfr{euclideanSigma}} (P_X(F) = 1 \land \rfr{lebesgueMeasure}(F) = 0))
+\m \eqComment{an example is uniform measure on the Cantor set}
+\n \dfn{preimageSigma}(\sigma(X), (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\sigma(X) = \{A \in \mathcal{F} \mid B \in \rfr{euclideanSigma} \land \rfr{preimage}(A, (B, X, \Omega, \mathbb{R}))\}) \land (\rfr{subSigmaAlgebra}(\sigma(X), (\mathcal{F}, \Omega)))
+\m \eqComment{checks all events occurred in Omega by checking $X(\omega) \in B \in \rfr{euclideanSigma}$ TODO}
 \n \melazy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \n S^n = (x, y)^n \subset Z \eqComment{sample set consists of $n$ input-output pairs}
 \n S^n \implies \rfr{map}(f_{S^n}, (X, Y)) \eqComment{learned predictor function}

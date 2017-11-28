@@ -823,7 +823,8 @@ TODO link thms?
 \end{align}
 \end{tcolorbox}
 
-\subsection{Probability Theory}
+\section{Probability Theory}
+\subsection{Definitions}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    \dfn{randomExperiment}\ml(E, \ml(\Omega\mr)\mr) \iff \Omega = \{\omega | \textbf{experiment} = E \to \textbf{outcome} = \omega\}
@@ -848,9 +849,102 @@ TODO link thms?
 \m \thmlink{MSCont}{MSConvL} \ml(\forall_{j \in \mathbb{N}} (A_j \subseteq A_{j + 1}) \implies P\ml(\bigcup_{i \in \mathbb{N}} \ml(A_i\mr)\mr)	= \lim_{m \to \infty} \ml(P\ml(A_m\mr)\mr)\mr) \land
 \m \thmlink{MSConvL, DeMorgans}{MSConvU} \ml(\forall_{j \in \mathbb{N}} (A_{j +1} \subseteq A_j) \implies P\ml(\bigcap_{i \in \mathbb{N}} \ml(A_i\mr)\mr)	= \lim_{m \to \infty} \ml(P\ml(A_m\mr)\mr)\mr) \land
 \m \thmlink{measure}{MSSetOrder} \ml(A \subseteq B \implies P\ml(A\mr) \leq P\ml(B\mr)\mr) \land \thmlink{measure}{MSSetBound} \ml(\bigcup_{i \in \mathbb{N}} \ml(A_i\mr) \leq \sum_{i \in \mathbb{N}} \ml(P\ml(A_i\mr)\mr)\mr)
-\n \dfn{generatedSigmaAlgebra}\ml(\sigma\ml(\mathcal{M}\mr), \ml(\mathcal{M}, S\mr)\mr) \iff \ml(\forall_{M \in \mathcal{M}} \ml(\rfr{sigmaAlgebra}\ml(M, \ml(S\mr)\mr)\mr)\mr) \land 
-\m \ml(\rfr{sigmaAlgebra}\ml(\sigma\ml(\mathcal{M}\mr), \ml(S\mr)\mr) = \bigcap \ml(\mathcal{M}\mr)\mr)
+\end{align}
+\end{tcolorbox}
+
+\subsection{Random variables}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \dfn{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land \ml(\rfr{map}\ml(X, \ml(\Omega, \mathbb{R}\mr)\mr)\mr) \land
+\m \ml(\rfr{measurableMap}\ml(X, \ml(\Omega, \mathcal{F}, \mathbb{R}, \rfr{euclideanSigma}\mr)\mr)\mr)
+\m \eqComment{maps elementary outcomes to a numeric value and the measurable space to the real line and borel sets}
+\n \dfn{PL}\ml(P_X, \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
+\m \ml(\forall_{B \in \sigma_S} \ml(P_X\ml(B\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \in B\}\mr) = \ml(P \circ X^{-1}\mr) \ml(B\mr) = P\ml(X \in B\mr)\mr)\mr)
+\m \eqComment{probability of borel set events occuring and equips probabilities to numeric valued borel sets}
+\n \thm{} \rfr{probabilitySpace}\ml(\mathbb{R}, \rfr{euclideanSigma}, P_X\mr)
+\n \dfn{generatedSigmaAlgebra}\ml(\sigma\ml(\mathcal{M}\mr), \ml(\mathcal{M}, S\mr)\mr) \iff \ml(\mathcal{M} \subseteq \mathcal{P}\ml(S\mr)\mr)
+\m \ml(\rfr{sigmaAlgebra}\ml(\sigma\ml(\mathcal{M}\mr), \ml(S\mr)\mr) = \bigcap \ml(\{\mathcal{H} \mid \mathcal{M} \subseteq \rfr{sigmaAlgebra}\ml(\mathcal{H}, S\mr)\}\mr)\mr)
 \m \eqComment{the smallest sigma algebra containing the generating sets}
+\n \dfn{piSystem}\ml(\mathcal{G}, \ml(\Omega\mr)\mr) \iff \ml(\mathcal{G} \subseteq \mathcal{P}\ml(\Omega\mr)\mr) \land \ml(\forall_{A, B \in \mathcal{G}} \ml(A \cap B \in \mathcal{G}\mr)\mr)
+\n \thm{pi measure extension} \Bigg(\rfr{piSystem}\ml(\mathcal{G}, \ml(\Omega\mr)\mr) \land \rfr{probabilitySpace}\ml(\Omega, \sigma\ml(\mathcal{G}\mr), \lambda\mr) \land 
+\m \rfr{probabilitySpace}\ml(\Omega, \sigma\ml(\mathcal{G}\mr), \mu\mr) \land \exists_{\ml(S\mr)_\mathbb{N} \subseteq \Omega} \ml(\bigcup\ml(\ml(S\mr)_\mathbb{N}\mr) = \Omega \land \lambda\ml(\Omega\mr) < \infty\mr)\Bigg) \implies
+\m \ml(\forall_{G \in \mathcal{G}} \ml(\lambda\ml(G\mr) = \mu\ml(G\mr)\mr) \implies \forall_{F \in \sigma\ml(\mathcal{G}\mr)} \ml(\lambda\ml(F\mr) = \mu\ml(F\mr)\mr)\mr)
+\m \eqComment{PL in terms of a simpler generating pi system}
+\n \thm{} \ml(\rfr{piSystem}\ml(\{\lparen-\infty, x] \mid x \in \mathbb{R}\}, \ml(\mathbb{R}\mr)\mr)\mr) \land \ml(\rfr{euclideanSigma} = \sigma\ml(\{\lparen-\infty, x] \mid x \in \mathbb{R}\}\mr)\mr)
+\n \dfn{CDF}\ml(F_X, \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
+\m \ml(\forall_{x \in \mathbb{R}} \ml(P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \in \lparen-\infty, x]\}\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \leq x\}\mr) = P\ml(X \leq x\mr) = F_X\ml(x\mr)\mr)\mr)
+\m \eqComment{PL of the semi infinite pi system on the real numbers}
+\m \eqComment{specifies PL following pi measure extension theorem but simpler than definitions on complex borel sets}
+\n \thm{} \rfr{CDF}\ml(F_X, \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \implies \ml(\lim_{x \to -\infty} \ml(F_X\ml(x\mr)\mr) = 0\mr) \land \ml(\lim_{x \to \infty} \ml(F_X\ml(x\mr)\mr) = 1\mr) \land
+\m \ml(\forall_{x_1, x_2 \in \mathbb{R}} \ml(x_1 \leq x_2 \implies F_X\ml(x_1\mr) \leq F_X\ml(x_2\mr)\mr)\mr) \land \ml(\ml(e\mr)_\mathbb{N} \subseteq \mathbb{R}^+_0\mr) \land \ml(\lim_{n \to \infty} \ml(e_n = 0\mr)\mr) \land
+\m \Bigg(\forall_{x \in \mathbb{R}} \Bigg(\lim_{\epsilon \to 0^+} \ml(F\ml(x + \epsilon\mr)\mr) = \lim_{n \to \infty} \ml(F\ml(x + e_n\mr)\mr) = \lim_{n \to \infty} \ml(P\ml(X \leq x + e_n\mr)\mr) = \lim_{n \to \infty} \ml(P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \leq x + e_n\}\mr)\mr) =
+\m P\ml(\bigcap_{n = 1}^{\infty} \ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \leq x + e_n\}\mr)\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \leq x\}\mr) = F_X\ml(x\mr)\Bigg)\Bigg)
+\m \eqComment{depends on the nested decreasing subsets induced by the limit from right}
+\n \dfn{PMF}\ml(H_X, \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
+\m \ml(\forall_{x \in \mathbb{R}} \ml(H_X\ml(x\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) = x\}\mr) = P\ml(X = x\mr)\mr)\mr)
+\m \eqComment{type of probability law}
+\n 00000000000000 SPLIT SECTIONS FIX PMF TO RELATE TO PL
+\n \dfn{indicatorRandomVariable}(I_A, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(I_A, (\Omega, \mathcal{F}, P))) \land 
+\m (\forall_{A \in \mathcal{F}} \forall_{\omega \in \Omega} (I_A(\omega) = \begin{cases} 1 & \omega \in A \\ 0 & \omega \notin A \end{cases}))
+\n \thm{} \textbf{measures on R = discrete, continous, and singular components}
+\n \dfn{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\exists_{E \subseteq \mathbb{R}} (\rfr{countablyInfinite}(E) \land P_X(E) = 1)) \land (\cup ((e)_\mathbb{N}) = E) \land (\forall_{i \in \mathbb{N}} (e_i \in E))
+\n \thm{} (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \implies 
+\m (1 = P(E) = \sum_{i \in \mathbb{N}} (P_X(\{e_i\})) = \sum_{i \in \mathbb{N}} (P(X = e_i))) \land (\forall_{B \in \sigma_S} (P_X(B) = \sum_{x \in E \cap B} (P(X = x))))
+\n \dfn{bernoulliRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land (E = \{0, 1\}) \land
+\m (p \in \mathbb{R}) \land (P_X = P(X = x) = \begin{cases} 1 & x = 1 \\ 0 & x = 0 \end{cases})
+\n \dfn{uniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (n = |\rfr{finiteSet}(E)|) \land (\forall_{i \in \mathbb{N} \land i \leq n} (P_X(\{e_i\}) = P(X = e_i) = \frac{1}{n}))
+\n \dfn{geometricRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\rfr{countablyInfinite}(E)) \land (p \in \mathbb{R}) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i) = (1-p)^{i - 1} p))
+\n \dfn{binomialRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (n = |\rfr{finiteSet}(E)|) \land (p \in \mathbb{R}) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i)= {{n}\choose{i}} p^i (1 - p)^{n - i}))
+\n \dfn{poissonRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\rfr{countablyInfinite}(E)) \land (\lambda \in \mathbb{R}^+) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i) = \frac{e^{-\lambda} \lambda^i}{i!}))
+\n \dfn{absolutelyContinous}((f, g), (M, \sigma)) \iff (\rfr{measure}(f, (M, \sigma))) \land (\rfr{measure}(g, (M, \sigma))) \land 
+\m (\forall_{A \in \sigma} (g(A) = 0 \implies f(A) = 0))
+\n \thm{Radon-Nikodym} (\rfr{measurableSpace}((M, \sigma), ())) \land (\rfr{finiteMeasure}(\mu, (M, \sigma))) \land 
+\m (\rfr{finiteMeasure}(\nu, (M, \sigma))) \land (\rfr{absolutelyContinous}((\nu, \mu), (M, \sigma))) \implies 
+\m (\exists_{\rfr{map}(f, (M, \overline{\mathbb{R}}^+))} \forall_{A \in \sigma} (\nu(A) = \int_A (f d\mu)))
+\m \eqComment{connects $P_X = F_X = \int (f_x dx)$}
+\n \dfn{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\rfr{absolutelyContinous}((P_X, \rfr{lebesgueMeasure}), (\mathbb{R}, \rfr{euclideanSigma})))
+\m \eqComment{the probabilities lie on nonzero lebesgue measure sets}
+\n \dfn{contUniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (a, b \in \mathbb{R}) \land (a < b) \land (P_X = F_X(x) = \begin{cases} 0 & x < a \\ \frac{x}{b-a} & a \leq x \leq b \\ 1 & x > b \end{cases})
+\n \dfn{exponentialRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\lambda \in \mathbb{R}^+) \land (P_X = F_X(x) = \begin{cases} 1 - e^{-\lambda x} & x > 0 \\ 0 & x \leq 0 \end {cases})
+\n \dfn{memorylessRandomVariable}(X, ()) \iff (\forall_{\omega \in \Omega} (X(\omega) \geq 0)) \land (\forall_{s, t \in \mathbb{R}^+_0} (P(X > s) = P(X > s + t \mid x > t)))
+\n \dfn{gaussianRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\mu \in \mathbb{R}) \land (\sigma \in \mathbb{R}^+) \land (P_X = F_X(x) = \int (\frac{\exp(-\frac{(x - \mu)^2}{2 \sigma^2})}{\sigma \sqrt{2 \pi}} dx))
+\n \thm{} \textbf{DEFINE gaussian is stable and is an attractor}
+\n \dfn{simplifiedCauchyRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (P_X = F_X(x) = \int (\frac{1}{\pi (1 + x^2)} dx))
+\n \dfn{singularRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\forall_{x \in \mathbb{R}} (P_X(\{x\}) = 0)) \land (\exists_{F \in \rfr{euclideanSigma}} (P_X(F) = 1 \land \rfr{lebesgueMeasure}(F) = 0))
+\m \eqComment{an example is uniform measure on the Cantor set}
+\n \dfn{preimageSigma}(\sigma(X), (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
+\m (\sigma(X) = \{A \subseteq \Omega \mid B \in \rfr{euclideanSigma} \land \rfr{preimage}(A, (B, X, \Omega, \mathbb{R}))\}) \land (\rfr{subSigmaAlgebra}(\sigma(X), (\mathcal{F}, \Omega)))
+\m \eqComment{$X(\omega) \in B$ determines all events $A$ that occurs}
+\n \dfn{nRandomVariable}((X)_n, (\Omega, \mathcal{F}, P)) \iff (\forall_{i \in \mathbb{N} \land i \leq n} (\rfr{randomVariable}(X_i, (\Omega, \mathcal{F}, P)))) \land 
+\m (\rfr{measurableMap}((X)_n, (\Omega, \mathcal{F}, \mathbb{R}^n, \rfr{euclideanSigma}^n)))
+\m \eqComment{if the preimage of a measurable set of n dimensional vectors is an event}
+\n \thm{} \rfr{PL}(P_{X, Y}, ((X, Y), \Omega, \mathcal{F}, P)) \iff (\forall_{B \in {\sigma_S}^2} (P_{X, Y}(B) = P(\{\omega \in \Omega \mid (X(\omega), Y(\omega)) \in B\})))
+\m \eqComment{joint PL}
+\n \thm{} \rfr{CDF}(F_{X, Y}, ((X, Y), \Omega, \mathcal{F}, P)) \iff 
+\m \forall_{x, y \in \mathbb{R}} (F_{X, Y}(x, y) = P(\{\omega \in \Omega \mid X(\omega) \leq x\} \cap \{\omega \in \Omega \mid Y(\omega) \leq y\}) = P(X \leq x, Y \leq y))
+\m \eqComment{joint CDF}
+\n \thm{} \rfr{CDF}(F_{X, Y}, ((X, Y), \Omega, \mathcal{F}, P)) \iff (\lim_{\substack{x \to -\infty \\ y \to -\infty}} (F_{X, Y}(x, y)) = 0) \land (\lim_{\substack{x \to \infty \\ y \to \infty}} (F_{X, Y}(x, y)) = 1) \land
+\m (\forall_{x_1, x_2, y_1, y_2 \in \mathbb{R}}((x_1 \leq x_2 \land y_1 \leq y_2) \implies (F_{X, Y}(x_1, y_1) \leq F_{X, Y}(x_2, y_2)))) \land 
+\m (\forall_{x, y \in \mathbb{R}} (\lim_{\substack{\epsilon_x \to 0^+ \\ \epsilon_y \to 0^+}} (F(x + \epsilon_x, y + \epsilon_y) = F(x + y))))
+\m (\forall_{x \in \mathbb{R}} (\lim_{y \to \infty} (F_{X, Y}(x, y)) = F_X(x))) \land (\forall_{y \in \mathbb{R}} (\lim_{x \to \infty} (F_{X, Y}(x, y)) = F_Y(y)))
+\m \eqComment{limit evaluation order or trajectory should not matter}
+\end{align}
+\end{tcolorbox}
+
+\subsection{CONDITIONALS Probability Theory}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
 \n \thm{} \ml(\textbf{cantor set} \cong \mathcal{P}\ml(\mathbb{N}\mr) \land \ml(\mathbb{R}, \rfr{eucledianSigma}, \rfr{lebesgueMeasure}\mr)\mr) \implies P\ml(\textbf{cantor set}\mr) = 0 \eqComment{:O}
 \n \dfn{conditionalProbability}\ml(P\ml(A | B\mr), \ml(A, B, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land \ml(A, B \in \mathcal{F}\mr) \land
 \m \ml(P\ml(B\mr) > 0\mr) \land \ml(P\ml(A | B\mr) = \frac{P\ml(A \cap B\mr)}{P\ml(B\mr)} \lor P\ml(B\mr) P\ml(A | B\mr) = P\ml(A \cap B\mr)\mr) 
@@ -894,68 +988,7 @@ TODO link thms?
 \m \impliedby \thmlink {MSSetBound}{1IL303} \ml(1 - P\ml(\{A_n \text{ i-o}\}\mr) = P\ml(\{A_n \text{ i-o}\}^C\mr) = P\ml(\bigcup_{n \in \mathbb{N}} \ml({B_n}^C\mr)\mr) \leq \sum_{n \in \mathbb{N}} \ml(P\ml({B_n}^C\mr)\mr)\mr) \land
 \m \thmlink{DeMorgans, 2Cond303}{2IL303} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml({B_n}^C\mr)\mr) = \sum_{n \in \mathbb{N}} \ml(P\ml(\bigcap_{i = n}^{\infty} \ml({A_i}^C\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(P\ml({A_i}^C\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr)\mr) \land
 \m \thmlink{1Cond303, sump}{3IL303}\ml(\sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(0\mr) = 0\mr) \land \thmlink{1Il303, 2Il303, 3Il303}{Impl303} \ml(0 \leq 1 - P\ml(\{A_n \text{ i-o}\}\mr) \leq 0 \iff P\ml(\{A_n \text{ i-o}\}\mr) = 1\mr)
-\n \dfn{randomVariable}(X, (\Omega, \mathcal{F}, P)) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land (\rfr{map}(X, (\Omega, \mathbb{R}))) \land
-\m (\rfr{measurableMap}(X, (\Omega, \mathcal{F}, \mathbb{R}, \rfr{euclideanSigma}(\sigma_S, ()))))
-\m \eqComment{Random-Deterministic Variable-Function maps the measurable space to the real line and borel sets}
-\n \dfn{PL}(P_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (\forall_{B \in \sigma_S} (P_X(B) = P(\rfr{preimage}(A, (B, X, \Omega, \mathbb{R})) = (P \circ X^{-1}) (B) ) = P(X \in B)))
-\m \eqComment{probability of outcomes occuring in the Borel set}
-\n \dfn{piSystem}(\mathcal{G}, (\Omega)) \iff \mathcal{G} \subseteq \mathcal{P}(\Omega) \land \forall_{A, B \in \mathcal{G}} (A \cap B \in \mathcal{G})
-\n \thm{} (\rfr{piSystem}(\mathcal{G}, (\Omega)) \land \mathcal{F} = \sigma(\mathcal{G}) \land \rfr{probabilitySpace}(\Omega, \mathcal{F}, P_1) \land \rfr{probabilitySpace}(\Omega, \mathcal{F}, P_2)) \implies
-\m (\forall_{G \in \mathcal{G}} (P_1(G) = P_2(G)) \implies \forall_{F \in \mathcal{F}} (P_1(F) = P_2(F)))
-\n \thm{} \rfr{euclideanSigma}(\sigma_S) = \sigma(\{(-\infty, x] \mid x \in \mathbb{R}\})
-\n \dfn{CDF}(F_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (\forall_{x \in \mathbb{R}} (F_X(x) = P(\{\omega \in \Omega \mid X(\omega) \leq x\}) = P(X \leq x)))
-\m \eqComment{this is from the generating borel sets $P(X \in (-\infty, x]))$}
-\n \thm{DEFINE} F_X \cong P_X
-\n \thm{} \rfr{CDF}(F_X, (X, \Omega, \mathcal{F}, P)) \iff (\lim_{x \to -\infty} (F_X(x)) = 0) \land (\lim_{x \to \infty} (F_X(x)) = 1) \land
-\m (\forall_{x, y \in \mathbb{R}} (x \leq y \implies F_X(x) \leq F_X(y))) \land (\forall_{x \in \mathbb{R}} (\lim_{\epsilon \to 0^+} (F(x + \epsilon) = F(x))))
-\m \eqComment{left-continuity will approach $P(X < x) \neq F_X$ and $P(\{x\}) = 0 \implies P(X \leq x) = F_X$}
-\n \dfn{PMF}(H_X, (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (\forall_{x \in \mathbb{R}} (H_X(x) = P(\{\omega \in \Omega \mid X(\omega) = x\}) = P(X = x)))
-\m \eqComment{type of probability law}
-\n \dfn{indicatorRandomVariable}(I_A, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(I_A, (\Omega, \mathcal{F}, P))) \land 
-\m (\forall_{A \in \mathcal{F}} \forall_{\omega \in \Omega} (I_A(\omega) = \begin{cases} 1 & \omega \in A \\ 0 & \omega \notin A \end{cases}))
-\n \thm{} \textbf{measures on R = discrete, continous, and singular components}
-\n \dfn{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\exists_{E \subseteq \mathbb{R}} (\rfr{countablyInfinite}(E) \land P_X(E) = 1)) \land (\cup ((e)_\mathbb{N}) = E) \land (\forall_{i \in \mathbb{N}} (e_i \in E))
-\n \thm{} (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \implies 
-\m (1 = P(E) = \sum_{i \in \mathbb{N}} (P_X(\{e_i\})) = \sum_{i \in \mathbb{N}} (P(X = e_i))) \land (\forall_{B \in \sigma_S} (P_X(B) = \sum_{x \in E \cap B} (P(X = x))))
-\n \dfn{bernoulliRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land (E = \{0, 1\}) \land
-\m (p \in \mathbb{R}) \land (P_X = P(X = x) = \begin{cases} 1 & x = 1 \\ 0 & x = 0 \end{cases})
-\n \dfn{uniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (n = |\rfr{finiteSet}(E)|) \land (\forall_{i \in \mathbb{N} \land i \leq n} (P_X(\{e_i\}) = P(X = e_i) = \frac{1}{n}))
-\n \dfn{geometricRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\rfr{countablyInfinite}(E)) \land (p \in \mathbb{R}) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i) = (1-p)^{i - 1} p))
-\n \dfn{binomialRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (n = |\rfr{finiteSet}(E)|) \land (p \in \mathbb{R}) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i)= {{n}\choose{i}} p^i (1 - p)^{n - i}))
-\n \dfn{poissonRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\rfr{countablyInfinite}(E)) \land (\lambda \in \mathbb{R}^+) \land (\forall_{i \in \mathbb{N}} (P_X(\{e_i\}) = P(X = e_i) = \frac{e^{-\lambda} \lambda^i}{i!}))
-\n \dfn{absolutelyContinous}((f, g), (M, \sigma)) \iff (\rfr{measure}(f, (M, \sigma))) \land (\rfr{measure}(g, (M, \sigma))) \land 
-\m (\forall_{A \in \sigma} (g(A) = 0 \implies f(A) = 0))
-\n \thm{Radon-Nikodym} (\rfr{measurableSpace}((M, \sigma), ())) \land (\rfr{finiteMeasure}(\mu, (M, \sigma))) \land 
-\m (\rfr{finiteMeasure}(\nu, (M, \sigma))) \land (\rfr{absolutelyContinous}((\nu, \mu), (M, \sigma))) \implies 
-\m (\exists_{\rfr{map}(f, (M, \overline{\mathbb{R}}^+))} \forall_{A \in \sigma} (\nu(A) = \int_A (f d\mu)))
-\m \eqComment{connects $P_X = F_X = \int (f_x dx)$}
-\n \dfn{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (\rfr{absolutelyContinous}((P_X, \rfr{lebesgueMeasure}), (\mathbb{R}, \rfr{euclideanSigma})))
-\m \eqComment{the probabilities lie on nonzero lebesgue measure sets}
-\n \dfn{contUniformRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (a, b \in \mathbb{R}) \land (a < b) \land (P_X = F_X(x) = \begin{cases} 0 & x < a \\ \frac{x}{b-a} & a \leq x \leq b \\ 1 & x > b \end{cases})
-\n \dfn{exponentialRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\lambda \in \mathbb{R}^+) \land (P_X = F_X(x) = \begin{cases} 1 - e^{-\lambda x} & x > 0 \\ 0 & x \leq 0 \end {cases})
-\n \dfn{memorylessRandomVariable}(X, ()) \iff (\forall_{\omega \in \Omega} (X(\omega) \geq 0)) \land (\forall_{s, t \in \mathbb{R}^+_0} (P(X > s) = P(X > s + t \mid x > t)))
-\n \dfn{gaussianRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\mu \in \mathbb{R}) \land (\sigma \in \mathbb{R}^+) \land (P_X = F_X(x) = \int (\frac{\exp(-\frac{(x - \mu)^2}{2 \sigma^2})}{\sigma \sqrt{2 \pi}} dx))
-\n \thm{} \textbf{DEFINE gaussian is stable and is an attractor}
-\n \dfn{simplifiedCauchyRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{continuousRandomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (P_X = F_X(x) = \int (\frac{1}{\pi (1 + x^2)} dx))
-\n \dfn{singularRandomVariable}(X, (\Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land
-\m (\forall_{x \in \mathbb{R}} (P_X(\{x\}) = 0)) \land (\exists_{F \in \rfr{euclideanSigma}} (P_X(F) = 1 \land \rfr{lebesgueMeasure}(F) = 0))
-\m \eqComment{an example is uniform measure on the Cantor set}
-\n \dfn{preimageSigma}(\sigma(X), (X, \Omega, \mathcal{F}, P)) \iff (\rfr{randomVariable}(X, (\Omega, \mathcal{F}, P))) \land 
-\m (\sigma(X) = \{A \in \mathcal{F} \mid B \in \rfr{euclideanSigma} \land \rfr{preimage}(A, (B, X, \Omega, \mathbb{R}))\}) \land (\rfr{subSigmaAlgebra}(\sigma(X), (\mathcal{F}, \Omega)))
-\m \eqComment{checks all events occurred in Omega by checking $X(\omega) \in B \in \rfr{euclideanSigma}$ TODO}
+\n TODO FIXUP SECTIONING AND FORMATTING
 \n \melazy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \n S^n = (x, y)^n \subset Z \eqComment{sample set consists of $n$ input-output pairs}
 \n S^n \implies \rfr{map}(f_{S^n}, (X, Y)) \eqComment{learned predictor function}

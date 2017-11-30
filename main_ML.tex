@@ -1,4 +1,6 @@
-% CONTINUE: LINE 988 PAGE 33
+% CONTINUE: PT - LINE 1000 PAGE 33
+% CONTINUE: AA - LINE 660 PAGE 20
+% NOTE DUPLICATE 439
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -79,8 +81,10 @@ TODO assign free variables as parameters
 TODO define || abs  cross-product and other missing refs
 
 TODO distinguish new condition vs implied proposition
+- separate propositions into new line thms
 
-TODO link thms?
+TODO silent link expressions!
+- e.g. $backslash silentPL{PL_X}$
 
 \thinmuskip=2mu % commas
 \medmuskip=2mu % operators
@@ -655,6 +659,21 @@ TODO link thms?
 \end{align}
 \end{tcolorbox}
 
+\subsection{Abstract algebra}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+\n \dfn{watR}(GL_n(\mathbb{R}), ()) \iff GL_n(\mathbb{R}) = \{M \in \subseteq M_n(\mathbb{R}) \mid det(M) \neq 0\}
+\n \dfn{group}((G, \bullet), ()) \iff (\rfr{map}(\bullet, (G \times G, G))) \land
+\m (\forall_{a, b \in G} (a \bullet b \in G)) \land
+\m (\forall_{a, b, c \in G} ((a \bullet b) \bullet c = a \bullet (b \bullet c))) \land
+\m (\exists_\field{e} \forall_{a \in G} (\field{e} \bullet a = a = a \bullet \field{e})) \land
+\m (\forall_{a \in G} \exists_{a^{-1}} (a \bullet a^{-1} = \field{e} = a^{-1} \bullet a))
+\m \eqComment{characterizes symmetry of a set structure}
+\n 0
+\n \textbf{dfn queue: abelian, symmetric group, }
+\end{align}
+\end{tcolorbox}
+
 \subsection{Matrices, Operators, and Functionals}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
@@ -852,6 +871,41 @@ TODO link thms?
 \end{align}
 \end{tcolorbox}
 
+\subsection{Conditional probability}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \dfn{conditionalProbability}\ml(P\ml(A | B\mr), \ml(A, B, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land \ml(A, B \in \mathcal{F}\mr) \land
+\m \ml(P\ml(B\mr) > 0\mr) \land \ml(P\ml(A | B\mr) = \frac{P\ml(A \cap B\mr)}{P\ml(B\mr)} \lor P\ml(B\mr) P\ml(A | B\mr) = P\ml(A \cap B\mr)\mr) 
+\m \eqComment{calculates $P\ml(A\mr)$ on the subset spanned by $B$}
+\m \eqComment{conditioning on a 0 probability set B leads to paradoxes}
+\n \thm{} \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr) \land P\ml(B\mr) > 0\mr) \implies \forall_{F \in \mathcal{F}} \ml(P^\prime\ml(F\mr) = P\ml(F | B\mr)\mr) \land \rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P^\prime\mr)
+\n \dfn{setPartition}\ml(\ml(X\mr)_{\mathbb{N}}, \ml(Y\mr)\mr) \iff \ml(\bigcup_{i \in \mathbb{N}} \ml(X_i\mr) = Y\mr) \land \ml(\forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} \ml(X_i \cap X_j = \emptyset\mr)\mr)
+\n \thm{} \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr) \land \{A\} \cup \ml(B\mr)_\mathbb{N} \subseteq \mathcal{F} \land \rfr{setPartition}\ml(\ml(B\mr)_\mathbb{N}, \ml(\Omega\mr)\mr)\mr) \implies  
+\m \ml(P\ml(A\mr) = \sum_{i \in \mathbb{N}} \ml(P\ml(A | B_i\mr) P\ml(B_i\mr)\mr)\mr) \land
+\m \ml(\forall_{i \in \mathbb{N}} \ml(P\ml(A | B_i\mr) P\ml(B_i\mr) = P\ml(A\mr) P\ml(B_i | A\mr) = \ml(\sum_{j \in \mathbb{N}} \ml(P\ml(B_i | A\mr) \mr)\mr) P\ml(B_i | A\mr)\mr)\mr) \land
+\m \ml(P\ml(\bigcap_{i \in \mathbb{N}} \ml(B_i\mr)\mr) = P\ml(B_1\mr) \prod_{i = 2}^{\infty} \ml(P\ml(B_i | \bigcap_{j = 1}^{i - 1} \ml(B_j\mr)\mr)\mr)\mr)
+\m \eqComment{from the subspace definition of conditional probability and algebraic manipulations}
+\n \dfn{infinitelyOften}\ml(\{A_n \text{ i-o}\}, \ml(\mr)\mr) \iff \ml(B_n = \bigcup_{i = n}^{\infty} \ml(A_i\mr) \in \mathcal{F}\mr) \land \ml(\{A_n \text{ i-o}\} = \bigcap_{n \in \mathbb{N}} \ml(B_n\mr) = \bigcap_{n \in \mathbb{N}} \bigcup_{i = n}^{\infty} \ml(A_i\mr) \in \mathcal{F}\mr)
+\m \eqComment{the event that infinitely many $A_n$'s will occur}
+\m \eqComment{$B_n$ occur if some event within the nth-tail-end event $A_{i} | i \geq n$ occur, which follows from $\cup$}
+\m \eqComment{$\{A_n \text{ i-o}\}$ occur if every tail-end event $B_n$ occur for all $n$, which follows from $\cap$}
+\m \eqComment{similarly, $\{A_n \text{ i-o}\}$ occur, for all values of $n$, the nth-tail-end event occur}
+\n \thm{BCL 1} \ml(\thmlink{}{Cond300} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml(A_n\mr)\mr) < \infty\mr) \implies \ml(P\ml(\{A_n \text{ i-o}\}\mr) = 0\mr)\mr) \impliedby
+\m \thmlink{infinitelyOften, MSContU}{1IL300} \ml(P\ml(\bigcap_{n \in \mathbb{N}} \ml(B_n\mr)\mr) = \lim_{n \to \infty} \ml(P\ml(B_n\mr)\mr) = \lim_{n \to \infty} \ml(P\ml(\bigcup_{i = n}^{\infty} \ml(A_i\mr)\mr)\mr)\mr) \land
+\m \thmlink{MSSetBount}{2IL300} \ml(\lim_{n \to \infty} \ml(P\ml(\bigcup_{i = n}^{\infty} \ml(A_i\mr)\mr)\mr) \leq \lim_{n \to \infty} \ml(\sum_{i = n}^{\infty} \ml(P\ml(A\mr)_i\mr)\mr)\mr) \land 
+\m \thmlink{Cond300}{3IL300} \ml(\lim_{n \to \infty} \ml(\sum_{i = n}^{\infty} \ml(P\ml(A\mr)_i\mr)\mr) = 0\mr) \land \thmlink{1IL300, 2IL300, 3IL300}{Impl300} \ml(0 \leq P\ml(\{A_n \text{ i-o}\}\mr) \leq 0\mr)
+\n \thm{} \thmlink{}{logp} \ml(\forall_{x \in [0, 1]} \ml(\log\ml(1 - x\mr) \leq -x\mr)\mr)
+\n \thm{} \thmlink{}{sump} \ml(\ml(\thmlink{}{1Cond302} \ml(\forall_{i \in \mathbb{N}} \ml(p_i \in [0, 1]\mr)\mr) \land \thmlink{}{2Cond302} \ml(\sum_{i \in \mathbb{N}} \ml(p_i\mr) = \infty\mr)\mr) \implies \prod_{i \in \mathbb{N}} \ml(1 - p_i\mr) = 0\mr) \impliedby
+\m \thmlink{}{1IL302} \ml(\prod_{i \in \mathbb{N}} \ml(1 - p_i\mr) = \exp\ml(\log\ml(\prod_{i \in \mathbb{N}} \ml(1 - p_i\mr)\mr)\mr) = \exp\ml(\log\ml(\lim_{n \to \infty} \ml(\prod_{i = 1}^{n} \ml(1 - p_i\mr)\mr)\mr)\mr)\mr) \land
+\m \thmlink{logp}{2IL302} \ml(\exp\ml(\log\ml(\lim_{n \to \infty} \ml(\prod_{i = 1}^{n} \ml(1 - p_i\mr)\mr)\mr)\mr) = \exp\ml(\lim_{n \to \infty} \ml(\sum_{i = 1}^{n} \ml(\log\ml(1 - p_i\mr)\mr)\mr)\mr) \leq \exp\ml(\lim_{n \to \infty} \ml(\sum_{i = 1}^{n} \ml(-p_i\mr)\mr)\mr)\mr) \land
+\m \thmlink{2Cond302}{3IL302} \ml(\exp\ml(\lim_{n \to \infty} \ml(\sum_{i = 1}^{n} \ml(-p_i\mr)\mr)\mr) = \exp\ml(-\infty\mr) = 0\mr) \land \thmlink{1Cond302, 1IL302, 2IL302, 3IL302}{Impl302} \ml(0 \leq \prod_{i \in \mathbb{N}} \ml(1 - p_i\mr) \leq 0\mr)
+\n \thm{BCL 2} \ml(\ml(\thmlink{}{1Cond303} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml(A_n\mr)\mr) = \infty\mr) \land \thmlink{}{2Cond303} \ml(\rfr{infIndEvents}\ml(\ml(A\mr)_{\mathbb{N}}\mr)\mr)\mr) \implies P\ml(\{A_n \text{ i-o}\}\mr) = 1\mr)
+\m \impliedby \thmlink {MSSetBound}{1IL303} \ml(1 - P\ml(\{A_n \text{ i-o}\}\mr) = P\ml(\{A_n \text{ i-o}\}^C\mr) = P\ml(\bigcup_{n \in \mathbb{N}} \ml({B_n}^C\mr)\mr) \leq \sum_{n \in \mathbb{N}} \ml(P\ml({B_n}^C\mr)\mr)\mr) \land
+\m \thmlink{DeMorgans, 2Cond303}{2IL303} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml({B_n}^C\mr)\mr) = \sum_{n \in \mathbb{N}} \ml(P\ml(\bigcap_{i = n}^{\infty} \ml({A_i}^C\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(P\ml({A_i}^C\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr)\mr) \land
+\m \thmlink{1Cond303, sump}{3IL303}\ml(\sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(0\mr) = 0\mr) \land \thmlink{1Il303, 2Il303, 3Il303}{Impl303} \ml(0 \leq 1 - P\ml(\{A_n \text{ i-o}\}\mr) \leq 0 \iff P\ml(\{A_n \text{ i-o}\}\mr) = 1\mr)
+\end{align}
+\end{tcolorbox}
+
 \subsection{Random variables}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
@@ -889,8 +943,8 @@ TODO link thms?
    \thm{} \textbf{measures on R has only discrete, continous, and singular components}
 \n \melazy
 \n \dfn{PMF}\ml(H_X, \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
-\m \ml(\forall_{x \in \mathbb{R}} \ml(P_X\ml(\{x\}\mr) = H_X\ml(x\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) = x\}\mr) = P\ml(X = x\mr)\mr)\mr)
-\m \eqComment{decomposition of the probability law for discrete random variables}
+\m \ml(\forall_{x \in \mathbb{R}} \ml(P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) = x\}\mr) = P\ml(X = x\mr) = H_X\ml(x\mr)\mr)\mr)
+\m \eqComment{complete probability decomposition of the probability law for discrete random variables}
 \n \dfn{discreteRandomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land
 \m \ml(\exists_{E \subseteq \mathbb{R}} \ml(\rfr{countablyInfinite}\ml(E\mr) \land P_X\ml(E\mr) = 1\mr)\mr) \land \ml(\cup \ml(\ml(e\mr)_\mathbb{N}\mr) = E\mr) \land \ml(\forall_{i \in \mathbb{N}} \ml(e_i \in E\mr)\mr)
 \n \thm{} \ml(\rfr{discreteRandomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \implies 
@@ -941,40 +995,27 @@ TODO link thms?
 \m \ml(\rfr{measurableMap}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, \mathbb{R}^2, {\sigma_S}^2\mr)\mr)\mr)
 \m \eqComment{the preimage of a measurable set of n dimensional vectors is an event}
 \n \dfn{jointPL}\ml(P_{X, Y}, \ml(\ml(X, Y\mr), \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{jointRV}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
-\m \ml(\forall_{B \in {\sigma_S}^2} \ml(P_{X, Y}\ml(B\mr) = P\ml(\{\omega \in \Omega \mid \ml(X\ml(\omega\mr), Y\ml(\omega\mr)\mr) \in B\}\mr)\mr)\mr)
+\m \ml(\forall_{(B_x, B_y) \in {\sigma_S}^2} \ml(P_{X, Y}\ml(B_x, B_y\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \in B_x\} \cap \{\omega \in \Omega \mid Y\ml(\omega\mr) \in B_y\}\mr) = P(X \in B_x, Y \in B_y)\mr)\mr)
 \n \dfn{jointCDF}\ml(F_{X, Y}, \ml(\ml(X, Y\mr), \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{jointRV}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land
-\m \forall_{x, y \in \mathbb{R}} \ml(F_{X, Y}\ml(x, y\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \leq x\} \cap \{\omega \in \Omega \mid Y\ml(\omega\mr) \leq y\}\mr) = P\ml(X \leq x, Y \leq y\mr)\mr)
+\m \forall_{(x, y) \in \mathbb{R}^2} \ml(F_{X, Y}\ml(x, y\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) \leq x\} \cap \{\omega \in \Omega \mid Y\ml(\omega\mr) \leq y\}\mr) = P\ml(X \leq x, Y \leq y\mr)\mr)
 \n \thm{} \rfr{jointCDF}\ml(F_{X, Y}, \ml(\ml(X, Y\mr), \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\lim_{\substack{x \to -\infty \\ y \to -\infty}} \ml(F_{X, Y}\ml(x, y\mr)\mr) = 0\mr) \land \ml(\lim_{\substack{x \to \infty \\ y \to \infty}} \ml(F_{X, Y}\ml(x, y\mr)\mr) = 1\mr) \land
-\m \ml(\forall_{x_1, x_2, y_1, y_2 \in \mathbb{R}}\ml(\ml(x_1 \leq x_2 \land y_1 \leq y_2\mr) \implies \ml(F_{X, Y}\ml(x_1, y_1\mr) \leq F_{X, Y}\ml(x_2, y_2\mr)\mr)\mr)\mr) \land 
-\m \ml(\forall_{x, y \in \mathbb{R}} \ml(\lim_{\substack{\epsilon_x \to 0^+ \\ \epsilon_y \to 0^+}} \ml(F\ml(x + \epsilon_x, y + \epsilon_y\mr) = F\ml(x + y\mr)\mr)\mr)\mr) \land
+\m \ml(\forall_{(x_1, y_1), (x_2,  y_2) \in \mathbb{R}^2}\ml(\ml(x_1 \leq x_2 \land y_1 \leq y_2\mr) \implies \ml(F_{X, Y}\ml(x_1, y_1\mr) \leq F_{X, Y}\ml(x_2, y_2\mr)\mr)\mr)\mr) \land 
+\m \ml(\forall_{(x, y) \in \mathbb{R}^2} \ml(\lim_{\substack{\epsilon_x \to 0^+ \\ \epsilon_y \to 0^+}} \ml(F\ml(x + \epsilon_x, y + \epsilon_y\mr) = F\ml(x + y\mr)\mr)\mr)\mr) \land
 \m \ml(\forall_{x \in \mathbb{R}} \ml(\lim_{y \to \infty} \ml(F_{X, Y}\ml(x, y\mr)\mr) = F_X\ml(x\mr)\mr)\mr) \land \ml(\forall_{y \in \mathbb{R}} \ml(\lim_{x \to \infty} \ml(F_{X, Y}\ml(x, y\mr)\mr) = F_Y\ml(y\mr)\mr)\mr)
 \m \eqComment{limit evaluation order or trajectory should not matter}
+\n \dfn{jointPMF}(H_{X, Y}, ((X, Y), \Omega, \mathcal{F}, P)) \iff \ml(\rfr{jointRV}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land
+\m \ml(\forall_{(x, y) \in \mathbb{R}^2} \ml(H_{X, Y}\ml(x, y\mr) = P\ml(\{\omega \in \Omega \mid X\ml(\omega\mr) = x\} \cap \{\omega \in \Omega \mid Y\ml(\omega\mr) = y\}\mr) = P\ml(X = x, Y = y\mr)\mr)\mr)
 \end{align}
 \end{tcolorbox}
 
-\subsection{Conditional probability and independence}
+\subsection{Independence}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{preimageSigma}\ml(\sigma\ml(X\mr), \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
-\m \ml(\sigma\ml(X\mr) = \{A \subseteq \Omega \mid B \in \rfr{euclideanSigma} \land \rfr{preimage}\ml(A, \ml(B, X, \Omega, \mathbb{R}\mr)\mr)\}\mr) \land \ml(\rfr{subSigmaAlgebra}\ml(\sigma\ml(X\mr), \ml(\mathcal{F}, \Omega\mr)\mr)\mr)
-\m \eqComment{$X\ml(\omega\mr) \in B$ determines all events $A$ that occurs}
-\m OUT OF PLACE TODO overlaps with generated
-\n \dfn{conditionalProbability}\ml(P\ml(A | B\mr), \ml(A, B, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land \ml(A, B \in \mathcal{F}\mr) \land
-\m \ml(P\ml(B\mr) > 0\mr) \land \ml(P\ml(A | B\mr) = \frac{P\ml(A \cap B\mr)}{P\ml(B\mr)} \lor P\ml(B\mr) P\ml(A | B\mr) = P\ml(A \cap B\mr)\mr) 
-\m \eqComment{calculates $P\ml(A\mr)$ on the subset spanned by $B$}
-\m \eqComment{conditioning on a 0 probability set B leads to paradoxes}
-\n \thm{} \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr) \land P\ml(B\mr) > 0\mr) \implies \forall_{F \in \mathcal{F}} \ml(P^\prime\ml(F\mr) = P\ml(F | B\mr)\mr) \land \rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P^\prime\mr)
-\n \dfn{independentEvents}\ml(\ml(A, B\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(A, B \in \mathcal{F}\mr) \land \ml(P\ml(A \cap B\mr) = P\ml(A\mr) P\ml(B\mr)\mr)
+   \dfn{independentEvents}\ml(\ml(A, B\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(A, B \in \mathcal{F}\mr) \land \ml(P\ml(A \cap B\mr) = P\ml(A\mr) P\ml(B\mr)\mr)
 \m \eqComment{depends on $P, A, B$}
-\n \dfn{setPartition}\ml(\ml(X\mr)_{\mathbb{N}}, \ml(Y\mr)\mr) \iff \ml(\bigcup_{i \in \mathbb{N}} \ml(X_i\mr) = Y\mr) \land \ml(\forall_{i \in \mathbb{N}} \forall_{j \in \mathbb{N} \setminus \{i\}} \ml(X_i \cap X_j = \emptyset\mr)\mr)
-\n \thm{} \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr) \land \{A\} \cup \ml(B\mr)_\mathbb{N} \subseteq \mathcal{F} \land \rfr{setPartition}\ml(\ml(B\mr)_\mathbb{N}, \ml(\Omega\mr)\mr)\mr) \implies  
-\m \ml(P\ml(A\mr) = \sum_{i \in \mathbb{N}} \ml(P\ml(A | B_i\mr) P\ml(B_i\mr)\mr)\mr) \land
-\m \ml(\forall_{i \in \mathbb{N}} \ml(P\ml(A | B_i\mr) P\ml(B_i\mr) = P\ml(A\mr) P\ml(B_i | A\mr) = \ml(\sum_{j \in \mathbb{N}} \ml(P\ml(B_i | A\mr) \mr)\mr) P\ml(B_i | A\mr)\mr)\mr) \land
-\m \ml(P\ml(\bigcap_{i \in \mathbb{N}} \ml(B_i\mr)\mr) = P\ml(B_1\mr) \prod_{i = 2}^{\infty} \ml(P\ml(B_i | \bigcap_{j = 1}^{i - 1} \ml(B_j\mr)\mr)\mr)\mr)
-\m \eqComment{from the subspace definition of conditional probability and algebraic manipulations}
-\n \dfn{finIndEvents}\ml(\ml(A\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land
-\m \ml(\ml(A\mr)_{i = 1}^{k} \subseteq \mathcal{F}\mr) \land \ml(\forall_{I_0 \subseteq \ml(A\mr)_{i = 1}^{k}} \ml(P\ml(\bigcap_{i \in I_0} \ml(A_i\mr)\mr) = \prod_{i \in I_0} \ml(P\ml(A_i\mr)\mr)\mr)\mr)
-\m \eqComment{every combination of subsets must be independent}
+\n \dfn{finIndEvents}\ml(\ml(A\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{probabilitySpace}\ml(\Omega, \mathcal{F}, P\mr)\mr) \land \ml(\forall_{i \in \mathbb{N} \land i \leq k} \ml(A_i \in \mathcal{F}\mr)\mr) \land 
+\m \ml(\forall_{I_0 \subseteq \ml(A\mr)_{i = 1}^{k}} \ml(P\ml(\bigcap_{i \in I_0} \ml(A_i\mr)\mr) = \prod_{i \in I_0} \ml(P\ml(A_i\mr)\mr)\mr)\mr)
+\m \eqComment{every combination of events must be independent}
 \n \dfn{arbIndEvents}\ml(\ml(A\mr)_{I}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{\rfr{finiteSet}\ml(I_F\mr) \subseteq I} \ml(\rfr{finIndEvents}\ml(\ml(A\mr)_{I_F}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
 \m \eqComment{every finite subset is independent}
 \n \dfn{subSigmaAlgebra}\ml(\mathcal{B}, \ml(\mathcal{F}, \Omega\mr)\mr) \iff \ml(\rfr{sigmaAlgebra}\ml(\mathcal{F}, \ml(\Omega\mr)\mr)\mr) \land \ml(\rfr{sigmaAlgebra}\ml(\mathcal{B}, \ml(\Omega\mr)\mr)\mr) \land \ml(\mathcal{B} \subseteq \mathcal{A}\mr)
@@ -982,32 +1023,35 @@ TODO link thms?
 \m \ml(\rfr{subSigmaAlgebra}\ml(\mathcal{A}, \ml(\mathcal{F}, \Omega\mr)\mr)\mr) \land \ml(\rfr{subSigmaAlgebra}\ml(\mathcal{B}, \ml(\mathcal{F}, \Omega\mr)\mr)\mr) \land 
 \m \ml(\forall_{A \in \mathcal{A}} \forall_{B \in \mathcal{B}} \ml(\rfr{independentEvents}\ml(\ml(A, B\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
 \n \dfn{finIndSigmaAlgebras}\ml(\ml(\mathcal{A}\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq k} \ml(\rfr{subSigmaAlgebra}\ml(\mathcal{A}_i\mr), \ml(\mathcal{F}, \Omega\mr)\mr)\mr) \land
-\m \ml(\forall_{i \in \mathbb{N} \land i \leq k} \forall_{A_i \in \mathcal{A}_i} \ml(\rfr{finIndEvents}\ml(\ml(A\mr)_{j = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
+\m \ml(\forall_{i \in \mathbb{N} \land i \leq k} \ml(A_i \in \mathcal{A}_i\mr)\mr) \land \ml(\rfr{finIndEvents}\ml(\ml(A\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)
 \n \dfn{arbIndSigmaAlgebras}\ml(\ml(\mathcal{A}\mr)_{I}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{\rfr{finiteSet}\ml(I_F\mr) \subseteq I} \ml(\rfr{finIndSigmaAlgebras}\ml(\ml(\mathcal{A}\mr)_{I_F}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
-\m \eqComment{every finite subset is independent}
-\n \dfn{independentRV}() CONTHERE %http://theanalysisofdata.com/probability/E_4.html
-\n \melazy
-\n \dfn{infinitelyOften}\ml(\{A_n \text{ i-o}\}, \ml(\mr)\mr) \iff \ml(B_n = \bigcup_{i = n}^{\infty} \ml(A_i\mr) \in \mathcal{F}\mr) \land \ml(\{A_n \text{ i-o}\} = \bigcap_{n \in \mathbb{N}} \ml(B_n\mr) = \bigcap_{n \in \mathbb{N}} \bigcup_{i = n}^{\infty} \ml(A_i\mr) \in \mathcal{F}\mr)
-\m \eqComment{the event that infinitely many $A_n$'s will occur}
-\m \eqComment{$B_n$ occur if some event within the nth-tail-end event $A_{i} | i \geq n$ occur, which follows from $\cup$}
-\m \eqComment{$\{A_n \text{ i-o}\}$ occur if every tail-end event $B_n$ occur for all $n$, which follows from $\cap$}
-\m \eqComment{similarly, $\{A_n \text{ i-o}\}$ occur, for all values of $n$, the nth-tail-end event occur}
-\n \thm{BCL 1} \ml(\thmlink{}{Cond300} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml(A_n\mr)\mr) < \infty\mr) \implies \ml(P\ml(\{A_n \text{ i-o}\}\mr) = 0\mr)\mr) \impliedby
-\m \thmlink{infinitelyOften, MSContU}{1IL300} \ml(P\ml(\bigcap_{n \in \mathbb{N}} \ml(B_n\mr)\mr) = \lim_{n \to \infty} \ml(P\ml(B_n\mr)\mr) = \lim_{n \to \infty} \ml(P\ml(\bigcup_{i = n}^{\infty} \ml(A_i\mr)\mr)\mr)\mr) \land
-\m \thmlink{MSSetBount}{2IL300} \ml(\lim_{n \to \infty} \ml(P\ml(\bigcup_{i = n}^{\infty} \ml(A_i\mr)\mr)\mr) \leq \lim_{n \to \infty} \ml(\sum_{i = n}^{\infty} \ml(P\ml(A\mr)_i\mr)\mr)\mr) \land 
-\m \thmlink{Cond300}{3IL300} \ml(\lim_{n \to \infty} \ml(\sum_{i = n}^{\infty} \ml(P\ml(A\mr)_i\mr)\mr) = 0\mr) \land \thmlink{1IL300, 2IL300, 3IL300}{Impl300} \ml(0 \leq P\ml(\{A_n \text{ i-o}\}\mr) \leq 0\mr)
-\n \thm{} \thmlink{}{logp} \ml(\forall_{x \in [0, 1]} \ml(\log\ml(1 - x\mr) \leq -x\mr)\mr)
-\n \thm{} \thmlink{}{sump} \ml(\ml(\thmlink{}{1Cond302} \ml(\forall_{i \in \mathbb{N}} \ml(p_i \in [0, 1]\mr)\mr) \land \thmlink{}{2Cond302} \ml(\sum_{i \in \mathbb{N}} \ml(p_i\mr) = \infty\mr)\mr) \implies \prod_{i \in \mathbb{N}} \ml(1 - p_i\mr) = 0\mr) \impliedby
-\m \thmlink{}{1IL302} \ml(\prod_{i \in \mathbb{N}} \ml(1 - p_i\mr) = \exp\ml(\log\ml(\prod_{i \in \mathbb{N}} \ml(1 - p_i\mr)\mr)\mr) = \exp\ml(\log\ml(\lim_{n \to \infty} \ml(\prod_{i = 1}^{n} \ml(1 - p_i\mr)\mr)\mr)\mr)\mr) \land
-\m \thmlink{logp}{2IL302} \ml(\exp\ml(\log\ml(\lim_{n \to \infty} \ml(\prod_{i = 1}^{n} \ml(1 - p_i\mr)\mr)\mr)\mr) = \exp\ml(\lim_{n \to \infty} \ml(\sum_{i = 1}^{n} \ml(\log\ml(1 - p_i\mr)\mr)\mr)\mr) \leq \exp\ml(\lim_{n \to \infty} \ml(\sum_{i = 1}^{n} \ml(-p_i\mr)\mr)\mr)\mr) \land
-\m \thmlink{2Cond302}{3IL302} \ml(\exp\ml(\lim_{n \to \infty} \ml(\sum_{i = 1}^{n} \ml(-p_i\mr)\mr)\mr) = \exp\ml(-\infty\mr) = 0\mr) \land \thmlink{1Cond302, 1IL302, 2IL302, 3IL302}{Impl302} \ml(0 \leq \prod_{i \in \mathbb{N}} \ml(1 - p_i\mr) \leq 0\mr)
-\n \thm{BCL 2} \ml(\ml(\thmlink{}{1Cond303} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml(A_n\mr)\mr) = \infty\mr) \land \thmlink{}{2Cond303} \ml(\rfr{infIndEvents}\ml(\ml(A\mr)_{\mathbb{N}}\mr)\mr)\mr) \implies P\ml(\{A_n \text{ i-o}\}\mr) = 1\mr)
-\m \impliedby \thmlink {MSSetBound}{1IL303} \ml(1 - P\ml(\{A_n \text{ i-o}\}\mr) = P\ml(\{A_n \text{ i-o}\}^C\mr) = P\ml(\bigcup_{n \in \mathbb{N}} \ml({B_n}^C\mr)\mr) \leq \sum_{n \in \mathbb{N}} \ml(P\ml({B_n}^C\mr)\mr)\mr) \land
-\m \thmlink{DeMorgans, 2Cond303}{2IL303} \ml(\sum_{n \in \mathbb{N}} \ml(P\ml({B_n}^C\mr)\mr) = \sum_{n \in \mathbb{N}} \ml(P\ml(\bigcap_{i = n}^{\infty} \ml({A_i}^C\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(P\ml({A_i}^C\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr)\mr) \land
-\m \thmlink{1Cond303, sump}{3IL303}\ml(\sum_{n = 1}^{\infty} \ml(\prod_{i = n}^{\infty} \ml(1 - P\ml(A_i\mr)\mr)\mr) = \sum_{n = 1}^{\infty} \ml(0\mr) = 0\mr) \land \thmlink{1Il303, 2Il303, 3Il303}{Impl303} \ml(0 \leq 1 - P\ml(\{A_n \text{ i-o}\}\mr) \leq 0 \iff P\ml(\{A_n \text{ i-o}\}\mr) = 1\mr)
-\n \melazy
-\n TODO FIXUP SECTIONING AND FORMATTING
-\n \melazy %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\n \dfn{preimageSigma}\ml(\sigma_{RV}\ml(X\mr), \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\rfr{randomVariable}\ml(X, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
+\m \ml(\sigma_{RV}\ml(X\mr) = \{\rfr{preimage}\ml(A, \ml(B, X, \Omega, \mathbb{R}\mr)\mr) \mid B \in \rfr{euclideanSigma}\}\mr)
+\m \eqComment{reduced sigma algebra generated by preimage of borel sets in $X$; groups $\Omega$ subsets by borel preimages}
+\n \thm{} \rfr{preimageSigma}\ml(\sigma_{RV}\ml(X\mr), \ml(X, \Omega, \mathcal{F}, P\mr)\mr) \implies \rfr{subSigmaAlgebra}\ml(\sigma_{RV}\ml(X\mr), \ml(\mathcal{F}, \Omega\mr)\mr)
+\n \dfn{independentRVs}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \rfr{independentSigmaAlgebras}\ml(\ml(\sigma_{RV}\ml(X\mr), \sigma_{RV}\ml(Y\mr)\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr)
+\n \dfn{finIndRVs}\ml(\ml(X\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{i \in \mathbb{N} \land i \leq k} \ml(\rfr{randomVariable}\ml(X_i\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr) \land 
+\m \ml(\forall_{i \in \mathbb{N} \land i \leq k} \ml(\sigma_i = \sigma_{RV}\ml(X_i\mr)\mr)\mr) \land \ml(\rfr{finIndSigmaAlgebras}\ml(\ml(\ml(\sigma\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
+\n \dfn{arbIndRVs}\ml(\ml(X\mr)_{I}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{\rfr{finiteSet}\ml(I_F\mr) \subseteq I} \ml(\rfr{finIndRVs}\ml(\ml(X\mr)_{I_F}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
+\n \thm{} \rfr{finIndEvents}\ml(\ml(A\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \implies P\ml(\bigcap_{i = 1}^{k} \ml(A_i\mr)\mr) = \prod_{i = 1}^{k} \ml(P\ml(A_i\mr)\mr) 
+\n \thm{} \rfr{independentRVs}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \forall_{x, y \in \mathbb{R}} \ml(F_{X, Y}\ml(x, y\mr) = F_X\ml(x\mr) F_Y\ml(y\mr)\mr)
+\end{align}
+\end{tcolorbox}
+
+\subsection{joint random variables shenanigans}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+\n \textbf{joint discrete part}
+\n P_{X | Y}(x | y) = \frac{P_{X, Y}(x, y)}{P_Y(y)} = \frac{P(X = x, Y = y)}{P(Y = y)}
+\m \eqComment{picture, works on singletons cos nonzero}
+\m \eqComment{PY can be solved by summing of marginal PXs}
+\n 0
+\end{align}
+\end{tcolorbox}
+
+\subsection{Underview}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
 \n S^n = (x, y)^n \subset Z \eqComment{sample set consists of $n$ input-output pairs}
 \n S^n \implies \rfr{map}(f_{S^n}, (X, Y)) \eqComment{learned predictor function}
 \n V \eqComment{loss function}
@@ -1025,12 +1069,6 @@ TODO link thms?
 \m \eqComment{outcomes are independent and equally likely}
 \n E[X] = \int_{Range}(x d(P(x)))
 \n 0
-\end{align}
-\end{tcolorbox}
-
-\subsection{Underview}
-\begin{tcolorbox}[breakable, enhanced]
-\begin{align}
 \n curve-fitting / explaining \neq prediction
 \n ill-defined problem + solution space constraints \implies well-defined problem
 \n x \eqComment{input} \eqSep y \eqComment{output}

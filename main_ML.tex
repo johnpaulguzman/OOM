@@ -1034,18 +1034,34 @@ TODO silent link expressions!
 \m \ml(\forall_{i \in \mathbb{N} \land i \leq k} \ml(\sigma_i = \sigma_{RV}\ml(X_i\mr)\mr)\mr) \land \ml(\rfr{finIndSigmaAlgebras}\ml(\ml(\ml(\sigma\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
 \n \dfn{arbIndRVs}\ml(\ml(X\mr)_{I}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{\rfr{finiteSet}\ml(I_F\mr) \subseteq I} \ml(\rfr{finIndRVs}\ml(\ml(X\mr)_{I_F}, \ml(\Omega, \mathcal{F}, P\mr)\mr)\mr)\mr)
 \n \thm{} \rfr{finIndEvents}\ml(\ml(A\mr)_{i = 1}^{k}, \ml(\Omega, \mathcal{F}, P\mr)\mr) \implies P\ml(\bigcap_{i = 1}^{k} \ml(A_i\mr)\mr) = \prod_{i = 1}^{k} \ml(P\ml(A_i\mr)\mr) 
-\n \thm{} \rfr{independentRVs}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \forall_{x, y \in \mathbb{R}} \ml(F_{X, Y}\ml(x, y\mr) = F_X\ml(x\mr) F_Y\ml(y\mr)\mr)
+\n \thm{} \rfr{independentRVs}\ml(\ml(X, Y\mr), \ml(\Omega, \mathcal{F}, P\mr)\mr) \iff \ml(\forall_{x, y \in \mathbb{R}} \ml(F_{X, Y}\ml(x, y\mr) = F_X\ml(x\mr) F_Y\ml(y\mr)\mr)\mr) \land
+\m \ml(\forall_{B_x, B_y \in \sigma_S} \ml(P_{X, Y}\ml(B_x, B_y\mr) = P_X\ml(B_x\mr) P_Y\ml(B_y\mr)\mr)\mr)
 \end{align}
 \end{tcolorbox}
 
 \subsection{joint random variables shenanigans}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-\n \textbf{joint discrete part}
-\n P_{X | Y}(x | y) = \frac{P_{X, Y}(x, y)}{P_Y(y)} = \frac{P(X = x, Y = y)}{P(Y = y)}
-\m \eqComment{picture, works on singletons cos nonzero}
-\m \eqComment{PY can be solved by summing of marginal PXs}
-\n 0
+    \dfn{jointConditionalProbability}\ml(P_{X | Y}\ml(x | y\mr), \ml(\ml(X, Y\mr), \Omega, \mathcal{F}, P\mr)\mr) \iff P_{X | Y}\ml(x | y\mr) = \frac{P_{X, Y}\ml(x, y\mr)}{P_Y\ml(y\mr)} = \frac{P\ml(X = x, Y = y\mr)}{P\ml(Y = y\mr)}
+\m \eqComment{conditions on the probability spanned by $Y$; $P_Y = P_{X, Y}\ml(\mathbb{R}, B_y\mr)$ can be gained from $PMF$}
+\n \dfn{jointlyDiscreteRV}((X, Y), (\Omega, \mathcal{F}, P)) \iff (\rfr{discreteRV}(X, (\Omega, \mathcal{F}, P))) \land (\rfr{discreteRV}(Y, (\Omega, \mathcal{F}, P))) \iff 
+\m exists countable blablabla
+\n \thm{} \ml(\rfr{discreteRandomVariable}\ml(X\mr) \land \rfr{discreteRandomVariable}\ml(Y\mr)\mr) \implies
+\m \Bigg(\rfr{independentRVs}\ml(X, Y\mr) \implies \forall_{B_x, B_y \in \sigma_S} \ml(P_{X, Y}\ml(B_x, B_y\mr) = P_X\ml(B_x\mr) P_Y\ml(B_y\mr)\mr) \implies 
+\m \forall_{x, y \in \mathbb{R}} \ml(P_X\ml(\{x\}\mr) P_Y\ml(\{y\}\mr) = P\ml(X = x\mr) P\ml(Y = y\mr)\mr) \implies \rfr{independentEvents}\ml(\{X = x\}, \{Y = y\}\mr)\Bigg) \land
+\m \Bigg(\rfr{independentEvents}\ml(\{X = x\}, \{Y = y\}\mr) \implies \forall_{B_x, B_y \in \sigma} \Bigg(P_{X, Y}\ml(B_x, B_y\mr) = \sum_{\substack{x \in B_x \\ y \in B_y}} \ml(P_X\ml(x\mr) P_Y\ml(y\mr)\mr) = 
+\m \ml(\sum_{x \in B_x} \ml(P\ml(X = x\mr)\mr)\mr) \ml(\sum_{y \in B_y} \ml(P\ml(Y = Y\mr)\mr)\mr) = P_X\ml(B_x\mr) P_Y\ml(B_y\mr)\Bigg) \implies \rfr{independentRVs}(X, Y)\Bigg)
+\m \eqComment{independence of discrete $X, Y$ is equivalent to independence of joint PMF}
+\n \dfn{jointlyContinuousRV}((X, Y), (\Omega, \mathcal{F}, P)) \iff (\rfr{jointRV}((X, Y), (\Omega, \mathcal{F}, P))) \land 
+\m (\rfr{absolutelyContinous}((P_{X, Y}, \rfr{lebesgueMeasure}^2), (\mathbb{R}^2, {\sigma_S}^2)))
+\n \thm{} \Bigg((\rfr{continuousRV}(X, (\Omega, \mathcal{F}, P))) \land (\rfr{continuousRV}(Y, (\Omega, \mathcal{F}, P))) \centernot\implies 
+\m \rfr{jointlyContinousRV}((X, Y), (\Omega, \mathcal{F}, P))\Bigg) \impliedby (k \in \mathbb{R}) \land (Y = kX) \land (\textbf{maps probability to a line})
+\n \thm{} \Bigg(\rfr{jointlyContinuousRV}((X, Y), (\Omega, \mathcal{F}, P)) \implies (\rfr{continuousRV}(X, (\Omega, \mathcal{F}, P))) \land
+\m (\rfr{continuousRV}(Y, (\Omega, \mathcal{F}, P)))\Bigg) \impliedby (\forall_{x, y \in \mathbb{R}} \exists_{\rfr{map}(f_{X, Y}) \geq 0} (F_{X, Y}(x, y)) = \int_{-\infty}^{x} \int_{-\infty}^{y} (f_{X, Y}(s, t) dt ds)) \land
+\m \eqComment{\^from radon nikodym thm and semi infinite generating sets} 
+\m (\forall_{x \in \mathbb{R}} (F_X(x) = \lim_{y \to \infty} (F_{X, Y}(x, y)) = \int_{-\infty}^{x} \int_{-\infty}^{\infty} (f_{X, Y}(s, t) dt ds)))) = \int_{-\infty}^{x} (\int_{-\infty}^{\infty} (f_{X, Y}(s, t) dt) ds = \int_{-\infty}^{x} (f(s) ds)
+\m \eqComment{\^from nonnegative integral} 
+\n CONTINUE 23
 \end{align}
 \end{tcolorbox}
 

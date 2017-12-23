@@ -1,3 +1,4 @@
+% CONTINUE 1090
 % CONTINUE: PT - LINE 1000 PAGE 33
 % CONTINUE: AA - LINE 660 PAGE 20
 % NOTE DUPLICATE 439
@@ -1062,41 +1063,46 @@ TODO silent link expressions!
 \m (\forall_{x \in \mathbb{R}} (F_X(x) = \lim_{y \to \infty} (F_{X, Y}(x, y)) = \int_{-\infty}^{x} \int_{-\infty}^{\infty} (f_{X, Y}(s, t) dt ds)))) = \int_{-\infty}^{x} (\int_{-\infty}^{\infty} (f_{X, Y}(s, t) dt) ds = \int_{-\infty}^{x} (f(s) ds)
 \m \eqComment{\^from nonnegative integral} 
 \n CONTINUE 23
+\n START 10-715
+\n \dfn{conditionalIndependence}((A, B, C), (???)) \iff P(A \cap B | C) = P(A | C) P(B | C)
+\n 0
 \end{align}
 \end{tcolorbox}
 
-\subsection{Underview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Machine Learning}
+\subsection{*terminology}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-\n S^n = (x, y)^n \subset Z \eqComment{sample set consists of $n$ input-output pairs}
-\n S^n \implies \rfr{map}(f_{S^n}, (X, Y)) \eqComment{learned predictor function}
-\n V \eqComment{loss function}
-\n I_n[f] = \frac{1}{n} \sum_{i}(V(f(x_i), y_i)) \eqComment{empirical predictor error}
-\n I[f] = \int_Z(V(f(x_i), y_i) d\mu(x_i, y_i)) \eqComment{expected predictor error}
-\n f_\star \eqComment{optimal or lowest expected error hypothesis}
-\n \lim_{n \to \infty}(I[f_n]) = I[f_\star] \eqComment{consistency: expected error of learned approaches best hypothesis}
-\n \lim_{n \to \infty}(I_n[f_n]) = I[f_n] \eqComment{generalization: empirical error of learned hyptohesis approximates expected error}
-\n |I_n[f_n] - I[f_n]| < \epsilon(n, \delta) \text{ with P } 1-\delta? \eqComment{generalization error: measure performance of learning algorithm}
-\m \forall_{\epsilon > 0} (\lim_{n \to \infty}(P(\{|I_n[f_n] - I[f_n]| \geq \epsilon\}) = 0))
-\m \eqComment{}
-\n X \eqComment{random variable} \eqSep \mu \eqComment{probability measure}
-\n \rfr{measureSpace}(X, F, P)
-\n IID(A, (X, P)) \iff (A \in F \subseteq X) \land P_{a_1, a_2, ...}(a_1 = t_1, a_2 = t_2, ...) = \prod_{i} (P_{a_1}(a_i = t_i))
-\m \eqComment{outcomes are independent and equally likely}
-\n E[X] = \int_{Range}(x d(P(x)))
+\n \dfn{targetFunction}(f, (x_\mathbb{N}, y_\mathbb{N})) \iff (\rfr{map}(f, (x_\mathbb{N}, y_\mathbb{N}))) \land (\forall_{i \in \mathbb{N}} (f(x_i) = y_i))
+\n \dfn{hypothesis}(g, (f, x_\mathbb{N}, y_\mathbb{N})) \iff g \sim \rfr{targetFunction}(f, (x_\mathbb{N}, y_\mathbb{N}))
+\m \eqComment{TODO: formalize}
+\n \dfn{hypothesisSpace}(\mathcal{H}, (f, x_\mathbb{N}, y_\mathbb{N})) \iff \forall_{h \in \mathcal{H}} (\rfr{hypothesis}(h, (f, x_\mathbb{N}, y_\mathbb{N})))
+\m \eqComment{TODO: motivate}
+\n \dfn{learningAlgorithm}(L, (\mathcal{H}, f, x_\mathbb{N}, y_\mathbb{N})) \iff 
+\m (L(\mathcal{H}, f, x_\mathbb{N}, y_\mathbb{N}) = \rfr{hypothesis}(P, (f, x_\mathbb{N}, y_\mathbb{N})) \in \rfr{hypothesisSpace}(\mathcal{H}, (f, x_\mathbb{N}, y_\mathbb{N})))
+\n \dfn{learningModel}(\rfr{learningAlgorithm}, \rfr{hypothesisSpace})
 \n 0
-\n curve-fitting / explaining \neq prediction
-\n ill-defined problem + solution space constraints \implies well-defined problem
-\n x \eqComment{input} \eqSep y \eqComment{output}
-\n S_n = \{(x_1, y_1), \ldots, (x_n, y_n)\} \eqComment{training set}
-\n f_S(x) \sim y \eqComment{solution}
-\n each (x,y) \in p(x, y) \eqComment{training data $x, y$ is a sample from an unknown distribution $p$}
-\n V(f(x), y) = d(f(x), y) \eqComment{loss function}
-\n I[f] = \int_{X \times Y}{V(f(x), y) p(x, y) dx dy} \eqComment{expected error}
-\n I_n[f] = \frac{1}{n} \sum_{i=1}^{n}{V(f(x_i), y_i)} \eqComment{empirical error}
-\n probabilisticConvergence(X, ()) \iff \forall_{\epsilon > 0} \lim_{n \to \infty}{P{xn - x} \leq \epsilon} = 0
-\n I - In generalization error
-\n well-posed := exists, unique, stable ; else ill-posed
+\end{align}
+\end{tcolorbox}
+
+\subsection{*axioms}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+\n lecture 2
+\n \eqComment{TODO: make axioms}
 \end{align}
 \end{tcolorbox}
 
@@ -1112,8 +1118,9 @@ TODO silent link expressions!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Machine Learning}
-\subsubsection{Overview} % TODO introduce declare N c_i p_i , p <> input, c<> output ?? remove i coupling
+
+\section{Machine Learning ADV}
+\subsubsection{OLD Overview} % TODO introduce declare N c_i p_i , p <> input, c<> output ?? remove i coupling
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    X \eqComment{input} \eqSep Y \eqComment{output} \eqSep S(X, Y) \eqComment{dataset}

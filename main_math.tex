@@ -1,0 +1,128 @@
+% CONTINUE 1090
+% CONTINUE: PT - LINE 1000 PAGE 33
+% CONTINUE: AA - LINE 660 PAGE 20
+% NOTE DUPLICATE 439
+% Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=1.25cm,bottom=1.25cm,left=1.0cm,right=1.0cm,marginparwidth=1.25cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\DeclareMathSizes{12}{30}{16}{12}
+\usepackage[final]{pdfpages}
+\usepackage{gensymb}
+\usepackage{empheq}
+\usepackage[section]{placeins}
+\usepackage[most]{tcolorbox}
+\usepackage{esint}
+\usepackage{amssymb}
+\usepackage{centernot}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\delimitershortfall-1sp
+\usepackage{mleftright}
+\mleftright
+\def\ml{\mleft}
+\def\mr{\mright}
+
+\makeatletter
+\newcommand{\defeq}{:=}
+\newcommand{\cusand}{,}
+\newcommand{\eqComment}[1]{\text{  \# #1}}
+\newcommand{\eqSep}{\text{ ;  }}
+\newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
+\newcommand{\m}{\nonumber \\}
+\newcommand{\field}[1]{\textbf{\textit{#1}}}
+\newcommand*\features{}
+\newcommand{\labeltarget}[1]{\Hy@raisedlink{\hypertarget{#1}{}}}
+\newcommand{\dfn}[1]{\textcolor{teal}{#1}\labeltarget{#1}}
+% ## BUGS MULTI dfn PER LINE ## \newcommand{\dfn}[1]{\textcolor{teal}{#1}\labeltarget{#1}\feature{#1}}
+\newcommand{\rfr}[1]{\hyperlink{#1}{#1}}
+\newcommand*\feature[1]
+  {\ifx\features\empty
+     \def\features{   \noindent \rfr{#1} \\}%
+   \else
+     \g@addto@macro\features{\rfr{#1} \\}%
+   \fi}
+\newcommand{\thm}[1]{\text{(THM) #1: }}
+\newcommand\rfrlist[1]{%
+    \forcsvlist{\rfrlist@item}{#1}
+}
+\newcommand\rfrlist@item[1]{\rfr{#1}\\}
+\newcommand{\thmlink}[2]{{}_{\substack{\rfrlist{#1}}}^{\dfn{#2}} }
+\makeatother
+
+\title{Next-Next-Gen Notes \\
+\large Object-Oriented Maths}
+\author{JP Guzman}
+
+\begin{document}
+\maketitle
+\allowdisplaybreaks
+
+Format: $characteristic((subjects), (dependencies)) \iff (conditions(dependencies)) \land (conditions(subjects))$
+
+Note: All weaker objects automatically induces notions inherited from stronger objects.
+
+TODO assign free variables as parameters
+
+TODO define || abs  cross-product and other missing refs
+
+TODO distinguish new condition vs implied proposition
+- separate propositions into new line thms
+
+TODO silent link expressions!
+- e.g. $backslash silentPL{PL_X}$
+
+\thinmuskip=2mu % commas
+\medmuskip=2mu % operators
+\thickmuskip=2mu % equalities
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
+
+% https://en.wikipedia.org/wiki/List_of_mathematical_abbreviations
+% https://en.wikipedia.org/wiki/Propositional_calculus
+
+\section{Logic and Set Theory}
+\subsection{Truth shennanigans}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   \dfn{truth}[t][] \defeq t = \begin{cases} \dfn{TRUE} \\ \dfn{FALSE}\end{cases} 
+\n \dfn{statement}[s][] \defeq \rfr{correctSyntaxSemantics}[s][] 
+\n \dfn{proposition}[s, t][] \defeq (\rfr{statement}[s][]) \cusand (\rfr{truth}[t][])
+\n \dfn{operatorNOT}[\dfn{\lnot}][x] \defeq (\rfr{truth}[x][]) \cusand (\rfr{\lnot} x = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{TRUE} \end{cases}) 
+\n \dfn{operatorAND}[\dfn{\land}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\land} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\n \dfn{operatorOR}[\dfn{\lor}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\lor} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\n \dfn{operatorXOR}[\dfn{\veebar}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\veebar} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\n % TODO SPAM THEOREMS EQUIVALENCES https://en.wikipedia.org/wiki/Principle_of_explosion#Proof 
+\n \dfn{operatorIF}[\dfn{\implies}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\implies} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\n \dfn{operatorOIF}[\dfn{\impliedby}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\impliedby} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\n \dfn{operatorIIF}[\dfn{\iff}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\iff} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\end{align}
+\end{tcolorbox}
+
+\subsection{Predicate shennanigans}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   0
+\n 0
+\end{align}
+\end{tcolorbox}
+
+\section{Glossary}
+\begin{multicols}{4}
+\features
+\end{multicols}
+
+\bibliography{sample}
+\end{document}

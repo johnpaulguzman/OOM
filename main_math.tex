@@ -54,7 +54,6 @@
    \else
      \g@addto@macro\features{\rfr{#1} \\}%
    \fi}
-\newcommand{\thm}[1]{\text{(THM) #1: }}
 \newcommand\rfrlist[1]{%
     \forcsvlist{\rfrlist@item}{#1}
 }
@@ -94,7 +93,7 @@ TODO silent link expressions!
 % https://en.wikipedia.org/wiki/Propositional_calculus
 
 \section{Logic and Set Theory}
-\subsection{Truth shennanigans}
+\subsection{Logic SHENANNIGANS}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
    \dfn{truth}[t][] \defeq t = \begin{cases} \dfn{TRUE} \\ \dfn{FALSE}\end{cases} 
@@ -104,7 +103,18 @@ TODO silent link expressions!
 \n \dfn{operatorAND}[\dfn{\land}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\land} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
 \n \dfn{operatorOR}[\dfn{\lor}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\lor} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
 \n \dfn{operatorXOR}[\dfn{\veebar}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\veebar} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
-\n % TODO SPAM THEOREMS EQUIVALENCES https://en.wikipedia.org/wiki/Principle_of_explosion#Proof 
+\n start linking, dont bother with the line length
+\n \thmlink{}{THM-Invo} (x = \rfr{\lnot} \rfr{\lnot} x)
+\n \thmlink{}{THM-LIdn} (x \rfr{\land} \rfr{TRUE} = x) \cusand (x \rfr{\lor} \rfr{FALSE} = x)
+\n \thmlink{}{THM-LNeg} (x \rfr{\land} \rfr{\lnot} x = \rfr{FALSE}) \cusand (x \rfr{\lor} \rfr{\lnot} x = \rfr{TRUE})
+\n \thmlink{}{THM-LDom} (x \rfr{\land} \rfr{FALSE} = \rfr{FALSE}) \cusand (x \rfr{\lor} \rfr{TRUE} = \rfr{TRUE})
+\n \thmlink{}{THM-LIdm} (x \rfr{\land} x = x) \cusand (x \rfr{\lor} x = x)
+\n \thmlink{}{THM-LCom} (x \rfr{\land} y = y \rfr{\land} x) \cusand (x \rfr{\lor} y = y \rfr{\lor} x)
+\n need proof and or not thms; define implications using and or not thms; 
+% https://www.electrical4u.com/boolean-algebra-theorems-and-laws-of-boolean-algebra/
+% https://en.wikipedia.org/wiki/Logical_equivalence
+% https://en.wikipedia.org/wiki/Laws_of_logic
+% https://math.stackexchange.com/questions/943164/verify-demorgans-law-algebraically
 \n \dfn{operatorIF}[\dfn{\implies}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\implies} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
 \n \dfn{operatorOIF}[\dfn{\impliedby}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\impliedby} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
 \n \dfn{operatorIIF}[\dfn{\iff}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\iff} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})

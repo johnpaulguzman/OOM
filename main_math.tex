@@ -1,6 +1,3 @@
-% CONTINUE 1090
-% CONTINUE: PT - LINE 1000 PAGE 33
-% CONTINUE: AA - LINE 660 PAGE 20
 % NOTE DUPLICATE 439
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
@@ -38,6 +35,7 @@
 \makeatletter
 \newcommand{\defeq}{:=}
 \newcommand{\cusand}{,}
+\newcommand{\cuspop}{.}
 \newcommand{\eqComment}[1]{\text{  \# #1}}
 \newcommand{\eqSep}{\text{ ;  }}
 \newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
@@ -90,34 +88,74 @@ TODO silent link expressions!
 \setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
 
 % https://en.wikipedia.org/wiki/List_of_mathematical_abbreviations
-% https://en.wikipedia.org/wiki/Propositional_calculus
 
 \section{Logic and Set Theory}
 \subsection{Logic SHENANNIGANS}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-   \dfn{truth}[t][] \defeq t = \begin{cases} \dfn{TRUE} \\ \dfn{FALSE}\end{cases} 
+   \dfn{truth}[t][] \defeq t = \begin{cases} \dfn{T} \\ \dfn{F}\end{cases} 
 \n \dfn{statement}[s][] \defeq \rfr{correctSyntaxSemantics}[s][] 
 \n \dfn{proposition}[s, t][] \defeq (\rfr{statement}[s][]) \cusand (\rfr{truth}[t][])
-\n \dfn{operatorNOT}[\dfn{\lnot}][x] \defeq (\rfr{truth}[x][]) \cusand (\rfr{\lnot} x = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{TRUE} \end{cases}) 
-\n \dfn{operatorAND}[\dfn{\land}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\land} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
-\n \dfn{operatorOR}[\dfn{\lor}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\lor} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
-\n \dfn{operatorXOR}[\dfn{\veebar}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\veebar} y = \begin{cases} \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
-\n start linking, dont bother with the line length
-\n \thmlink{}{THM-Invo} (x = \rfr{\lnot} \rfr{\lnot} x)
-\n \thmlink{}{THM-LIdn} (x \rfr{\land} \rfr{TRUE} = x) \cusand (x \rfr{\lor} \rfr{FALSE} = x)
-\n \thmlink{}{THM-LNeg} (x \rfr{\land} \rfr{\lnot} x = \rfr{FALSE}) \cusand (x \rfr{\lor} \rfr{\lnot} x = \rfr{TRUE})
-\n \thmlink{}{THM-LDom} (x \rfr{\land} \rfr{FALSE} = \rfr{FALSE}) \cusand (x \rfr{\lor} \rfr{TRUE} = \rfr{TRUE})
-\n \thmlink{}{THM-LIdm} (x \rfr{\land} x = x) \cusand (x \rfr{\lor} x = x)
-\n \thmlink{}{THM-LCom} (x \rfr{\land} y = y \rfr{\land} x) \cusand (x \rfr{\lor} y = y \rfr{\lor} x)
-\n need proof and or not thms; define implications using and or not thms; 
-% https://www.electrical4u.com/boolean-algebra-theorems-and-laws-of-boolean-algebra/
-% https://en.wikipedia.org/wiki/Logical_equivalence
-% https://en.wikipedia.org/wiki/Laws_of_logic
-% https://math.stackexchange.com/questions/943164/verify-demorgans-law-algebraically
-\n \dfn{operatorIF}[\dfn{\implies}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\implies} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
-\n \dfn{operatorOIF}[\dfn{\impliedby}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\impliedby} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
-\n \dfn{operatorIIF}[\dfn{\iff}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (x \rfr{\iff} y = \begin{cases} \rfr{TRUE} & x = \rfr{FALSE} \cusand y = \rfr{FALSE} \\ \rfr{FALSE} & x = \rfr{FALSE} \cusand y = \rfr{TRUE} \\ \rfr{FALSE} & x = \rfr{TRUE} \cusand y = \rfr{FALSE} \\ \rfr{TRUE} & x = \rfr{TRUE} \cusand y = \rfr{TRUE} \end{cases})
+\n \dfn{operatorNOT}[\dfn{\lnot}][x] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[\rfr{\lnot} x][] = \begin{cases} \rfr{T} & x = \rfr{F} \\ \rfr{F} & x = \rfr{T} \end{cases}) 
+\n \dfn{operatorAND}[\dfn{\land}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (\rfr{truth}[x \rfr{\land} y][] = \begin{cases} \rfr{F} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{F} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases})
+\n \dfn{operatorOR}[\dfn{\lor}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (\rfr{truth}[x \rfr{\lor} y][] = \begin{cases} \rfr{F} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases})
+\n \dfn{operatorXOR}[\dfn{\veebar}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (\rfr{truth}[x \rfr{\veebar} y][] = \begin{cases} \rfr{F} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{T} \cusand y = \rfr{T} \end{cases})
+\n \thmlink{}{POS-LIdn} (x \rfr{\land} \rfr{T} = x) \cusand (x \rfr{\lor} \rfr{F} = x)
+\m \eqComment{Identity}
+\n \thmlink{}{POS-LCmp} (x \rfr{\land} \rfr{\lnot} x = \rfr{F}) \cusand (x \rfr{\lor} \rfr{\lnot} x = \rfr{T})
+\m \eqComment{Complement}
+\n \thmlink{}{POS-LCom} (x \rfr{\land} y = y \rfr{\land} x) \cusand (x \rfr{\lor} y = y \rfr{\lor} x)
+\m \eqComment{Commutative}
+\n \thmlink{}{POS-LDis} (x \rfr{\land} (y \rfr{\lor} z) = (x \rfr{\land} y) \rfr{\lor} (x \rfr{\land} z)) \cusand (x \rfr{\lor} (y \rfr{\land} z) = (x \rfr{\lor} y) \rfr{\land} (x \rfr{\lor} z))
+\m \eqComment{Distributive}
+\n \dfn{operatorIF}[\dfn{\implies}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (\rfr{truth}[x \rfr{\implies} y][] = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{F} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases})
+\n \thmlink{POS-LCmp}{THM-LExp-1} (\rfr{F} = x \land \rfr{\lnot} x) \rfr{\implies}
+\m \thmlink{THM-LExp-1}{THM-LExp-2} (x) \cusand
+\m \thmlink{THM-LExp-1}{THM-LExp-3} (\rfr{\lnot} x) \cusand
+\m \thmlink{THM-LExp-2}{THM-LExp-4} (x \rfr{\lor} y) \cusand
+\m \thmlink{THM-LExp-4, THM-LExp-3}{THM-LExp-5} (y) \cuspop
+\m \thmlink{THM-LExp-1, THM-LExp-2, THM-LExp-3, THM-LExp-4, THM-LExp-5}{THM-LExp} (\rfr{F} \rfr{\implies} y)
+\m \eqComment{The Principle of Explosion, anything follows from a false $(\rfr{F})$ premise}
+\n \dfn{operatorOIF}[\dfn{\impliedby}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (\rfr{truth}[x \rfr{\impliedby} y][] = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases})
+\n \dfn{operatorIIF}[\dfn{\iff}][x, y] \defeq (\rfr{truth}[x][]) \cusand (\rfr{truth}[y][]) \cusand (\rfr{truth}[x \rfr{\iff} y][] = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{F} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases})
+\n \thmlink{}{THM-LUNt-1} ((x \rfr{\lor} y = \rfr{T} = x \rfr{\lor} z) \rfr{\land} (x \rfr{\land} y = \rfr{F} = x \rfr{\land} z)) \rfr{\implies}
+\m \thmlink{POS-LIdn}{THM-LUNt-2} (y = y \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{THM-LUNt-1}{THM-LUNt-3} (y \rfr{\land} \rfr{T} = y \rfr{\land} (x \rfr{\lor} z)) \cusand
+\m \thmlink{POS-LDis}{THM-LUNt-4} (y \rfr{\land} (x \rfr{\lor} z) = (y \rfr{\land} x) \rfr{\lor} (y \rfr{\land} z)) \cusand
+\m \thmlink{POS-LCom, THM-LUNt-4}{THM-LUNt-5} ((y \rfr{\land} x) \rfr{\lor} (y \rfr{\land} z) = (x \rfr{\land} z) \rfr{\lor} (y \rfr{\land} z)) \cusand
+\m \thmlink{POS-LCom, POS-LDis}{THM-LUNt-6} ((x \rfr{\land} z) \rfr{\lor} (y \rfr{\land} z) = z \rfr{\land} (x \rfr{\lor} y)) \cusand
+\m \thmlink{THM-LUNt-1}{THM-LUNt-7} (z \rfr{\land} (x \rfr{\lor} y) = z \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{POS-LIdn}{THM-LUNt-8} (z \rfr{\land} \rfr{T} = z) \cuspop
+\m (((x \rfr{\lor} y = \rfr{T} = x \rfr{\lor} z) \rfr{\land} (x \rfr{\land} y = \rfr{F} = x \rfr{\land} z)) \rfr{\implies} (y = z))
+\m \eqComment{Uniqueness of Complements}
+\n \thmlink{}{THM-Dual} (\textbf{swapping AND/OR and T/F is valid}) \eqComment{TODO}
+\n \thmlink{POS-LIdn}{THM-LDom-1} (x \rfr{\lor} \rfr{T} = (x \rfr{\lor} \rfr{T}) \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{POS-LCmp}{THM-LDom-2} ((x \rfr{\lor} \rfr{T}) \rfr{\land} \rfr{T} = (x \rfr{\lor} \rfr{T}) \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LDis}{THM-LDom-3} ((x \rfr{\lor} \rfr{T}) \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = x \rfr{\lor} (\rfr{T} \rfr{\land} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LIdn}{THM-LDom-4} (x \rfr{\lor} (\rfr{T} \rfr{\land} \rfr{\lnot} x) = x \rfr{\lor} \rfr{\lnot} x) \cusand
+\m \thmlink{POS-LCmp}{THM-LDom-5} (x \rfr{\lor} \rfr{\lnot} x = \rfr{T}) \cuspop
+\m \thmlink{THM-LDom-1, THM-LDom-2, THM-LDom-3, THM-LDom-4, THM-LDom-5}{THM-LDom-6} (x \rfr{\lor} \rfr{T} = \rfr{T}) \cusand
+\m \thmlink{THM-LDom-6, THM-Dual}{THM-LDom} (x \rfr{\lor} \rfr{T} = \rfr{T}) \cusand (x \rfr{\land} \rfr{F} = \rfr{F}) \cuspop
+\m \eqComment{Domination}
+\n \thmlink{POS-LIdn}{THM-LIdm-1} (x \rfr{\lor} x = (x \rfr{\lor} x) \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{POS-LCmp}{THM-LIdm-2} ((x \rfr{\lor} x) \rfr{\land} \rfr{T} = (x \rfr{\lor} x) \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LDis}{THM-LIdm-3} ((x \rfr{\lor} x) \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = x \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LIdm-4} (x \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = x \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{POS-LIdn}{THM-LIdm-5} (x \rfr{\land} \rfr{T} = x) \cusand
+\m \thmlink{THM-LIdm-1, THM-LIdm-2, THM-LIdm-3, THM-LIdm-4, THM-LIdm-5}{THM-LIdm-6} (x \rfr{\lor} x = x) \cusand
+\m \thmlink{THM-LIdm-6, THM-Dual}{THM-LIdm} (x \rfr{\lor} x = x) , (x \rfr{\land} x = x) \cuspop
+\m \eqComment{Idempotent}
+\n \thmlink{POS-LIdn}{THM-LInv-1} (\rfr{\lnot} \rfr{\lnot} x = \rfr{\lnot} \rfr{\lnot} x \rfr{\lor} \rfr{F}) \cusand
+\m \thmlink{POS-LCmp}{THM-LInv-2} (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} \rfr{F} = \rfr{\lnot} \rfr{\lnot} x \rfr{\lor} (x \rfr{\land} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LDis}{THM-LInv-3} (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} (x \rfr{\land} \rfr{\lnot} x)= (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} x) \rfr{\land} (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LInv-4} ((\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} x) \rfr{\land} (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} \rfr{\lnot} x) = (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} x) \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{POS-LCmp}{THM-LInv-5} ((\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} x) \rfr{\land} \rfr{T} = (\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} x) \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LDis}{THM-LInv-6} ((\rfr{\lnot} \rfr{\lnot} x \rfr{\lor} x) \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = x \rfr{\lor} (\rfr{\lnot} \rfr{\lnot} x \rfr{\land} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LInv-7} (x \rfr{\lor} (\rfr{\lnot} \rfr{\lnot} x \rfr{\land} \rfr{\lnot} x)= x \rfr{\lor} \rfr{F}) \cusand
+\m \thmlink{POS-LIdn}{THM-LInv-8} (x \rfr{\lor} \rfr{F} = x) \cusand
+\m \thmlink{THM-LInv-1, THM-LInv-2, THM-LInv-3, THM-LInv-4, THM-LInv-5, THM-LInv-6, THM-LInv-7, THM-LInv-8}{THM-LInv} (\rfr{\lnot} \rfr{\lnot} x = x) \cuspop
+\m \eqComment{Involution}
+\n 0 % boolean_algebra.pdf
 \end{align}
 \end{tcolorbox}
 

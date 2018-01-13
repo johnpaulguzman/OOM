@@ -171,7 +171,20 @@ TODO silent link expressions!
 \m \thmlink{THM-LAbs-1, THM-LAbs-2, THM-LAbs-3, THM-LAbs-4}{THM-LAbs-5} \ml(x \rfr{\lor} \ml(x \rfr{\land} y\mr) = x\mr) \cusand
 \m \thmlink{THM-LAbs-5, THM-Dual}{THM-LAbs} \ml(\ml(x \rfr{\lor} \ml(x \rfr{\land} y\mr) = x\mr) \cusand \ml(x \rfr{\land} \ml(x \rfr{\lor} y\mr) = x\mr)\mr) \cuspop
 \m \eqComment{Absorption}
-\n \thmlink{000}{000} \ml(\mr)
+\n \thmlink{}{THM-LAsc-1} ((A = x \rfr{\lor} (y \rfr{\lor} z)) \cusand (B = (x \rfr{\lor} y) \rfr{\lor} z)) \rfr{\implies}
+\m \thmlink{THM-LAsc-1}{THM-LAsc-2} (x \rfr{\land} A = x \rfr{\land} (x \rfr{\lor} (y \rfr{\lor} z))) \cusand \cusand
+\m \thmlink{THM-LAbs}{THM-LAsc-3} (x \rfr{\land} (x \rfr{\lor} (y \rfr{\lor} z)) = x) \cusand \cusand
+\m \thmlink{THM-LAsc-1}{THM-LAsc-4} (x \rfr{\land} B = x \rfr{\land} ((x \rfr{\lor} y) \rfr{\lor} z)) \cusand \cusand
+\m \thmlink{POS-LDis}{THM-LAsc-5} (x \rfr{\land} ((x \rfr{\lor} y) \rfr{\lor} z) = (x \rfr{\land} (x \rfr{\lor} y)) \rfr{\lor} (x \rfr{\land} z)) \cusand \cusand
+\m \thmlink{THM-LAbs}{THM-LAsc-6} ((x \rfr{\land} (x \rfr{\lor} y)) \rfr{\lor} (x \rfr{\land} z) = x \rfr{\lor} (x \rfr{\land} z)) \cusand \cusand
+\m \thmlink{THM-LAbs}{THM-LAsc-7} (x \rfr{\lor} (x \rfr{\land} z) = x) \cusand \cusand
+\m \thmlink{THM-LAbs}{THM-LAsc-8} ((x \rfr{\land} (x \rfr{\lor} y)) \rfr{\lor} (x \rfr{\land} z) = x \rfr{\lor} (x \rfr{\land} z)) \cusand \cusand
+\m \thmlink{THM-LAsc-2, THM-LAsc-3, THM-LAsc-4, THM-LAsc-5, THM-LAsc-6, THM-LAsc-7, THM-LAsc-8}{THM-LAsc-9} (x \rfr{\land} A = x = x \rfr{\land} B) \cuspop \cusand
+\m \thmlink{THM-LAsc-1}{THM-LAsc-10} (\rfr{\lnot} x \rfr{\land} A = \rfr{\lnot} x \rfr{\land} (x \rfr{\lor} (y \rfr{\lor} z))) \cusand \cusand
+\m \thmlink{POS-LDis}{THM-LAsc-11} (\rfr{\lnot} x \rfr{\land} (x \rfr{\lor} (y \rfr{\lor} z)) = (\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y + z))) \cusand \cusand
+\m \thmlink{POS-LCom}{THM-LAsc-12} ((\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z)) = \rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z))) \cusand \cusand
+\m \thmlink{POS-LIdn}{THM-LAsc-13} (\rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y + z)) = \rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z)) \cusand \cusand
+\m \thmlink{THM-LAsc-1}{THM-LAsc-14} (\rfr{\lnot} x \rfr{\land} B = ...) \cusand \cusand
 \m \eqComment{Associative}
 \n \thmlink{000}{000} \ml(\mr)
 \m \eqComment{Boolean De Morgan's Laws}

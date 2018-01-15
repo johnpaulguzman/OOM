@@ -182,20 +182,42 @@ TODO silent link expressions!
 \m \thmlink{THM-LAsc-2, THM-LAsc-3, THM-LAsc-4, THM-LAsc-5, THM-LAsc-6, THM-LAsc-7, THM-LAsc-8}{THM-LAsc-9} (x \rfr{\land} A = x = x \rfr{\land} B) \cuspop \cusand
 \m \thmlink{THM-LAsc-1}{THM-LAsc-10} (\rfr{\lnot} x \rfr{\land} A = \rfr{\lnot} x \rfr{\land} (x \rfr{\lor} (y \rfr{\lor} z))) \cusand \cusand
 \m \thmlink{POS-LDis}{THM-LAsc-11} (\rfr{\lnot} x \rfr{\land} (x \rfr{\lor} (y \rfr{\lor} z)) = (\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y + z))) \cusand \cusand
-\m \thmlink{POS-LCom}{THM-LAsc-12} ((\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z)) = \rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z))) \cusand \cusand
+\m \thmlink{POS-LCmp}{THM-LAsc-12} ((\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z)) = \rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z))) \cusand \cusand
 \m \thmlink{POS-LIdn}{THM-LAsc-13} (\rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} (y + z)) = \rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z)) \cusand \cusand
 \m \thmlink{THM-LAsc-1}{THM-LAsc-14} (\rfr{\lnot} x \rfr{\land} B = \rfr{\lnot} x \rfr{\land} ((x \rfr{\lor} y) \rfr{\lor} z)) \cusand \cusand
 \m \thmlink{POS-LDis}{THM-LAsc-15} (\rfr{\lnot} x \rfr{\land} ((x \rfr{\lor} y) \rfr{\lor} z) = (\rfr{\lnot} x \rfr{\land} (x \rfr{\lor} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z)) \cusand \cusand
 \m \thmlink{POS-LDis}{THM-LAsc-16} ((\rfr{\lnot} x \rfr{\land} (x \rfr{\lor} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z) = ((\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z)) \cusand \cusand
-\m \thmlink{POS-LCom}{THM-LAsc-17} (((\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z) = (\rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z)) \cusand \cusand
+\m \thmlink{POS-LCmp}{THM-LAsc-17} (((\rfr{\lnot} x \rfr{\land} x) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z) = (\rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z)) \cusand \cusand
 \m \thmlink{POS-LIdn}{THM-LAsc-18} ((\rfr{F} \rfr{\lor} (\rfr{\lnot} x \rfr{\land} y)) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z) = (\rfr{\lnot} x \rfr{\land} y) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z)) \cusand \cusand
 \m \thmlink{POS-LDis}{THM-LAsc-19} ((\rfr{\lnot} x \rfr{\land} y) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} z) = \rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z)) \cusand \cusand
 \m \thmlink{THM-LAsc-10, THM-LAsc-11, THM-LAsc-12, THM-LAsc-13, THM-LAsc-14, THM-LAsc-15, THM-LAsc-16, THM-LAsc-17, THM-LAsc-18, THM-LAsc-19}{THM-LAsc-20} (\rfr{\lnot} x \rfr{\land} A = \rfr{\lnot} x \rfr{\land} (y \rfr{\lor} z) = \rfr{\lnot} x \rfr{\land} B) \cuspop \cusand
-\m \thmlink{}{} (A = A \rfr{\land} \rfr{T}) \cusand \cusand
-\m \thmlink{}{} (A = A \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand \cusand
-\m \thmlink{}{} (A \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = (x \rfr{\land} A) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} A)) \cusand \cusand
+\m \thmlink{POS-LDis}{THM-LAsc-21} (A = A \rfr{\land} \rfr{T}) \cusand \cusand
+\m \thmlink{POS-LCmp}{THM-LAsc-22} (A \rfr{\land} \rfr{T} = A \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand \cusand
+\m \thmlink{POS-LDis}{THM-LAsc-23} (A \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = (x \rfr{\land} A) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} A)) \cusand \cusand
+\m \thmlink{THM-LAsc-9}{THM-LAsc-24} ((x \rfr{\land} A) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} A) = (x \rfr{\land} B) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} A)) \cusand \cusand
+\m \thmlink{THM-LAsc-20}{THM-LAsc-25} ((x \rfr{\land} B) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} A) = (x \rfr{\land} B) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} B)) \cusand \cusand
+\m \thmlink{POS-LDis}{THM-LAsc-26} ((x \rfr{\land} B) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} B) = B \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x)) \cusand \cusand
+\m \thmlink{POS-LCmp}{THM-LAsc-27} (B \rfr{\land} (x \rfr{\lor} \rfr{\lnot} x) = B \rfr{\land} \rfr{T}) \cusand \cusand
+\m \thmlink{POS-LIdn}{THM-LAsc-27} (B \rfr{\land} \rfr{T} = B) \cusand \cusand
+\m \thmlink{THM-LAsc-21, THM-LAsc-22, THM-LAsc-23, THM-LAsc-24, THM-LAsc-25, THM-LAsc-26, THM-LAsc-27}{THM-LAsc-28} (A = B) \cusand \cusand
+\m \thmlink{THM-LAsc-28, THM-LAsc-1}{THM-LAsc-29} (x \rfr{\lor} (y \rfr{\lor} z) = (x \rfr{\lor} y) \rfr{\lor} z) \cuspop \cusand
+\m \thmlink{THM-LAsc-29, THM-Dual}{THM-LAsc} ((x \rfr{\lor} (y \rfr{\lor} z) = (x \rfr{\lor} y) \rfr{\lor} z) \cusand (x \rfr{\land} (y \rfr{\land} z) = (x \rfr{\land} y) \rfr{\land} z)) \cuspop \cuspop
 \m \eqComment{Associative}
-\n \thmlink{000}{000} \ml(\mr)
+\n \thmlink{POS-LDis}{THM-LDMr-1} ((x \rfr{\lor} y) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = ((x \rfr{\lor} y) \rfr{\lor} \rfr{\lnot} x) \rfr{\land} ((x \rfr{\lor} y) \rfr{\lor} \rfr{\lnot} y)) \cusand
+\m \thmlink{POS-LCom, THM-LAsc}{THM-LDMr-2} (((x \rfr{\lor} y) \rfr{\lor} \rfr{\lnot} x) \rfr{\land} ((x \rfr{\lor} y) \rfr{\lor} \rfr{\lnot} y) = ((x \rfr{\lor} \rfr{\lnot} x) \rfr{\lor} y) \rfr{\land} ((\rfr{\lnot} y \rfr{\lor} y) \rfr{\lor} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LDMr-3} (((x \rfr{\lor} \rfr{\lnot} x) \rfr{\lor} y) \rfr{\land} ((\rfr{\lnot} y \rfr{\lor} y) \rfr{\lor} x) = (\rfr{T} \rfr{\lor} y) \rfr{\land} (\rfr{T} \rfr{\lor} x)) \cusand
+\m \thmlink{THM-LDom}{THM-LDMr-4} ((\rfr{T} \rfr{\lor} y) \rfr{\land} (\rfr{T} \rfr{\lor} x) = \rfr{T} \rfr{\land} \rfr{T}) \cusand
+\m \thmlink{THM-LIdm}{THM-LDMr-5} (\rfr{T} \rfr{\land} \rfr{T} = \rfr{T}) \cusand
+\m \thmlink{THM-LDMr-1, THM-LDMr-2, THM-LDMr-3, THM-LDMr-4, THM-LDMr-5}{THM-LDMr-6} ((x \rfr{\lor} y) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = \rfr{T}) \cuspop
+\m \thmlink{THM-LDis}{THM-LDMr-7} ((x \rfr{\lor} y) \rfr{\land} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = (x \rfr{\land} \rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) \rfr{\lor} (y \rfr{\land} \rfr{\lnot} x \rfr{\land} \rfr{\lnot} y)) \cusand
+\m \thmlink{POS-LCom, THM-LAsc}{THM-LDMr-8} ((x \rfr{\land} \rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) \rfr{\lor} (y \rfr{\land} \rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = ((x \rfr{\land} \rfr{\lnot} x) \rfr{\land} \rfr{\lnot} y) \rfr{\lor} ((y \rfr{\land} \rfr{\lnot} y) \rfr{\land} \rfr{\lnot} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LDMr-9} (((x \rfr{\land} \rfr{\lnot} x) \rfr{\land} \rfr{\lnot} y) \rfr{\lor} ((y \rfr{\land} \rfr{\lnot} y) \rfr{\land} \rfr{\lnot} x) = (\rfr{F} \rfr{\land} \rfr{\lnot} y) \rfr{\lor} (\rfr{F} \rfr{\land} \rfr{\lnot} x)) \cusand
+\m \thmlink{THM-LDom}{THM-LDMr-10} ((\rfr{F} \rfr{\land} \rfr{\lnot} y) \rfr{\lor} (\rfr{F} \rfr{\land} \rfr{\lnot} x) = \rfr{F} \rfr{\lor} \rfr{F}) \cusand
+\m \thmlink{THM-LIdm}{THM-LDMr-11} (\rfr{F} \rfr{\lor} \rfr{F} = \rfr{F}) \cusand
+\m \thmlink{THM-LDMr-7, THM-LDMr-8, THM-LDMr-9, THM-LDMr-10, THM-LDMr-11}{THM-LDMr-12} ((x \rfr{\lor} y) \rfr{\land} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = \rfr{F}) \cuspop
+\m \thmlink{THM-LDMr-6, THM-LDMr-12, POS-LCmp}{THM-LDMr-13} (((x \rfr{\lor} y) \rfr{\lor} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = \rfr{T} = (x \rfr{\lor} y) \rfr{\lor} \rfr{\lnot} (x \rfr{\lor} y)) \cusand ((x \rfr{\lor} y) \rfr{\land} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y) = \rfr{F} = (x \rfr{\lor} y) \rfr{\land} \rfr{\lnot} (x \rfr{\lor} y))) \cusand
+\m \thmlink{THM-LDMr-13, THM-LUNt}{THM-LDMr-14} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y = \rfr{\lnot} (x \rfr{\lor} y)) \cusand
+\m \thmlink{THM-LDMr-14, THM-Dual}{THM-LDMr} ((\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y = \rfr{\lnot} (x \rfr{\lor} y)) \cusand (\rfr{\lnot} x \rfr{\lor} \rfr{\lnot} y = \rfr{\lnot} (x \rfr{\land} y))) \cuspop
 \m \eqComment{Boolean De Morgan's Laws}
 \n 000 TODO IF PROPERTIES
 \end{align}

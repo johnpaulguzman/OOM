@@ -1,12 +1,12 @@
 {
-    "usageCount": 4, 
+    "usageCount": 11, 
     "omitTrigger": false, 
     "prompt": false, 
     "description": "rfr", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "rfr"
+            "qwer"
         ], 
         "immediate": false, 
         "ignoreCase": false, 
@@ -21,6 +21,7 @@
         ]
     }, 
     "modes": [
+        1, 
         3
     ], 
     "showInTrayMenu": false, 

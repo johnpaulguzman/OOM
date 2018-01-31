@@ -1,12 +1,12 @@
 {
-    "usageCount": 0, 
+    "usageCount": 4, 
     "omitTrigger": false, 
     "prompt": false, 
     "description": "cusand", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "~ca"
+            "qwea"
         ], 
         "immediate": false, 
         "ignoreCase": false, 

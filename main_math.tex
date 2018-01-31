@@ -26,6 +26,8 @@
 \usepackage{centernot}
 \usepackage{multicol}
 \usepackage{etoolbox}
+\usepackage{xcolor} % black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{soul}
 \delimitershortfall-1sp
 \usepackage{mleftright}
 \mleftright
@@ -33,6 +35,7 @@
 \def\mr{\mright}
 
 \makeatletter
+\newcommand{\tdb}[1]{\colorbox{lime}{$\displaystyle #1$}}
 \newcommand{\defeq}{:=}
 \newcommand{\cusand}{,}
 \newcommand{\cuspop}{.}
@@ -112,8 +115,9 @@ TODO silent link expressions!
 \m \thmlink{THM-LExp-4, THM-LExp-3}{THM-LExp-5} \ml(y\mr) \cuspop
 \m \thmlink{THM-LExp-1, THM-LExp-2, THM-LExp-3, THM-LExp-4, THM-LExp-5}{THM-LExp} \ml(\rfr{F} \rfr{\implies} y\mr)
 \m \eqComment{The Principle of Explosion, anything follows from a false $\ml(\rfr{F}\mr)$ premise}
-\n \dfn{operatorOIF}[\dfn{\impliedby}][x, y] \defeq \ml(\rfr{truth}[x][]\mr) \cusand \ml(\rfr{truth}[y][]\mr) \cusand \ml(\rfr{truth}[x \rfr{\impliedby} y][] = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases}\mr) \cuspop
-\n \dfn{operatorIIF}[\dfn{\iff}][x, y] \defeq \ml(\rfr{truth}[x][]\mr) \cusand \ml(\rfr{truth}[y][]\mr) \cusand \ml(\rfr{truth}[x \rfr{\iff} y][] = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{F} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases}\mr) \cuspop
+\n \dfn{operatorOIF}[\dfn{\impliedby}][x, y] \defeq \ml(\rfr{truth}[x][]\mr) \cusand \ml(\rfr{truth}[y][]\mr) \cusand \ml(\rfr{truth}[x \rfr{\impliedby} y][] = \ml(\rfr{\lnot} y\mr) \rfr{\lor} x = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases}\mr) \cuspop
+\n \dfn{operatorIIF}[\dfn{\iff}][x, y] \defeq \ml(\rfr{truth}[x][]\mr) \cusand \ml(\rfr{truth}[y][]\mr) \cusand 
+\m \ml(\rfr{truth}[x \rfr{\iff} y][] = (x \rfr{\implies} y) \rfr{\land} (y \rfr{\implies} x) = \begin{cases} \rfr{T} & x = \rfr{F} \cusand y = \rfr{F} \\ \rfr{F} & x = \rfr{F} \cusand y = \rfr{T} \\ \rfr{F} & x = \rfr{T} \cusand y = \rfr{F} \\ \rfr{T} & x = \rfr{T} \cusand y = \rfr{T} \end{cases}\mr) \cuspop
 \end{align}
 \end{tcolorbox}
 
@@ -219,7 +223,26 @@ TODO silent link expressions!
 \m \thmlink{THM-LDMr-13, THM-LUNt}{THM-LDMr-14} (\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y = \rfr{\lnot} (x \rfr{\lor} y)) \cusand
 \m \thmlink{THM-LDMr-14, THM-Dual}{THM-LDMr} ((\rfr{\lnot} x \rfr{\land} \rfr{\lnot} y = \rfr{\lnot} (x \rfr{\lor} y)) \cusand (\rfr{\lnot} x \rfr{\lor} \rfr{\lnot} y = \rfr{\lnot} (x \rfr{\land} y))) \cuspop
 \m \eqComment{Boolean De Morgan's Laws}
-\n 000 TODO IF PROPERTIES
+\n \thmlink{\implies}{THM-CtrP-1} (x \rfr{\implies} y = (\rfr{\lnot} x) \rfr{\lor} y) \cusand 
+\m \thmlink{POS-LCom, THM-LInv}{THM-CtrP-2} ((\rfr{\lnot} x) \rfr{\lor} y = ((\rfr{\lnot} \rfr{\lnot} y) \rfr{\lor} (\rfr{\lnot} x))) \cusand 
+\m \thmlink{\implies}{THM-CtrP-3} ((\rfr{\lnot} \rfr{\lnot} y) \rfr{\lor} (\rfr{\lnot} x) = (\rfr{\lnot} y) \rfr{\implies} (\rfr{\lnot} x)) \cusand 
+\m \thmlink{THM-CtrP-1, THM-CtrP-2, THM-CtrP-3}{THM-CtrP} (x \rfr{\implies} y = (\rfr{\lnot} y) \rfr{\implies} (\rfr{\lnot} x)) \cuspop
+\m \eqComment{Contrapositive Law} 
+% http://www.cs.um.edu.mt/gordon.pace/Teaching/DiscreteMaths/Laws.pdf
+\n \tdb{(\rfr{T} \rfr{\implies} x = x)}
+\n \tdb{(\rfr{F} \rfr{\implies} x = \rfr{T})}
+\n \tdb{(x \rfr{\implies} \rfr{T} = \rfr{T})}
+\n \tdb{(x \rfr{\implies} \rfr{F} = \rfr{\lnot} x)}  
+\n \tdb{((x \rfr{\lor} y) \rfr{\implies} z) = (x \rfr{\implies} z) \rfr{\land} (y \rfr{\implies} z)}
+\n \tdb{(x \rfr{\implies} (y \rfr{\land} z) = (x \rfr{\implies} y) \rfr{\land} (x \rfr{\implies} z))} 
+\end{align}
+\end{tcolorbox}
+
+\subsection{Predicate Logic}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+\forall_{x \in \mathbb{N}} (2x/2 = x)
+\n P(x) \implies D
 \end{align}
 \end{tcolorbox}
 

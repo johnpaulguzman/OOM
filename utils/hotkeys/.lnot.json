@@ -1,12 +1,12 @@
 {
-    "usageCount": 0, 
+    "usageCount": 6, 
     "omitTrigger": false, 
     "prompt": false, 
     "description": "lnot", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "rfr"
+            "asdn"
         ], 
         "immediate": false, 
         "ignoreCase": false, 
@@ -21,6 +21,7 @@
         ]
     }, 
     "modes": [
+        1, 
         3
     ], 
     "showInTrayMenu": false, 

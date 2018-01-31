@@ -6,7 +6,7 @@
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "rfr"
+            "asda"
         ], 
         "immediate": false, 
         "ignoreCase": false, 
@@ -21,6 +21,7 @@
         ]
     }, 
     "modes": [
+        1, 
         3
     ], 
     "showInTrayMenu": false, 

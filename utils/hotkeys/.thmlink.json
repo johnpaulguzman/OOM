@@ -1,12 +1,12 @@
 {
-    "usageCount": 0, 
+    "usageCount": 3, 
     "omitTrigger": false, 
     "prompt": false, 
     "description": "thmlink", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "~soprint"
+            "qwetl"
         ], 
         "immediate": false, 
         "ignoreCase": false, 
@@ -21,6 +21,7 @@
         ]
     }, 
     "modes": [
+        1, 
         3
     ], 
     "showInTrayMenu": false, 

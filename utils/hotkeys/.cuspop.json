@@ -6,7 +6,7 @@
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "~cp"
+            "qwep"
         ], 
         "immediate": false, 
         "ignoreCase": false, 

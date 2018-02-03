@@ -37,6 +37,9 @@
 \makeatletter
 \newcommand{\tdb}[1]{\colorbox{lime}{$\displaystyle #1$}}
 \newcommand{\defeq}{:=}
+\newcommand{\uset}[1]{\{#1\}}
+\newcommand{\otup}[1]{\langle#1\rangle}
+\newcommand{\enlist}[2]{{#1}_{1}, {#1}_{2}, {#1}_{3}, \cdots, {#1}_{#2}}
 \newcommand{\cusand}{,}
 \newcommand{\cuspop}{.}
 \newcommand{\eqComment}[1]{\text{  \# #1}}
@@ -91,6 +94,34 @@ TODO silent link expressions!
 \setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
 
 % https://en.wikipedia.org/wiki/List_of_mathematical_abbreviations
+
+\section{Mathematical Logic}
+\subsection{NaiveMaster}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+   x \in y := \text{x belongs to y}
+\n x \subseteq y := \text{x is included in y}
+\n x = y := \text{x is the same thing as y}
+\m := x \subseteq y, y \subseteq x
+\n x \subset y, x \nsubseteq y := \text{proper subset}
+\m := x \neq y, x \subseteq y
+\n x \cup y := \text{all elements in x or y}
+\n x \cap y := \text{all elements in x and y}
+\n disjoint(x, y) := \text{disjoint sets}
+\m := x \cap y = \emptyset
+\n \uset{\enlist{e}{n}} := \text{unordered set containing $\enlist{e}{n}$}
+\m \uset{e_1, e_2, e_3} = \uset{e_3, e_1, e_2}
+\n \otup{\enlist{e}{n}} := \text{ordered tuple containing $\enlist{e}{n}$}
+\m \otup{e_1, e_2, e_3} \neq \otup{e_2, e_3, e_1}
+\n X^k = \uset{\enlist{e}{n}}^k := \text{set of all ordered k-tuples from the elements of $\enlist{e}{n}$}
+\n Y \times Z = \enlist{y}{i} \times \enlist{z}{j} := \text{Cartesian product}
+\m := \bigcup_{a \leq i, b \leq j} (\uset{\otup{y_a, z_b}})
+\n R Y = \otup{\enlist{x}{k}} Y \subseteq Y^k := \text{k-tuple relation R on the set Y takes only tuples that satisfy some relation}
+\m P Y = \otup{x} Y := \text{property P of the set Y}
+\n TODO ENSURE R Y intuition page 21
+\n 0
+\end{align}
+\end{tcolorbox}
 
 \section{Logic and Set Theory}
 \subsection{Logical Truths and Operators}

@@ -114,12 +114,20 @@ TODO silent link expressions!
 \n \otup{\enlist{e}{n}} := \text{ordered tuple containing $\enlist{e}{n}$}
 \m \otup{e_1, e_2, e_3} \neq \otup{e_2, e_3, e_1}
 \n X^k = \uset{\enlist{e}{n}}^k := \text{set of all ordered k-tuples from the elements of $\enlist{e}{n}$}
-\n Y \times Z = \enlist{y}{i} \times \enlist{z}{j} := \text{Cartesian product}
+\m X^1 = \uset{\enlist{e}{n}}^1 = \uset{\otup{e_1}, \otup{e_2}, \otup{e_3}, \cdots, \otup{e_n}} = \uset{\enlist{e}{n}} = X
+\n Y \times Z = \uset{\enlist{y}{i}} \times \uset{\enlist{z}{j}} := \text{Cartesian product}
 \m := \bigcup_{a \leq i, b \leq j} (\uset{\otup{y_a, z_b}})
-\n R Y = \otup{\enlist{x}{k}} Y \subseteq Y^k := \text{k-tuple relation R on the set Y takes only tuples that satisfy some relation}
-\m P Y = \otup{x} Y := \text{property P of the set Y}
-\n TODO ENSURE R Y intuition page 21
-\n 0
+\n R^k_Y \subseteq Y^k := \text{k-tuple relation R on the set Y takes only tuples that satisfy some relation}
+\m P_Y \subseteq Y := \text{property P of the set Y}
+\n \otup{y, z} \in binaryRelation(R^2_X) = y R^2_X z
+\m domain(Y), range(Z)
+\m field(R) = Y \cup Z
+\m \otup{a, b} \in inverse(R^{-1}) : \otup{b, a} \in R 
+\m reflexive(R^2_X) : x R^2_X x
+\m symmetric(R^2_X) : x R^2_X y = y R^2_X x
+\m transitive(R^2_X) : x R^2_X y, y R^2_X z : x R^2_X z
+\m equivalenceRelation(R^2_X) := reflexive(R^2_X), symmetric(R^2_X), transitive(R^2_X)
+\n take this intro shit more srsly 
 \end{align}
 \end{tcolorbox}
 

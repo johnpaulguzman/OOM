@@ -1,0 +1,21 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath} 
+
+\newcommand\defComment[2]{\expandafter\def\csname Comment#1\endcsname{#2}}
+\newcommand\CommentText[1]{\csname Comment#1\endcsname}
+\begin{document}
+
+\defComment{1}{Example}
+\defComment{42}{Another example}
+
+Test:
+\CommentText{1} \CommentText{42}
+\defComment{lol}{\lor}
+
+
+\begin{align}
+  \CommentText{lol}
+\end{align}
+
+\end{document}

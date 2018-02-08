@@ -1,21 +1,143 @@
+% NOTE DUPLICATE 439
+% Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
-\usepackage{amsmath} 
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
 
-\newcommand\defComment[2]{\expandafter\def\csname Comment#1\endcsname{#2}}
-\newcommand\CommentText[1]{\csname Comment#1\endcsname}
+%% Sets page size and margins
+\usepackage[a4paper,top=1.25cm,bottom=1.25cm,left=1.0cm,right=1.0cm,marginparwidth=1.25cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx} 
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\DeclareMathSizes{12}{30}{16}{12}
+\usepackage[final]{pdfpages}
+\usepackage{gensymb}
+\usepackage{empheq}
+\usepackage[section]{placeins}
+\usepackage[most]{tcolorbox}
+\usepackage{esint}
+\usepackage{amssymb}
+\usepackage{centernot}
+\usepackage{multicol}
+\usepackage{etoolbox}
+\usepackage{xparse}
+\usepackage{xcolor} % black, blue, brown, cyan, darkgray, gray, green, lightgray, lime, magenta, olive, orange, pink, purple, red, teal, violet, white, yellow.
+\usepackage{soul}
+\delimitershortfall-1sp
+\usepackage{mleftright}
+\mleftright
+\def\ml{\mleft}
+\def\mr{\mright}
+
+\makeatletter
+\newcommand{\tdb}[1]{\colorbox{lime}{$\displaystyle #1$}}
+\newcommand{\defeq}{:=}
+\newcommand{\uset}[1]{\{#1\}}
+\newcommand{\otup}[1]{\langle#1\rangle}
+\newcommand{\enlist}[2]{{#1}_{1}, {#1}_{2}, {#1}_{3}, \cdots, {#1}_{#2}}
+\newcommand{\cusand}{,}
+\newcommand{\cuspop}{.}
+\newcommand{\eqComment}[1]{\text{  \# #1}}
+\newcommand{\eqSep}{\text{ ;  }}
+\newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
+\newcommand{\m}{\nonumber \\}
+\newcommand{\field}[1]{\textbf{\textit{#1}}}
+
+%%%%%%%%%%%%%%%%%%
+\newcommand{\dfnNEW}[2]{\textcolor{teal}{%
+  \hypertarget{#1}{#2}%
+    \protected@write\@mainaux{}{%
+        \string\expandafter\string\gdef
+          \string\csname\string\detokenize{#1}\string\endcsname{#2}%
+    }%
+  }}
+\DeclareDocumentCommand{\dfn}{m o}{%
+  \dfnNEW{#1}{\IfNoValueTF{#2}{#1}{#2}}
+  }
+  
+\newcommand{\rfrNEW}[1]{%
+  \hyperlink{#1}{\csname #1\endcsname}%
+  }
+\newcommand{\rfr}[1]{% maybe optional this as well
+  \ifcsname#1\endcsname%
+    \rfrNEW{#1}%
+  \else%
+    \textcolor{red}{#1^!}% undefined
+  \fi%
+}
+
+%%%%%%%%%%%%%%%%%%
+\newcommand\rfrlist[1]{%
+    \forcsvlist{\rfrlist@item}{#1}
+}
+\newcommand\rfrlist@item[1]{\rfr{#1}\\}
+\newcommand{\thmlink}[2]{{}_{\substack{\rfrlist{#1}}}^{\dfn{#2}} }
+\makeatother
+
+\title{Next-Next-Gen Notes \\
+\large Object-Oriented Maths}
+\author{JP Guzman}
+
 \begin{document}
-
-\defComment{1}{Example}
-\defComment{42}{Another example}
-
-Test:
-\CommentText{1} \CommentText{42}
-\defComment{lol}{\lor}
+\maketitle
+\allowdisplaybreaks
 
 
+\thinmuskip=2mu % commas
+\medmuskip=2mu % operators
+\thickmuskip=2mu % equalities
+\setlength{\belowdisplayskip}{0pt} \setlength{\belowdisplayshortskip}{0pt}
+\setlength{\abovedisplayskip}{0pt} \setlength{\abovedisplayshortskip}{0pt}
+
+% https://en.wikipedia.org/wiki/List_of_mathematical_abbreviations
+
+\section{Mathematical Logic}
+\subsection{NaiveMaster}
+\begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-  \CommentText{lol}
+\n \dfn{setenum}[\{\}]
+\n \rfr{setenum}
+\n \tdb{\textbf{undefined terms}}
+\m \dfn{set}, \dfn{element}, \dfn{-in}[\in], \dfn{-subset}[\subseteq], \dfn{-eq}[=], \dfn{-not}[\not] //, \dfn{-psubset}[\subset], \dfn{-union}[\cup], \dfn{-intersection}[\cap], \dfn{empty-set}[\emptyset]
+\n \rfr{element} [x][] \rfr{-in} \rfr{set} [y][]
+\m \eqComment{x belongs to y}
+\n \rfr{set} [x][] \rfr{-subset} \rfr{set} [y][]
+\m \eqComment{x is included in y}
+\n \rfr{set} [x][] \rfr{-eq} \rfr{set} [y][] \defeq (\rfr{set} [x][] \rfr{-subset} \rfr{set} [y][], \rfr{set} [y][] \rfr{-subset} \rfr{set} [x][])
+\m \eqComment{x is the same set as y}
+\n \rfr{set} [x][] \rfr{-psubset} \rfr{set} [y][] ((= x \nsubseteq y)) \defeq \rfr{set} [x][] \subseteq \rfr{set} [y][], \rfr{set} [x][] \rfr{-not} \rfr{-eq} \rfr{set} [y][]
+\m \eqComment{x is a proper subset of y}
+\n \rfr{set} [x][] \rfr{-union} \rfr{set} [y][]
+\m \eqComment{all elements in x or y}
+\n \rfr{set} [x][] \rfr{-intersection} \rfr{set} [y][]
+\m \eqComment{all elements in x and y}
+\n \dfn{disjoint} [x, y][] \defeq \rfr{set} [x][] \rfr{-intersection} \rfr{set} [y][] \rfr{-eq} \rfr{empty-set}
+\m \eqComment{disjoint sets do not intersect}
+\n \uset{\enlist{e}{n}}
+\m \eqComment{unordered set containing $\enlist{e}{n}$}
+\m \uset{e_1, e_2, e_3} = \uset{e_3, e_1, e_2}
+\n \otup{\enlist{e}{n}} := \text{ordered tuple containing $\enlist{e}{n}$}
+\m \otup{e_1, e_2, e_3} \neq \otup{e_2, e_3, e_1}
+\n X^k = \uset{\enlist{e}{n}}^k := \text{set of all ordered k-tuples from the elements of $\enlist{e}{n}$}
+\m X^1 = \uset{\enlist{e}{n}}^1 = \uset{\otup{e_1}, \otup{e_2}, \otup{e_3}, \cdots, \otup{e_n}} = \uset{\enlist{e}{n}} = X
+\n Y \times Z = \uset{\enlist{y}{i}} \times \uset{\enlist{z}{j}} := \text{Cartesian product}
+\m := \bigcup_{a \leq i, b \leq j} (\uset{\otup{y_a, z_b}})
+\n R^k_Y \subseteq Y^k := \text{k-tuple relation R on the set Y takes only tuples that satisfy some relation}
+\m P_Y \subseteq Y := \text{property P of the set Y}
+\n \otup{y, z} \in binaryRelation(R^2_X) = y R^2_X z
+\m domain(Y), range(Z)
+\m field(R) = Y \cup Z
+\m \otup{a, b} \in inverse(R^{-1}) : \otup{b, a} \in R 
+\m reflexive(R^2_X) : x R^2_X x
+\m symmetric(R^2_X) : x R^2_X y = y R^2_X x
+\m transitive(R^2_X) : x R^2_X y, y R^2_X z : x R^2_X z
 \end{align}
+\end{tcolorbox}
 
 \end{document}

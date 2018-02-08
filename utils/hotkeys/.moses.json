@@ -1,24 +1,21 @@
 {
-    "usageCount": 11, 
+    "usageCount": 0, 
     "omitTrigger": false, 
     "prompt": false, 
-    "description": "rfr", 
+    "description": "moses", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "zxcr"
+            "moses"
         ], 
-        "immediate": true, 
+        "immediate": false, 
         "ignoreCase": false, 
         "backspace": true, 
         "triggerInside": false
     }, 
     "hotkey": {
-        "hotKey": "r", 
-        "modifiers": [
-            "<ctrl>", 
-            "<super>"
-        ]
+        "hotKey": null, 
+        "modifiers": []
     }, 
     "modes": [
         1

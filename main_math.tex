@@ -47,7 +47,7 @@
 \newcommand{\eqSep}{\text{ ;  }}
 \newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
 \newcommand{\m}{\nonumber \\}
-\newcommand{\field}[1]{\textbf{\textit{#1}}}
+\newcommand{\sfield}[1]{\textbf{\textit{#1}}}
 
 %%%%%%%%%%%%%%%%%%
 \newcommand{\dfnNEW}[2]{\textcolor{teal}{%
@@ -64,11 +64,21 @@
 \newcommand{\rfrNEW}[1]{%
   \hyperlink{#1}{\csname #1\endcsname}%
   }
-\newcommand{\rfr}[1]{% maybe optional this as well
+%\newcommand{\rfr}[1]{% maybe optional this as well
+%  \ifcsname#1\endcsname%
+%    \rfrNEW{#1}%
+%  \else%
+%    \textcolor{red}{#1^!}% undefined
+%  \fi%
+%}
+\DeclareDocumentCommand{\rfr}{m o o}{%
   \ifcsname#1\endcsname%
-    \rfrNEW{#1}%
+    \IfNoValueTF{#3}{\IfNoValueTF{#2}{
+      \rfrNEW{#1}}{
+      \rfrNEW{#1} #2}}{
+      (#2 \rfrNEW{#1} #3)}
   \else%
-    \textcolor{red}{#1^!}% undefined
+    \textcolor{red}{\space^!#1}% undefined
   \fi%
 }
 
@@ -99,32 +109,76 @@
 
 \section{Mathematical Logic}
 \subsection{NaiveMaster}
+\tdb{\textbf{undefined terms}:} $%
+   \dfn{set}, %
+   \dfn{tuple}, %
+   \dfn{element}, % 
+   \dfn{nnumber}, %
+   \dfn{-in}[\in], %
+   \dfn{-subset}[\subseteq], %
+   \dfn{-eq}[=], %
+   \dfn{-not}[\not] \ , %
+   \dfn{-psubset}[\subset], %
+   \dfn{-union}[\cup], %
+   \dfn{-intersection}[\cap], %
+   \dfn{empty-set}[\emptyset], %
+   \dfn{usetl}[\{], %
+   \dfn{usetr}[\}], %
+   \dfn{otupl}[\langle], %
+   \dfn{otupr}[\rangle], %
+   \dfn{st}[\mid], %
+   \dfn{ktupset}[\widehat{\ }], %
+   \dfn{cartesian}[\times], %
+   \dfn{relation}, %
+   \dfn{property}, %
+   \dfn{binaryRelation}, %
+     \\ %
+   \dfn{domain}, %
+   \dfn{range}, %
+   \dfn{field}, %
+$
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-\n \tdb{\dfn{set}, \dfn{element}, \dfn{IN}[\in]}
-\n \rfr{element} [x] \in \rfr{set} [y] := \text{x belongs to y}
-\n x \subseteq y := \text{x is included in y}
-\n x = y := \text{x is the same thing as y}
-\m := x \subseteq y, y \subseteq x
-\n x \subset y, x \nsubseteq y := \text{proper subset}
-\m := x \neq y, x \subseteq y
-\n x \cup y := \text{all elements in x or y}
-\n x \cap y := \text{all elements in x and y}
-\n disjoint(x, y) := \text{disjoint sets}
-\m := x \cap y = \emptyset
-\n \uset{\enlist{e}{n}} := \text{unordered set containing $\enlist{e}{n}$}
-\m \uset{e_1, e_2, e_3} = \uset{e_3, e_1, e_2}
-\n \otup{\enlist{e}{n}} := \text{ordered tuple containing $\enlist{e}{n}$}
-\m \otup{e_1, e_2, e_3} \neq \otup{e_2, e_3, e_1}
-\n X^k = \uset{\enlist{e}{n}}^k := \text{set of all ordered k-tuples from the elements of $\enlist{e}{n}$}
-\m X^1 = \uset{\enlist{e}{n}}^1 = \uset{\otup{e_1}, \otup{e_2}, \otup{e_3}, \cdots, \otup{e_n}} = \uset{\enlist{e}{n}} = X
-\n Y \times Z = \uset{\enlist{y}{i}} \times \uset{\enlist{z}{j}} := \text{Cartesian product}
-\m := \bigcup_{a \leq i, b \leq j} (\uset{\otup{y_a, z_b}})
-\n R^k_Y \subseteq Y^k := \text{k-tuple relation R on the set Y takes only tuples that satisfy some relation}
-\m P_Y \subseteq Y := \text{property P of the set Y}
-\n \otup{y, z} \in binaryRelation(R^2_X) = y R^2_X z
-\m domain(Y), range(Z)
-\m field(R) = Y \cup Z
+\n \rfr{element} [x][] \rfr{-in} \rfr{set} [y][] %
+%%%\rfr{-in}[\rfr{element} [x][]][\rfr{set} [y][]]
+\m \eqComment{x belongs to y}
+\n \rfr{set} [x][] \rfr{-subset} \rfr{set} [y][]
+\m \eqComment{x is included in y}
+\n \rfr{set} [x][] \rfr{-eq} \rfr{set} [y][] \defeq (\rfr{set} [x][] \rfr{-subset} \rfr{set} [y][], \rfr{set} [y][] \rfr{-subset} \rfr{set} [x][])
+\m \eqComment{x is the same set as y}
+\n \rfr{set} [x][] \rfr{-psubset} \rfr{set} [y][] ((= x \nsubseteq y)) \defeq \rfr{set} [x][] \subseteq \rfr{set} [y][], \rfr{set} [x][] \rfr{-not} \rfr{-eq} \rfr{set} [y][]
+\m \eqComment{x is a proper subset of y}
+\n \rfr{set} [x][] \rfr{-union} \rfr{set} [y][]
+\m \eqComment{all elements in x or y}
+\n \rfr{set} [x][] \rfr{-intersection} \rfr{set} [y][]
+\m \eqComment{all elements in x and y}
+\n \dfn{disjoint} [x, y][] \defeq \rfr{set} [x][] \rfr{-intersection} \rfr{set} [y][] \rfr{-eq} \rfr{empty-set}
+\m \eqComment{disjoint sets do not intersect}
+\n \rfr{set} [E][] \rfr{-eq} \rfr{usetl} \enlist{e}{n} \rfr{usetr}
+\m \eqComment{unordered set containing $\enlist{e}{n}$}
+\m \rfr{usetl} e_1, e_2, e_3 \rfr{usetr} \rfr{-eq} \rfr{usetl} e_3, e_1, e_2 \rfr{usetr}
+\n \rfr{tuple} [E][] \rfr{-eq} \rfr{otupl} \enlist{e}{n} \rfr{otupr} 
+\m \eqComment{ordered tuple containing $\enlist{e}{n}$}
+\m \rfr{otupl} e_1, e_2, e_3 \rfr{otupr} \rfr{-not} \rfr{-eq} \rfr{otupl} e_2, e_3, e_1 \rfr{otupr}
+\n \rfr{set} [X][] \rfr{ktupset} \rfr{nnumber} [k][]
+\m \eqComment{set of all ordered k-tuples from the elements in X}
+\m X \rfr{ktupset} 1 \rfr{-eq} \rfr{usetl} \enlist{e}{n} \rfr{usetr} \rfr{ktupset} 1 \rfr{-eq} \rfr{usetl} \rfr{otupl} e_1 \rfr{otupr}, \rfr{otupl} e_2 \rfr{otupr}, \rfr{otupl} e_3 \rfr{otupr}, \cdots, \rfr{otupl} e_n \rfr{otupr} \rfr{usetr} = \rfr{usetl} \enlist{e}{n} \rfr{usetr} \rfr{-eq} X
+\n \rfr{set} [Y][] \rfr{times} \rfr{set} [Z][]
+\m \eqComment{Cartesian product}
+\n \rfr{relation} [R][S, k] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} \rfr{nnumber} [k][]
+\m \eqComment{k-tuple relation R on the set S takes only tuples that satisfy some relation}
+\n \rfr{property} [P][S] \rfr{-eq} \rfr{relation} [P][S, 1] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} 1 \rfr{-eq} S
+\m \eqComment{property P of the set S}
+\n \rfr{binaryRelation} [B][S] \rfr{-eq} \rfr{relation} [B][S, 2] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} 2
+\m x B y \rfr{-eq} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} B 
+\n \rfr{domain} [X][B, S] \rfr{-eq} \rfr{usetl} x \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}
+\n \rfr{range} [Y][B, S] \rfr{-eq} \rfr{usetl} y \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}
+\n \rfr{field} [F][B, S] \rfr{-eq} \rfr{domain} [X][B, S] \rfr{-union} \rfr{range} [Y][B, S]
+\n \dfn{inverseRelation} [B^{-1}][B, S] \defeq \rfr{usetl} \rfr{otupl} y, x \rfr{otupr} \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}
+\n \dfn{reflexive} [B][S] \defeq x \rfr{-in} \rfr{field} [F][B, S], x B x define forall not in set, quantifiers, if and or etc.
+\n \dfn{symmetric} [B][S] \defeq
+\n \dfn{transitive} [B][S] \defeq
+\n000000000000000000000000000000000000000000000000000000000000000000000000000000000000000  
 \m \otup{a, b} \in inverse(R^{-1}) : \otup{b, a} \in R 
 \m reflexive(R^2_X) : x R^2_X x
 \m symmetric(R^2_X) : x R^2_X y = y R^2_X x

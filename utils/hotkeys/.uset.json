@@ -1,12 +1,12 @@
 {
-    "usageCount": 11, 
+    "usageCount": 0, 
     "omitTrigger": false, 
     "prompt": false, 
-    "description": "rfr", 
+    "description": "uset", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [
-            "zxcr"
+            "zxcu"
         ], 
         "immediate": true, 
         "ignoreCase": false, 
@@ -14,11 +14,8 @@
         "triggerInside": false
     }, 
     "hotkey": {
-        "hotKey": "r", 
-        "modifiers": [
-            "<ctrl>", 
-            "<super>"
-        ]
+        "hotKey": null, 
+        "modifiers": []
     }, 
     "modes": [
         1

@@ -136,6 +136,13 @@
    \dfn{domain}, %
    \dfn{range}, %
    \dfn{field}, %
+   \dfn{universal}[\forall]. %
+   \dfn{existential}[\exists], %
+   \dfn{-and}[\land], %
+   \dfn{-or}[\lor], %
+   \dfn{-if}[\implies], %
+   \dfn{-oif}[\impliedby], %
+   \dfn{-iff}[\iff], % 
 $
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
@@ -144,9 +151,9 @@ $
 \m \eqComment{x belongs to y}
 \n \rfr{set} [x][] \rfr{-subset} \rfr{set} [y][]
 \m \eqComment{x is included in y}
-\n \rfr{set} [x][] \rfr{-eq} \rfr{set} [y][] \defeq (\rfr{set} [x][] \rfr{-subset} \rfr{set} [y][], \rfr{set} [y][] \rfr{-subset} \rfr{set} [x][])
+\n (\rfr{set} [x][] \rfr{-eq} \rfr{set} [y][]) \defeq (\rfr{set} [x][] \rfr{-subset} \rfr{set} [y][] \rfr{-and} \rfr{set} [y][] \rfr{-subset} \rfr{set} [x][])
 \m \eqComment{x is the same set as y}
-\n \rfr{set} [x][] \rfr{-psubset} \rfr{set} [y][] ((= x \nsubseteq y)) \defeq \rfr{set} [x][] \subseteq \rfr{set} [y][], \rfr{set} [x][] \rfr{-not} \rfr{-eq} \rfr{set} [y][]
+\n (\rfr{set} [x][] \rfr{-psubset} \rfr{set} [y][]) \defeq (\rfr{set} [x][] \subseteq \rfr{set} [y][] \rfr{-and} \rfr{set} [x][] \rfr{-not} \rfr{-eq} \rfr{set} [y][])
 \m \eqComment{x is a proper subset of y}
 \n \rfr{set} [x][] \rfr{-union} \rfr{set} [y][]
 \m \eqComment{all elements in x or y}
@@ -169,22 +176,24 @@ $
 \m \eqComment{k-tuple relation R on the set S takes only tuples that satisfy some relation}
 \n \rfr{property} [P][S] \rfr{-eq} \rfr{relation} [P][S, 1] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} 1 \rfr{-eq} S
 \m \eqComment{property P of the set S}
+\n \tdb{\textbf{use defeq to keep the object typing instead of }}
+\m \tdb{\textbf{ref-eq which reduces it to a propositional truth value. }}
+\m \tdb{\textbf{But, how do I chain ref-eq tho?}}
 \n \rfr{binaryRelation} [B][S] \rfr{-eq} \rfr{relation} [B][S, 2] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} 2
 \m x B y \rfr{-eq} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} B 
 \n \rfr{domain} [X][B, S] \rfr{-eq} \rfr{usetl} x \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}
 \n \rfr{range} [Y][B, S] \rfr{-eq} \rfr{usetl} y \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}
 \n \rfr{field} [F][B, S] \rfr{-eq} \rfr{domain} [X][B, S] \rfr{-union} \rfr{range} [Y][B, S]
 \n \dfn{inverseRelation} [B^{-1}][B, S] \defeq \rfr{usetl} \rfr{otupl} y, x \rfr{otupr} \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}
-\n \dfn{reflexive} [B][S] \defeq x \rfr{-in} \rfr{field} [F][B, S], x B x define forall not in set, quantifiers, if and or etc.
-\n \dfn{symmetric} [B][S] \defeq
-\n \dfn{transitive} [B][S] \defeq
-\n000000000000000000000000000000000000000000000000000000000000000000000000000000000000000  
-\m \otup{a, b} \in inverse(R^{-1}) : \otup{b, a} \in R 
-\m reflexive(R^2_X) : x R^2_X x
-\m symmetric(R^2_X) : x R^2_X y = y R^2_X x
-\m transitive(R^2_X) : x R^2_X y, y R^2_X z : x R^2_X z
-\m equivalenceRelation(R^2_X) := reflexive(R^2_X), symmetric(R^2_X), transitive(R^2_X)
-\n take this intro shit more srsly 
+\n \dfn{reflexive} [B][S] \defeq \rfr{universal}_{x \rfr{-in} \rfr{field} [F][B, S]} (x B x)
+\n \dfn{symmetric} [B][S] \defeq \rfr{universal}_{x, y \in S} (x B y \rfr{-if} y B x)
+\n \dfn{transitive} [B][S] \defeq \rfr{universal}_{x, y, z \in S} ((x B y \rfr{-and} y B z) \rfr{-if} x B z)
+\n \dfn{equivalenceRelation} [B][S] \defeq (\rfr{reflexive} [B][S] \rfr{-and} \rfr{symmetric} [B][S] \rfr{-and} \rfr{transitive} [B][S])
+\n \dfn{equivalenceClass} [[y]][y, B, S] \defeq \{z \rfr{-in} \rfr{field} [F][B, S] \rfr{st} y B z\}
+\m (\rfr{equivalenceClass} [[u]][u, B, S] \rfr{-eq} \rfr{equivalenceClass} [[v]][v, B, S]) \rfr{-iff} (u B v)
+\m (\rfr{equivalenceClass} [[u]][u, B, S] \rfr{-not} \rfr{-eq} [[v]][v, B, S]) \rfr{-if} ([u] \rfr{-intersection} [v] \rfr{-eq} \rfr{emptyset})
+\m \eqComment{a set can be partitioned by equivalence classes}
+\n \dfn{function} [f][S] \defeq (\rfr{universal}_{x, y, z \rfr{-in} S} (\rfr{otupl} x, y \rfr{otupr} \rfr{in} f \rfr{-and} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} f) \rfr{-if} (y = z))
 \end{align}
 \end{tcolorbox}
 

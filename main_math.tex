@@ -1,4 +1,4 @@
-% NOTE DUPLICATE 439
+% use qualifying logical predicates instead of in relation for quantifiers NOTE DUPLICATE 439
 % Operators dump: \odot$ \quad $\oplus$ \quad $\otimes$ \quad $\ominus$ \quad $\oslash
 \documentclass[a4paper]{article}
 
@@ -226,6 +226,13 @@ $
 \end{align}
 \end{tcolorbox}
 
+\subsection{Boolean Algebra Properties}
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+0
+\end{align}
+\end{tcolorbox}
+
 \begin{comment}
 
 \subsection{Boolean Algebra Properties}
@@ -345,15 +352,16 @@ $
 \end{align}
 \end{tcolorbox}
 
-\subsection{Predicate Logic}
+\end{comment}
+
+
+\subsection{Noncircular FOL definition}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-\forall_{x \in \mathbb{N}} (2x/2 = x)
-\n P(x) \implies D
+   \forall_{x \mid Q(x)} (P(x)) :: (Q(y) \implies P(y))
+\m \exists_{a \mid R(a)} (O(a)) :: \lnot \forall_{a \mid R(a)} (\lnot O(a)) :: \lnot (R(b) \implies \lnot O(b)) 
 \end{align}
 \end{tcolorbox}
-
-\end{comment}
 
 %\section{Glossary}
 %\begin{multicols}{4}

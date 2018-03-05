@@ -97,6 +97,38 @@
 
 % https://en.wikipedia.org/wiki/List_of_mathematical_abbreviations
 
+
+$
+\m \thmlink{POS-LDis}{THM-LDMr-1} ((x \rfr{OR} y) \rfr{OR} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y) = ((x \rfr{OR} y) \rfr{OR} \rfr{NOT} x) \rfr{AND} ((x \rfr{OR} y) \rfr{OR} \rfr{NOT} y)) \cusand
+\m \thmlink{POS-LCom, THM-LAsc}{THM-LDMr-2} (((x \rfr{OR} y) \rfr{OR} \rfr{NOT} x) \rfr{AND} ((x \rfr{OR} y) \rfr{OR} \rfr{NOT} y) = ((x \rfr{OR} \rfr{NOT} x) \rfr{OR} y) \rfr{AND} ((\rfr{NOT} y \rfr{OR} y) \rfr{OR} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LDMr-3} (((x \rfr{OR} \rfr{NOT} x) \rfr{OR} y) \rfr{AND} ((\rfr{NOT} y \rfr{OR} y) \rfr{OR} x) = (\rfr{T} \rfr{OR} y) \rfr{AND} (\rfr{T} \rfr{OR} x)) \cusand
+\m \thmlink{THM-LDom}{THM-LDMr-4} ((\rfr{T} \rfr{OR} y) \rfr{AND} (\rfr{T} \rfr{OR} x) = \rfr{T} \rfr{AND} \rfr{T}) \cusand
+\m \thmlink{THM-LIdm}{THM-LDMr-5} (\rfr{T} \rfr{AND} \rfr{T} = \rfr{T}) \cusand
+\m \thmlink{THM-LDMr-1, THM-LDMr-2, THM-LDMr-3, THM-LDMr-4, THM-LDMr-5}{THM-LDMr-6} ((x \rfr{OR} y) \rfr{OR} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y) = \rfr{T}) \cuspop
+\m \thmlink{THM-LDis}{THM-LDMr-7} ((x \rfr{OR} y) \rfr{AND} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y) = (x \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y) \rfr{OR} (y \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y)) \cusand
+\m \thmlink{POS-LCom, THM-LAsc}{THM-LDMr-8} ((x \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y) \rfr{OR} (y \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y) = ((x \rfr{AND} \rfr{NOT} x) \rfr{AND} \rfr{NOT} y) \rfr{OR} ((y \rfr{AND} \rfr{NOT} y) \rfr{AND} \rfr{NOT} x)) \cusand
+\m \thmlink{POS-LCmp}{THM-LDMr-9} (((x \rfr{AND} \rfr{NOT} x) \rfr{AND} \rfr{NOT} y) \rfr{OR} ((y \rfr{AND} \rfr{NOT} y) \rfr{AND} \rfr{NOT} x) = (\rfr{F} \rfr{AND} \rfr{NOT} y) \rfr{OR} (\rfr{F} \rfr{AND} \rfr{NOT} x)) \cusand
+\m \thmlink{THM-LDom}{THM-LDMr-10} ((\rfr{F} \rfr{AND} \rfr{NOT} y) \rfr{OR} (\rfr{F} \rfr{AND} \rfr{NOT} x) = \rfr{F} \rfr{OR} \rfr{F}) \cusand
+\m \thmlink{THM-LIdm}{THM-LDMr-11} (\rfr{F} \rfr{OR} \rfr{F} = \rfr{F}) \cusand
+\m \thmlink{THM-LDMr-7, THM-LDMr-8, THM-LDMr-9, THM-LDMr-10, THM-LDMr-11}{THM-LDMr-12} ((x \rfr{OR} y) \rfr{AND} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y) = \rfr{F}) \cuspop
+\m \thmlink{THM-LDMr-6, THM-LDMr-12, POS-LCmp}{THM-LDMr-13} (((x \rfr{OR} y) \rfr{OR} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y) = \rfr{T} = (x \rfr{OR} y) \rfr{OR} \rfr{NOT} (x \rfr{OR} y)) \cusand ((x \rfr{OR} y) \rfr{AND} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y) = \rfr{F} = (x \rfr{OR} y) \rfr{AND} \rfr{NOT} (x \rfr{OR} y))) \cusand
+\m \thmlink{THM-LDMr-13, THM-LUNt}{THM-LDMr-14} (\rfr{NOT} x \rfr{AND} \rfr{NOT} y = \rfr{NOT} (x \rfr{OR} y)) \cusand
+\m \thmlink{THM-LDMr-14, THM-Dual}{THM-LDMr} ((\rfr{NOT} x \rfr{AND} \rfr{NOT} y = \rfr{NOT} (x \rfr{OR} y)) \cusand (\rfr{NOT} x \rfr{OR} \rfr{NOT} y = \rfr{NOT} (x \rfr{AND} y))) \cuspop
+\m \eqComment{Boolean De Morgan's Laws}
+    \m \thmlink{IMPLIESWAT}{THM-CtrP-1} (x \rfr{IF} y = (\rfr{NOT} x) \rfr{OR} y) \cusand 
+\m \thmlink{POS-LCom, THM-LInv}{THM-CtrP-2} ((\rfr{NOT} x) \rfr{OR} y = ((\rfr{NOT} \rfr{NOT} y) \rfr{OR} (\rfr{NOT} x))) \cusand 
+\m \thmlink{IMPLIESWAT}{THM-CtrP-3} ((\rfr{NOT} \rfr{NOT} y) \rfr{OR} (\rfr{NOT} x) = (\rfr{NOT} y) \rfr{IF} (\rfr{NOT} x)) \cusand 
+\m \thmlink{THM-CtrP-1, THM-CtrP-2, THM-CtrP-3}{THM-CtrP} (x \rfr{IF} y = (\rfr{NOT} y) \rfr{IF} (\rfr{NOT} x)) \cuspop
+\m \eqComment{Contrapositive Law} 
+% http://www.cs.um.edu.mt/gordon.pace/Teaching/DiscreteMaths/Laws.pdf
+    \m \tdb{(\rfr{T} \rfr{IF} x = x)}
+    \m \tdb{(\rfr{F} \rfr{IF} x = \rfr{T})}
+    \m \tdb{(x \rfr{IF} \rfr{T} = \rfr{T})}
+    \m \tdb{(x \rfr{IF} \rfr{F} = \rfr{NOT} x)}  
+    \m \tdb{((x \rfr{OR} y) \rfr{IF} z) = (x \rfr{IF} z) \rfr{AND} (y \rfr{IF} z)}
+    \m \tdb{(x \rfr{IF} (y \rfr{AND} z) = (x \rfr{IF} y) \rfr{AND} (x \rfr{IF} z))}
+$
+
 \section{Mathematical Logic}
 \subsection{NaiveMaster}
 \begin{tcolorbox}[breakable, enhanced]

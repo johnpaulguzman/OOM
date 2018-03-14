@@ -121,17 +121,19 @@
 
 % https://en.wikipedia.org/wiki/List_of_mathematical_abbreviations
 
-\tdb{\textbf{undefined terms}:} $%
-   (\defeq), (\eq), (\cusand), (\cuspop{\_}{\_}), (\cusend) %
-$
 
 \section{Logic and Set Theory}
 \subsection{Logical Truths and Operators}
+\tdb{\textbf{undefined terms}:} $%
+   \defeq, %
+   \eq, %
+   (\_), %
+   \cusand, %
+   \cusend, %
+$
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
      \dfn{truth} [t][] \defeq \ml(t \eq \begin{cases} \dfn{T} \\ \dfn{F} \end{cases}\mr) 
-%    \n \dfn{statement} [s][] \defeq \rfr{correctSyntaxSemantics} [s][] 
-%    \n \dfn{proposition} [s, t][] \defeq \ml(\rfr{statement} [s][]\mr) \cusand \ml(\rfr{truth} [t][]\mr) \cusend
     \n \dfn{operatorOR} [\dfn{OR}[\lor]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{OR} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorAND} [\dfn{AND}[\land]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{AND} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{F} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorNOT} [\dfn{NOT}[\lnot]][x] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [\rfr{NOT} x][] \eq \begin{cases} \rfr{T} & x \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1} 
@@ -279,6 +281,9 @@ $
 
 
 \subsection{Predicate Logic}
+\tdb{\textbf{undefined terms}:} $%
+   \cuspop{\_}{\_}, %
+$
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
     \dfn{predicate} [P][] \defeq \rfr{truth} [P(\free{v})][] 
@@ -286,11 +291,28 @@ $
 \m (\rfr{FORALL}_{\cuspop{x}{Q(x)}} (P(x)) \eq Q(\free{y}) \rfr{IF} P(\free{y})) \cusnum{\cusend}{1}
     \n \dfn{existentialQuantifier} [\dfn{EXISTS}[\exists]][Q, P] \defeq (\rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{NOT} \rfr{FORALL}_{\cuspop{x}{Q(x)}} (\rfr{NOT} P(x)))
     \n \dfn{uniquenessQuantifier} [\dfn{UNIQUE}[\exists!]][Q, P] \defeq (\rfr{UNIQUE}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x)) \rfr{AND} \rfr{FORALL}_{\cuspop{y}{P(y)}} \rfr{FORALL}_{\cuspop{z}{P(z)}} (y = z))
-    \n 0
+    \n \tdb{use posets to define an abstract operator, and then use set structures to define universal operators}
+    \n \tdb{predicate shenanigans}
 \end{align}
 \end{tcolorbox}
 
 
+\subsection{Axiom System for Propositional Logic}
+%http://planetmath.org/axiomsystemforpropositionallogic
+\tdb{\textbf{undefined terms}:} $%
+  \dfn{set}, %
+  \dfn{infiniteSet}, % 
+  \dfn{finiteSet}, % 
+  \dfn{countableSet}, %
+  \dfn{tuple}, %
+  \dfn{finiteTuple}, %
+$
+\begin{tcolorbox}[breakable, enhanced]
+\begin{align}
+    \dfn{formalTheory} [\mathcal{F}][alphabet, validSyntax] \defeq 
+\m 0
+\end{align}
+\end{tcolorbox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\section{Glossary}
 %\begin{multicols}{4}

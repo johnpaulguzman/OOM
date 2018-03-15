@@ -279,6 +279,7 @@ $
 \m \tdb{\ml(x \rfr{IF} \rfr{F} \eq \rfr{NOT} x\mr)}  
 \m \tdb{\ml(\ml(x \rfr{OR} y\mr) \rfr{IF} z\mr) \eq \ml(x \rfr{IF} z\mr) \rfr{AND} \ml(y \rfr{IF} z\mr)}
 \m \tdb{\ml(x \rfr{IF} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{IF} y\mr) \rfr{AND} \ml(x \rfr{IF} z\mr)\mr)} 
+\m \tdb{\ml(x \rfr{IFF} y \eq x \rfr{IF} y \rfr{AND} \rfr{NOT} x \rfr{IF} \rfr{NOT} y\mr)}
 \end{align}
 \end{tcolorbox}
 
@@ -298,14 +299,14 @@ $
     \n \dfn{existentialQuantifier} [\dfn{EXISTS}[\exists]][Q, P] \defeq (\rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{NOT} \rfr{FORALL}_{\cuspop{x}{Q(x)}} (\rfr{NOT} P(x)))
     \n \dfn{uniquenessQuantifier} [\dfn{UNIQUE}[\exists!]][Q, P] \defeq (\rfr{UNIQUE}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x) \rfr{AND} \rfr{NOT} \rfr{EXISTS}_{\cuspop{y}{Q(y)}} (P(y) \rfr{AND} \rfr{NOT} (y \eq x))))
     \n \dfn{relationSetEq} [\dfn{seteq}[\eq]][X, Y] \defeq (\rfr{FORALL}_{\cuspop{z}{z \rfr{in} X \rfr{OR} z \rfr{in} Y}} (z \rfr{in} X \rfr{AND} z \rfr{in} Y))
-    \n \dfn{operatorIntersection} [\dfn{intersect}[\bigcap]][X] \defeq (\rfr{intersect}(X) = \uset{\cuspop{z}{\rfr{FORALL}_{x \rfr{relationIn} X} (z \rfr{relationIn} x)}})
-    \n \dfn{operatorUnion} [\dfn{union}[\bigcup]][X] \defeq (\rfr{union}(X) = \uset{\cuspop{z}{\rfr{EXISTS}_{x \rfr{relationIn} X} (z \rfr{relationIn} x)}})
+    \n \dfn{operatorIntersection} [\dfn{intersect}[\bigcap]][X] \defeq (z \rfr{in} \rfr{intersect}(X) \rfr{IFF} \rfr{FORALL}_{x \rfr{relationIn} X} (z \rfr{relationIn} x))
+    \n \dfn{operatorUnion} [\dfn{union}[\bigcup]][X] \defeq (z \rfr{in} \rfr{union}(X) \rfr{IFF} \rfr{EXISTS}_{x \rfr{relationIn} X} (z \rfr{relationIn} x))
     \n \dfn{orderedPair} [<x, y>][] == <x, y> = <a, b> iff x = a and y = b == \{\{x\},\{x,y\}\} %WATDO1st
 \end{align}
 \end{tcolorbox}
 % TODO CODING STANDARDS - NAMING SCHEME
 % TODO define all elementary structures, then return back to kinder level first order logic!
-
+% TODO define notion of sets of sets of sets of ... mathcal standard
 
 \begin{comment}
 

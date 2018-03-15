@@ -35,7 +35,7 @@
 \def\ml{\mleft}
 \def\mr{\mright}
 
-\newcommand*{\img}[1]{%
+\newcommand*{\img}[1]{\phantom{\_} %
     \raisebox{-0.5\baselineskip}{%
         \includegraphics[
         height=1.5\baselineskip,
@@ -43,7 +43,7 @@
         keepaspectratio,
         ]{#1}%
     }%
-}
+\phantom{\_} }
 
 \makeatletter
 \newcommand{\tdb}[1]{\colorbox{lime}{$\displaystyle #1$}}
@@ -123,13 +123,13 @@
 
 
 \section{Logic and Set Theory}
-\subsection{Logical Truths and Operators}
+\subsection{D: Logical Truths and Operators}
 \tdb{\textbf{undefined terms}:} $%
-   \defeq, %
+   \defeq, % \begin{cases} \_ \end{cases}, 
    \eq, %
    (\_), %
    \cusand, %
-   \cusend, %
+   \cusend, % 
 $
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
@@ -137,20 +137,15 @@ $
     \n \dfn{operatorOR} [\dfn{OR}[\lor]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{OR} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorAND} [\dfn{AND}[\land]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{AND} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{F} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorNOT} [\dfn{NOT}[\lnot]][x] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [\rfr{NOT} x][] \eq \begin{cases} \rfr{T} & x \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1} 
-    \n \dfn{booleanAlgebra} [\{\rfr{T}, \rfr{F}\}, \rfr{AND}, \rfr{OR}, \rfr{NOT}][] \cusnum{\defeq}{1} \thmlink{}{POS-LCom} \ml(\ml(x \rfr{AND} y \eq y \rfr{AND} x\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} y \eq y \rfr{OR} x\mr)\mr) \eqComment{Commutative} \cusnum{\cusand}{1}
-\m \thmlink{}{POS-LDis} \ml(\ml(x \rfr{AND} \ml(y \rfr{OR} z\mr) \eq \ml(x \rfr{AND} y\mr) \rfr{OR} \ml(x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{OR} y\mr) \rfr{AND} \ml(x \rfr{OR} z\mr)\mr)\mr) \eqComment{Distributive} \cusnum{\cusand}{1}
-\m \thmlink{}{POS-LIdn} \ml(\ml(x \rfr{AND} \rfr{T} \eq x\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} \rfr{F} \eq x\mr)\mr) \eqComment{Identity} \cusnum{\cusand}{1}
-\m \thmlink{}{POS-LCmp} \ml(\ml(x \rfr{AND} \rfr{NOT} x \eq \rfr{F}\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} \rfr{NOT} x \eq \rfr{T}\mr)\mr) \eqComment{Complement} \cusnum{\cusend}{1}
-\m \tdb{\eqComment{Note: I sometimes get too lazy to refer to $POS-LCom$.}} \phantom{\_} \img{my-b.jpg}
     \n \dfn{operatorXOR} [\dfn{XOR}[\veebar]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{XOR} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorIF} [\dfn{IF}[\implies]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{IF} y][] \eq \ml(\rfr{NOT} x\mr) \rfr{OR} y \eq \begin{cases} \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{F} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T}\cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
-    \n \thmlink{POS-LCmp}{THM-LExp-1} \ml(\rfr{F} \eq x \rfr{AND} \rfr{NOT} x\mr) \cusnum{\rfr{IF}}{1}
-\m \thmlink{THM-LExp-1}{THM-LExp-2} \ml(x\mr) \cusnum{\cusand}{1}
-\m \thmlink{THM-LExp-1}{THM-LExp-3} \ml(\rfr{NOT} x\mr) \cusnum{\cusand}{1}
-\m \thmlink{THM-LExp-2}{THM-LExp-4} \ml(x \rfr{OR} y\mr) \cusnum{\cusand}{1}
-\m \thmlink{THM-LExp-4, THM-LExp-3}{THM-LExp-5} \ml(y\mr) \cusnum{\cusend}{1}
-\m \thmlink{THM-LExp-1, THM-LExp-2, THM-LExp-3, THM-LExp-4, THM-LExp-5}{THM-LExp} \ml(\rfr{F} \rfr{IF} y\mr)
-\m \eqComment{The Principle of Explosion, anything follows from a false $\ml(\rfr{F}\mr)$ premise}
+%    \n \thmlink{POS-LCmp}{THM-LExp-1} \ml(\rfr{F} \eq x \rfr{AND} \rfr{NOT} x\mr) \cusnum{\rfr{IF}}{1}
+%\m \thmlink{THM-LExp-1}{THM-LExp-2} \ml(x\mr) \cusnum{\cusand}{1}
+%\m \thmlink{THM-LExp-1}{THM-LExp-3} \ml(\rfr{NOT} x\mr) \cusnum{\cusand}{1}
+%\m \thmlink{THM-LExp-2}{THM-LExp-4} \ml(x \rfr{OR} y\mr) \cusnum{\cusand}{1}
+%\m \thmlink{THM-LExp-4, THM-LExp-3}{THM-LExp-5} \ml(y\mr) \cusnum{\cusend}{1}
+%\m \thmlink{THM-LExp-1, THM-LExp-2, THM-LExp-3, THM-LExp-4, THM-LExp-5}{THM-LExp} \ml(\rfr{F} \rfr{IF} y\mr)
+\m \eqComment{a counterexample cannot follow from a false precedence, thus the conditional cannot be false}
     \n \dfn{operatorOIF} [\dfn{OIF}[\impliedby]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{OIF} y][] \eq \ml(\rfr{NOT} y\mr) \rfr{OR} x \eq \begin{cases} \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorIIF} [\dfn{IFF}[\iff]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1}
 \m \ml(\rfr{truth} [x \rfr{IFF} y][] \eq (x \rfr{IF} y) \rfr{AND} (y \rfr{IF} x) \eq \begin{cases} \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{F} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
@@ -158,10 +153,17 @@ $
 \end{tcolorbox}
 
 
-\subsection{Boolean Algebra Properties}
+\subsection{P: Boolean Algebra}
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-     \thmlink{}{THM-Dual-1} \Bigg(\rfr{booleanAlgebra} [\{\rfr{T}, \rfr{F}\}, \rfr{AND}, \rfr{OR}, \rfr{NOT}][] \cusnum{\rfr{IFF}}{1}
+    \dfn{booleanAlgebra} [\ml(\top, \bot, \otimes, \oplus, \ominus\mr)][] \cusnum{\defeq}{1} \thmlink{}{POS-LCom} \ml(\ml(x \otimes y \eq y \otimes x\mr) \cusnum{\cusand}{1} \ml(x \oplus y \eq y \oplus x\mr)\mr) \eqComment{Commutative} \cusnum{\cusand}{1}
+\m \thmlink{}{POS-LDis} \ml(\ml(x \otimes \ml(y \oplus z\mr) \eq \ml(x \otimes y\mr) \oplus \ml(x \otimes z\mr)\mr) \cusnum{\cusand}{1} \ml(x \oplus \ml(y \otimes z\mr) \eq \ml(x \oplus y\mr) \otimes \ml(x \oplus z\mr)\mr)\mr) \eqComment{Distributive} \cusnum{\cusand}{1}
+\m \thmlink{}{POS-LIdn} \ml(\ml(x \otimes \top \eq x\mr) \cusnum{\cusand}{1} \ml(x \oplus \bot \eq x\mr)\mr) \eqComment{Identity} \cusnum{\cusand}{1}
+\m \thmlink{}{POS-LCmp} \ml(\ml(x \otimes \ml(\ominus x\mr) \eq \bot\mr) \cusnum{\cusand}{1} \ml(x \oplus \ml(\ominus x\mr) \eq \top\mr)\mr) \eqComment{Complement} \cusnum{\cusend}{1}
+\m \tdb{\eqComment{Note: I sometimes get too lazy to refer to $POS-LCom$.}} \img{my-b.jpg} 
+    \n \thmlink{}{INS-LBAl} \ml(\rfr{booleanAlgebra} [\rfr{T}, \rfr{F}, \rfr{AND}, \rfr{OR}, \rfr{NOT}][]\mr)
+\m \eqComment{Proven by way of cases or truth tables}
+    \n \thmlink{}{THM-Dual-1} \Bigg(\rfr{booleanAlgebra} [\ml(\rfr{T}, \rfr{F}, \rfr{AND}, \rfr{OR}, \rfr{NOT}\mr)][] \cusnum{\rfr{IFF}}{1}
 \m \ml(\ml(x \rfr{AND} y \eq y \rfr{AND} x\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} y \eq y \rfr{OR} x\mr)\mr) \eqComment{Commutative} \cusnum{\cusand}{1}
 \m \ml(\ml(x \rfr{AND} \ml(y \rfr{OR} z\mr) \eq \ml(x \rfr{AND} y\mr) \rfr{OR} \ml(x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{OR} y\mr) \rfr{AND} \ml(x \rfr{OR} z\mr)\mr)\mr) \eqComment{Distributive} \cusnum{\cusand}{1}
 \m \ml(\ml(x \rfr{AND} \rfr{T} \eq x\mr) \cusnum{\cusand}{1} \ml(x \rfr{OR} \rfr{F} \eq x\mr)\mr) \eqComment{Identity} \cusnum{\cusand}{1}
@@ -170,11 +172,12 @@ $
 \m \ml(\ml(x \rfr{OR} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{OR} y\mr) \rfr{AND} \ml(x \rfr{OR} z\mr)\mr) \cusnum{\cusand}{2} \ml(x \rfr{AND} \ml(y \rfr{OR} z\mr) \eq \ml(x \rfr{AND} y\mr) \rfr{OR} \ml(x \rfr{AND} z\mr)\mr)\mr) \eqComment{Reordered Distributive} \cusnum{\cusand}{2}
 \m \ml(\ml(x \rfr{OR} \rfr{F} \eq x\mr) \cusnum{\cusand}{2} \ml(x \rfr{AND} \rfr{T} \eq x\mr)\mr) \eqComment{Reordered Identity} \cusnum{\cusand}{2}
 \m \ml(\ml(x \rfr{OR} \rfr{NOT} x \eq \rfr{T}\mr) \cusnum{\cusand}{2} \ml(x \rfr{AND} \rfr{NOT} x \eq \rfr{F}\mr)\mr) \eqComment{Reordered Complement} \cusnum{\cusend}{2} \rfr{IFF}
-\m \rfr{booleanAlgebra} [\{\rfr{F}, \rfr{T}\}, \rfr{OR}, \rfr{AND}, \rfr{NOT}][]\Bigg)
-\m \thmlink{THM-Dual-1}{THM-Dual} \ml(\rfr{booleanAlgebra} [\{\rfr{T}, \rfr{F}\}, \rfr{AND}, \rfr{OR}, \rfr{NOT}][] \rfr{IFF} \rfr{booleanAlgebra} [\{\rfr{F}, \rfr{T}\}, \rfr{OR}, \rfr{AND}, \rfr{NOT}][]\mr)
+\m \rfr{booleanAlgebra} [\ml(\rfr{F}, \rfr{T}, \rfr{OR}, \rfr{AND}, \rfr{NOT}\mr)][]\Bigg)
+\m \thmlink{THM-Dual-1}{THM-Dual-2} \ml(\rfr{booleanAlgebra} [\ml(\rfr{T}, \rfr{F}, \rfr{AND}, \rfr{OR}, \rfr{NOT}\mr)][] \rfr{IFF} \rfr{booleanAlgebra} [\ml(\rfr{F}, \rfr{T}, \rfr{OR}, \rfr{AND}, \rfr{NOT}\mr)][]\mr)
+\m \thmlink{THM-Dual-2, INS-LBAl}{THM-Dual} \rfr{booleanAlgebra} [\ml(\rfr{F}, \rfr{T}, \rfr{OR}, \rfr{AND}, \rfr{NOT}\mr)][]\ml(\mr)
 \m \eqComment{Boolean Algebra Duality follows from the swap symmetry of $\ml(\rfr{AND}, \rfr{T}\mr)$ and $\ml(\rfr{OR}, \rfr{F}\mr)$ within the axioms}
     \n \thmlink{}{THM-LUNt-1} \ml(\ml(x \rfr{OR} y \eq \rfr{T} \eq x \rfr{OR} z\mr) \rfr{AND} \ml(x \rfr{AND} y \eq \rfr{F} \eq x \rfr{AND} z\mr)\mr) \cusnum{\rfr{IF}}{1}
-\m \thmlink{POS-LIdn}{THM-LUNt-2} \ml(y \eq y \rfr{AND} \rfr{T}\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LIdn}{THM-LUNt-2} \ml(y \eq y \rfr{AND} \rfr{T}\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LUNt-1}{THM-LUNt-3} \ml(y \rfr{AND} \rfr{T} \eq y \rfr{AND} \ml(x \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{POS-LDis}{THM-LUNt-4} \ml(y \rfr{AND} \ml(x \rfr{OR} z\mr) \eq \ml(y \rfr{AND} x\mr) \rfr{OR} \ml(y \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{POS-LCom, THM-LUNt-4}{THM-LUNt-5} \ml(\ml(y \rfr{AND} x\mr) \rfr{OR} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{AND} z\mr) \rfr{OR} \ml(y \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
@@ -183,7 +186,7 @@ $
 \m \thmlink{POS-LIdn}{THM-LUNt-8} \ml(z \rfr{AND} \rfr{T} \eq z\mr) \cusnum{\cusend}{1}
 \m \thmlink{THM-LUNt-1, THM-LUNt-2, THM-LUNt-3, THM-LUNt-4, THM-LUNt-5, THM-LUNt-6, THM-LUNt-7, THM-LUNt-8}{THM-LUNt} \ml(\ml(\ml(x \rfr{OR} y \eq \rfr{T} \eq x \rfr{OR} z\mr) \rfr{AND} \ml(x \rfr{AND} y \eq \rfr{F} \eq x \rfr{AND} z\mr)\mr) \rfr{IF} \ml(y \eq z\mr)\mr)
 \m \eqComment{Uniqueness of Complements}
-    \n \thmlink{POS-LIdn}{THM-LDom-1} \ml(x \rfr{OR} \rfr{T} \eq \ml(x \rfr{OR} \rfr{T}\mr) \rfr{AND} \rfr{T}\mr)
+    \n \thmlink{INS-LBAl, POS-LIdn}{THM-LDom-1} \ml(x \rfr{OR} \rfr{T} \eq \ml(x \rfr{OR} \rfr{T}\mr) \rfr{AND} \rfr{T}\mr)
 \m \thmlink{POS-LCmp}{THM-LDom-2} \ml(\ml(x \rfr{OR} \rfr{T}\mr) \rfr{AND} \rfr{T} \eq \ml(x \rfr{OR} \rfr{T}\mr) \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr)
 \m \thmlink{POS-LDis}{THM-LDom-3} \ml(\ml(x \rfr{OR} \rfr{T}\mr) \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq x \rfr{OR} \ml(\rfr{T} \rfr{AND} \rfr{NOT} x\mr)\mr)
 \m \thmlink{POS-LIdn}{THM-LDom-4} \ml(x \rfr{OR} \ml(\rfr{T} \rfr{AND} \rfr{NOT} x\mr) \eq x \rfr{OR} \rfr{NOT} x\mr)
@@ -191,7 +194,7 @@ $
 \m \thmlink{THM-LDom-1, THM-LDom-2, THM-LDom-3, THM-LDom-4, THM-LDom-5}{THM-LDom-6} \ml(x \rfr{OR} \rfr{T} \eq \rfr{T}\mr)
 \m \thmlink{THM-LDom-6, THM-Dual}{THM-LDom} \ml(\ml(x \rfr{OR} \rfr{T} \eq \rfr{T}\mr) \cusand \ml(x \rfr{AND} \rfr{F} \eq \rfr{F}\mr)\mr)
 \m \eqComment{Domination}
-    \n \thmlink{POS-LIdn}{THM-LIdm-1} \ml(x \rfr{OR} x \eq \ml(x \rfr{OR} x\mr) \rfr{AND} \rfr{T}\mr) 
+    \n \thmlink{INS-LBAl, POS-LIdn}{THM-LIdm-1} \ml(x \rfr{OR} x \eq \ml(x \rfr{OR} x\mr) \rfr{AND} \rfr{T}\mr) 
 \m \thmlink{POS-LCmp}{THM-LIdm-2} \ml(\ml(x \rfr{OR} x\mr) \rfr{AND} \rfr{T} \eq \ml(x \rfr{OR} x\mr) \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr) 
 \m \thmlink{POS-LDis}{THM-LIdm-3} \ml(\ml(x \rfr{OR} x\mr) \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq x \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr) 
 \m \thmlink{POS-LCmp}{THM-LIdm-4} \ml(x \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq x \rfr{AND} \rfr{T}\mr) 
@@ -199,7 +202,7 @@ $
 \m \thmlink{THM-LIdm-1, THM-LIdm-2, THM-LIdm-3, THM-LIdm-4, THM-LIdm-5}{THM-LIdm-6} \ml(x \rfr{OR} x \eq x\mr) 
 \m \thmlink{THM-LIdm-6, THM-Dual}{THM-LIdm} \ml(\ml(x \rfr{OR} x \eq x\mr) , \ml(x \rfr{AND} x \eq x\mr)\mr) 
 \m \eqComment{Idempotent}
-    \n \thmlink{POS-LIdn}{THM-LInv-1} \ml(\rfr{NOT} \rfr{NOT} x \eq \rfr{NOT} \rfr{NOT} x \rfr{OR} \rfr{F}\mr)
+    \n \thmlink{INS-LBAl, POS-LIdn}{THM-LInv-1} \ml(\rfr{NOT} \rfr{NOT} x \eq \rfr{NOT} \rfr{NOT} x \rfr{OR} \rfr{F}\mr)
 \m \thmlink{POS-LCmp}{THM-LInv-2} \ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} \rfr{F} \eq \rfr{NOT} \rfr{NOT} x \rfr{OR} \ml(x \rfr{AND} \rfr{NOT} x\mr)\mr) 
 \m \thmlink{POS-LDis}{THM-LInv-3} \ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} \ml(x \rfr{AND} \rfr{NOT} x\mr)\eq \ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} x\mr) \rfr{AND} \ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} \rfr{NOT} x\mr)\mr) 
 \m \thmlink{POS-LCmp}{THM-LInv-4} \ml(\ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} x\mr) \rfr{AND} \ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} \rfr{NOT} x\mr) \eq \ml(\rfr{NOT} \rfr{NOT} x \rfr{OR} x\mr) \rfr{AND} \rfr{T}\mr) 
@@ -209,7 +212,7 @@ $
 \m \thmlink{POS-LIdn}{THM-LInv-8} \ml(x \rfr{OR} \rfr{F} \eq x\mr) 
 \m \thmlink{THM-LInv-1, THM-LInv-2, THM-LInv-3, THM-LInv-4, THM-LInv-5, THM-LInv-6, THM-LInv-7, THM-LInv-8}{THM-LInv} \ml(\rfr{NOT} \rfr{NOT} x \eq x\mr) 
 \m \eqComment{Involution}
-    \n \thmlink{POS-LIdn}{THM-LAbs-1} \ml(x \rfr{OR} \ml(x \rfr{AND} y\mr) \eq \ml(x \rfr{AND} \rfr{T}\mr) \rfr{OR} \ml(x \rfr{AND} y\mr)\mr) 
+    \n \thmlink{INS-LBAl, POS-LIdn}{THM-LAbs-1} \ml(x \rfr{OR} \ml(x \rfr{AND} y\mr) \eq \ml(x \rfr{AND} \rfr{T}\mr) \rfr{OR} \ml(x \rfr{AND} y\mr)\mr) 
 \m \thmlink{POS-LDis}{THM-LAbs-2} \ml(\ml(x \rfr{AND} \rfr{T}\mr) \rfr{OR} \ml(x \rfr{AND} y\mr) \eq x \rfr{AND} \ml(\rfr{T} \rfr{OR} y\mr)\mr) 
 \m \thmlink{THM-LDom}{THM-LAbs-3} \ml(x \rfr{AND} \ml(\rfr{T} \rfr{OR} y\mr) \eq x \rfr{AND} \rfr{T}\mr) 
 \m \thmlink{POS-LIdn}{THM-LAbs-4} \ml(x \rfr{AND} \rfr{T} \eq x\mr) 
@@ -220,43 +223,43 @@ $
 \m \thmlink{THM-LAsc-1}{THM-LAsc-2} \ml(x \rfr{AND} A \eq x \rfr{AND} \ml(x \rfr{OR} \ml(y \rfr{OR} z\mr)\mr)\mr) \cusnum{\cusand}{1} 
 \m \thmlink{THM-LAbs}{THM-LAsc-3} \ml(x \rfr{AND} \ml(x \rfr{OR} \ml(y \rfr{OR} z\mr)\mr) \eq x\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-1}{THM-LAsc-4} \ml(x \rfr{AND} B \eq x \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-5} \ml(x \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} z\mr) \eq \ml(x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-5} \ml(x \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} z\mr) \eq \ml(x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAbs}{THM-LAsc-6} \ml(\ml(x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(x \rfr{AND} z\mr) \eq x \rfr{OR} \ml(x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAbs}{THM-LAsc-7} \ml(x \rfr{OR} \ml(x \rfr{AND} z\mr) \eq x\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAbs}{THM-LAsc-8} \ml(\ml(x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(x \rfr{AND} z\mr) \eq x \rfr{OR} \ml(x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-2, THM-LAsc-3, THM-LAsc-4, THM-LAsc-5, THM-LAsc-6, THM-LAsc-7, THM-LAsc-8}{THM-LAsc-9} \ml(x \rfr{AND} A \eq x \eq x \rfr{AND} B\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-1}{THM-LAsc-10} \ml(\rfr{NOT} x \rfr{AND} A \eq \rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} \ml(y \rfr{OR} z\mr)\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-11} \ml(\rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} \ml(y \rfr{OR} z\mr)\mr) \eq \ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y + z\mr)\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LCmp}{THM-LAsc-12} \ml(\ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr) \eq \rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LIdn}{THM-LAsc-13} \ml(\rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y + z\mr)\mr) \eq \rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-11} \ml(\rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} \ml(y \rfr{OR} z\mr)\mr) \eq \ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y + z\mr)\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LCmp}{THM-LAsc-12} \ml(\ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr) \eq \rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LIdn}{THM-LAsc-13} \ml(\rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \ml(y + z\mr)\mr) \eq \rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-1}{THM-LAsc-14} \ml(\rfr{NOT} x \rfr{AND} B \eq \rfr{NOT} x \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-15} \ml(\rfr{NOT} x \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} z\mr) \eq \ml(\rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-16} \ml(\ml(\rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \ml(\ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LCmp}{THM-LAsc-17} \ml(\ml(\ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \ml(\rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LIdn}{THM-LAsc-18} \ml(\ml(\rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \ml(\rfr{NOT} x \rfr{AND} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-19} \ml(\ml(\rfr{NOT} x \rfr{AND} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-15} \ml(\rfr{NOT} x \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} z\mr) \eq \ml(\rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-16} \ml(\ml(\rfr{NOT} x \rfr{AND} \ml(x \rfr{OR} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \ml(\ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LCmp}{THM-LAsc-17} \ml(\ml(\ml(\rfr{NOT} x \rfr{AND} x\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \ml(\rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LIdn}{THM-LAsc-18} \ml(\ml(\rfr{F} \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} y\mr)\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \ml(\rfr{NOT} x \rfr{AND} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-19} \ml(\ml(\rfr{NOT} x \rfr{AND} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} z\mr) \eq \rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-10, THM-LAsc-11, THM-LAsc-12, THM-LAsc-13, THM-LAsc-14, THM-LAsc-15, THM-LAsc-16, THM-LAsc-17, THM-LAsc-18, THM-LAsc-19}{THM-LAsc-20} \ml(\rfr{NOT} x \rfr{AND} A \eq \rfr{NOT} x \rfr{AND} \ml(y \rfr{OR} z\mr) \eq \rfr{NOT} x \rfr{AND} B\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-21} \ml(A \eq A \rfr{AND} \rfr{T}\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LCmp}{THM-LAsc-22} \ml(A \rfr{AND} \rfr{T} \eq A \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-23} \ml(A \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq \ml(x \rfr{AND} A\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} A\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-21} \ml(A \eq A \rfr{AND} \rfr{T}\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LCmp}{THM-LAsc-22} \ml(A \rfr{AND} \rfr{T} \eq A \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-23} \ml(A \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq \ml(x \rfr{AND} A\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} A\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-9}{THM-LAsc-24} \ml(\ml(x \rfr{AND} A\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} A\mr) \eq \ml(x \rfr{AND} B\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} A\mr)\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-20}{THM-LAsc-25} \ml(\ml(x \rfr{AND} B\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} A\mr) \eq \ml(x \rfr{AND} B\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} B\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LDis}{THM-LAsc-26} \ml(\ml(x \rfr{AND} B\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} B\mr) \eq B \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LCmp}{THM-LAsc-27} \ml(B \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq B \rfr{AND} \rfr{T}\mr) \cusnum{\cusand}{1}
-\m \thmlink{POS-LIdn}{THM-LAsc-27} \ml(B \rfr{AND} \rfr{T} \eq B\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LAsc-26} \ml(\ml(x \rfr{AND} B\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} B\mr) \eq B \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr)\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LCmp}{THM-LAsc-27} \ml(B \rfr{AND} \ml(x \rfr{OR} \rfr{NOT} x\mr) \eq B \rfr{AND} \rfr{T}\mr) \cusnum{\cusand}{1}
+\m \thmlink{INS-LBAl, POS-LIdn}{THM-LAsc-27} \ml(B \rfr{AND} \rfr{T} \eq B\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-21, THM-LAsc-22, THM-LAsc-23, THM-LAsc-24, THM-LAsc-25, THM-LAsc-26, THM-LAsc-27}{THM-LAsc-28} \ml(A \eq B\mr) \cusnum{\cusand}{1}
 \m \thmlink{THM-LAsc-28, THM-LAsc-1}{THM-LAsc-29} \ml(x \rfr{OR} \ml(y \rfr{OR} z\mr) \eq \ml(x \rfr{OR} y\mr) \rfr{OR} z\mr) \cusnum{\cusend}{1}
 \m \thmlink{THM-LAsc-29, THM-Dual}{THM-LAsc} \ml(\ml(x \rfr{OR} \ml(y \rfr{OR} z\mr) \eq \ml(x \rfr{OR} y\mr) \rfr{OR} z\mr) \cusand \ml(x \rfr{AND} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{AND} y\mr) \rfr{AND} z\mr)\mr) 
 \m \eqComment{Associative}
-    \n \thmlink{POS-LDis}{THM-LDMr-1} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \rfr{NOT} x\mr) \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \rfr{NOT} y\mr)\mr) 
+    \n \thmlink{INS-LBAl, POS-LDis}{THM-LDMr-1} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \rfr{NOT} x\mr) \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \rfr{NOT} y\mr)\mr) 
 \m \thmlink{POS-LCom, THM-LAsc}{THM-LDMr-2} \ml(\ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \rfr{NOT} x\mr) \rfr{AND} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \rfr{NOT} y\mr) \eq \ml(\ml(x \rfr{OR} \rfr{NOT} x\mr) \rfr{OR} y\mr) \rfr{AND} \ml(\ml(\rfr{NOT} y \rfr{OR} y\mr) \rfr{OR} x\mr)\mr) 
-\m \thmlink{POS-LCmp}{THM-LDMr-3} \ml(\ml(\ml(x \rfr{OR} \rfr{NOT} x\mr) \rfr{OR} y\mr) \rfr{AND} \ml(\ml(\rfr{NOT} y \rfr{OR} y\mr) \rfr{OR} x\mr) \eq \ml(\rfr{T} \rfr{OR} y\mr) \rfr{AND} \ml(\rfr{T} \rfr{OR} x\mr)\mr) 
+\m \thmlink{INS-LBAl, POS-LCmp}{THM-LDMr-3} \ml(\ml(\ml(x \rfr{OR} \rfr{NOT} x\mr) \rfr{OR} y\mr) \rfr{AND} \ml(\ml(\rfr{NOT} y \rfr{OR} y\mr) \rfr{OR} x\mr) \eq \ml(\rfr{T} \rfr{OR} y\mr) \rfr{AND} \ml(\rfr{T} \rfr{OR} x\mr)\mr) 
 \m \thmlink{THM-LDom}{THM-LDMr-4} \ml(\ml(\rfr{T} \rfr{OR} y\mr) \rfr{AND} \ml(\rfr{T} \rfr{OR} x\mr) \eq \rfr{T} \rfr{AND} \rfr{T}\mr) 
 \m \thmlink{THM-LIdm}{THM-LDMr-5} \ml(\rfr{T} \rfr{AND} \rfr{T} \eq \rfr{T}\mr) 
 \m \thmlink{THM-LDMr-1, THM-LDMr-2, THM-LDMr-3, THM-LDMr-4, THM-LDMr-5}{THM-LDMr-6} \ml(\ml(x \rfr{OR} y\mr) \rfr{OR} \ml(\rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \rfr{T}\mr) 
-\m \thmlink{POS-LDis}{THM-LDMr-7} \ml(\ml(x \rfr{OR} y\mr) \rfr{AND} \ml(\rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \ml(x \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(y \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr)\mr) 
+\m \thmlink{INS-LBAl, POS-LDis}{THM-LDMr-7} \ml(\ml(x \rfr{OR} y\mr) \rfr{AND} \ml(\rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \ml(x \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(y \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr)\mr) 
 \m \thmlink{POS-LCom, THM-LAsc}{THM-LDMr-8} \ml(\ml(x \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(y \rfr{AND} \rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \ml(\ml(x \rfr{AND} \rfr{NOT} x\mr) \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(\ml(y \rfr{AND} \rfr{NOT} y\mr) \rfr{AND} \rfr{NOT} x\mr)\mr) 
-\m \thmlink{POS-LCmp}{THM-LDMr-9} \ml(\ml(\ml(x \rfr{AND} \rfr{NOT} x\mr) \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(\ml(y \rfr{AND} \rfr{NOT} y\mr) \rfr{AND} \rfr{NOT} x\mr) \eq \ml(\rfr{F} \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(\rfr{F} \rfr{AND} \rfr{NOT} x\mr)\mr) 
+\m \thmlink{INS-LBAl, POS-LCmp}{THM-LDMr-9} \ml(\ml(\ml(x \rfr{AND} \rfr{NOT} x\mr) \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(\ml(y \rfr{AND} \rfr{NOT} y\mr) \rfr{AND} \rfr{NOT} x\mr) \eq \ml(\rfr{F} \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(\rfr{F} \rfr{AND} \rfr{NOT} x\mr)\mr) 
 \m \thmlink{THM-LDom}{THM-LDMr-10} \ml(\ml(\rfr{F} \rfr{AND} \rfr{NOT} y\mr) \rfr{OR} \ml(\rfr{F} \rfr{AND} \rfr{NOT} x\mr) \eq \rfr{F} \rfr{OR} \rfr{F}\mr) 
 \m \thmlink{THM-LIdm}{THM-LDMr-11} \ml(\rfr{F} \rfr{OR} \rfr{F} \eq \rfr{F}\mr) 
 \m \thmlink{THM-LDMr-7, THM-LDMr-8, THM-LDMr-9, THM-LDMr-10, THM-LDMr-11}{THM-LDMr-12} \ml(\ml(x \rfr{OR} y\mr) \rfr{AND} \ml(\rfr{NOT} x \rfr{AND} \rfr{NOT} y\mr) \eq \rfr{F}\mr) 
@@ -280,9 +283,12 @@ $
 \end{tcolorbox}
 
 
-\subsection{Predicate Logic}
+\subsection{Predicates, Sets, Tuples}
 \tdb{\textbf{undefined terms}:} $%
    \cuspop{\_}{\_}, %
+   \dfn{set}, %
+   \dfn{relationIn}[\in], %
+   \uset{\_}, %
 $
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
@@ -290,36 +296,46 @@ $
     \n \dfn{universalQuantifier} [\dfn{FORALL}[\forall]][Q, P] \cusnum{\defeq}{1} (\rfr{predicate} [Q][]) \cusnum{\cusand}{1} (\rfr{predicate} [P][]) \cusnum{\cusand}{1} 
 \m (\rfr{FORALL}_{\cuspop{x}{Q(x)}} (P(x)) \eq Q(\free{y}) \rfr{IF} P(\free{y})) \cusnum{\cusend}{1}
     \n \dfn{existentialQuantifier} [\dfn{EXISTS}[\exists]][Q, P] \defeq (\rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{NOT} \rfr{FORALL}_{\cuspop{x}{Q(x)}} (\rfr{NOT} P(x)))
-    \n \dfn{uniquenessQuantifier} [\dfn{UNIQUE}[\exists!]][Q, P] \defeq (\rfr{UNIQUE}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x)) \rfr{AND} \rfr{FORALL}_{\cuspop{y}{P(y)}} \rfr{FORALL}_{\cuspop{z}{P(z)}} (y = z))
-    \n \tdb{use posets to define an abstract operator, and then use set structures to define universal operators}
-    \n \tdb{predicate shenanigans}
+    \n \dfn{uniquenessQuantifier} [\dfn{UNIQUE}[\exists!]][Q, P] \defeq (\rfr{UNIQUE}_{\cuspop{x}{Q(x)}} (P(x)) \eq \rfr{EXISTS}_{\cuspop{x}{Q(x)}} (P(x) \rfr{AND} \rfr{NOT} \rfr{EXISTS}_{\cuspop{y}{Q(y)}} (P(y) \rfr{AND} \rfr{NOT} (y \eq x))))
+    \n \dfn{relationSetEq} [\dfn{seteq}[\eq]][X, Y] \defeq (\rfr{FORALL}_{\cuspop{z}{z \rfr{in} X \rfr{OR} z \rfr{in} Y}} (z \rfr{in} X \rfr{AND} z \rfr{in} Y))
+    \n \dfn{operatorIntersection} [\dfn{intersect}[\bigcap]][X] \defeq (\rfr{intersect}(X) = \uset{\cuspop{z}{\rfr{FORALL}_{x \rfr{relationIn} X} (z \rfr{relationIn} x)}})
+    \n \dfn{operatorUnion} [\dfn{union}[\bigcup]][X] \defeq (\rfr{union}(X) = \uset{\cuspop{z}{\rfr{EXISTS}_{x \rfr{relationIn} X} (z \rfr{relationIn} x)}})
+    \n \dfn{orderedPair} [<x, y>][] == <x, y> = <a, b> iff x = a and y = b == \{\{x\},\{x,y\}\} %WATDO1st
 \end{align}
 \end{tcolorbox}
+% TODO CODING STANDARDS - NAMING SCHEME
+% TODO define all elementary structures, then return back to kinder level first order logic!
 
 
+\begin{comment}
+
+\tdb{use posets to define an abstract operator, and then use set structures to define universal operators}
+\tdb{predicate shenanigans}
+% http://planetmath.org/formalsystem
+% http://planetmath.org/axiomsystemforpropositionallogic
+% DEFINITION VS IMPLEMENTTION ??? WATDO
+% TODO dont forget universal proposition operator theorem
 \subsection{Axiom System for Propositional Logic}
-%http://planetmath.org/axiomsystemforpropositionallogic
-\tdb{\textbf{undefined terms}:} $%
-  \dfn{set}, %
-  \dfn{infiniteSet}, % 
+\tdb{\textbf{undefined terms}:} $ 
+  \dfn{set}, % 
+  \dfn{infiniteSet}, %
   \dfn{finiteSet}, % 
   \dfn{countableSet}, %
-  \dfn{tuple}, %
-  \dfn{finiteTuple}, %
-$
+  \dfn{orderedPair}, % https://math.stackexchange.com/a/62937
+  \dfn{finiteSequence}, % http://planetmath.org/orderedtuplet
+  \dfn{sequence}, % natural numbers ??
+  \dfn{index}, % return an object from a sequence
+  \dfn{length}, % return the length of a sequence
+$ 
 \begin{tcolorbox}[breakable, enhanced]
-\begin{align}
-    \dfn{formalTheory} [\mathcal{F}][alphabet, validSyntax] \defeq 
-\m 0
+\begin{align} 
+    \n AKA PROPOSITIONAL CALCULUS + SYNTAX
+    \n \dfn{expression} [E][A] \defeq (\rfr{set} [A][]) \cusand (\rfr{finiteSequence} [E][]) \cusand (for all i in len E index(E, i) in A)
 \end{align}
 \end{tcolorbox}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Glossary}
-%\begin{multicols}{4}
-%\features
-%\end{multicols}
 
-%\bibliography{sample}
+
+\begin{comment}
 
 \section{Dry Run}
 \subsection{NaiveMaster}
@@ -410,5 +426,8 @@ $
 \n \dfn{function} [f][S] \defeq (\rfr{universal}_{x, y, z \rfr{-in} S} (\rfr{otupl} x, y \rfr{otupr} \rfr{in} f \rfr{-and} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} f) \rfr{-if} (y = z))
 \end{align}
 \end{tcolorbox}
+
+
+\end{comment}
 
 \end{document}

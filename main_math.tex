@@ -32,59 +32,23 @@
 \delimitershortfall-1sp
 \usepackage{mleftright}
 \mleftright
-\def\ml{\mleft}
-\def\mr{\mright}
 
-\newcommand*{\img}[1]{\phantom{\_} %
+
+\makeatletter
+\newcommand*{\img}[1]{\phantom{\_}%
     \raisebox{-0.5\baselineskip}{%
         \includegraphics[
         height=1.5\baselineskip,
         width=1.5\baselineskip,
         keepaspectratio,
-        ]{#1}%
-    }%
-\phantom{\_} }
-
-\makeatletter
-\newcommand{\tdb}[1]{\colorbox{lime}{$\displaystyle #1$}}
-\newcommand{\defeq}{:=}
-\newcommand{\eq}{=}
-\newcommand{\cusand}{,}
-\newcommand{\cuspop}[2]{arg_{#1}(#2)}
-\newcommand{\cusend}{.}
-\newcommand{\free}[1]{{#1}_{free}}
-\newcommand{\uset}[1]{\{#1\}}
-\newcommand{\otup}[1]{\langle#1\rangle}
-\newcommand{\enlist}[2]{{#1}_{1}, {#1}_{2}, {#1}_{3}, \cdots, {#1}_{#2}}
-\newcommand{\cusnum}[2]{{#1}_{{\phantom{ }}_{#2}}}
-\newcommand{\eqComment}[1]{\text{  \# #1}}
-\newcommand{\eqSep}{\text{ ;  }}
-\newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
-\newcommand{\m}{\nonumber \\}
-\newcommand{\sfield}[1]{\textbf{\textit{#1}}}
-
-%%%%%%%%%%%%%%%%%%
+        ]{#1}}\phantom{\_}}
 \newcommand{\dfnNEW}[2]{\textcolor{teal}{%
   \hypertarget{#1}{#2}%
     \protected@write\@mainaux{}{%
         \string\expandafter\string\gdef
-          \string\csname\string\detokenize{#1}\string\endcsname{#2}%
-    }%
-  }}
-\DeclareDocumentCommand{\dfn}{m o}{%
-  \dfnNEW{#1}{\IfNoValueTF{#2}{#1}{#2}}
-  }
-  
-\newcommand{\rfrNEW}[1]{%
-  \hyperlink{#1}{\csname #1\endcsname}%
-  }
-%\newcommand{\rfr}[1]{% maybe optional this as well
-%  \ifcsname#1\endcsname%
-%    \rfrNEW{#1}%
-%  \else%
-%    \textcolor{red}{#1^!}% undefined
-%  \fi%
-%}
+          \string\csname\string\detokenize{#1}\string\endcsname{#2}}}}
+\DeclareDocumentCommand{\dfn}{m o}{\dfnNEW{#1}{\IfNoValueTF{#2}{#1}{#2}}}
+\newcommand{\rfrNEW}[1]{\hyperlink{#1}{\csname #1\endcsname}}
 \DeclareDocumentCommand{\rfr}{m o o}{%
   \ifcsname#1\endcsname%
     \IfNoValueTF{#3}{\IfNoValueTF{#2}{
@@ -92,21 +56,35 @@
       \rfrNEW{#1} #2}}{
       (#2 \rfrNEW{#1} #3)}
   \else%
-    \textcolor{red}{\space^!#1}% undefined
-  \fi%
-}
-
-%%%%%%%%%%%%%%%%%%
-\newcommand\rfrlist[1]{%
-    \forcsvlist{\rfrlist@item}{#1}
-}
+    \textcolor{red}{\space^!#1}%
+  \fi}
+\newcommand\rfrlist[1]{\forcsvlist{\rfrlist@item}{#1}}
 \newcommand\rfrlist@item[1]{\rfr{#1}\\}
-\newcommand{\thmlink}[2]{{}_{\substack{\rfrlist{#1}}}^{\dfn{#2}} }
+\newcommand{\thmlink}[2]{{}_{\substack{\rfrlist{#1}}}^{\dfn{#2}}}
+\newcommand{\TODO}[1]{\colorbox{lime}{$\displaystyle #1$}}
+\newcommand{\eqComment}[1]{\text{  \# #1}}
+\newcommand{\n}{\\[1.5ex] \hline \nonumber \\[0ex]}
+\newcommand{\m}{\nonumber \\}
+
+
+\def\ml{\mleft}
+\def\mr{\mright}
+\newcommand{\defeq}{:=}
+\newcommand{\eq}{=}
+\newcommand{\cusand}{,}
+\newcommand{\cuspop}[2]{arg_{#1}(#2)}
+\newcommand{\cusend}{.}
+\newcommand{\cusnum}[2]{{#1}_{{\phantom{ }}_{#2}}}
+\newcommand{\free}[1]{{#1}_{free}}
+\newcommand{\uset}[1]{\{#1\}}
+\newcommand{\otup}[1]{\langle#1\rangle}
+\newcommand{\enlist}[2]{{#1}_{1}, {#1}_{2}, {#1}_{3}, \cdots, {#1}_{#2}}
 \makeatother
+
 
 \title{Next-Next-Gen Notes \\
 \large Object-Oriented Maths}
-\author{JP Guzman}
+\author{Dark JP}
 
 \begin{document}
 \maketitle
@@ -125,7 +103,7 @@
 Note: Operators (op)s preserve type; Relations (rel)s return truths; todo rename default funcs
 \section{Logic and Set Theory}
 \subsection{D: Logical Truths and Operators}
-\tdb{\textbf{undefined terms}:} $%
+\TODO{\textbf{undefined terms}:} $%
    \defeq, % \begin{cases} \_ \end{cases}, 
    \eq, %
    (\_), %
@@ -161,7 +139,7 @@ $
 \m \thmlink{}{POS-LDis} \ml(\ml(x \otimes \ml(y \oplus z\mr) \eq \ml(x \otimes y\mr) \oplus \ml(x \otimes z\mr)\mr) \cusnum{\cusand}{1} \ml(x \oplus \ml(y \otimes z\mr) \eq \ml(x \oplus y\mr) \otimes \ml(x \oplus z\mr)\mr)\mr) \eqComment{Distributive} \cusnum{\cusand}{1}
 \m \thmlink{}{POS-LIdn} \ml(\ml(x \otimes \top \eq x\mr) \cusnum{\cusand}{1} \ml(x \oplus \bot \eq x\mr)\mr) \eqComment{Identity} \cusnum{\cusand}{1}
 \m \thmlink{}{POS-LCmp} \ml(\ml(x \otimes \ml(\ominus x\mr) \eq \bot\mr) \cusnum{\cusand}{1} \ml(x \oplus \ml(\ominus x\mr) \eq \top\mr)\mr) \eqComment{Complement} \cusnum{\cusend}{1}
-\m \tdb{\eqComment{Note: I sometimes get too lazy to refer to $POS-LCom$.}} \img{my-b.jpg} 
+\m \TODO{\eqComment{Note: I sometimes get too lazy to refer to $POS-LCom$.}} \img{my-b.jpg} 
     \n \thmlink{}{INS-LBAl} \ml(\rfr{booleanAlgebra} [\rfr{T}, \rfr{F}, \rfr{AND}, \rfr{OR}, \rfr{NOT}][]\mr)
 \m \eqComment{Proven by way of cases or truth tables}
     \n \thmlink{}{THM-Dual-1} \Bigg(\rfr{booleanAlgebra} [\ml(\rfr{T}, \rfr{F}, \rfr{AND}, \rfr{OR}, \rfr{NOT}\mr)][] \cusnum{\rfr{IFF}}{1}
@@ -274,19 +252,19 @@ $
 \m \thmlink{THM-CtrP-1, THM-CtrP-2, THM-CtrP-3}{THM-CtrP} \ml(x \rfr{IF} y \eq \ml(\rfr{NOT} y\mr) \rfr{IF} \ml(\rfr{NOT} x\mr)\mr) 
 \m \eqComment{Contrapositive Law} 
     \n \textbf{MISC IMPLICATION LAWS: } % http://www.cs.um.edu.mt/gordon.pace/Teaching/DiscreteMaths/Laws.pdf
-\m \tdb{\ml(\rfr{T} \rfr{IF} x \eq x\mr)}
-\m \tdb{\ml(\rfr{F} \rfr{IF} x \eq \rfr{T}\mr)}
-\m \tdb{\ml(x \rfr{IF} \rfr{T} \eq \rfr{T}\mr)}
-\m \tdb{\ml(x \rfr{IF} \rfr{F} \eq \rfr{NOT} x\mr)}  
-\m \tdb{\ml(\ml(x \rfr{OR} y\mr) \rfr{IF} z\mr) \eq \ml(x \rfr{IF} z\mr) \rfr{AND} \ml(y \rfr{IF} z\mr)}
-\m \tdb{\ml(x \rfr{IF} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{IF} y\mr) \rfr{AND} \ml(x \rfr{IF} z\mr)\mr)} 
-\m \tdb{\ml(x \rfr{IFF} y \eq x \rfr{IF} y \rfr{AND} \rfr{NOT} x \rfr{IF} \rfr{NOT} y\mr)}
+\m \TODO{\ml(\rfr{T} \rfr{IF} x \eq x\mr)}
+\m \TODO{\ml(\rfr{F} \rfr{IF} x \eq \rfr{T}\mr)}
+\m \TODO{\ml(x \rfr{IF} \rfr{T} \eq \rfr{T}\mr)}
+\m \TODO{\ml(x \rfr{IF} \rfr{F} \eq \rfr{NOT} x\mr)}  
+\m \TODO{\ml(\ml(x \rfr{OR} y\mr) \rfr{IF} z\mr) \eq \ml(x \rfr{IF} z\mr) \rfr{AND} \ml(y \rfr{IF} z\mr)}
+\m \TODO{\ml(x \rfr{IF} \ml(y \rfr{AND} z\mr) \eq \ml(x \rfr{IF} y\mr) \rfr{AND} \ml(x \rfr{IF} z\mr)\mr)} 
+\m \TODO{\ml(x \rfr{IFF} y \eq x \rfr{IF} y \rfr{AND} \rfr{NOT} x \rfr{IF} \rfr{NOT} y\mr)}
 \end{align}
 \end{tcolorbox}
 
 
 \subsection{Predicates, Sets, Tuples}
-\tdb{\textbf{undefined terms}:} $%
+\TODO{\textbf{undefined terms}:} $%
    \cuspop{\_}{\_}, %
    \dfn{set}, %
    \dfn{relationIn}[\in], %
@@ -311,14 +289,14 @@ $
 
 \begin{comment}
 
-\tdb{use posets to define an abstract operator, and then use set structures to define universal operators}
-\tdb{predicate shenanigans}
+\TODO{use posets to define an abstract operator, and then use set structures to define universal operators}
+\TODO{predicate shenanigans}
 % http://planetmath.org/formalsystem
 % http://planetmath.org/axiomsystemforpropositionallogic
 % DEFINITION VS IMPLEMENTTION ??? WATDO
 % TODO dont forget universal proposition operator theorem
 \subsection{Axiom System for Propositional Logic}
-\tdb{\textbf{undefined terms}:} $ 
+\TODO{\textbf{undefined terms}:} $ 
   \dfn{set}, % 
   \dfn{infiniteSet}, %
   \dfn{finiteSet}, % 
@@ -341,7 +319,7 @@ $
 
 \section{Dry Run}
 \subsection{NaiveMaster}
-\tdb{\textbf{undefined terms}:} \defeq, $%
+\TODO{\textbf{undefined terms}:} \defeq, $%
    \dfn{set}, %
    \dfn{tuple}, %
    \dfn{element}, % 
@@ -408,9 +386,9 @@ $
 \m \eqComment{k-tuple relation R on the set S takes only tuples that satisfy some relation}
 \n \rfr{property} [P][S] \defeq \rfr{relation} [P][S, 1] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} 1 \rfr{-eq} S
 \m \eqComment{property P of the set S}
-\n \tdb{\textbf{use defeq to keep the object typing instead of }}
-\m \tdb{\textbf{ref-eq which reduces it to a propositional truth value. }}
-\m \tdb{\textbf{But, how do I chain ref-eq tho?}}
+\n \TODO{\textbf{use defeq to keep the object typing instead of }}
+\m \TODO{\textbf{ref-eq which reduces it to a propositional truth value. }}
+\m \TODO{\textbf{But, how do I chain ref-eq tho?}}
 \n \rfr{binaryRelation} [B][S] \rfr{-eq} \rfr{relation} [B][S, 2] \rfr{-subset} \rfr{set} [S][] \rfr{ktupset} 2
 \m x B y \rfr{-eq} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} B 
 \n \rfr{domain} [X][B, S] \rfr{-eq} \rfr{usetl} x \rfr{st} \rfr{otupl} x, y \rfr{otupr} \rfr{-in} \rfr{binaryRelation} [B][S] \rfr{usetr}

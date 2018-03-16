@@ -58,3 +58,123 @@
 (evince:23140): Gtk-WARNING **: Allocating size to EvSidebar 0x564aa3a076d0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
 
 (evince:23141): Gtk-WARNING **: Allocating size to EvSidebar 0x55b111a1e6b0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:24028): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24029): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:24028): Gtk-WARNING **: Allocating size to EvSidebar 0x563f71a1a700 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+(evince:24029): Gtk-WARNING **: Allocating size to EvSidebar 0x55dc56f9c700 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:24104): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24117): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24129): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24512): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24524): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24537): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24577): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24592): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24604): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24616): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24028): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24644): WARNING **: Error when getting information for file “/home/guzman/OOM/main_math.pdf”: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24663): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24689): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24711): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:24711): GLib-GObject-WARNING **: invalid uninstantiatable type '-g-type-private--IFaceHolder' in cast to 'EvMediaPlayerKeys'
+
+** (evince:24745): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+(evince:24745): GLib-GObject-WARNING **: invalid uninstantiatable type '(null)' in cast to 'EvMediaPlayerKeys'
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24644): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:24769): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24785): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:24785): Gtk-WARNING **: Allocating size to EvSidebar 0x565105b36710 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:24822): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24833): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:24845): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files

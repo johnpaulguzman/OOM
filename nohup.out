@@ -1,0 +1,24 @@
+
+** (evince:22102): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:22102): Gtk-WARNING **: Allocating size to EvSidebar 0x55dfe19fc6b0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:22177): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:22177): Gtk-WARNING **: Allocating size to EvSidebar 0x55a8e29646f0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:22511): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:22511): Gtk-WARNING **: Allocating size to EvSidebar 0x56309ac6c6f0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:22631): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:22631): Gtk-WARNING **: Allocating size to EvSidebar 0x555d5aae76b0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:22685): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:22739): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:22805): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:22805): Gtk-WARNING **: Allocating size to EvSidebar 0x55b6c28356f0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?

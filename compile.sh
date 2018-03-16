@@ -1,10 +1,12 @@
 #!/bin/bash
 
-filename='main_math.tex'
+filename='main_math'
+nohuptime=1
 
 printf "\033c"  # clear screen
 for run in {1..2}; do
-  pdflatex -interaction=nonstopmode ${filename}
+  pdflatex -halt-on-error -interaction=batchmode ${filename}.tex
   echo ">> Compilation attempt ${run}."
 done
-read -rsp $'Press any key to continue...\n' -n1 key
+nohup evince ${filename}.pdf &
+sleep ${nohuptime}

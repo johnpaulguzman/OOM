@@ -22,3 +22,39 @@
 ** (evince:22805): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
 
 (evince:22805): Gtk-WARNING **: Allocating size to EvSidebar 0x55b6c28356f0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:22931): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:22931): WARNING **: Error when getting information for file “/home/guzman/OOM/main_math.pdf”: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22931): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:22956): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:23140): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:23141): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:23140): Gtk-WARNING **: Allocating size to EvSidebar 0x564aa3a076d0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+(evince:23141): Gtk-WARNING **: Allocating size to EvSidebar 0x55b111a1e6b0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?

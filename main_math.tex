@@ -133,7 +133,7 @@
 $
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-     \dfn{truth} [t][] \defeq \ml(t \eq \begin{cases} \dfn{T} \\ \dfn{F} \end{cases}\mr) 
+    \dfn{truth} [t][] \defeq \ml(t \eq \begin{cases} \dfn{T} \\ \dfn{F} \end{cases}\mr) 
     \n \dfn{operatorOR} [\dfn{OR}[\lor]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{OR} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorAND} [\dfn{AND}[\land]][x, y] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [y][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [x \rfr{AND} y][] \eq \begin{cases} \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{F} \cusand y \eq \rfr{T} \\ \rfr{F} & x \eq \rfr{T} \cusand y \eq \rfr{F} \\ \rfr{T} & x \eq \rfr{T} \cusand y \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1}
     \n \dfn{operatorNOT} [\dfn{NOT}[\lnot]][x] \cusnum{\defeq}{1} \ml(\rfr{truth} [x][]\mr) \cusnum{\cusand}{1} \ml(\rfr{truth} [\rfr{NOT} x][] \eq \begin{cases} \rfr{T} & x \eq \rfr{F} \\ \rfr{F} & x \eq \rfr{T} \end{cases}\mr) \cusnum{\cusend}{1} 

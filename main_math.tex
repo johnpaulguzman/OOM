@@ -118,11 +118,11 @@ $
     \n \notes{object language/logic: the particular logic to be studied}
     \n \notes{observer's language/logic: the logic used in studying the object language/logic}
     \n \notes{sentences - declarative: a proposition; interrogative: a question; imperative: a command}
-    \n \notes{assume that object languages have a class of declarative sentences which serves as the building blocks, -}
-    \n \notes{and other sentences can be built from them by certain operations which are called "formulas" (A, ..., O)}
+    \n \notes{assume that object languages have a class of declarative sentences which serves as the building blocks, }
+    \n \notes{-- and other sentences can be built from them by certain operations which are called "formulas" (A, ..., O)}
     \n \notes{a language has "prime formulas"/"atoms" (P, ..., Z) which are distinct sentences that don't change meanings}
-    \n \notes{a language has 5 operations for building "composite formulas"/"molecules", -}
-    \n \notes{and these are - } %
+    \n \notes{a language has 5 operations for building "composite formulas"/"molecules", }
+    \n \notes{-- and these are - } %
         \dfn{equivalence}[\sim] \notes{: equivalence; } %
         \dfn{implication}[\supset] \notes{: implication; } % 
         \dfn{conjunction}[\&] \notes{: conjunction; } % 
@@ -130,8 +130,8 @@ $
         \dfn{negation}[\lnot] \notes{: negation} % 
     \n \notes{(P, ..., Z) represent distinct prime formulas; (A, ..., O) represent formulas}
     \n \notes{operator precedence: } %
-        \rfr{equivalence}, \rfr{implication}, \rfr{conjunction}, \rfr{disjunction}, \rfr{negation}, ..., (\_)%
-        \notes{, where the higher ranks are evaluated first, same ranks right first}
+        \rfr{equivalence}, \rfr{implication}, \rfr{conjunction}, \rfr{disjunction}, \rfr{negation}, ..., (\_); %
+        \notes{-- where the higher ranks are evaluated first, same ranks right first}
     \n \notes{the "scope" of an operator is the parts of the formula where it acts upon}
 \end{align}
 \end{tcolorbox}
@@ -152,7 +152,7 @@ $
         \rfr{conjunction}, %
         \rfr{disjunction}, %
         \rfr{negation}
-    \n \notes{"valid"/"identically true"/"tautology" formulas evaluate to true independent of its prime formula values}
+    \n \notes{"valid"/"identically true"/"tautology"/"$\vDash$" formulas evaluate to true independent of its prime formula values}
 \end{align}
 \end{tcolorbox}
 
@@ -163,7 +163,10 @@ $
 $
 \begin{tcolorbox}[breakable, enhanced]
 \begin{align}
-    \n \notes{start thm 1, whatever logic done with atoms, you can swap with formulas}
+    \n \notes{Theorem 1: let $E$ be a formula consisting of the atoms $P_1, ..., P_n$, }
+    \n \notes{-- and let $E^*$ be a the formula $E$ where atoms $P_1, ..., P_n$ are substituted by the formulas $A_1, ..., A_n$}
+    \n \notes{-- if $\vDash E$, then $\vDash E^*$, since formulas reduce to truth values which valid formulas are indifferent towards}
+    \n \notes{pp.23}
 \end{align}
 \end{tcolorbox}
 

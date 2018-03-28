@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.13)  28 MAR 2018 01:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.13)  28 MAR 2018 10:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1220,17 +1220,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<my-b.jpg, id=536, 48.18pt x 48.18pt>
+<my-b.jpg, id=532, 48.18pt x 48.18pt>
 File: my-b.jpg Graphic file (type jpg)
 <use my-b.jpg>
-Package pdftex.def Info: my-b.jpg  used on input line 344. on input line 344.
+Package pdftex.def Info: my-b.jpg  used on input line 346. on input line 346.
 Package pdftex.def Info: Requested size: 22.49976pt x 22.49976pt on input line 
-344.
+346.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1238,7 +1238,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1249,7 +1249,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1260,7 +1260,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1271,7 +1271,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 \math@cr@@@ ->&
                \omit \global \advance \row@ \@ne \ifst@rred \nonumber \fi \i...
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1283,7 +1283,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \omit.
 \math@cr@@@ ->&\omit 
                      \global \advance \row@ \@ne \ifst@rred \nonumber \fi \i...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \omit only after tab marks or the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1291,7 +1291,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced \cr.
 \math@cr@@@ ... \else \global \@eqnswtrue \fi \cr 
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1302,7 +1302,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
                                                   {\vskip #1\relax }
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1310,7 +1310,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1318,7 +1318,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1329,7 +1329,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1340,7 +1340,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1351,7 +1351,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1362,7 +1362,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1370,7 +1370,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1381,7 +1381,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1392,7 +1392,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1403,14 +1403,14 @@ my insertion and my current dilemma will both disappear.
 ! Missing \cr inserted.
 <inserted text> 
                 \cr 
-l.344 \end{align}
+l.346 \end{align}
                  
 I'm guessing that you meant to end an alignment here.
 
 ! Missing { inserted.
 <inserted text> 
                 {
-l.344 \end{align}
+l.346 \end{align}
                  
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -1419,7 +1419,7 @@ Try to go on, since this might almost work.
 ! Missing { inserted.
 <inserted text> 
                 {
-l.344 \end{align}
+l.346 \end{align}
                  
 I've put in what seems to be necessary to fix
 the current column of the current alignment.
@@ -1428,7 +1428,7 @@ Try to go on, since this might almost work.
 ! Extra }, or forgotten $.
 <recently read> }
                  
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1439,7 +1439,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1447,7 +1447,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1458,7 +1458,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1466,7 +1466,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1477,7 +1477,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1488,7 +1488,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1499,7 +1499,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced alignment tab character &.
 \@tempa ->\endgroup &
                      
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1511,7 +1511,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \omit.
 \math@cr@@@ ...@ \@ne \add@amps \maxfields@ \omit 
                                                   \kern -\alignsep@ \iftag@ ...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \omit only after tab marks or the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1519,7 +1519,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Misplaced \cr.
 \math@cr@@@ ...wtrue \fi \global \lineht@ \z@ \cr 
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1530,7 +1530,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
                                                   {\vskip #1\relax }
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -1538,7 +1538,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1546,7 +1546,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1557,7 +1557,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1568,7 +1568,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1579,7 +1579,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1590,7 +1590,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1598,7 +1598,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1609,7 +1609,7 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \vskip 
-l.344 \end{align}
+l.346 \end{align}
                  
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -1617,7 +1617,7 @@ So I shall assume that you typed `$$' both times.
 ! Extra }, or forgotten \endgroup.
 \math@cr@@ ...th@cr@@@ \noalign {\vskip #1\relax }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1628,7 +1628,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1636,7 +1636,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1647,7 +1647,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1658,7 +1658,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1669,7 +1669,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1677,7 +1677,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1688,7 +1688,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1699,7 +1699,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1710,7 +1710,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1718,7 +1718,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1729,7 +1729,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1740,7 +1740,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1751,7 +1751,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1759,7 +1759,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1770,7 +1770,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1781,7 +1781,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1792,7 +1792,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1800,7 +1800,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1811,7 +1811,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1822,7 +1822,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1833,7 +1833,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced \cr.
 \math@cr@@@ ->\cr 
                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1844,7 +1844,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \@tempa ->\endgroup &
                      
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1856,7 +1856,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \cr.
 \measure@ ...olumn@ \z@ \add@amps \maxfields@ \cr 
                                                   }}\restorecounters@ \ifodd...
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -1867,7 +1867,7 @@ might try typing `S' now just to see what is salvageable.
 ! Extra }, or forgotten $.
 \measure@ ...lumn@ \z@ \add@amps \maxfields@ \cr }
                                                   }\restorecounters@ \ifodd ...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1878,7 +1878,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \measure@ ...umn@ \z@ \add@amps \maxfields@ \cr }}
                                                   \restorecounters@ \ifodd \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1889,7 +1889,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing number, treated as zero.
 <to be read again> 
                    >
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1898,7 +1898,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    >
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1910,7 +1910,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1919,7 +1919,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1931,7 +1931,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1940,7 +1940,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1952,7 +1952,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1961,7 +1961,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1973,7 +1973,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -1982,7 +1982,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -1994,7 +1994,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2003,7 +2003,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2015,7 +2015,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2024,7 +2024,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2036,7 +2036,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2045,7 +2045,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2057,7 +2057,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2066,7 +2066,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2078,7 +2078,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2087,7 +2087,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2099,7 +2099,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2108,7 +2108,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2120,7 +2120,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2129,7 +2129,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2141,7 +2141,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2152,7 +2152,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2163,7 +2163,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2174,7 +2174,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2185,7 +2185,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2196,7 +2196,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2207,7 +2207,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2218,7 +2218,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2229,7 +2229,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2240,7 +2240,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2251,7 +2251,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2262,7 +2262,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2273,7 +2273,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2284,7 +2284,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2295,7 +2295,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2306,7 +2306,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2317,7 +2317,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2328,7 +2328,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2339,7 +2339,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2350,7 +2350,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2360,13 +2360,13 @@ my insertion and my current dilemma will both disappear.
 
 File: my-b.jpg Graphic file (type jpg)
 <use my-b.jpg>
-Package pdftex.def Info: my-b.jpg  used on input line 344. on input line 344.
+Package pdftex.def Info: my-b.jpg  used on input line 346. on input line 346.
 Package pdftex.def Info: Requested size: 17.9998pt x 17.9998pt on input line 34
-4.
+6.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2374,7 +2374,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2382,7 +2382,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2393,7 +2393,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2404,7 +2404,7 @@ my insertion and my current dilemma will both disappear.
 ! You can't use `\hrule' here except with leaders.
 <recently read> \hrule 
                        
-l.344 \end{align}
+l.346 \end{align}
                  
 To put a horizontal rule in an hbox or an alignment,
 you should use \leaders or \hrulefill (see The TeXbook).
@@ -2412,7 +2412,7 @@ you should use \leaders or \hrulefill (see The TeXbook).
 ! Missing number, treated as zero.
 <to be read again> 
                    \futurelet 
-l.344 \end{align}
+l.346 \end{align}
                  
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -2421,7 +2421,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \futurelet 
-l.344 \end{align}
+l.346 \end{align}
                  
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -2433,7 +2433,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2441,7 +2441,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> }
                  
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2452,7 +2452,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2460,7 +2460,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2469,14 +2469,14 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Overfull \hbox (1121.76543pt too wide) in paragraph at lines 344--344
+Overfull \hbox (1121.76543pt too wide) in paragraph at lines 346--346
 []$[]$ 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2484,7 +2484,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2495,7 +2495,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \endsubarray ->\crcr \egroup \egroup 
                                      
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2506,7 +2506,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten \endgroup.
 \thmlink #1#2->{}_{\substack {\rfrlist {#1}}}
                                              ^{\dfn {#2}}
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2517,7 +2517,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2525,7 +2525,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2533,7 +2533,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2541,7 +2541,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2552,7 +2552,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2567,7 +2567,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2576,7 +2576,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2584,7 +2584,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2592,7 +2592,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2600,7 +2600,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2611,7 +2611,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2626,7 +2626,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2635,7 +2635,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2643,7 +2643,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2651,7 +2651,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2659,7 +2659,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2670,7 +2670,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2685,7 +2685,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2694,7 +2694,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2702,7 +2702,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2710,7 +2710,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2718,7 +2718,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2729,7 +2729,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2744,7 +2744,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2753,7 +2753,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2761,7 +2761,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2769,7 +2769,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2777,7 +2777,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2788,7 +2788,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2803,7 +2803,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2812,7 +2812,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2820,7 +2820,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2828,7 +2828,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2836,7 +2836,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2847,7 +2847,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2862,7 +2862,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2871,7 +2871,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2879,7 +2879,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2887,7 +2887,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2895,7 +2895,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2906,7 +2906,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2921,7 +2921,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2930,7 +2930,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2938,7 +2938,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2946,7 +2946,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2954,7 +2954,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2965,7 +2965,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2980,7 +2980,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2989,7 +2989,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2997,7 +2997,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3005,7 +3005,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3013,7 +3013,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3024,7 +3024,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3039,7 +3039,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3048,7 +3048,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3056,7 +3056,7 @@ you left one out. Proceed, with fingers crossed.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3064,7 +3064,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3072,7 +3072,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3083,7 +3083,7 @@ my insertion and my current dilemma will both disappear.
 ! Extra }, or forgotten \endgroup.
 \@xhline ... -\arrayrulewidth \fi \ifnum 0=`{\fi }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3098,7 +3098,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3107,7 +3107,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3115,7 +3115,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3126,7 +3126,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3137,7 +3137,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3148,7 +3148,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3156,7 +3156,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3167,7 +3167,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3178,7 +3178,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3189,7 +3189,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3197,7 +3197,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3208,7 +3208,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3219,7 +3219,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3230,7 +3230,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3238,7 +3238,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3249,7 +3249,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3260,7 +3260,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3271,7 +3271,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3279,7 +3279,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3290,7 +3290,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3301,7 +3301,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3312,7 +3312,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3320,7 +3320,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3331,7 +3331,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3342,7 +3342,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3353,7 +3353,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3361,7 +3361,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \mbox #1->\leavevmode \hbox {#1}
                                 
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3372,7 +3372,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...hbox {\kern \fboxsep {\set@color #3}
                                                   \kern \fboxsep }\dimen@ \h...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3383,7 +3383,7 @@ deleted material, e.g., by typing `I$}'.
 ! Extra }, or forgotten $.
 \color@b@x ...xsep {\set@color #3}\kern \fboxsep }
                                                   \dimen@ \ht \z@ \advance \...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3394,7 +3394,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced \cr.
 \math@cr@@@ ->\cr 
                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I can't figure out why you would want to use a tab mark
 or \cr or \span just now. If something like a right brace
@@ -3405,7 +3405,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced \noalign.
 \math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
                                                   {\vskip #1\relax }
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3413,7 +3413,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3421,7 +3421,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3432,7 +3432,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3443,7 +3443,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3454,7 +3454,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3465,7 +3465,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3473,7 +3473,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3484,7 +3484,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3495,7 +3495,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3506,7 +3506,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3514,7 +3514,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3525,7 +3525,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3536,7 +3536,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3547,7 +3547,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3555,7 +3555,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3566,7 +3566,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3577,7 +3577,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3588,7 +3588,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3596,7 +3596,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3607,7 +3607,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3618,7 +3618,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3629,7 +3629,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3637,7 +3637,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3648,7 +3648,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3659,7 +3659,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3670,7 +3670,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3678,7 +3678,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3689,7 +3689,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3700,7 +3700,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3709,14 +3709,14 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--344
+Underfull \hbox (badness 10000) in paragraph at lines 346--346
 
  []
 
 ! Extra }, or forgotten \endgroup.
 \math@cr@@ ...th@cr@@@ \noalign {\vskip #1\relax }
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3727,7 +3727,7 @@ deleted material, e.g., by typing `I$}'.
 ! Misplaced \noalign.
 \black@ #1->\noalign 
                      {\ifdim #1>\displaywidth \dimen@ \prevdepth \nointerlin...
-l.344 \end{align}
+l.346 \end{align}
                  
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -3735,7 +3735,7 @@ an alignment. Proceed, and I'll ignore this case.
 ! Extra }, or forgotten \endgroup.
 \endalign ->\math@cr \black@ \totwidth@ \egroup 
                                                 \ifingather@ \restorealignst...
-l.344 \end{align}
+l.346 \end{align}
                  
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -3744,13 +3744,13 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 
-! LaTeX Error: \begin{tcb@savebox} on input line 218 ended by \end{align}.
+! LaTeX Error: \begin{tcb@savebox} on input line 220 ended by \end{align}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.344 \end{align}
+l.346 \end{align}
                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3759,7 +3759,7 @@ or  <return>  to continue without it.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.344 \end{align}
+l.346 \end{align}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3770,19 +3770,19 @@ my insertion and my current dilemma will both disappear.
 ! Display math should end with $$.
 <to be read again> 
                    \endgroup 
-l.344 \end{align}
+l.346 \end{align}
                  
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
 
-! LaTeX Error: \begin{tcolorbox} on input line 218 ended by \end{tcb@savebox}.
+! LaTeX Error: \begin{tcolorbox} on input line 220 ended by \end{tcb@savebox}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3795,7 +3795,7 @@ See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -3803,7 +3803,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Undefined control sequence.
 \tcb@set@normal@unbroken@beforeafter ...b@nobreak 
                                                   {\iftcb@ignorenobreak \els...
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3814,7 +3814,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \the \dimexpr \tcb@width 
                                     +\kvtcb@bbright \relax 
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3825,7 +3825,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \tcb@width 
                       
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3836,7 +3836,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \relax 
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3845,7 +3845,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    \relax 
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -3857,7 +3857,7 @@ two letters. (See Chapter 27 of The TeXbook.)
 ! Undefined control sequence.
 <argument> \tcb@width 
                       -\kvtcb@right@rule 
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3868,7 +3868,7 @@ and I'll forget about whatever was undefined.
 ! Missing number, treated as zero.
 <to be read again> 
                    \tcb@footnote@cnt@i 
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -3881,7 +3881,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3890,14 +3890,14 @@ or  <return>  to continue without it.
 ! Extra \endgroup.
 <recently read> \endgroup 
                           
-l.345 \end{tcolorbox}
+l.347 \end{tcolorbox}
                      
 Things are pretty mixed up, but I think the worst is over.
 
 ! Undefined control sequence.
 \set@color ...\@pdfcolorstack push{\current@color 
                                                   }\aftergroup \reset@color 
-l.349 \TODO{undefined terms:}
+l.351 \TODO{undefined terms:}
                               $%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -3906,11 +3906,11 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [3] [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 495.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 495.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
  (./main_math.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 495.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 495.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 497.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 497.
 Package rerunfilecheck Info: File `main_math.out' has not changed.
 (rerunfilecheck)             Checksum: 9398EB6D0D907AF112923170465B4690;601.
 
@@ -3918,16 +3918,16 @@ Package rerunfilecheck Info: File `main_math.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 5.12pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 495.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 497.
  ) 
 Here is how much of TeX's memory you used:
- 33716 strings out of 494931
- 671978 string characters out of 6180851
- 980158 words of memory out of 5000000
- 36430 multiletter control sequences out of 15000+600000
+ 33715 strings out of 494931
+ 671957 string characters out of 6180851
+ 984790 words of memory out of 5000000
+ 36428 multiletter control sequences out of 15000+600000
  545807 words of font info for 66 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 63i,26n,101p,10482b,953s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,26n,101p,10482b,943s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{in} has been referenced but does not exist, repla
 ced by a fixed one
 
@@ -3947,10 +3947,10 @@ t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/symbols/msam10.pfb>
-Output written on main_math.pdf (4 pages, 167074 bytes).
+Output written on main_math.pdf (4 pages, 167118 bytes).
 PDF statistics:
- 2609 PDF objects out of 2984 (max. 8388607)
- 461 compressed objects within 5 object streams
- 96 named destinations out of 1000 (max. 500000)
+ 2612 PDF objects out of 2984 (max. 8388607)
+ 463 compressed objects within 5 object streams
+ 97 named destinations out of 1000 (max. 500000)
  226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

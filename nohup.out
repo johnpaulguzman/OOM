@@ -280,3 +280,456 @@
 (evince:1043): Gtk-WARNING **: Allocating size to EvSidebar 0x5592d15fd6a0 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
 
 (evince:1044): Gtk-WARNING **: Allocating size to EvSidebar 0x5583a0aa5680 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?
+
+** (evince:1424): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1425): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1447): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1456): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1450): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1454): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1452): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1466): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1460): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1468): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1458): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1462): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1464): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1470): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1425): WARNING **: Error when getting information for file “/home/guzman/OOM/[Dover”: No such file or directory
+
+** (evince:1456): WARNING **: Error when getting information for file “/home/guzman/OOM/Cole”: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1425): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error when getting information for file “/home/guzman/OOM/Dover”: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1456): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error when getting information for file “/home/guzman/OOM/books”: No such file or directory
+
+** (evince:1454): WARNING **: Error when getting information for file “/home/guzman/OOM/Stephen”: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1468): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1447): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1454): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error when getting information for file “/home/guzman/OOM/mathematics]”: No such file or directory
+
+** (evince:1460): WARNING **: Error when getting information for file “/home/guzman/OOM/-”: No such file or directory
+
+** (evince:1462): WARNING **: Error when getting information for file “/home/guzman/OOM/Mathematical”: No such file or directory
+
+** (evince:1450): WARNING **: Error when getting information for file “/home/guzman/OOM/on”: No such file or directory
+
+** (evince:1466): WARNING **: Error when getting information for file “/home/guzman/OOM/(2002,”: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1462): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error when getting information for file “/home/guzman/OOM/Kleene”: No such file or directory
+
+** (evince:1464): WARNING **: Error when getting information for file “/home/guzman/OOM/Logic”: No such file or directory
+
+** (evince:1470): WARNING **: Error when getting information for file “/home/guzman/OOM/Publications).pdf.pdf”: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1460): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1452): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1466): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1458): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1450): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1464): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1470): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1651): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1652): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+Error launching evince file:///home/guzman/OOM/Logic: Failed to read enough data from child pid pipe (Resource temporarily unavailable)
+
+** (evince:1692): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1690): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1694): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1652): WARNING **: Error when getting information for file “/home/guzman/OOM/[Dover”: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1652): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error when getting information for file “/home/guzman/OOM/Dover”: No such file or directory
+
+** (evince:1694): WARNING **: Error when getting information for file “/home/guzman/OOM/Publications).pdf”: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1692): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error when getting information for file “/home/guzman/OOM/(2002,”: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1694): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1690): WARNING **: Error setting file metadata: No such file or directory
+
+** (evince:1751): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+** (evince:1750): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+
+(evince:1751): Gtk-WARNING **: Allocating size to EvSidebar 0x55db2cbc3680 without calling gtk_widget_get_preferred_width/height(). How does the code know the size to allocate?

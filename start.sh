@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #bookname='[Mendelson,_Elliott]_Introduction_to_mathematical_(b-ok.org)'
-bookname='[Dover books on mathematics] Stephen Cole Kleene - Mathematical Logic (2002, Dover Publications)'
+bookname='[Cambridge Studies in Advanced Mathematics 82] George Tourlakis - Lectures in Logic and Set Theory. Volume 1_ Mathematical Logic (2003, Cambridge University Press)'
 filename='main_math'
 nohuptime=1
 
